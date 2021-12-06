@@ -33,7 +33,7 @@ You can also develop against staging or dev, by typing one of:
 
 ```
 $ npm run cypress:open-dev
-$ npm run cypress:open-staging
+
 ```
 
 
