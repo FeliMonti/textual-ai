@@ -1,0 +1,148 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 3,
+    "passes": 2,
+    "pending": 0,
+    "failures": 1,
+    "start": "2021-11-10T12:42:12.811Z",
+    "end": "2021-11-10T12:42:33.967Z",
+    "duration": 21156,
+    "testsRegistered": 3,
+    "passPercent": 66.66666666666666,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "af9eb595-7827-41a6-8d77-eb93fba82e3d",
+      "title": "",
+      "fullFile": "cypress/integration/Clients/BabyshopE2E/home/home_e2e.js",
+      "file": "cypress/integration/Clients/BabyshopE2E/home/home_e2e.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "c3bf43d9-3673-4e83-ac11-8a5eebff5291",
+          "title": "Customer landing page",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Check login",
+              "fullTitle": "Customer landing page Check login",
+              "timedOut": null,
+              "duration": 8091,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.viewport(1440, 860);\nE.navigate('https://dev.textual.ai/');\nE.enterUserName('babyshop-testing');\nE.enterPassword('d3f16a2faca642529cfa06502bbb9949');\nE.clickLogin();\ncy.contains('What do you want to do today?').should('be.visible').should('contain', 'today');",
+              "err": {},
+              "uuid": "f4f6edca-49b0-456c-95c1-4d15f9e84ac1",
+              "parentUUID": "c3bf43d9-3673-4e83-ac11-8a5eebff5291",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "check links",
+              "fullTitle": "Customer landing page check links",
+              "timedOut": null,
+              "duration": 348,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "//basic links \ncy.get(':nth-child(1) > .actions > .pbutton').should('be.visible').should('contain', 'Upload');\ncy.get(':nth-child(2) > .actions > .pbutton').should('be.visible').should('contain', 'Edit');\ncy.get(':nth-child(3) > .actions > .pbutton').should('be.visible').should('contain', 'Create'); // other options and links\ncy.get('.other > ul > li > a').should('be.visible').should('contain', 'Map');\ncy.get('[title=\"Menu\"] > .material-icons').should('be.visible');",
+              "err": {},
+              "uuid": "7a958048-c7f2-4bc4-81cf-fb74b54fa963",
+              "parentUUID": "c3bf43d9-3673-4e83-ac11-8a5eebff5291",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "check dropdown menu",
+              "fullTitle": "Customer landing page check dropdown menu",
+              "timedOut": null,
+              "duration": 10429,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      {\n        \"title\": \"Failed screenshot\",\n        \"value\": \"\\\\Clients\\\\BabyshopE2E\\\\home\\\\home_e2e.js\\\\Customer landing page -- check dropdown menu (failed).png\"\n      }\n    ]\n  ]\n}",
+              "code": "cy.get('[title=\"Menu\"] > .material-icons').should('be.visible');\ncy.contains('Upload file').should('be.visible').should('contain', 'File');\ncy.contains('New product');\ncy.contains('Product list');\ncy.contains('Generate texts');\ncy.contains('Review texts');\ncy.contains('Vocabulary list');\ncy.contains('Template list');\ncy.contains('Mappings');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: expected '<a>' to be 'visible'\n\nThis element `<a>` is not visible because its parent `<div>` has CSS property: `display: none`",
+                "estack": "AssertionError: Timed out retrying after 10000ms: expected '<a>' to be 'visible'\n\nThis element `<a>` is not visible because its parent `<div>` has CSS property: `display: none`\n    at Context.eval (https://dev.textual.ai/__cypress/tests?p=cypress\\integration\\Clients\\BabyshopE2E\\home\\home_e2e.js:215:32)",
+                "diff": null
+              },
+              "uuid": "e6f23e89-55af-4b3c-89e8-c3783235b410",
+              "parentUUID": "c3bf43d9-3673-4e83-ac11-8a5eebff5291",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "f4f6edca-49b0-456c-95c1-4d15f9e84ac1",
+            "7a958048-c7f2-4bc4-81cf-fb74b54fa963"
+          ],
+          "failures": [
+            "e6f23e89-55af-4b3c-89e8-c3783235b410"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 18868,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.3.1"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "5.2.0"
+    }
+  }
+}

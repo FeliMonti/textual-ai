@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2021-11-10T12:42:59.221Z",
+    "end": "2021-11-10T12:42:59.703Z",
+    "duration": 482,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "ddabe496-c84f-4563-9ba0-d37d60a6781c",
+      "title": "",
+      "fullFile": "cypress/integration/Clients/BabyshopE2E/product-list/bulk-actions.js",
+      "file": "cypress/integration/Clients/BabyshopE2E/product-list/bulk-actions.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "8df95168-3923-4950-b1f3-088b622f83cb",
+          "title": "Product details",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Bulk actions -> Generate texts",
+              "fullTitle": "Product details Bulk actions -> Generate texts",
+              "timedOut": null,
+              "duration": 296,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      {\n        \"title\": \"Failed screenshot\",\n        \"value\": \"\\\\Clients\\\\BabyshopE2E\\\\product-list\\\\bulk-actions.js\\\\Product details -- Bulk actions - Generate texts -- before each hook (failed).png\"\n      }\n    ]\n  ]\n}",
+              "code": "// create product with simple text\nconst SKU = randomString(10);\ncy.contains('Babyshop');\ncy.get(_productDetails.E.SKU_FIELD).type(SKU);\ncy.wait('@productFormUpdateRequest');\ncy.get(_productDetails.E.MAIN_CATEGORY_FIELD).vocabularySearch(\"dress\"); // go to product list using SKU and select generated product\ncy.visit(`/d/babyshop/products?search=${SKU}`);\ncy.contains(SKU);\ncy.get(_productList.PL_E.LIST.SELECT_CHECKBOX).click({\n  force: true\n}); // check bulk actions and select \"Generate texts\"\ncy.get(_productList.PL_E.BULK_ACTION.FORM).should('be.visible');\ncy.get(_productList.PL_E.BULK_ACTION.SELECT_FIELD).click({\n  force: true\n}); // check action buttons\ncy.get(_productList.PL_E.BULK_ACTION.GENERATE_TEXT_CONFIG.GENERATE_BTN).contains(\"Generate texts\");\ncy.get(_productList.PL_E.BULK_ACTION.GENERATE_TEXT_CONFIG.REVIEW_BTN).contains(\"Review texts\"); // check if Babyshop channel and EN_US language are selected and submit the form\ncy.get(_productList.PL_E.BULK_ACTION.GENERATE_TEXT_CONFIG.CHANNELS).get('#channel_313').should('be.checked');\ncy.get(_productList.PL_E.BULK_ACTION.GENERATE_TEXT_CONFIG.LANGUAGES).get('#language_244').should('be.checked');\ncy.get(_productList.PL_E.BULK_ACTION.GENERATE_TEXT_CONFIG.GENERATE_BTN).click(); // check action buttons and go to publish to connector\ncy.get(_productList.PL_E.BULK_ACTION.GENERATE_TEXT_CONFIRM.DOWNLOAD_BTN).should('exist');\ncy.get(_productList.PL_E.BULK_ACTION.GENERATE_TEXT_CONFIRM.PUBLISH_BTN).should('exist');\ncy.get(_productList.PL_E.BULK_ACTION.GENERATE_TEXT_CONFIRM.PUBLISH_BTN).click(); // check product count -> select EN_US language -> submit form\ncy.get(_productList.PL_E.BULK_ACTION.PUBLISH_CONFIG.PRODUCT_COUNT).contains('1 products selected');\ncy.get(_productList.PL_E.BULK_ACTION.PUBLISH_CONFIG.LANGUAGES.SELECT_ALL).should('be.visible');\ncy.get(_productList.PL_E.BULK_ACTION.PUBLISH_CONFIG.LANGUAGES.DESELECT_ALL).should('be.visible');\ncy.get(_productList.PL_E.BULK_ACTION.PUBLISH_CONFIG.LANGUAGES.DESELECT_ALL).click();\ncy.get(_productList.PL_E.BULK_ACTION.PUBLISH_CONFIG.LANGUAGES.EN_US).check();\ncy.get(_productList.PL_E.BULK_ACTION.PUBLISH_CONFIG.NEXT_BTN).click();\ncy.get(_productList.PL_E.BULK_ACTION.GENERATE_TEXT_CONFIRM.CONFIRM_MSG).contains('Successfully published 1 products');",
+              "err": {
+                "message": "TypeError: cy.textualLogin is not a function\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `Product details`",
+                "estack": "TypeError: cy.textualLogin is not a function\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `Product details`\n    at Context.eval (http://localhost:49656/__cypress/tests?p=cypress\\integration\\Clients\\BabyshopE2E\\product-list\\bulk-actions.js:119:8)",
+                "diff": null
+              },
+              "uuid": "e120f851-5300-4475-8dde-5c708900e9d8",
+              "parentUUID": "8df95168-3923-4950-b1f3-088b622f83cb",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "e120f851-5300-4475-8dde-5c708900e9d8"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 296,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.3.1"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "5.2.0"
+    }
+  }
+}

@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2021-11-10T12:41:15.410Z",
+    "end": "2021-11-10T12:41:24.187Z",
+    "duration": 8777,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "bdf7d21c-b1c3-4db1-923b-659cc0b5f419",
+      "title": "",
+      "fullFile": "cypress/integration/Clients/BabyshopE2E/babshop_login_links_check.js",
+      "file": "cypress/integration/Clients/BabyshopE2E/babshop_login_links_check.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "f3c28698-ae1a-48ae-b62a-0324fbef77c8",
+          "title": "Customer landing page",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Check login and links ",
+              "fullTitle": "Customer landing page Check login and links ",
+              "timedOut": null,
+              "duration": 6733,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.viewport(1440, 860);\ncy.visit('https://dev.textual.ai/');\ncy.get('body').click(); ///Login\ncy.get(':nth-child(2) > input').type('babyshop-testing');\ncy.get(':nth-child(3) > input').type('d3f16a2faca642529cfa06502bbb9949');\ncy.get('.pbutton').click(); //Check logged in \ncy.contains('What do you want to do today?').should('be.visible').should('contain', 'today'); /// Check other options\ncy.get('h3').should('be.visible').should('contain', 'Other'); /// Check present links\ncy.contains('Upload file with product data').should('not.be.hidden');\ncy.contains('Edit existing products').should('not.be.false');\ncy.contains('Create new product').should('not.be.null').should('contain', 'new');\ncy.contains('Map existing data').should('not.be.disabled');\ncy.get('[title=\"Menu\"] > .material-icons').should('not.be.disabled');",
+              "err": {},
+              "uuid": "cbba1adf-37b8-4825-86b5-065ed2283581",
+              "parentUUID": "f3c28698-ae1a-48ae-b62a-0324fbef77c8",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "cbba1adf-37b8-4825-86b5-065ed2283581"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 6733,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.3.1"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "5.2.0"
+    }
+  }
+}

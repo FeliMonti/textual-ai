@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2021-11-10T12:44:32.470Z",
+    "end": "2021-11-10T12:44:32.886Z",
+    "duration": 416,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "b795f4ca-b86b-40e4-9729-6a7aecc16256",
+      "title": "",
+      "fullFile": "cypress/integration/Clients/old/BabyshopE2E/home/customer-home.js",
+      "file": "cypress/integration/Clients/old/BabyshopE2E/home/customer-home.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "9b0f935b-7fad-4e7e-ae64-e0b57e217795",
+          "title": "Customer landing page",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Has links",
+              "fullTitle": "Customer landing page Has links",
+              "timedOut": null,
+              "duration": 298,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      {\n        \"title\": \"Failed screenshot\",\n        \"value\": \"\\\\Clients\\\\old\\\\BabyshopE2E\\\\home\\\\customer-home.js\\\\Customer landing page -- Has links (failed).png\"\n      }\n    ]\n  ]\n}",
+              "code": "cy.textualLogin('babyshop', '/d/babyshop');\ncy.contains('Upload file with product data');\ncy.get(E.UPLOAD).should('be.visible').should('contain', 'Upload');\ncy.contains('Edit existing products');\ncy.get(E.EDIT).should('be.visible').should('contain', 'Edit');\ncy.contains('Create new product');\ncy.get(E.NEW).should('be.visible').should('contain', 'Create');\ncy.contains('Other options');\ncy.get(E.MAP).should('be.visible').should('contain', 'Map existing data'); // Menu\ncy.contains('Upload file');\ncy.contains('New product');\ncy.contains('Product list');\ncy.contains('Generate texts');\ncy.contains('Review texts');\ncy.contains('Vocabulary list');\ncy.contains('Template list');\ncy.contains('Mappings');\ncy.contains('Manage');\ncy.contains('Publish Logs');",
+              "err": {
+                "message": "TypeError: cy.textualLogin is not a function",
+                "estack": "TypeError: cy.textualLogin is not a function\n    at Context.eval (http://localhost:49656/__cypress/tests?p=cypress\\integration\\Clients\\old\\BabyshopE2E\\home\\customer-home.js:108:8)",
+                "diff": null
+              },
+              "uuid": "d8951600-93d2-449e-b23b-debf6e9cd4b6",
+              "parentUUID": "9b0f935b-7fad-4e7e-ae64-e0b57e217795",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "d8951600-93d2-449e-b23b-debf6e9cd4b6"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 298,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.3.1"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "5.2.0"
+    }
+  }
+}

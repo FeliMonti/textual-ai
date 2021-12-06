@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2021-11-10T12:44:13.466Z",
+    "end": "2021-11-10T12:44:21.382Z",
+    "duration": 7916,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "d49e3f49-f875-440c-8b6c-05f4b1d05bd4",
+      "title": "",
+      "fullFile": "cypress/integration/Clients/old/BabyshopE2E/babyshop-home-check.js",
+      "file": "cypress/integration/Clients/old/BabyshopE2E/babyshop-home-check.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "9ff1eaf3-52b4-4c0b-ad0b-7ecb5864cbd2",
+          "title": "Customer landing page",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "BabyShop-Home",
+              "fullTitle": "Customer landing page BabyShop-Home",
+              "timedOut": null,
+              "duration": 6029,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.viewport(1440, 860);\ncy.visit('https://dev.textual.ai/');\ncy.get('body').click(); ///Login\ncy.get(':nth-child(2) > input').type('babyshop-testing');\ncy.get(':nth-child(3) > input').type('d3f16a2faca642529cfa06502bbb9949');\ncy.get('.pbutton').click();\ncy.contains('Upload file with product data'); ///cy.get(E.UPLOAD)             .should('be.visible')            .should('contain', 'Upload')\n///cy.contains('Edit existing products')        cy.get(E.EDIT)            .should('be.visible')            .should('contain', 'Edit')\n///cy.contains('Create new product')        cy.get(E.NEW)            .should('be.visible')            .should('contain', 'Create')\n///cy.contains('Other options')\n///cy.get(E.MAP)            .should('be.visible')            .should('contain', 'Map existing data')\n// Menu\ncy.contains('Upload file');\ncy.contains('New product');\ncy.contains('Product list');\ncy.contains('Generate texts');\ncy.contains('Review texts');\ncy.contains('Vocabulary list');\ncy.contains('Template list');\ncy.contains('Mappings');\ncy.contains('Manage');\ncy.contains('Publish Logs');",
+              "err": {},
+              "uuid": "b18f608d-3368-4f69-84b9-e44608f277ff",
+              "parentUUID": "9ff1eaf3-52b4-4c0b-ad0b-7ecb5864cbd2",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "b18f608d-3368-4f69-84b9-e44608f277ff"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 6029,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.3.1"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "5.2.0"
+    }
+  }
+}

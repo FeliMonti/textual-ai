@@ -1,0 +1,224 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2021-11-10T12:57:51.854Z",
+    "end": "2021-11-10T12:57:52.349Z",
+    "duration": 495,
+    "testsRegistered": 7,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 6,
+    "hasSkipped": true
+  },
+  "results": [
+    {
+      "uuid": "386d8d78-e331-4213-aab7-c7223c6a535d",
+      "title": "",
+      "fullFile": "cypress/integration/Clients/BabyshopE2E/product-details/actions.js",
+      "file": "cypress/integration/Clients/BabyshopE2E/product-details/actions.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "67d23d86-b449-40ae-bdb7-362b848c742c",
+          "title": "Product details",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Actions -> New",
+              "fullTitle": "Product details Actions -> New",
+              "timedOut": null,
+              "duration": 327,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      {\n        \"title\": \"Failed screenshot\",\n        \"value\": \"\\\\Clients\\\\BabyshopE2E\\\\product-details\\\\actions.js\\\\Product details -- Actions - New -- before each hook (failed).png\"\n      }\n    ]\n  ]\n}",
+              "code": "cy.contains('Babyshop'); // Set some field values\nsetField(_productDetails.E.ORIGINAL_TEXT_FIELD, 'Some Original Text', null);\nsetField(_productDetails.E.SKU_FIELD, randomString(10));\nsetField(_productDetails.E.NAME_FIELD, 'Some Name');\nsetField(_productDetails.E.BRAND_FIELD_INPUT, 'Calvin Klein{enter}');\ncy.get(_productDetails.E.ACTION_NEW).click({\n  force: true\n}); // Product page\ncy.location('href').should('not.include', refProductUrl);\ncy.contains('Babyshop (174)'); // Name field\ncy.contains('Name');\ncy.get(_productDetails.E.NAME_FIELD).should('be.visible').should('be.empty').invoke('attr', 'placeholder').should('contain', 'Enter a product name'); // SKU field\ncy.contains('SKU');\ncy.get(_productDetails.E.SKU_FIELD).should('be.visible').should('be.empty').invoke('attr', 'placeholder').should('contain', 'Enter a product code'); // Brand field\ncy.contains('SKU');\ncy.get(_productDetails.E.BRAND_FIELD_TEXT).contains('Choose brand'); // Label field\ncy.contains('Label');\ncy.get(_productDetails.E.LABEL_FIELD).contains('Type to search'); // Original headline\ncy.contains('Original headline');\ncy.get(_productDetails.E.ORIGINAL_HEADLINE_FIELD).should('be.visible').should('be.empty'); // Original text\ncy.contains('Original text');\ncy.get(_productDetails.E.ORIGINAL_TEXT_FIELD).should('be.visible').should('be.empty'); // Original text language\ncy.contains('Original text language');\ncy.get(_productDetails.E.ORIGINAL_TEXT_LANGUAGE_FIELD).should('be.visible').contains('English (US)'); // Text patterns\ncy.get(_productDetails.E.TP_SELECTOR).contains('Lekmer');\ncy.get(_productDetails.E.TP_SELECTOR).contains('Babyshop');\ncy.get(_productDetails.E.TEXTS_GRID).contains('Lekmer').closest('.text-item').contains('No tags.');\ncy.get(_productDetails.E.TEXTS_GRID).contains('Babyshop').closest('.text-item').contains('No tags.');",
+              "err": {
+                "message": "TypeError: cy.textualLogin is not a function\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `Product details`",
+                "estack": "TypeError: cy.textualLogin is not a function\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `Product details`\n    at Context.eval (http://localhost:62192/__cypress/tests?p=cypress\\integration\\Clients\\BabyshopE2E\\product-details\\actions.js:138:8)",
+                "diff": null
+              },
+              "uuid": "d702a873-6c04-4ba3-bfd5-97d961b9596e",
+              "parentUUID": "67d23d86-b449-40ae-bdb7-362b848c742c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Actions -> Duplicate",
+              "fullTitle": "Product details Actions -> Duplicate",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Set some field values\nsetField(_productDetails.E.ORIGINAL_TEXT_FIELD, 'Some Original Text', null);\nsetField(_productDetails.E.SKU_FIELD, randomString(10));\nsetField(_productDetails.E.NAME_FIELD, 'A Name');\nsetField(_productDetails.E.BRAND_FIELD_INPUT, 'Condor{enter}'); // Duplicate product and wait for a new\ncy.get(_productDetails.E.ACTION_DUPLICATE).click({\n  force: true\n});\ncy.location('href').should('not.include', refProductUrl); // SKU should be empty\ncy.get(_productDetails.E.SKU_FIELD).should('be.empty'); // Name/Original Text should be preserved\ncheckField(_productDetails.E.NAME_FIELD, 'A Name', 'value');\ncheckField(_productDetails.E.BRAND_FIELD_TEXT, 'Condor');\ncheckField(_productDetails.E.ORIGINAL_TEXT_FIELD, 'Some Original Text');",
+              "err": {},
+              "uuid": "3879dca3-d37c-4fad-a668-e20759cac188",
+              "parentUUID": "67d23d86-b449-40ae-bdb7-362b848c742c",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "Actions -> Copy To with name and brand",
+              "fullTitle": "Product details Actions -> Copy To with name and brand",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Set a random SKU on the current product and wait for it to be updated\nlet sku = randomString(10);\nsetField(_productDetails.E.SKU_FIELD, sku); // Create a new product and wait for it to be displayed\ncy.get(_productDetails.E.ACTION_NEW).click({\n  force: true\n});\ncy.location('pathname').should('not.include', refProductId); // Change a name/brand/original text\nsetField(_productDetails.E.ORIGINAL_TEXT_FIELD, 'Some Original Text', null);\nsetField(_productDetails.E.NAME_FIELD, 'Some Name');\nsetField(_productDetails.E.BRAND_FIELD_INPUT, 'Calvin Klein{enter}');\nsetField(_productDetails.E.SKU_FIELD, randomString(10)); // Add a main category tag\ncy.get(_productDetails.E.MAIN_CATEGORY_FIELD).scrollIntoView().type('dress').closest('.vocabulary-lookup').get('.suggestion-item').get(_productDetails.E.MAIN_CATEGORY_FIELD).type('{enter}'); // Copy to\ncy.get(_productDetails.E.ACTION_COPY_TO).click({\n  force: true\n});\ncy.get(_productDetails.E.COPY_MODAL.SKU_RADIO).should('be.visible').should('be.checked');\ncy.get(_productDetails.E.COPY_MODAL.OVERWRITE_RADIO).should('be.visible').should('be.checked');\ncy.get(_productDetails.E.COPY_MODAL.TEXT_FIELD).should('be.visible').should('be.empty').type(sku);\ncy.get(_productDetails.E.COPY_MODAL.COPY_BUTTON).should('be.visible').click();\ncy.visit(refProductUrl); // SKU should be empty\ncy.get(_productDetails.E.SKU_FIELD).should('be.empty'); // Name/Original Text should be preserved\ncheckField(_productDetails.E.NAME_FIELD, 'Some Name', 'value');\ncheckField(_productDetails.E.BRAND_FIELD_TEXT, 'Calvin Klein');",
+              "err": {},
+              "uuid": "ace2a77f-7a13-41ed-8b2a-19e3c5ef7309",
+              "parentUUID": "67d23d86-b449-40ae-bdb7-362b848c742c",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "Actions -> Copy To without name and brand",
+              "fullTitle": "Product details Actions -> Copy To without name and brand",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Set a random SKU on the current product and wait for it to be updated\nlet sku = randomString(10);\nsetField(_productDetails.E.SKU_FIELD, sku);\nsetField(_productDetails.E.NAME_FIELD, 'Test Name');\nsetField(_productDetails.E.BRAND_FIELD_INPUT, 'Ralph Lauren{enter}'); // Create a new product and wait for it to be displayed\ncy.get(_productDetails.E.ACTION_NEW).click({\n  force: true\n});\ncy.location('pathname').should('not.include', refProductId); // Change a name/brand/original text\nsetField(_productDetails.E.ORIGINAL_TEXT_FIELD, 'Some Original Text', null);\nsetField(_productDetails.E.NAME_FIELD, 'Some Name');\nsetField(_productDetails.E.BRAND_FIELD_INPUT, 'Calvin Klein{enter}');\nsetField(_productDetails.E.SKU_FIELD, randomString(10)); // Add a main category tag\ncy.get(_productDetails.E.MAIN_CATEGORY_FIELD).scrollIntoView().type('dress').closest('.vocabulary-lookup').get('.suggestion-item').get(_productDetails.E.MAIN_CATEGORY_FIELD).type('{enter}'); // Copy to\ncy.get(_productDetails.E.ACTION_COPY_TO).click({\n  force: true\n});\ncy.get(_productDetails.E.COPY_MODAL.SKU_RADIO).should('be.visible').should('be.checked');\ncy.get(_productDetails.E.COPY_MODAL.OVERWRITE_RADIO).should('be.visible').should('be.checked');\ncy.get(_productDetails.E.COPY_MODAL.COPY_NAME).should('be.visible').click();\ncy.get(_productDetails.E.COPY_MODAL.COPY_BRAND).should('be.visible').click();\ncy.get(_productDetails.E.COPY_MODAL.TEXT_FIELD).should('be.visible').should('be.empty').type(sku);\ncy.get(_productDetails.E.COPY_MODAL.COPY_BUTTON).should('be.visible').click();\ncy.visit(refProductUrl); // SKU should be empty\ncy.get(_productDetails.E.SKU_FIELD).should('be.empty'); // Name/Original Text should be preserved\ncheckField(_productDetails.E.NAME_FIELD, 'Test Name', 'value');\ncheckField(_productDetails.E.BRAND_FIELD_TEXT, 'Ralph Lauren');",
+              "err": {},
+              "uuid": "dfc766d0-f8fa-4041-aaec-cacc51c21f10",
+              "parentUUID": "67d23d86-b449-40ae-bdb7-362b848c742c",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "Actions -> Copy From",
+              "fullTitle": "Product details Actions -> Copy From",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Change a name/brand/original text\nsetField(_productDetails.E.ORIGINAL_TEXT_FIELD, 'Some Original Text', null);\nsetField(_productDetails.E.NAME_FIELD, 'Some Name');\nsetField(_productDetails.E.BRAND_FIELD_INPUT, 'Calvin Klein{enter}'); // Set a random SKU on the current product and wait for it to be updated\nlet sku = randomString(10);\nsetField(_productDetails.E.SKU_FIELD, sku); // Add a main category tag\ncy.get(_productDetails.E.MAIN_CATEGORY_FIELD).scrollIntoView().type('dress').closest('.vocabulary-lookup').get('.suggestion-item').get(_productDetails.E.MAIN_CATEGORY_FIELD).type('{enter}'); // New product\ncy.get(_productDetails.E.ACTION_NEW).click({\n  force: true\n});\ncy.location('pathname').should('not.include', refProductId); // Copy from\ncy.get(_productDetails.E.ACTION_MENU).scrollIntoView().invoke('show').trigger('mouseover').get(_productDetails.E.ACTION_COPY_FROM).click({\n  force: true\n});\ncy.get(_productDetails.E.COPY_MODAL.SKU_RADIO).should('be.visible').should('be.checked');\ncy.get(_productDetails.E.COPY_MODAL.OVERWRITE_RADIO).should('be.visible').should('be.checked');\ncy.get(_productDetails.E.COPY_MODAL.TEXT_FIELD).should('be.visible').should('be.empty').type(sku);\ncy.get(_productDetails.E.COPY_MODAL.COPY_BUTTON).should('be.visible').click();\ncy.visit(refProductUrl); // SKU should be empty\ncy.get(_productDetails.E.SKU_FIELD).should('be.empty'); // Name/Original Text should be preserved\ncheckField(_productDetails.E.NAME_FIELD, 'Some Name', 'value');\ncheckField(_productDetails.E.BRAND_FIELD_TEXT, 'Calvin Klein');\ncheckField(_productDetails.E.ORIGINAL_TEXT_FIELD, 'Some Original Text');",
+              "err": {},
+              "uuid": "9e459b45-85ed-4747-8a0b-21da4b421ddd",
+              "parentUUID": "67d23d86-b449-40ae-bdb7-362b848c742c",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "Actions -> Copy From - merge",
+              "fullTitle": "Product details Actions -> Copy From - merge",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "// Change a name/brand\nsetField(_productDetails.E.NAME_FIELD, 'First product Name');\nsetField(_productDetails.E.BRAND_FIELD_INPUT, 'First product Brand{enter}'); // Set a random SKU on the current product and wait for it to be updated\nlet firstSKU = randomString(10);\nsetField(_productDetails.E.SKU_FIELD, firstSKU); // Add a main category tag\ncy.get(_productDetails.E.MAIN_CATEGORY_FIELD).scrollIntoView().type('dress').closest('.vocabulary-lookup').get('.suggestion-item').get(_productDetails.E.MAIN_CATEGORY_FIELD).type('{enter}'); // New product\ncy.get(_productDetails.E.ACTION_NEW).click({\n  force: true\n});\ncy.location('pathname').should('not.include', refProductId);\nlet secondSKU = randomString(10);\nsetField(_productDetails.E.SKU_FIELD, secondSKU);\nsetField(_productDetails.E.NAME_FIELD, 'Second product Name');\nsetField(_productDetails.E.BRAND_FIELD_INPUT, 'Second product Brand{enter}'); // Copy from\ncy.get(_productDetails.E.ACTION_MENU).scrollIntoView().invoke('show').trigger('mouseover').get(_productDetails.E.ACTION_COPY_FROM).click({\n  force: true\n});\ncy.get(_productDetails.E.COPY_MODAL.SKU_RADIO).should('be.visible').should('be.checked');\ncy.get(_productDetails.E.COPY_MODAL.MERGE_RADIO).should('be.visible');\ncy.get(_productDetails.E.COPY_MODAL.MERGE_RADIO).click();\ncy.get(_productDetails.E.COPY_MODAL.MERGE_RADIO).should('be.checked');\ncy.get(_productDetails.E.COPY_MODAL.COPY_BRAND).should('be.visible').should('be.checked');\ncy.get(_productDetails.E.COPY_MODAL.COPY_NAME).should('be.visible').should('be.checked');\ncy.get(_productDetails.E.COPY_MODAL.TEXT_FIELD).should('be.visible').should('be.empty').type(firstSKU);\ncy.get(_productDetails.E.COPY_MODAL.COPY_BUTTON).should('be.visible').click();\ncheckField(_productDetails.E.SKU_FIELD, `${secondSKU} / ${firstSKU}`, 'value');\ncheckField(_productDetails.E.NAME_FIELD, 'Second product Name / First product Name', 'value');\ncheckField(_productDetails.E.BRAND_FIELD_TEXT, 'Second product Brand / First product Brand');\ncy.visit(refProductUrl); // SKU should be empty\ncheckField(_productDetails.E.SKU_FIELD, firstSKU, 'value'); // Name/Original Text should be preserved\ncheckField(_productDetails.E.NAME_FIELD, 'First product Name', 'value');\ncheckField(_productDetails.E.BRAND_FIELD_TEXT, 'First product Brand');",
+              "err": {},
+              "uuid": "9d9c9fa6-208e-45ce-997b-4f1ff19ba18c",
+              "parentUUID": "67d23d86-b449-40ae-bdb7-362b848c742c",
+              "isHook": false,
+              "skipped": true
+            },
+            {
+              "title": "Text Generation: Trendy dress",
+              "fullTitle": "Product details Text Generation: Trendy dress",
+              "timedOut": null,
+              "duration": 0,
+              "state": "skipped",
+              "speed": null,
+              "pass": false,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.get(_productDetails.E.MAIN_CATEGORY_FIELD).vocabularySearch(\"dress\");\ncy.get(_productDetails.E.PROPERTIES_FIELD).vocabularySearch(\"trendy\");\ncy.get(_productDetails.E.RELOAD).click({\n  force: true\n}); // Lekmer Title\ncy.get(':nth-child(2) > .channel > .text > .title > h1 > span').contains('Dress'); // Babyshop Title\ncy.get(':nth-child(3) > .channel > .text > .title > h1 > span').contains('Dress'); // Babyshop Description\ncy.get(':nth-child(3) > .channel > .text > .long_description').contains('Trendy dress.');",
+              "err": {},
+              "uuid": "2fef4246-fe5f-49b5-8f58-fc5cb2750c61",
+              "parentUUID": "67d23d86-b449-40ae-bdb7-362b848c742c",
+              "isHook": false,
+              "skipped": true
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "d702a873-6c04-4ba3-bfd5-97d961b9596e"
+          ],
+          "pending": [],
+          "skipped": [
+            "3879dca3-d37c-4fad-a668-e20759cac188",
+            "ace2a77f-7a13-41ed-8b2a-19e3c5ef7309",
+            "dfc766d0-f8fa-4041-aaec-cacc51c21f10",
+            "9e459b45-85ed-4747-8a0b-21da4b421ddd",
+            "9d9c9fa6-208e-45ce-997b-4f1ff19ba18c",
+            "2fef4246-fe5f-49b5-8f58-fc5cb2750c61"
+          ],
+          "duration": 327,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.3.1"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "5.2.0"
+    }
+  }
+}

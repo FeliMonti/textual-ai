@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2021-11-10T12:57:03.410Z",
+    "end": "2021-11-10T12:57:11.231Z",
+    "duration": 7821,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "0ba8ee9f-5bf8-4edd-9f07-99614c075814",
+      "title": "",
+      "fullFile": "cypress/integration/Clients/BabyshopE2E/home/customer-home.js",
+      "file": "cypress/integration/Clients/BabyshopE2E/home/customer-home.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "5571738c-391a-4d45-8c4e-b60492921ba7",
+          "title": "Customer landing page after login",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Check login",
+              "fullTitle": "Customer landing page after login Check login",
+              "timedOut": null,
+              "duration": 6068,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.viewport(1440, 860);\nE.navigate('https://dev.textual.ai/');\nE.enterUserName('babyshop-testing');\nE.enterPassword('d3f16a2faca642529cfa06502bbb9949');\nE.clickLogin();\ncy.contains('What do you want to do today?').should('be.visible').should('contain', 'today');",
+              "err": {},
+              "uuid": "e9a71233-376a-4afe-8025-b18348135916",
+              "parentUUID": "5571738c-391a-4d45-8c4e-b60492921ba7",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "e9a71233-376a-4afe-8025-b18348135916"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 6068,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.3.1"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "5.2.0"
+    }
+  }
+}

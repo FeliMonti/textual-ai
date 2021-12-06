@@ -1,0 +1,109 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 0,
+    "pending": 0,
+    "failures": 1,
+    "start": "2021-11-10T12:42:44.439Z",
+    "end": "2021-11-10T12:42:44.868Z",
+    "duration": 429,
+    "testsRegistered": 1,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "78dfd540-e783-41f0-9fa3-160ef48e826d",
+      "title": "",
+      "fullFile": "cypress/integration/Clients/BabyshopE2E/mappings-list/actions.js",
+      "file": "cypress/integration/Clients/BabyshopE2E/mappings-list/actions.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "2860aac5-07b6-4b60-bd4c-1c55b11f597d",
+          "title": "Mappings list",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Actions -> Edit -> WordRequest popup visibility",
+              "fullTitle": "Mappings list Actions -> Edit -> WordRequest popup visibility",
+              "timedOut": null,
+              "duration": 299,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      {\n        \"title\": \"Failed screenshot\",\n        \"value\": \"\\\\Clients\\\\BabyshopE2E\\\\mappings-list\\\\actions.js\\\\Mappings list -- Actions - Edit - WordRequest popup visibility -- before each hook (failed).png\"\n      }\n    ]\n  ]\n}",
+              "code": "cy.contains('Babyshop');\ncy.get(_mappingsList.E.LIST.FIRST_ITEM).find(_mappingsList.E.LIST.ITEM.EDIT_BUTTON).click();\ncy.get(_mappingsList.E.EDIT_MODAL.WINDOW).as('modal');\ncy.get('@modal').find(_mappingsList.E.EDIT_MODAL.VOCABULARY_INPUT).type(\"T\");\ncy.get('@modal').find(_mappingsList.E.EDIT_MODAL.REQUEST_POPUP).should('not.exist');\ncy.get('@modal').find(_mappingsList.E.EDIT_MODAL.VOCABULARY_INPUT).type(\"TE\");\ncy.get('@modal').find(_mappingsList.E.EDIT_MODAL.REQUEST_POPUP).should('be.visible');\ncy.get('@modal').find(_mappingsList.E.EDIT_MODAL.VOCABULARY_INPUT).type(\"TES\");\ncy.get('@modal').find(_mappingsList.E.EDIT_MODAL.REQUEST_POPUP).should('be.visible');\ncy.get('@modal').find(_mappingsList.E.EDIT_MODAL.VOCABULARY_INPUT).type(\"TEST\");\ncy.get('@modal').find(_mappingsList.E.EDIT_MODAL.REQUEST_POPUP).should('be.visible');",
+              "err": {
+                "message": "TypeError: cy.textualLogin is not a function\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `Mappings list`",
+                "estack": "TypeError: cy.textualLogin is not a function\n\nBecause this error occurred during a `before each` hook we are skipping the remaining tests in the current suite: `Mappings list`\n    at Context.eval (http://localhost:49656/__cypress/tests?p=cypress\\integration\\Clients\\BabyshopE2E\\mappings-list\\actions.js:103:8)",
+                "diff": null
+              },
+              "uuid": "7f07b432-6f9e-4948-9ef4-7567af07e12a",
+              "parentUUID": "2860aac5-07b6-4b60-bd4c-1c55b11f597d",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "7f07b432-6f9e-4948-9ef4-7567af07e12a"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 299,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.3.1"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "5.2.0"
+    }
+  }
+}

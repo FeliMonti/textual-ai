@@ -1,0 +1,105 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 1,
+    "passes": 1,
+    "pending": 0,
+    "failures": 0,
+    "start": "2021-11-10T12:48:17.366Z",
+    "end": "2021-11-10T12:48:25.896Z",
+    "duration": 8530,
+    "testsRegistered": 1,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "28b2204c-ca87-4221-b9a8-406f97d12ea6",
+      "title": "",
+      "fullFile": "cypress/integration/first test.js",
+      "file": "cypress/integration/first test.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "7bb4b551-df5f-4849-8e85-0f8cbf567b08",
+          "title": "Customer landing page",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Check login and links ",
+              "fullTitle": "Customer landing page Check login and links ",
+              "timedOut": null,
+              "duration": 6159,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.viewport(1440, 860);\ncy.visit('https://dev.textual.ai/');\ncy.get('body').click(); ///Login\ncy.get(':nth-child(2) > input').type('babyshop-testing');\ncy.get(':nth-child(3) > input').type('d3f16a2faca642529cfa06502bbb9949');\ncy.get('.pbutton').click(); //Check logged in \ncy.contains('What do you want to do today?').should('be.visible').should('contain', 'today'); /// Check other options\ncy.get('h3').should('be.visible').should('contain', 'Other'); /// Check present links\ncy.contains('Upload file with product data').should('not.be.hidden');\ncy.contains('Edit existing products').should('not.be.false');\ncy.contains('Create new product').should('not.be.null').should('contain', 'new');\ncy.contains('Map existing data').should('not.be.disabled');\ncy.get('[title=\"Menu\"] > .material-icons').should('not.be.disabled');",
+              "err": {},
+              "uuid": "135ed7f4-914f-4d62-98b2-f7c93ae442cf",
+              "parentUUID": "7bb4b551-df5f-4849-8e85-0f8cbf567b08",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "135ed7f4-914f-4d62-98b2-f7c93ae442cf"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 6159,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.3.1"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "5.2.0"
+    }
+  }
+}

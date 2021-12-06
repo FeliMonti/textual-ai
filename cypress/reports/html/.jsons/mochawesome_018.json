@@ -1,0 +1,132 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 2,
+    "passes": 0,
+    "pending": 0,
+    "failures": 2,
+    "start": "2021-11-10T12:47:40.113Z",
+    "end": "2021-11-10T12:48:07.740Z",
+    "duration": 27627,
+    "testsRegistered": 2,
+    "passPercent": 0,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "4eaed926-1a00-4891-bc94-bb07d7c9360d",
+      "title": "",
+      "fullFile": "cypress/integration/Clients/TextualAB/TextualAB.js",
+      "file": "cypress/integration/Clients/TextualAB/TextualAB.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "513a58b7-ad8e-44e5-beb1-20355dd47e6c",
+          "title": "Customer landing page",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Check login",
+              "fullTitle": "Customer landing page Check login",
+              "timedOut": null,
+              "duration": 15113,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      {\n        \"title\": \"Failed screenshot\",\n        \"value\": \"\\\\Clients\\\\TextualAB\\\\TextualAB.js\\\\Customer landing page -- Check login (failed).png\"\n      }\n    ]\n  ]\n}",
+              "code": "cy.viewport(1440, 860);\ncy.visit('https://dev.textual.ai/');\ncy.get('body').click(); //Login\ncy.get(':nth-child(2) > input').type('testuser');\ncy.get(':nth-child(3) > input').type('testuser');\ncy.get('.pbutton').click(); //Check logged in \ncy.contains('What do you want to do today?').should('be.visible').should('contain', 'today');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: Expected to find content: 'What do you want to do today?' but never did.",
+                "estack": "AssertionError: Timed out retrying after 10000ms: Expected to find content: 'What do you want to do today?' but never did.\n    at Context.eval (https://dev.textual.ai/__cypress/tests?p=cypress\\integration\\Clients\\TextualAB\\TextualAB.js:110:50)",
+                "diff": null
+              },
+              "uuid": "95732c6c-6c0e-4969-8f7f-a86c8bafce3b",
+              "parentUUID": "513a58b7-ad8e-44e5-beb1-20355dd47e6c",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "check links",
+              "fullTitle": "Customer landing page check links",
+              "timedOut": null,
+              "duration": 10440,
+              "state": "failed",
+              "speed": null,
+              "pass": false,
+              "fail": true,
+              "pending": false,
+              "context": "{\n  \"title\": \"cypress-mochawesome-reporter-screenshots\",\n  \"value\": [\n    [\n      {\n        \"title\": \"Failed screenshot\",\n        \"value\": \"\\\\Clients\\\\TextualAB\\\\TextualAB.js\\\\Customer landing page -- check links (failed).png\"\n      }\n    ]\n  ]\n}",
+              "code": "//basic links \n//Edit Products\ncy.get(':nth-child(1) > .actions > .pbutton').should('be.visible').should('contain', 'Edit'); //Create New products\ncy.get(':nth-child(2) > .actions > .pbutton').should('be.visible').should('contain', 'Create'); // other options and links\ncy.get('[title=\"Menu\"] > .material-icons').should('be.visible'); //Menu\ncy.contains('Upload file');\ncy.contains('New product');\ncy.contains('Product list');\ncy.contains('Generate texts');\ncy.contains('Review texts');\ncy.contains('Vocabulary list');\ncy.contains('Template list');\ncy.contains('Mappings');",
+              "err": {
+                "message": "AssertionError: Timed out retrying after 10000ms: expected '<button.pbutton.pbutton-primary>' to contain 'Edit'",
+                "estack": "AssertionError: Timed out retrying after 10000ms: expected '<button.pbutton.pbutton-primary>' to contain 'Edit'\n    at Context.eval (https://dev.textual.ai/__cypress/tests?p=cypress\\integration\\Clients\\TextualAB\\TextualAB.js:115:72)",
+                "diff": null
+              },
+              "uuid": "59fb5ab4-18d9-4d30-9cac-12a5009f2440",
+              "parentUUID": "513a58b7-ad8e-44e5-beb1-20355dd47e6c",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [],
+          "failures": [
+            "95732c6c-6c0e-4969-8f7f-a86c8bafce3b",
+            "59fb5ab4-18d9-4d30-9cac-12a5009f2440"
+          ],
+          "pending": [],
+          "skipped": [],
+          "duration": 25553,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.3.1"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "5.2.0"
+    }
+  }
+}

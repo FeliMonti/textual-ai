@@ -1,0 +1,181 @@
+{
+  "stats": {
+    "suites": 1,
+    "tests": 5,
+    "passes": 5,
+    "pending": 0,
+    "failures": 0,
+    "start": "2021-11-10T13:04:41.021Z",
+    "end": "2021-11-10T13:04:58.054Z",
+    "duration": 17033,
+    "testsRegistered": 5,
+    "passPercent": 100,
+    "pendingPercent": 0,
+    "other": 0,
+    "hasOther": false,
+    "skipped": 0,
+    "hasSkipped": false
+  },
+  "results": [
+    {
+      "uuid": "82d27c2e-02d6-4bdf-a74e-f892065698db",
+      "title": "",
+      "fullFile": "cypress/integration/logincheck/logincheck.js",
+      "file": "cypress/integration/logincheck/logincheck.js",
+      "beforeHooks": [],
+      "afterHooks": [],
+      "tests": [],
+      "suites": [
+        {
+          "uuid": "92fc24d9-e779-45cc-b354-7c189cd12ab8",
+          "title": "Login Page Check",
+          "fullFile": "",
+          "file": "",
+          "beforeHooks": [],
+          "afterHooks": [],
+          "tests": [
+            {
+              "title": "Situation 1- Check if login fails  with invalid username and invalid password credentials",
+              "fullTitle": "Login Page Check Situation 1- Check if login fails  with invalid username and invalid password credentials",
+              "timedOut": null,
+              "duration": 5976,
+              "state": "passed",
+              "speed": "medium",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.viewport(1440, 860);\nE.navigate('https://dev.textual.ai/');\nE.enterUserName('invalidusername');\nE.enterPassword('invalidpassword');\nE.clickLogin();\ncy.contains('correct email').should('contain', 'correct email');",
+              "err": {},
+              "uuid": "f5f75046-a235-412f-b630-71cd2146866f",
+              "parentUUID": "92fc24d9-e779-45cc-b354-7c189cd12ab8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Situation 2 - Check if login fails  with invalid username and valid password credentials",
+              "fullTitle": "Login Page Check Situation 2 - Check if login fails  with invalid username and valid password credentials",
+              "timedOut": null,
+              "duration": 2451,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.viewport(1440, 860);\nE.navigate('https://dev.textual.ai/');\nE.enterUserName('invalidusername');\nE.enterPassword('validpassword');\nE.clickLogin();\ncy.contains(' correct email').should('contain', 'correct email');",
+              "err": {},
+              "uuid": "ab976eeb-e86d-44b6-ad61-fa118ddfe0c1",
+              "parentUUID": "92fc24d9-e779-45cc-b354-7c189cd12ab8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Situation 3 - Check if login fails  with invalid username and password credentials",
+              "fullTitle": "Login Page Check Situation 3 - Check if login fails  with invalid username and password credentials",
+              "timedOut": null,
+              "duration": 2488,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.viewport(1440, 860);\nE.navigate('https://dev.textual.ai/');\nE.enterUserName('validusername');\nE.enterPassword('invalidpassword');\nE.clickLogin();\ncy.contains('password').should('contain', 'password');",
+              "err": {},
+              "uuid": "3767cca9-ab7a-4773-809d-f06959eeced4",
+              "parentUUID": "92fc24d9-e779-45cc-b354-7c189cd12ab8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "Situation 4 - Check login passes with valid credentials",
+              "fullTitle": "Login Page Check Situation 4 - Check login passes with valid credentials",
+              "timedOut": null,
+              "duration": 3046,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.viewport(1440, 860);\nE.navigate('https://dev.textual.ai/');\nE.enterUserName('validusername');\nE.enterPassword('validpassword');\nE.clickLogin();\ncy.contains('What do you want to do today?').should('be.visible').should('contain', 'today');",
+              "err": {},
+              "uuid": "9311ac3b-736f-469a-83c2-8915752b72b1",
+              "parentUUID": "92fc24d9-e779-45cc-b354-7c189cd12ab8",
+              "isHook": false,
+              "skipped": false
+            },
+            {
+              "title": "logout",
+              "fullTitle": "Login Page Check logout",
+              "timedOut": null,
+              "duration": 616,
+              "state": "passed",
+              "speed": "fast",
+              "pass": true,
+              "fail": false,
+              "pending": false,
+              "context": null,
+              "code": "cy.contains('Logout').click({\n  force: true\n});",
+              "err": {},
+              "uuid": "9d63ff57-475a-4914-acdd-24da6f3e6284",
+              "parentUUID": "92fc24d9-e779-45cc-b354-7c189cd12ab8",
+              "isHook": false,
+              "skipped": false
+            }
+          ],
+          "suites": [],
+          "passes": [
+            "f5f75046-a235-412f-b630-71cd2146866f",
+            "ab976eeb-e86d-44b6-ad61-fa118ddfe0c1",
+            "3767cca9-ab7a-4773-809d-f06959eeced4",
+            "9311ac3b-736f-469a-83c2-8915752b72b1",
+            "9d63ff57-475a-4914-acdd-24da6f3e6284"
+          ],
+          "failures": [],
+          "pending": [],
+          "skipped": [],
+          "duration": 14577,
+          "root": false,
+          "rootEmpty": false,
+          "_timeout": 2000
+        }
+      ],
+      "passes": [],
+      "failures": [],
+      "pending": [],
+      "skipped": [],
+      "duration": 0,
+      "root": true,
+      "rootEmpty": true,
+      "_timeout": 2000
+    }
+  ],
+  "meta": {
+    "mocha": {
+      "version": "7.0.1"
+    },
+    "mochawesome": {
+      "options": {
+        "quiet": false,
+        "reportFilename": "mochawesome",
+        "saveHtml": false,
+        "saveJson": true,
+        "consoleReporter": "spec",
+        "useInlineDiffs": false,
+        "code": true
+      },
+      "version": "6.3.1"
+    },
+    "marge": {
+      "options": {
+        "overwrite": false,
+        "html": false,
+        "json": true,
+        "reportDir": "cypress\\reports\\html\\.jsons"
+      },
+      "version": "5.2.0"
+    }
+  }
+}
