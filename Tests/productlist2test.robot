@@ -43,12 +43,12 @@ User Can Select Different Column Combination
     [Tags]  Product list
     Column Select Options
 
-User Can Select Different Column Combination
+User Can Create Viewset For Different Filter Group
     [Documentation]  Once enter edit page; user can select different viewset
     [Tags]  Product list
     Viewset Select Options
 
-User Can Select Different Column Combination
+User Can Use Edit Function In Edit Page
     [Documentation]  Once enter edit page; user can select different edit funtions
     [Tags]  Product list
     Edit View
