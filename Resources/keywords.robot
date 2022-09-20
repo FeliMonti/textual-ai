@@ -28,17 +28,12 @@ Access To Edit Page
 Check Translation Status
     Wait Until Page Contains Element  ${Translation_Status_Showall}
     Click Element  ${Translation_Status_Showall}
-    Sleep  2s
     Wait Until Page Contains Element  ${Translation_Status_Missing}
     Click Element  ${Translation_Status_Missing}
-    Sleep  4s
     Wait Until Page Contains Element  ${Translation_Status_Showall}
     Click Element  ${Translation_Status_Showall}
-    Sleep  2s
     Wait Until Page Contains Element  ${Translation_Status_Complete}
-    Sleep  2s
     Click Element  ${Translation_Status_Complete}
-
 
 Check Parent-Child Relations
     Wait Until Page Contains Element  ${More_Button}
@@ -55,6 +50,7 @@ Check Parent-Child Relations
     Click Element  ${Parent-child_Relations_Children}
 
 Check Languages On Text Column
+    Sleep  2s
     Wait Until Page Contains Element  ${Text_Column_Button}
     Click Element  ${Text_Column_Button}
     Wait Until Page Contains Element  ${Update-view_Button}
@@ -67,8 +63,8 @@ Check Languages On Text Column
     Scroll Element Into View  ${Update-view_Button}
     Click Element  ${Update-view_Button}
 
-
 Column Select Options
+    Sleep  2s
     Wait Until Page Contains Element  ${Column_Button}
     Click Element  ${Column_Button}
     Wait Until Page Contains Element  ${EAN_Checkbox}
@@ -86,29 +82,8 @@ Column Select Options
     Click Element  ${Product_Checkbox}
     Wait Until Page Contains Element  ${Update_Button}
     Scroll Element Into View  ${Update_Button}
-    Sleep  3s
     Click Element  ${Update_Button}
-    Sleep  5s
-
-Viewset Select Options
-    Wait Until Page Contains Element  ${Bar-menu_Button}
-    Click Element  ${Bar-menu_Button}
-    Wait Until Page Contains Element  ${Manage_Button}
-    Click Element  ${Manage_Button}
-    Sleep  4s
-    Element Should Be Visible  ${Viewset_Button}
-    Wait Until Page Contains Element  ${Viewset_Button}
-    Click Element  ${Viewset_Button}
-    Sleep  2s
-
-Edit View
-    Wait Until Page Contains Element  ${Edit_Edit_Button}
-    Sleep  2s
-    Click Element  ${Edit_Edit_Button}
-    Sleep  10s
-    Input Text  ${Name_Input}  Textual
-    Sleep  2s
-
 
 End Web Test
     Close Browser
+
