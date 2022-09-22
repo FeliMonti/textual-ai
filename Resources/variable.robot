@@ -42,3 +42,4 @@ ${Create-filter_Button}  xpath=/html/body/div[4]/div/div[2]/div/div[1]/div/div[2
 ${Successful_verification}  xpath=//*[@id="react-django-toast"]/div/div/div/div
 ${Choose-Filter-Group_Button}  xpath=/html/body/div[4]/div/div[2]/div/div[1]/div/div[2]/div[2]/div[3]/div[2]/div[2]/div/i
 ${Demo_Button}  xpath=/html/body/div[4]/div/div[2]/div/div[1]/div/div[2]/div[2]/div[3]/div[2]/div[2]/div/div[2]/div[4]
+${Edit_Frame}  xpath=/html/body/iframe

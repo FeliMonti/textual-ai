@@ -119,6 +119,16 @@ Create New Filter Group
     Click Element   ${Create-filter_Button}
     Wait Until Page Contains    View created successfully
 
+Edit on the product
+    Sleep  2s
+    Wait Until Page Contains Element  ${Edit_Edit_Button}
+    Click Element  ${Edit_Edit_Button}
+    Select Frame   ${Edit_Frame}
+    Sleep  10s
+    Input Text  ${Name_Input}  Textual
+    Sleep  2s
+
+
 End Web Test
     Close Browser
 
