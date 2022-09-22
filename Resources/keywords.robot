@@ -84,6 +84,41 @@ Column Select Options
     Scroll Element Into View  ${Update_Button}
     Click Element  ${Update_Button}
 
+Create New Filter Group
+    Sleep  2s
+    Wait Until Page Contains Element  ${Default_Button}
+    Click Element   ${Default_Button}
+    Sleep  2s
+    Wait Until Page Contains Element  ${Test_Button}
+    Click Element   ${Test_Button}
+    Sleep  2s
+    Wait Until Page Contains Element  ${Testtest_Button}
+    Click Element   ${Testtest_Button}
+    Wait Until Page Contains Element  ${Save-as_Button}
+    Click Element   ${Save-as_Button}
+    Input Text  ${Save-as_Input}   Demo
+    Click Element  ${Add_Button}
+    Wait Until Page Contains Element    ${Textual_Button}
+    Click Element  ${Textual_Button}
+    Wait Until Page Contains Element  ${Edit_Button}
+    Click Element  ${Edit_Button}
+    Wait Until Page Contains Element  ${Default_Button}
+    Click Element   ${Default_Button}
+    Wait Until Page Contains Element  ${Test_Button}
+    Click Element   ${Test_Button}
+    Wait Until Page Contains Element  ${Testtest_Button}
+    Click Element   ${Testtest_Button}
+    Wait Until Page Contains Element  ${Save-as_Button}
+    Click Element   ${Save-as_Button}
+    Wait Until Page Contains Element  ${Choose-Filter-Group_Button}
+    Click Element   ${Choose-Filter-Group_Button}
+    Wait Until Page Contains Element  ${Demo_Button}
+    Click Element   ${Demo_Button}
+    Input Text  ${Filter-name_Input}    Demo Test
+    Wait Until Page Contains Element  ${Create-filter_Button}
+    Click Element   ${Create-filter_Button}
+    Wait Until Page Contains    View created successfully
+
 End Web Test
     Close Browser
 
