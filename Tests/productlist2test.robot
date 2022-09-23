@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation  Testing Textual
 Resource  ../Resources/keywords2.robot
-Resource  ../Resources/variable2.robot
+Resource  ../Resources/variable.robot
 Library  SeleniumLibrary
 #Library  robot.libraries.DateTime
 Suite Setup    Begin Web Test
