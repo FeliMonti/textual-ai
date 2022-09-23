@@ -26,7 +26,7 @@ ${CHOSEN_BEFOREDATE}       xpath=/html/body/div[4]/div/div[2]/div/div[1]/div/div
 ${DELETEDATE}              xpath=/html/body/div[4]/div/div[2]/div/div[1]/div/div[3]/div/div[1]/i
 
 
-#${CREATEDAT_DESCEDINGSORTED}  xpath=/html/body/div[4]/div/div[2]/div/div[2]/div/table/thead/tr/th[7]
+${CREATEDAT_DESCEDINGSORTED}  xpath=/html/body/div[4]/div/div[2]/div/div[2]/div/table/thead/tr/th[7]
 
 ${PRODUCTSTATUS_BUTTON}    xpath= /html/body/div[4]/div/div[2]/div/div[1]/div/div[3]/div/div[2]/div[1]/div[1]/div[2]
 ${PRODUCTSTATUS_MENU}      xpath=/html/body/div[4]/div/div[2]/div/div[1]/div/div[3]/div/div[2]/div[1]/div[1]/div[2]/div
