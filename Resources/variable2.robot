@@ -28,7 +28,7 @@ ${Update_Button}  xpath=/html/body/div[4]/div/div[2]/div/div[2]/div/div[2]/div/d
 ${Bar-menu_Button}  xpath=/html/body/div[1]/div/div/a/i
 ${Manage_Button}  xpath=/html/body/div[1]/div/div/div/ul/li[12]/a/span
 ${Viewset_Button}  xpath=//html/body/div[4]/div/div[1]/ul/li[4]
-${Edit_Edit_Button}  xpath=/html/body/div[4]/div/div[2]/div/div[2]/div/table/tbody/tr[1]/td[8]/div/div[1]/a[1]/i
+${Edit_Edit_Button}  xpath=/html/body/div[4]/div/div[2]/div/div[2]/div/table/tbody/tr[1]/td[8]/div/div[1]/div[1]/a
 ${Name_Input}  //*[@id="id_name"]
 ${Default_Button}  xpath=/html/body/div[4]/div/div[2]/div/div[1]/div/div[2]/div
 ${Test_Button}  xpath=/html/body/div[4]/div/div[2]/div/div[1]/div/div[2]/div/div[2]/div[2]/div[1]
@@ -43,3 +43,26 @@ ${Successful_verification}  xpath=//*[@id="react-django-toast"]/div/div/div/div
 ${Choose-Filter-Group_Button}  xpath=/html/body/div[4]/div/div[2]/div/div[1]/div/div[2]/div[2]/div[3]/div[2]/div[2]/div/i
 ${Demo_Button}  xpath=/html/body/div[4]/div/div[2]/div/div[1]/div/div[2]/div[2]/div[3]/div[2]/div[2]/div/div[2]/div[4]
 ${Edit_Frame}  xpath=/html/body/iframe
+
+${Action_Button}  xpath=/html/body/div[3]/div[1]/div/div[2]/div[1]/span[1]
+${New_Button}  xpath=/html/body/div[3]/div[1]/div/div[2]/div[2]/a/span
+${Duplicate_Button}  xpath=/html/body/div[3]/div[1]/div/div[2]/div[2]/form[1]/button
+${Copy-to_Button}  xpath=/html/body/div[3]/div[1]/div/div[2]/div[2]/div[1]/button
+${Type_SKU_Input}  xpath=/html/body/div[6]/div/div[2]/form/div[2]/div/input
+${Copy-from_Button}  xpath=/html/body/div[3]/div[1]/div/div[2]/div[2]/div[2]/button
+${Set-status_Button}  xpath=/html/body/div[3]/div[1]/div/div[3]/div/div[1]/span[1]
+${Importing_Radiobutton}  xpath=//*[@id="change-product-status-form"]/button[1]/i
+${In-progress_Radiobutton}  xpath=//*[@id="change-product-status-form"]/button[2]/i
+${Ready_Radiobutton}  xpath=//*[@id="change-product-status-form"]/button[3]/i
+${Copy_To_Page}  xpath=/html
+                       #/html/body/div[6]/div
+                       #/html/body/div[6]
+                       #/html/body/iframe
+                       #/html
+                       /html/body/iframe
+                       /html/body/div[6]/div
+                       /html/body/div[6]/div
+                       /html/body/div[6]
+                       
+
+${Check_Radiobutton}   xpath=/html/body/div[6]/div/div[2]/form/div[1]/div[2]/div

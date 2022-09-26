@@ -124,8 +124,29 @@ Edit on the product
     Wait Until Page Contains Element  ${Edit_Edit_Button}
     Click Element  ${Edit_Edit_Button}
     Select Frame   ${Edit_Frame}
-    Sleep  10s
-    Input Text  ${Name_Input}  Textual
+    Sleep  2s
+    Wait Until Page Contains Element  ${Action_Button}
+    Click Element   ${Action_Button}
+    Sleep  2s
+    Wait Until Page Contains Element  ${New_Button}
+    Click Element   ${New_Button}
+    Sleep  2s
+    Wait Until Page Contains Element  ${Action_Button}
+    Click Element   ${Action_Button}
+    Sleep  2s
+    Wait Until Page Contains Element  ${Duplicate_Button}
+    Click Element   ${Duplicate_Button}
+    Sleep  2s
+    Wait Until Page Contains Element  ${Action_Button}
+    Click Element   ${Action_Button}
+    Sleep  2s
+    Wait Until Page Contains Element  ${Copy-to_Button}
+    Click Element   ${Copy-to_Button}
+    #Wait Until Page Contains Element  ${Check_Radiobutton}
+    #Click Element   ${Check_Radiobutton}
+    Select Frame   ${Copy_To_Page}
+    #Wait Until Page Contains Element   ${Type_SKU_Input}
+    #Input Text  ${Type_SKU_Input}  6f83a69b-ebcd-4773-b5ea-68bb727143b0
     Sleep  2s
 
 

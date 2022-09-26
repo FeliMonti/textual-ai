@@ -48,7 +48,3 @@ User Can Create New Filter Group For Different Viewset
     [Tags]  Product list
     Create New Filter Group
 
-User Can Use Edit Function In Edit Page
-    [Documentation]  Once enter edit page; user can edit product
-    [Tags]  Product list
-    Edit on the product
