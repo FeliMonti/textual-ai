@@ -1,4 +1,3 @@
-
 *** Keywords ***
 Begin Web Test
     ${chrome_options}=  Evaluate  sys.modules['selenium.webdriver'].ChromeOptions()  sys, selenium.webdriver
