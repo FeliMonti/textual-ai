@@ -1,29 +1,30 @@
 *** Keywords ***
 Begin Web Test
     ${chrome_options}=  Evaluate  sys.modules['selenium.webdriver'].ChromeOptions()  sys, selenium.webdriver
-    Call Method    ${chrome_options}    add_argument    test-type
-    Call Method    ${chrome_options}    add_argument    --disable-extensions
-    #Call Method    ${chrome_options}    add_argument    --headless
-    Call Method    ${chrome_options}    add_argument    --disable-gpu
-    Call Method    ${chrome_options}    add_argument    --no-sandbox
-    Call Method    ${chrome_options}    add_argument    --start-maximized
-    Call Method    ${chrome_options}    add_argument    ${WINDOW}
-    Create Webdriver    Chrome    chrome_options=${chrome_options}
-    Set Selenium Timeout  10s
+    Call Method   ${chrome_options}   add_argument   test-type
+    Call Method   ${chrome_options}   add_argument   --disable-extensions
+    #Call Method   ${chrome_options}   add_argument   --headless
+    Call Method   ${chrome_options}   add_argument   --disable-gpu
+    Call Method   ${chrome_options}   add_argument   --no-sandbox
+    Call Method   ${chrome_options}   add_argument   --start-maximized
+    Call Method   ${chrome_options}   add_argument   ${WINDOW}
+    Create Webdriver   Chrome   chrome_options=${chrome_options}
+    Set Selenium Timeout   10s
 
 Go To Web Page
-    Go to  ${URL}
+    Go to   ${URL}
     Wait Until Page Contains   Try the new Copy Assistant from Textual
 
 Log In User
-    Input Text  ${mail}      regrtestaccount     #textualtest
-    Input Text  ${password}  test987!
-    Wait Until Page Contains Element  ${log_in_button}
-    Click Element  ${log_in_button}
+    Input Text   ${mail}   regrtestaccount   #textualtest
+    Input Text   ${password}   test987!
+    Click Button   ${log_in_button}
+    Wait Until Page Contains    What do you want to do today?
 
 Access To Edit Page
-    Wait Until Page Contains Element  ${edit_button}
-    Click Element  ${edit_button}
+    Wait Until Page Contains Element   ${edit_button}
+    Click Element   ${edit_button}
+    Wait Until Page Contains   Products
 
 Check Translation Status
     Wait Until Page Contains Element   ${product_list_filters_translation_status_show_all_option}
@@ -50,7 +51,6 @@ Check Parent-Child Relations
     Click Element   ${product_list_filters_parent_child_relations_children_option}
 
 Check Languages On Text Column
-    Sleep  2s
     Wait Until Page Contains Element   ${product_list_text_column_button}
     Click Element   ${product_list_text_column_button}
     Wait Until Page Contains Element   ${product_list_text_column_update_view_button}
@@ -64,10 +64,11 @@ Check Languages On Text Column
     Click Element   ${product_list_text_column_update_view_button}
 
 Column Select Options
-    Sleep  2s
+    #---Set a combination of options in column---#
     Wait Until Page Contains Element   ${product_list_column_button}
     Click Element   ${product_list_column_button}
     Wait Until Page Contains Element   ${product_list_column_EAN_checkbox}
+    Sleep  2s
     Click Element   ${product_list_column_EAN_checkbox}
     Wait Until Page Contains Element   ${product_list_column_namespace_checkbox}
     Click Element   ${product_list_column_namespace_checkbox}
@@ -80,23 +81,56 @@ Column Select Options
     Wait Until Page Contains Element   ${product_list_column_product_checkbox}
     Scroll Element Into View   ${product_list_column_product_checkbox}
     Click Element   ${product_list_column_product_checkbox}
+    Sleep  2s
+    Scroll Element Into View   ${product_list_column_update_button}
+    Wait Until Page Contains Element   ${product_list_column_update_button}
+    Click Element   ${product_list_column_update_button}
+
+    #---Set namespace in column---#
+    Wait Until Page Contains Element   ${textual_logo}
+    Click Element   ${textual_logo}
+    Wait Until Page Contains Element   ${edit_button}
+    Click Element   ${edit_button}
+    Wait Until Page Contains Element   ${product_list_column_button}
+    Click Element   ${product_list_column_button}
+    Wait Until Page Contains Element   ${product_list_column_namespace_checkbox}
+    Click Element   ${product_list_column_namespace_checkbox}
     Wait Until Page Contains Element   ${product_list_column_update_button}
     Scroll Element Into View   ${product_list_column_update_button}
     Click Element   ${product_list_column_update_button}
+    Page Should Contain   Namespace (Product Type)
+
+    #---Set group children with parent in column---#
+    Sleep  2s
+    Wait Until Page Contains Element   ${textual_logo}
+    Click Element   ${textual_logo}
+    Wait Until Page Contains Element   ${edit_button}
+    Click Element   ${edit_button}
+    Wait Until Page Contains Element   ${product_list_column_button}
+    Click Element   ${product_list_column_button}
+    Sleep  2s
+    Scroll Element Into View   ${product_list_column_group_children_with_parent_checkbox}
+    Wait Until Page Contains Element   ${product_list_column_group_children_with_parent_checkbox}
+    Click Element   ${product_list_column_group_children_with_parent_checkbox}
+    Wait Until Page Contains Element   ${product_list_column_update_button}
+    Click Element   ${product_list_column_update_button}
+    Wait Until Page Contains Element   ${textual_logo}
+    Click Element   ${textual_logo}
+    Wait Until Page Contains Element   ${edit_button}
+    Click Element   ${edit_button}
 
 Create New Filter Group
     Sleep  2s
     Wait Until Page Contains Element   ${product_list_filters_default_button}
     Click Element   ${product_list_filters_default_button}
-    Sleep  2s
     Wait Until Page Contains Element   ${product_list_filters_default_test}
     Click Element   ${product_list_filters_default_test}
-    Sleep  2s
     Wait Until Page Contains Element   ${product_list_filters_default_testtest}
     Click Element   ${product_list_filters_default_testtest}
     Wait Until Page Contains Element   ${product_list_filters_save_as_button}
     Click Element   ${product_list_filters_save_as_button}
     Input Text   ${product_list_filters_save_as_filter_group_input}  Demo
+    Sleep  2s
     Click Element   ${product_list_filters_save_as_filter_group_add}
     Wait Until Page Contains Element   ${textual_logo}
     Click Element   ${textual_logo}
@@ -114,6 +148,7 @@ Create New Filter Group
     Click Element   ${product_list_filters_save_as_choose_group_option}
     Wait Until Page Contains Element   ${product_list_filters_save_as_choose_group_demo_option}
     Click Element   ${product_list_filters_save_as_choose_group_demo_option}
+    Sleep  2s
     Input Text   ${product_list_filters_save_as_filter_name_input}    Demo Test
     Wait Until Page Contains Element   ${product_list_filters_save_as_filter_name_create_filter_button}
     Click Element   ${product_list_filters_save_as_filter_name_create_filter_button}

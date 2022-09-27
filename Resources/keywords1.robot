@@ -3,7 +3,7 @@ Begin Web Test
     ${chrome_options}=  Evaluate  sys.modules['selenium.webdriver'].ChromeOptions()  sys, selenium.webdriver
     Call Method   ${chrome_options}   add_argument   test-type
     Call Method   ${chrome_options}   add_argument   --disable-extensions
-    Call Method   ${chrome_options}   add_argument   --headless
+    #Call Method   ${chrome_options}   add_argument   --headless
     Call Method   ${chrome_options}   add_argument   --disable-gpu
     Call Method   ${chrome_options}   add_argument   --no-sandbox
     Call Method   ${chrome_options}   add_argument   --start-maximized
@@ -13,15 +13,15 @@ Begin Web Test
 
 Go To Web Page
     Go to   ${URL}
-    Wait Until Page Contains Element   ${password}
+    Wait Until Page Contains   Try the new Copy Assistant from Textual
 
-Log in User
+Log In User
     Input Text   ${mail}   regrtestaccount   #textualtest
-    Input Text   ${password}     test987!
+    Input Text   ${password}   test987!
     Click Button   ${log_in_button}
     Wait Until Page Contains    What do you want to do today?
 
-Navigate Product List Page
+Access To Edit Page
     Wait Until Page Contains Element   ${edit_button}
     Click Element   ${edit_button}
     Wait Until Page Contains   Products
@@ -110,20 +110,20 @@ Filter by Product Creation Date Combined SKU Search
     Wait Until Page Contains Element   ${product_list_search_button}
     Input Text   ${product_list_search_text_input}   dcb7b357-c8f4-4042-b73c-92718f649313
 
-    #---Chose product creation date in listbox---#
+    #---Choose product creation date in listbox---#
     Click Element   ${product_list_filter_by_date_button}
     Wait Until Page Contains Element   ${product_list_filter_by_date_menu}
     Click Element   ${product_list_filter_by_date_product_creation_date_option}
     Wait Until Page Contains Element   ${product_list_filter_by_date_product_creation_date_option}
 
-    #---Chose after date---#
+    #---Choose after date---#
     Wait Until Page Contains   Product creation date
     Click Element   ${product_list_filter_by_date_after_dropdownicon_button}
     Element Should Be Visible   ${product_list_filter_by_date_after_datepicker}
     Click Element   ${product_list_filter_by_date_after_date_button}
     Wait Until Page Contains Element   ${product_list_filter_by_date_after_chosen_listbox}
 
-    #---Chose before date---#
+    #---Choose before date---#
     Click Element   ${product_list_filter_by_date_before_dropdownicon_button}
     Element Should Be Visible   ${product_list_filter_by_date_before_datepicker}
     Click Element   ${product_list_filter_by_date_before_date_button}
@@ -141,25 +141,24 @@ Filter by Product Creation Date Combined SKU Search
     Wait Until Page Contains Element   ${product_list_filter_by_date_before_dropdownicon_button}
 
 Filter by Latest Publication Date Combined SKU Search
-
     #---Input SKU---#
     Wait Until Page Contains Element   ${product_list_search_button}
     Input Text   ${product_list_search_text_input}   202d3e9e-f4fe-47d6-8907-a1c8a755122a
 
-    #---Chose latest publication date in listbox---#
+    #---Choose latest publication date in listbox---#
     Click Element   ${product_list_filter_by_date_button}
     Wait Until Page Contains Element   ${product_list_filter_by_date_menu}
     Click Element   ${product_list_filter_by_date_latest_publication_date_option}
     Wait Until Page Contains Element   ${product_list_filter_by_date_latest_publication_date_option}
 
-    #---Chose after date---#
+    #---Choose after date---#
     Wait Until Page Contains   Latest publication date
     Click Element   ${product_list_filter_by_date_after_dropdownicon_button}
     Element Should Be Visible   ${product_list_filter_by_date_after_datepicker}
     Click Element   ${product_list_filter_by_date_after_date_button}
     Wait Until Page Contains Element   ${product_list_filter_by_date_after_chosen_listbox}
 
-    #---Chose before date---#
+    #---Choose before date---#
     Click Element   ${product_list_filter_by_date_before_dropdownicon_button}
     Element Should Be Visible   ${product_list_filter_by_date_before_datepicker}
     Click Element   ${product_list_filter_by_date_before_date_button}

@@ -1,3 +1,5 @@
+venv/
+Tests/
 /.idea/
 /Results/
 log.html

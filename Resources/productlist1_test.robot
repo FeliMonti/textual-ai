@@ -9,19 +9,19 @@ Suite Teardown  End Web Test
 
 *** Test Cases ***
 User Can Access Website And See Front Page
-    [Documentation]  Once accessing the website; being able to see the frontpage
-    [Tags]   Test
+    [Documentation]  Once accessing the website; being able to see the front page
+    [Tags]  Product list
     Go To Web Page
 
 User Can Log In
     [Documentation]  Once accessing the website; user can log in
-    [Tags]   Test
-    Log in User
+    [Tags]  Product list
+    Log In User
 
-User Can Navigate To Product List Page
-    [Documentation]  Once user is logged in; user can navigate to product list page
-    [Tags]  Test
-    Navigate Product List Page
+User Can Access to The Edit Page
+    [Documentation]  Once logged in; user can access to edit page
+    [Tags]  Product list
+    Access To Edit Page
 
 User Can Search for SKU
     [Documentation]  Once user is logged in; user can navigate to product list page, search for SKU

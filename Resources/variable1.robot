@@ -7,9 +7,9 @@ ${mail}  xpath=/html/body/div[4]/div[1]/form/div[1]/input
 ${password}  id:id_password
 ${log_in_button}  xpath=/html/body/div[4]/div[1]/form/div[3]/button
 ${edit_button}  xpath=/html/body/div[4]/div[1]/div[2]/div[4]/a
+
 ${product_list_search_button}  xpath=/html/body/div[4]/div/div[2]/div/div[1]/div/div[1]/form/div/div[2]/button
 ${product_list_search_text_input}  xpath=/html/body/div[4]/div/div[2]/div/div[1]/div/div[1]/form/div/div[1]/div/input
-
 ${product_list_filter_by_date_button}  xpath=/html/body/div[4]/div/div[2]/div/div[1]/div/div[3]/div/div[1]/div[1]
 ${product_list_filter_by_date_menu}  xpath=/html/body/div[4]/div/div[2]/div/div[1]/div/div[3]/div/div[1]/div[1]/div[2]
 ${product_list_filter_by_date_product_creation_date_option}  xpath=/html/body/div[4]/div/div[2]/div/div[1]/div/div[3]/div/div[1]/div[1]/div[2]/div[1]/span

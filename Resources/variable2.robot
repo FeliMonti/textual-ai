@@ -2,12 +2,11 @@
 ${WINDOW}  window-size=1920,1080
 ${BROWSER}  chrome
 ${URL}  https://dev.textual.ai/d/auth/login
+
 ${mail}  xpath=/html/body/div[4]/div[1]/form/div[1]/input
 ${password}  //*[@id="id_password"]
 ${log_in_button}  xpath=/html/body/div[4]/div[1]/form/div[3]/button
 ${edit_button}    xpath=/html/body/div[4]/div[1]/div[2]/div[4]/a
-
-
 
 ${product_list_filters_translation_status_show_all_option}  xpath=/html/body/div[4]/div/div[2]/div/div[1]/div/div[3]/div/div[2]/div[1]/div[3]/div[2]
 ${product_list_filters_translation_status_missing_translations_option}  xpath=/html/body/div[4]/div/div[2]/div/div[1]/div/div[3]/div/div[2]/div[1]/div[3]/div[2]/div/div[2]
@@ -20,9 +19,12 @@ ${product_list_filters_parent_child_relations_children_option}  xpath=/html/body
 ${product_list_text_column_button}  xpath=/html/body/div[4]/div/div[2]/div/div[2]/div/button
 ${product_list_text_column_text&bullet_select_all_checkbox}  xpath=/html/body/div[5]/div/div[2]/div/div[2]/div/table/tfoot/tr/th[4]
 ${product_list_text_column_update_view_button}  xpath=/html/body/div[5]/div/div[3]/button[2]
+
 ${product_list_column_button}  xpath=/html/body/div[4]/div/div[2]/div/div[2]/div/div[2]/div
 ${product_list_column_EAN_checkbox}  xpath=/html/body/div[4]/div/div[2]/div/div[2]/div/div[2]/div/div[2]/div[3]/div
+                                            #/html/body/div[4]/div/div[2]/div/div[2]/div/div[2]/div/div[2]/div[3]/div
 ${product_list_column_namespace_checkbox}  xpath=/html/body/div[4]/div/div[2]/div/div[2]/div/div[2]/div/div[2]/div[4]/div
+${product_list_column_namespace_product_type}  xpath=/html/body/div[4]/div/div[2]/div/div[2]/div/table/thead/tr/th[4]
 ${product_list_column_oiginal_text_checkbox}  xpath=/html/body/div[4]/div/div[2]/div/div[2]/div/div[2]/div/div[2]/div[5]/div
 ${product_list_column_text_statuses_checkbox}  xpath=/html/body/div[4]/div/div[2]/div/div[2]/div/div[2]/div/div[2]/div[6]/div
 ${product_list_column_product_checkbox}  xpath=/html/body/div[4]/div/div[2]/div/div[2]/div/div[2]/div/div[2]/div[7]/div
