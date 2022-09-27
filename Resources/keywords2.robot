@@ -151,7 +151,7 @@ Edit on the product
     Input Text   ${edit_list_keyin_SKU_input}  dcb7b357-c8f4-4042-b73c-92718f649313
     Wait Until Page Contains Element   ${edit_list_set_status_copy_button}
     Click Element   ${edit_list_set_status_copy_button}
-    Sleep  2s
+    Sleep   2s
 
 
 End Web Test
