@@ -125,28 +125,32 @@ Edit on the product
     Click Element   ${edit_list_edit_edit_button}
     Select Frame   ${edit_list_edit_frame_1}
     Sleep  2s
+    #Wait Until Page Contains Element   ${edit_list_action_button}
+    #Click Element   ${edit_list_action_button}
+    #Sleep  2s
+    #Wait Until Page Contains Element   ${edit_list_new_button}
+    #Click Element   ${edit_list_new_button}
+    #Sleep  2s
+    #Wait Until Page Contains Element   ${edit_list_action_button}
+    #Click Element   ${edit_list_action_button}
+    #Sleep  2s
+    #Wait Until Page Contains Element   ${edit_list_duplicate_button}
+    #Click Element   ${edit_list_duplicate_button}
+    #Sleep  2s
     Wait Until Page Contains Element   ${edit_list_action_button}
     Click Element   ${edit_list_action_button}
-    Sleep  2s
-    Wait Until Page Contains Element   ${edit_list_new_button}
-    Click Element   ${edit_list_new_button}
-    Sleep  2s
-    Wait Until Page Contains Element   ${edit_list_action_button}
-    Click Element   ${edit_list_action_button}
-    Sleep  2s
-    Wait Until Page Contains Element   ${edit_list_duplicate_button}
-    Click Element   ${edit_list_duplicate_button}
-    Sleep  2s
-    Wait Until Page Contains Element   ${edit_list_action_button}
-    Click Element   ${edit_list_action_button}
-    Sleep  2s
+    Sleep   2s
     Wait Until Page Contains Element   ${edit_list_copy_to_button}
     Click Element   ${edit_list_copy_to_button}
     #Wait Until Page Contains Element  ${edit_list_check_radiobutton}
     #Click Element   ${edit_list_check_radiobutton}
-    Select Frame   ${edit_list_edit_frame_2}
+    #Select Frame   ${edit_list_edit_frame_2}
+    Sleep   2s
+    #Unselect Frame   ${edit_list_edit_frame_1}
     Wait Until Page Contains Element   ${edit_list_keyin_SKU_input}
-    Input Text   ${edit_list_keyin_SKU_input}  6f83a69b-ebcd-4773-b5ea-68bb727143b0
+    Input Text   ${edit_list_keyin_SKU_input}  dcb7b357-c8f4-4042-b73c-92718f649313
+    Wait Until Page Contains Element   ${edit_list_set_status_copy_button}
+    Click Element   ${edit_list_set_status_copy_button}
     Sleep  2s
 
 

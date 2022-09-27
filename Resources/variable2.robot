@@ -52,12 +52,15 @@ ${edit_list_action_button}  xpath=/html/body/div[3]/div[1]/div/div[2]/div[1]/spa
 ${edit_list_new_button}  xpath=/html/body/div[3]/div[1]/div/div[2]/div[2]/a/span
 ${edit_list_duplicate_button}  xpath=/html/body/div[3]/div[1]/div/div[2]/div[2]/form[1]/button
 ${edit_list_copy_to_button}  xpath=/html/body/div[3]/div[1]/div/div[2]/div[2]/div[1]/button
-${edit_list_keyin_SKU_input}  xpath=/html/body/div[6]/div/div[2]/form/div[2]/div/input
+${edit_list_keyin_SKU_input}  xpath=/html/body/div[5]/div/div[2]/form/div[2]/div/input
+                                    #/html/body/div[6]/div/div[2]/form/div[2]/div/input
 ${edit_list_copy_from_button}  xpath=/html/body/div[3]/div[1]/div/div[2]/div[2]/div[2]/button
 ${edit_list_set_status_button}  xpath=/html/body/div[3]/div[1]/div/div[3]/div/div[1]/span[1]
 ${edit_list_set_status_importing_radiobutton}  xpath=//*[@id="change-product-status-form"]/button[1]/i
 ${edit_list_set_status_in_progress_radiobutton}  xpath=//*[@id="change-product-status-form"]/button[2]/i
 ${edit_list_set_status_ready_radiobutton}  xpath=//*[@id="change-product-status-form"]/button[3]/i
+${edit_list_set_status_copy_button}  xpath=/html/body/div[5]/div/div[4]/button[2]
 
-${edit_list_edit_frame_2}  xpath=/html/body/iframe
+${edit_list_edit_frame_2}  xpath=/html/body/div[5]/div
+
 ${edit_list_check_radiobutton}   xpath=/html/body/div[6]/div/div[2]/form/div[1]/div[2]/div

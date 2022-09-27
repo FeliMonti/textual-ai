@@ -16,11 +16,11 @@ Go To Web Page
     Wait Until Page Contains   Try the new Copy Assistant from Textual
 
 Log In User
-    Input Text  ${MAIL}       regrtestaccount     #textualtest
-    Input Text  ${PASSWORD}  test987!
-    Wait Until Page Contains Element  ${Log_In_Button}
-    Click Element  ${Log_In_Button}
+    Input Text  ${mail}       regrtestaccount     #textualtest
+    Input Text  ${password}  test987!
+    Wait Until Page Contains Element  ${log_in_button}
+    Click Element  ${log_in_button}
 
 Access To Edit Page
-    Wait Until Page Contains Element  ${Edit_Button}
-    Click Element  ${Edit_Button}
+    Wait Until Page Contains Element  ${edit_button}
+    Click Element  ${edit_button}
