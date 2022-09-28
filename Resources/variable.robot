@@ -83,9 +83,9 @@ ${edit_list_name_input}  //*[@id="id_name"]
 ${edit_list_action_button}  xpath=/html/body/div[3]/div[1]/div/div[2]/div[1]/span[1]
 ${edit_list_new_button}  xpath=/html/body/div[3]/div[1]/div/div[2]/div[2]/a/span
 ${edit_list_duplicate_button}  xpath=/html/body/div[3]/div[1]/div/div[2]/div[2]/form[1]/button
-${edit_list_copy_to_button}  xpath=/html/body/div[3]/div[1]/div/div[2]/div[2]/div[1]/button
+${edit_list_copy_to_button}  data:testid:fromto
 ${edit_list_keyin_SKU_input}  xpath=/html/body/div[5]/div/div[2]/form/div[2]/div/input
-${edit_list_copy_from_button}  xpath=/html/body/div[3]/div[1]/div/div[2]/div[2]/div[2]/button
+${edit_list_copy_from_button}  data:testid:tofrom
 ${edit_list_set_status_button}  xpath=/html/body/div[3]/div[1]/div/div[3]/div/div[1]/span[1]
 ${edit_list_set_status_importing_radiobutton}  xpath=//*[@id="change-product-status-form"]/button[1]/i
 ${edit_list_set_status_in_progress_radiobutton}  xpath=//*[@id="change-product-status-form"]/button[2]/i

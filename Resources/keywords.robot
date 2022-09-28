@@ -12,6 +12,12 @@ Begin Web Test
     Set Selenium Timeout   10s      #${default_selenium_timeout} = Get Selenium Timeout
     #Set Selenium Speed   1s    ${default_selenium_speed} = Get Selenium Speed
 
+Begin Web Test Product List
+    Begin Web Test
+    Go To Web Page
+    Log In User
+    Access To Edit Page
+
 Go To Web Page
     Go to   ${URL}
     Wait Until Page Contains   Try the new Copy Assistant from Textual
