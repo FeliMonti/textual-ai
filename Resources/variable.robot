@@ -6,7 +6,7 @@ ${URL}  https://dev.textual.ai/d/auth/login
 ${mail}  xpath=/html/body/div[4]/div[1]/form/div[1]/input
 ${password}  id:id_password
 ${log_in_button}  xpath=/html/body/div[4]/div[1]/form/div[3]/button
-${edit_button}  xpath=/html/body/div[4]/div[1]/div[2]/div[4]/a
+${edit_button}  xpath://a[@class="pbutton pbutton-primary"][contains(text(), "Edit")]
 
 ${product_list_search_button}  xpath=/html/body/div[4]/div/div[2]/div/div[1]/div/div[1]/form/div/div[2]/button
 ${product_list_search_text_input}  xpath=/html/body/div[4]/div/div[2]/div/div[1]/div/div[1]/form/div/div[1]/div/input

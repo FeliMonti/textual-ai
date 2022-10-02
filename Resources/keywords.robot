@@ -360,7 +360,6 @@ Edit on the product
     Wait Until Page Contains Element   ${edit_list_edit_edit_button}
     Click Element   ${edit_list_edit_edit_button}
     Select Frame   ${edit_list_edit_frame_1}
-    Sleep  2s
     #Wait Until Page Contains Element   ${edit_list_action_button}
     #Click Element   ${edit_list_action_button}
     #Sleep  2s

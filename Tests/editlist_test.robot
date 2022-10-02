@@ -4,7 +4,7 @@ Resource  ../Resources/keywords.robot
 Resource  ../Resources/variable.robot
 Library  SeleniumLibrary
 #Library  robot.libraries.DateTime
-Suite Setup    Begin Web Test
+Suite Setup    Begin Web Test Product List
 Suite Teardown  End Web Test
 
 *** Test Cases ***
