@@ -9,29 +9,37 @@ Begin Web Test
     Call Method   ${chrome_options}   add_argument   --start-maximized
     Call Method   ${chrome_options}   add_argument   ${WINDOW}
     Create Webdriver   Chrome   chrome_options=${chrome_options}
-    Set Selenium Timeout   10s
+    Set Selenium Timeout   10s      #${default_selenium_timeout} = Get Selenium Timeout
+    #Set Selenium Speed   1s    ${default_selenium_speed} = Get Selenium Speed
+
+Begin Web Test Product List
+    Begin Web Test
+    Go To Web Page
+    Log In User
+    Access To Edit Page
 
 Go To Web Page
     Go to   ${URL}
-    Wait Until Page Contains Element   ${password}
+    Wait Until Page Contains   Try the new Copy Assistant from Textual
 
-Log in User
-    Input Text   ${mail}   regrtestaccount   #textualtest
-    Input Text   ${password}     test987!
-    Click Button   ${log_in_button}
+Log In User
+    Input Text   ${login_username_email_input}    regrtestaccount   #textualtest   #${mail}
+    Input Text   ${login_password_input}  test987!   #${password}
+    Click Button   ${login_button}  #${log_in_button}
     Wait Until Page Contains    What do you want to do today?
 
-Navigate Product List Page
-    Wait Until Page Contains Element   ${edit_button}
-    Click Element   ${edit_button}
+Access To Edit Page
+    Wait Until Page Contains Element   ${customer_home_edit_button}  #${edit_button}
+    Click Element   ${customer_home_edit_button}   #${edit_button}
     Wait Until Page Contains   Products
 
 Search for SKU
     Wait Until Page Contains Element   ${product_list_search_button}
-    Input Text   ${product_list_search_text_input}  dcb7b357-c8f4-4042-b73c-92718f649313
+    Input Text   ${product_list_search_text_input}   dcb7b357-c8f4-4042-b73c-92718f649313
     Click Element   ${product_list_search_button}
     Double Click Element   ${product_list_search_text_input}
     Press Keys   ${product_list_search_text_input}  CTRL+A+DELETE
+    #Clear Element Text   ${product_list_search_text_input}
     Click Element   ${product_list_search_button}
     Wait Until Page Contains Element   ${product_list_search_text_input}
 
@@ -41,38 +49,34 @@ Filter by Product Creation Date
     Wait Until Page Contains Element   ${product_list_filter_by_date_menu}
     Click Element   ${product_list_filter_by_date_product_creation_date_option}
     Wait Until Page Contains Element   ${product_list_filter_by_date_product_creation_date_option}
-    Click Element   ${product_list_filter_by_date_after_dropdownicon_button}
+    Click Element   ${product_list_filter_by_date_after_button}
     Element Should Be Visible   ${product_list_filter_by_date_after_datepicker}
     Click Element   ${product_list_filter_by_date_after_date_button}
-    Wait Until Page Contains Element   ${product_list_filter_by_date_after_chosen_listbox}
-    Sleep  2s
+    #Wait Until Page Contains Element   ${product_list_filter_by_date_after_chosen_listbox}
     Click Element   ${product_list_filter_by_date_close_button}
-    Wait Until Page Contains Element   ${product_list_filter_by_date_after_dropdownicon_button}
+    Wait Until Page Contains Element   ${product_list_filter_by_date_after_button}
 
     #---Select by before date---#
-    Click Element   ${product_list_filter_by_date_before_dropdownicon_button}
+    Click Element   ${product_list_filter_by_date_before_button}
     Element Should Be Visible   ${product_list_filter_by_date_before_datepicker}
     Click Element   ${product_list_filter_by_date_before_date_button}
-    Wait Until Page Contains Element   ${product_list_filter_by_date_before_chosen_listbox}
-    Sleep  2s
+    #Wait Until Page Contains Element   ${product_list_filter_by_date_before_chosen_listbox}
     Click Element   ${product_list_filter_by_date_close_button}
-    Wait Until Page Contains Element   ${product_list_filter_by_date_before_dropdownicon_button}
+    Wait Until Page Contains Element   ${product_list_filter_by_date_before_button}
 
     #---Select by both after and before date in product creation date---#
-    Click Element   ${product_list_filter_by_date_after_dropdownicon_button}
+    Click Element   ${product_list_filter_by_date_after_button}
     Element Should Be Visible   ${product_list_filter_by_date_after_datepicker}
     Click Element   ${product_list_filter_by_date_after_date_button}
-    Wait Until Page Contains Element   ${product_list_filter_by_date_after_chosen_listbox}
-    Click Element   ${product_list_filter_by_date_before_dropdownicon_button}
+    #Wait Until Page Contains Element   ${product_list_filter_by_date_after_chosen_listbox}
+    Click Element   ${product_list_filter_by_date_before_button}
     Element Should Be Visible   ${product_list_filter_by_date_before_datepicker}
     Click Element   ${product_list_filter_by_date_before_date_button}
-    Wait Until Page Contains Element   ${product_list_filter_by_date_before_chosen_listbox}
-    Sleep  2s
+    #Wait Until Page Contains Element   ${product_list_filter_by_date_before_chosen_listbox}
     Click Element   ${product_list_filter_by_date_close_button}
-    Wait Until Page Contains Element   ${product_list_filter_by_date_after_dropdownicon_button}
-    Sleep  2s
+    Wait Until Page Contains Element   ${product_list_filter_by_date_after_button}
     Click Element   ${product_list_filter_by_date_close_button}
-    Wait Until Page Contains Element   ${product_list_filter_by_date_before_dropdownicon_button}
+    Wait Until Page Contains Element   ${product_list_filter_by_date_before_button}
 
 Filter by Latest Publication Date
     #---Select by after date---#
@@ -80,114 +84,113 @@ Filter by Latest Publication Date
     Wait Until Page Contains Element   ${product_list_filter_by_date_menu}
     Click Element   ${product_list_filter_by_date_latest_publication_date_option}
     Wait Until Page Contains Element   ${product_list_filter_by_date_latest_publication_date_option}
-    Click Element   ${product_list_filter_by_date_after_dropdownicon_button}
+    Click Element   ${product_list_filter_by_date_after_button}
     Element Should Be Visible   ${product_list_filter_by_date_after_datepicker}
     Click Element   ${product_list_filter_by_date_after_date_button}
-    Wait Until Page Contains Element   ${product_list_filter_by_date_after_chosen_listbox}
-    Sleep  2s
+    #Wait Until Page Contains Element   ${product_list_filter_by_date_after_chosen_listbox}
     Click Element   ${product_list_filter_by_date_close_button}
-    Wait Until Page Contains Element   ${product_list_filter_by_date_after_dropdownicon_button}
+    Wait Until Page Contains Element   ${product_list_filter_by_date_after_button}
 
     #---Select by before date---#
-    Click Element   ${product_list_filter_by_date_before_dropdownicon_button}
+    Click Element   ${product_list_filter_by_date_before_button}
     Element Should Be Visible   ${product_list_filter_by_date_before_datepicker}
     Click Element   ${product_list_filter_by_date_before_date_button}
-    Wait Until Page Contains Element   ${product_list_filter_by_date_before_chosen_listbox}
-    Sleep  2s
+    #Wait Until Page Contains Element   ${product_list_filter_by_date_before_chosen_listbox}
     Click Element   ${product_list_filter_by_date_close_button}
-    Wait Until Page Contains Element   ${product_list_filter_by_date_before_dropdownicon_button}
+    Wait Until Page Contains Element   ${product_list_filter_by_date_before_button}
 
     #---Select by both after and before date in latest publication date---#
-    Click Element   ${product_list_filter_by_date_after_dropdownicon_button}
+    Click Element   ${product_list_filter_by_date_after_button}
     Element Should Be Visible   ${product_list_filter_by_date_after_datepicker}
     Click Element   ${product_list_filter_by_date_after_date_button}
-    Wait Until Page Contains Element   ${product_list_filter_by_date_after_chosen_listbox}
-    Click Element   ${product_list_filter_by_date_before_dropdownicon_button}
+    #Wait Until Page Contains Element   ${product_list_filter_by_date_after_chosen_listbox}
+    Click Element   ${product_list_filter_by_date_before_button}
     Element Should Be Visible   ${product_list_filter_by_date_before_datepicker}
     Click Element   ${product_list_filter_by_date_before_date_button}
-    Wait Until Page Contains Element   ${product_list_filter_by_date_before_chosen_listbox}
-    Sleep  2s
+    #Wait Until Page Contains Element   ${product_list_filter_by_date_before_chosen_listbox}
     Click Element   ${product_list_filter_by_date_close_button}
-    Wait Until Page Contains Element   ${product_list_filter_by_date_after_dropdownicon_button}
+    Wait Until Page Contains Element   ${product_list_filter_by_date_after_button}
     Click Element   ${product_list_filter_by_date_close_button}
-    Wait Until Page Contains Element   ${product_list_filter_by_date_before_dropdownicon_button}
+    Wait Until Page Contains Element   ${product_list_filter_by_date_before_button}
 
 Filter by Product Creation Date Combined SKU Search
     #---Input SKU---#
     Wait Until Page Contains Element   ${product_list_search_button}
     Input Text   ${product_list_search_text_input}   dcb7b357-c8f4-4042-b73c-92718f649313
 
-    #---Chose product creation date in listbox---#
+    #---Choose product creation date in listbox---#
     Click Element   ${product_list_filter_by_date_button}
     Wait Until Page Contains Element   ${product_list_filter_by_date_menu}
     Click Element   ${product_list_filter_by_date_product_creation_date_option}
     Wait Until Page Contains Element   ${product_list_filter_by_date_product_creation_date_option}
-    Sleep  2s
-    #---Chose after date---#
+
+    #---Choose after date---#
     Wait Until Page Contains   Product creation date
-    Click Element   ${product_list_filter_by_date_after_dropdownicon_button}
+    Click Element   ${product_list_filter_by_date_after_button}
     Element Should Be Visible   ${product_list_filter_by_date_after_datepicker}
     Click Element   ${product_list_filter_by_date_after_date_button}
-    Wait Until Page Contains Element   ${product_list_filter_by_date_after_chosen_listbox}
-    Sleep  2s
-    #---Chose before date---#
-    Click Element   ${product_list_filter_by_date_before_dropdownicon_button}
+    #Wait Until Page Contains Element   ${product_list_filter_by_date_after_chosen_listbox}
+
+    #---Choose before date---#
+    Click Element   ${product_list_filter_by_date_before_button}
     Element Should Be Visible   ${product_list_filter_by_date_before_datepicker}
     Click Element   ${product_list_filter_by_date_before_date_button}
-    Wait Until Page Contains Element   ${product_list_filter_by_date_before_chosen_listbox}
-    Sleep  2s
+    #Wait Until Page Contains Element   ${product_list_filter_by_date_before_chosen_listbox}
+
     #----Search for result with above options---#
     Click Element   ${product_list_search_button}
+    #Clear Element Text  ${product_list_search_text_input}
+    #Sleep  2s
     Double Click Element   ${product_list_search_text_input}
     Press Keys   ${product_list_search_text_input}   CTRL+A+DELETE
     Click Element   ${product_list_search_button}
     Wait Until Page Contains Element   ${product_list_search_text_input}
     Click Element   ${product_list_filter_by_date_close_button}
-    Wait Until Page Contains Element   ${product_list_filter_by_date_after_dropdownicon_button}
+    Wait Until Page Contains Element   ${product_list_filter_by_date_after_button}
     Click Element   ${product_list_filter_by_date_close_button}
-    Wait Until Page Contains Element   ${product_list_filter_by_date_before_dropdownicon_button}
-    Sleep  2s
-Filter by Latest Publication Date Combined SKU Search
+    Wait Until Page Contains Element   ${product_list_filter_by_date_before_button}
 
+Filter by Latest Publication Date Combined SKU Search
     #---Input SKU---#
     Wait Until Page Contains Element   ${product_list_search_button}
     Input Text   ${product_list_search_text_input}   202d3e9e-f4fe-47d6-8907-a1c8a755122a
 
-    #---Chose latest publication date in listbox---#
+    #---Choose latest publication date in listbox---#
     Click Element   ${product_list_filter_by_date_button}
     Wait Until Page Contains Element   ${product_list_filter_by_date_menu}
     Click Element   ${product_list_filter_by_date_latest_publication_date_option}
     Wait Until Page Contains Element   ${product_list_filter_by_date_latest_publication_date_option}
-    Sleep  2s
-    #---Chose after date---#
+
+    #---Choose after date---#
     Wait Until Page Contains   Latest publication date
-    Click Element   ${product_list_filter_by_date_after_dropdownicon_button}
+    Click Element   ${product_list_filter_by_date_after_button}
     Element Should Be Visible   ${product_list_filter_by_date_after_datepicker}
     Click Element   ${product_list_filter_by_date_after_date_button}
-    Wait Until Page Contains Element   ${product_list_filter_by_date_after_chosen_listbox}
-    Sleep  2s
-    #---Chose before date---#
-    Click Element   ${product_list_filter_by_date_before_dropdownicon_button}
+    #Wait Until Page Contains Element   ${product_list_filter_by_date_after_chosen_listbox}
+
+    #---Choose before date---#
+    Click Element   ${product_list_filter_by_date_before_button}
     Element Should Be Visible   ${product_list_filter_by_date_before_datepicker}
     Click Element   ${product_list_filter_by_date_before_date_button}
-    Wait Until Page Contains Element   ${product_list_filter_by_date_before_chosen_listbox}
-    Sleep  2s
+    #Wait Until Page Contains Element   ${product_list_filter_by_date_before_chosen_listbox}
+
     #----Search for result with above options---#
     Click Element   ${product_list_search_button}
+    #Clear Element Text  ${product_list_search_text_input}
     Double Click Element   ${product_list_search_text_input}
     Press Keys   ${product_list_search_text_input}   CTRL+A+DELETE
     Click Element   ${product_list_search_button}
     Wait Until Page Contains Element   ${product_list_search_text_input}
-    Sleep  2s
+
     Click Element   ${product_list_filter_by_date_close_button}
-    Wait Until Page Contains Element   ${product_list_filter_by_date_after_dropdownicon_button}
+    Wait Until Page Contains Element   ${product_list_filter_by_date_after_button}
     Click Element   ${product_list_filter_by_date_close_button}
-    Wait Until Page Contains Element   ${product_list_filter_by_date_before_dropdownicon_button}
+    Wait Until Page Contains Element   ${product_list_filter_by_date_before_button}
     Click Element   ${product_list_filter_by_date_button}
     Wait Until Page Contains Element   ${product_list_filter_by_date_menu}
     Click Element   ${product_list_filter_by_date_product_creation_date_option}
     Wait Until Page Contains Element   ${product_list_filter_by_date_product_creation_date_option}
-    Sleep  2s
+
 Filter on Show All in Product Status
     Click Element   ${product_list_filter_product_status_button}
     Element Should Be Visible   ${product_list_filter_product_status_menu}

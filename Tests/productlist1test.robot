@@ -21,7 +21,8 @@ User Can Log In
 User Can Navigate To Product List Page
     [Documentation]  Once user is logged in; user can navigate to product list page
     [Tags]  Test
-    Navigate Product List Page
+    #Navigate Product List Page
+    Access To Edit Page
 
 User Can Search for SKU
     [Documentation]  Once user is logged in; user can navigate to product list page, search for SKU
