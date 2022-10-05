@@ -77,6 +77,89 @@ ${product_list_filter_text_status_waiting_to_be_published_option}  xpath://*[@da
 ${product_list_filter_text_status_published_option}  xpath://*[@data-testid="text-status-option-5"]
 #xpath=/html/body/div[4]/div/div[2]/div/div[1]/div/div[3]/div/div[2]/div[1]/div[2]/div[2]/div/div[5]/div
 
+#---Edit Function---#
+${product_list_edit_button}  xpath://*[@data-table-cell="2-8"][@class="collapsing links"]//*[@data-testid="product-list-edit-button"]
+${edit_list_subpage_iframe}  xpath://*[@class="subpage-iframe"]
+${edit_list_edit_tab}  xpath://a[@data-test="edit-tab"]
+
+${edit_list_main_catogary_input}  xpath://input[@data-testid="single-input"]   ###
+
+${edit_list_edit_field_add}  xpath://div[@class="edit-fields"]//*[contains(text(), "Add")]
+${edit_list_subpart_attribute_input}  xpath://div[@class="product-type-row"]//input[@data-testid="single-input"]'  ###
+
+
+#---property---#
+${edit_list_properties_input}  xpath://div[@class="row row-properties"]//input
+${edit_list_properties_suggestions_container}  xpath://div[@class="row row-properties"]//div[@data-testid="suggestions-container"]
+${edit_list_properties_menu_item_suggestion_item}  xpath://div[@class="row row-properties"]//*[contains(text(), "beautiful")]
+${edit_list_properties_delete_icon}  xpath://div[@class="row row-properties"]//*[@data-testid="tag-remove"]
+
+#---occasion---#
+${edit_list_occasion_input}  xpath://div[@class="row row-occasion"]//input
+${edit_list_occasion_suggestions_container}  xpath://div[@class="row row-occasion"]//div[@data-testid="suggestions-container"]
+${edit_list_occasion_menu_item_suggestion_item}  xpath://div[@class="row row-occasion"]//*[contains(text(), "for the summer party")]
+${edit_list_occasion_delete_icon}  xpath://div[@class="row row-occasion"]//*[@data-testid="tag-remove"]
+
+#---color---#
+${edit_list_color_input}  xpath://div[@class="row row-color"]//input
+${edit_list_color_suggestions_container}  xpath://div[@class="row row-color"]//div[@data-testid="suggestions-container"]
+${edit_list_color_menu_item_suggestion_item}  xpath://div[@class="row row-color"]//*[contains(text(), "orange")]
+${edit_list_color_delete_icon}  xpath://div[@class="row row-color"]//*[@data-testid="tag-remove"]
+
+#---material---#
+${edit_list_material_input}  xpath://div[@class="row row-material"]//input
+${edit_list_material_suggestions_container}  xpath://div[@class="row row-material"]//div[@data-testid="suggestions-container"]
+${edit_list_material_menu_item_suggestion_item}  xpath://div[@class="row row-material"]//*[contains(text(), "metal")]
+${edit_list_material_delete_icon}  xpath://div[@class="row row-material"]//*[@data-testid="tag-remove"]
+
+#---made in---#
+${edit_list_made_in_input}  xpath://div[@class="row row-made_in"]//input
+${edit_list_made_in_suggestions_container}  xpath://div[@class="row row-made_in"]//div[@data-testid="suggestions-container"]
+${edit_list_made_in_menu_item_suggestion_item}  xpath://div[@class="row row-made_in"]//*[contains(text(), "in Sweden")]
+${edit_list_made_in_delete_icon}  xpath://div[@class="row row-made_in"]//*[@data-testid="tag-remove"]
+
+#---designed in---#
+${edit_list_designed_in_input}  xpath://div[@class="row row-designed_in"]//input
+${edit_list_designed_in_suggestions_container}  xpath://div[@class="row row-designed_in"]//div[@data-testid="suggestions-container"]
+${edit_list_designed_in_menu_item_suggestion_item}  xpath://div[@class="row row-designed_in"]//*[contains(text(), "in Italy")]
+${edit_list_designed_in_delete_icon}  xpath://div[@class="row row-designed_in"]//*[@data-testid="tag-remove"]
+
+#---position---#
+${edit_list_position_input}  xpath://div[@class="row row-position"]//input
+${edit_list_position_suggestions_container}  xpath://div[@class="row row-position"]//div[@data-testid="suggestions-container"]
+${edit_list_position_menu_item_suggestion_item}  xpath://div[@class="row row-position"]//*[contains(text(), "in front")]
+${edit_list_position_delete_icon}  xpath://div[@class="row row-position"]//*[@data-testid="tag-remove"]
+
+#---phrase---#
+${edit_list_phrase_input}  xpath://div[@class="row row-phrase"]//input
+${edit_list_phrase_suggestions_container}  xpath://div[@class="row row-phrase"]//div[@data-testid="suggestions-container"]
+${edit_list_phrase_menu_item_suggestion_item}  xpath://div[@class="row row-phrase"]//*[contains(text(), "for elegance")]
+${edit_list_phrase_delete_icon}  xpath://div[@class="row row-phrase"]//*[@data-testid="tag-remove"]
+
+#---fixed phrases---#
+${edit_list_fixed_phrases_input}  xpath://div[@class="row row-fixed_phrases"]//input
+${edit_list_fixed_phrases_suggestions_container}  xpath://div[@class="row row-fixed_phrases"]//div[@data-testid="suggestions-container"]
+${edit_list_fixed_phrases_menu_item_suggestion_item}  xpath://div[@class="row row-fixed_phrases"]//*[contains(text(), "Easy on and off. (Lätt av och på.)")]
+${edit_list_fixed_phrases_delete_icon}  xpath://div[@class="row row-fixed_phrases"]//*[@data-testid="tag-remove"]
+
+#---labels---#
+${edit_list_labels_input}  xpath://div[@class="field label-field"]//input
+${edit_list_labels_add}  xpath://div[@role="listbox"]//*[@class="selected item addition"]
+${edit_list_labels_delete_icon}  xpath://div[@class="field label-field"]//i[@class="delete icon"]
+${edit_list_labels_default_text}  xpath://div[@class="default text"][contains(text(), "Type to search")]
+#${edit_list_labels_combobox}  xpath://div[@class="field label-field"]//div[@role="combobox"]
+
+#---name---#
+${edit_list_name_input}  xpath://input[@id="id_name"]  #---it doesn't work if use this xpath to verify while return to edit subpage frame #
+${edit_list_name_field_input}  xpath://div[@class="field name-field"]//input
+${edit_list_subpage_back_button}  xpath://div[@class="subpage-back"]//button
+
+#---additional information(original headline and original text---#
+${edit_list_additional_information_column}  xpath://div[@class="column"]//*[contains(text(), "ADDITIONAL INFORMATION")]
+${edit_list_original_headline_input}  xpath://input[@id="id_original_headline"]
+${edit_list_original_text_textarea}  xpath://*[@id="id_original_text"]
+
+
 #${orange_eye_ico}  xpath=/html/body/div[4]/div/div[2]/div/div[2]/div/table/tbody/tr[1]/td[4]/div/i[1]
 #${green_tick_icon}  xpath=/html/body/div[4]/div/div[2]/div/div[2]/div/table/tbody/tr/td[4]/div/i/i
 #${orange_hour_glass_icon}  xpath=/html/body/div[4]/div/div[2]/div/div[2]/div/table/tbody/tr[1]/td[4]/div/i[1]/i
