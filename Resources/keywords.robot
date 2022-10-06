@@ -358,10 +358,9 @@ Create New Filter Group
     Input Text   ${product_list_filters_save_as_filter_group_input}  ${group_name}
     Click Element   ${product_list_filters_save_as_filter_group_add}
 
+    #---Workaround---#
     # At this point page goes blank, this is a known bug (TEX-4762).
     # Once fixed, the workaround below should not be needed.
-
-    #---Create new filter---#
     Wait Until Page Contains Element   ${textual_logo}
     Click Element   ${textual_logo}
     Wait Until Page Contains Element   ${customer_home_edit_button}
@@ -374,18 +373,23 @@ Create New Filter Group
     Click Element   ${product_list_filters_default_testtest}
     Wait Until Page Contains Element   ${product_list_filters_save_as_button}
     Click Element   ${product_list_filters_save_as_button}
+    Input Text   ${product_list_filters_save_as_filter_group_input}  ${group_name}
 
-    # Search input for filter group names: //div[@role="combobox"]//*[contains(text(),"Choose Group")]/../input
-    # Arrow dropdown to show existing filter groups: //div[@role="combobox"]//*[contains(text(),"Choose Group")]/../iß
-
-    Wait Until Page Contains Element   ${product_list_filters_save_as_choose_group_option}
-    Click Element   ${product_list_filters_save_as_choose_group_option}
-    Wait Until Page Contains Element   ${product_list_filters_save_as_choose_group_demo_option}
-    Click Element   ${product_list_filters_save_as_choose_group_demo_option}
-    Input Text   ${product_list_filters_save_as_filter_name_input}    Demo Test
+    #---Create new filter---#
+    ${filter_name}=  Generate Random String  length=8  chars=[LETTERS][NUMBERS]
+    Input Text   ${product_list_filters_save_as_filter_name_input}    ${filter_name}
     Wait Until Page Contains Element   ${product_list_filters_save_as_filter_name_create_filter_button}
     Click Element   ${product_list_filters_save_as_filter_name_create_filter_button}
     Wait Until Page Contains    View created successfully
+
+    #--Delete filter group--#
+    # Hamburger menu
+    # Manage
+    # Filter groups ${product_list_menu_manage_filter_group}
+    # Click delete button corresponding to our filter group:
+    Click Element  xpath=//*[contains(text(),"${group_name}")]/../..//button[contains(text(), "Delete")]
+    
+    Handle Alert
 
 Edit on the product
     Sleep  2s

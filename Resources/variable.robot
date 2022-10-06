@@ -189,4 +189,4 @@ ${edit_list_set_status_ready_radiobutton}  xpath://*[@id="change-product-status-
 #${blue_paper_areoplane_icon}  xpath=/html/body/div[4]/div/div[2]/div/div[2]/div/table/tbody/tr[2]/td[7]/div/i/i
 
 #${edit_list_check_radiobutton}  xpath=/html/body/div[6]/div/div[2]/form/div[1]/div[2]/div
-#${product_list_menu_manage_filter_group}  xpath=//html/body/div[4]/div/div[1]/ul/li[4]
+${product_list_menu_manage_filter_group}  xpath=//*[contains(text(),"Filter groups")]/..
