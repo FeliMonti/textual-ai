@@ -16,41 +16,54 @@ Go To Web Page
     Wait Until Page Contains   Try the new Copy Assistant from Textual
 
 Log In User
-    Input Text  ${mail}      regrtestaccount     #textualtest
-    Input Text  ${password}  test987!
-    Wait Until Page Contains Element  ${log_in_button}
-    Click Element  ${log_in_button}
+    Input Text  ${login_username_email_input}      regrtestaccount     #textualtest
+    Input Text  ${login_password_input}  test987!
+    Wait Until Page Contains Element  ${login_button}
+    Click Element  ${login_button}
 
 Access To Edit Page
-    Wait Until Page Contains Element  ${edit_button}
-    Click Element  ${edit_button}
+    Wait Until Page Contains Element  ${customer_home_edit_button}
+    Click Element  ${customer_home_edit_button}
 
 Check Translation Status
-    Wait Until Page Contains Element   ${product_list_filters_translation_status_show_all_option}
-    Click Element   ${product_list_filters_translation_status_show_all_option}
-    Wait Until Page Contains Element   ${product_list_filters_translation_status_missing_translations_option}
-    Click Element   ${product_list_filters_translation_status_missing_translations_option}
-    Wait Until Page Contains Element   ${product_list_filters_translation_status_show_all_option}
-    Click Element   ${product_list_filters_translation_status_show_all_option}
-    Wait Until Page Contains Element   ${product_list_filters_translation_status_complete_translations_option}
-    Click Element   ${product_list_filters_translation_status_complete_translations_option}
+    #---Show all option---#
+    Wait Until Page Contains Element   ${product_list_filter_translation_status_button}
+    Click Element   ${product_list_filter_translation_status_button}
+    Element Should Be Visible   ${product_list_filter_translation_status_menu}
+    Click Element   ${product_list_filter_translation_status_show_all_option}
+
+    #---Missing translation option---#
+    Click Element   ${product_list_filter_translation_status_button}
+    Element Should Be Visible   ${product_list_filter_translation_status_menu}
+    Click Element   ${product_list_filter_translation_status_missing_translations_option}
+
+    #---Complete translation option---#
+    Click Element   ${product_list_filter_translation_status_button}
+    Element Should Be Visible   ${product_list_filter_translation_status_menu}
+    Click Element   ${product_list_filter_translation_status_complete_translations_option}
 
 Check Parent-Child Relations
-    Wait Until Page Contains Element   ${product_list_filters_more_option}
-    Click Element   ${product_list_filters_more_option}
-    Wait Until Page Contains Element   ${product_list_filters_parent_child_option}
-    Click Element   ${product_list_filters_parent_child_option}
-    Wait Until Page Contains Element   ${product_list_filters_parent_child_relations_show_all_option}
-    Click Element   ${product_list_filters_parent_child_relations_show_all_option}
-    Wait Until Page Contains Element   ${product_list_filters_parent_child_relations_parents_option}
-    Click Element   ${product_list_filters_parent_child_relations_parents_option}
-    Wait Until Page Contains Element   ${product_list_filters_parent_child_relations_show_all_option}
-    Click Element   ${product_list_filters_parent_child_relations_show_all_option}
-    Wait Until Page Contains Element   ${product_list_filters_parent_child_relations_children_option}
-    Click Element   ${product_list_filters_parent_child_relations_children_option}
+    #---More options---#
+    Click Element   ${product_list_filter_more_button}
+    Element Should Be Visible   ${product_list_filter_more_menu}
+    Click Element   ${product_list_filter_more_parent_child_option}
+
+    #---Parent child relations show all option---#
+    Click Element   ${product_list_filter_parent_child_button}
+    Element Should Be Visible   ${product_list_filter_parent_child_menu}
+    Click Element   ${product_list_filter_parent_child_relations_show_all_option}
+
+    #---Parent child relations parents option---#
+    Click Element   ${product_list_filter_parent_child_button}
+    Element Should Be Visible   ${product_list_filter_parent_child_menu}
+    Click Element   ${product_list_filter_parent_child_relations_parents_option}
+
+    #---Parent child relations children option---#
+    Click Element   ${product_list_filter_parent_child_button}
+    Element Should Be Visible   ${product_list_filter_parent_child_menu}
+    Click Element   ${product_list_filter_parent_child_relations_children_option}
 
 Check Languages On Text Column
-    Sleep  2s
     Wait Until Page Contains Element   ${product_list_text_column_button}
     Click Element   ${product_list_text_column_button}
     Wait Until Page Contains Element   ${product_list_text_column_update_view_button}
@@ -64,13 +77,26 @@ Check Languages On Text Column
     Click Element   ${product_list_text_column_update_view_button}
 
 Column Select Options
-    Sleep  2s
+    #---Set group children with parent in column---#
+    Wait Until Page Contains Element   ${textual_logo}
+    Click Element   ${textual_logo}
+    Wait Until Page Contains Element   ${customer_home_edit_button}
+    Click Element   ${customer_home_edit_button}
+    Wait Until Page Contains Element   ${product_list_column_button}
+    Click Element   ${product_list_column_button}
+    Scroll Element Into View   ${product_list_column_group_children_with_parent_checkbox}
+    Element Should Be Visible    ${product_list_column_group_children_with_parent_checkbox}
+    Click Element   ${product_list_column_group_children_with_parent_checkbox}
+    Wait Until Page Contains Element   ${product_list_column_update_button}
+    Click Element   ${product_list_column_update_button}
+
+    #---Set a combination of options in column---#
     Wait Until Page Contains Element   ${product_list_column_button}
     Click Element   ${product_list_column_button}
     Wait Until Page Contains Element   ${product_list_column_EAN_checkbox}
     Click Element   ${product_list_column_EAN_checkbox}
-    Wait Until Page Contains Element   ${product_list_column_namespace_checkbox}
-    Click Element   ${product_list_column_namespace_checkbox}
+    Wait Until Page Contains Element   ${product_list_column_product_type_checkbox}
+    Click Element   ${product_list_column_product_type_checkbox}
     Wait Until Page Contains Element   ${product_list_column_oiginal_text_checkbox}
     Scroll Element Into View   ${product_list_column_oiginal_text_checkbox}
     Click Element   ${product_list_column_oiginal_text_checkbox}
@@ -84,24 +110,38 @@ Column Select Options
     Scroll Element Into View   ${product_list_column_update_button}
     Click Element   ${product_list_column_update_button}
 
+    #---Set namespace in column---#
+    Wait Until Page Contains Element   ${textual_logo}
+    Click Element   ${textual_logo}
+    Wait Until Page Contains Element   ${customer_home_edit_button}
+    Click Element   ${customer_home_edit_button}
+    Wait Until Page Contains Element   ${product_list_column_button}
+    Click Element   ${product_list_column_button}
+    Wait Until Page Contains Element   ${product_list_column_product_type_checkbox}
+    Click Element   ${product_list_column_product_type_checkbox}
+    Wait Until Page Contains Element   ${product_list_column_update_button}
+    Scroll Element Into View   ${product_list_column_update_button}
+    Click Element   ${product_list_column_update_button}
+    Page Should Contain   Namespace (Product Type)
+
 Create New Filter Group
-    Sleep  2s
+    #---Create New Filter Group---#
     Wait Until Page Contains Element   ${product_list_filters_default_button}
     Click Element   ${product_list_filters_default_button}
-    Sleep  2s
     Wait Until Page Contains Element   ${product_list_filters_default_test}
     Click Element   ${product_list_filters_default_test}
-    Sleep  2s
     Wait Until Page Contains Element   ${product_list_filters_default_testtest}
     Click Element   ${product_list_filters_default_testtest}
     Wait Until Page Contains Element   ${product_list_filters_save_as_button}
     Click Element   ${product_list_filters_save_as_button}
     Input Text   ${product_list_filters_save_as_filter_group_input}  Demo
     Click Element   ${product_list_filters_save_as_filter_group_add}
+
+    #---Create new filter---#
     Wait Until Page Contains Element   ${textual_logo}
     Click Element   ${textual_logo}
-    Wait Until Page Contains Element   ${edit_button}
-    Click Element   ${edit_button}
+    Wait Until Page Contains Element   ${customer_home_edit_button}
+    Click Element   ${customer_home_edit_button}
     Wait Until Page Contains Element   ${product_list_filters_default_button}
     Click Element   ${product_list_filters_default_button}
     Wait Until Page Contains Element   ${product_list_filters_default_test}
@@ -124,31 +164,39 @@ Edit on the product
     Wait Until Page Contains Element   ${edit_list_edit_edit_button}
     Click Element   ${edit_list_edit_edit_button}
     Select Frame   ${edit_list_edit_frame_1}
-    Sleep  2s
+    #Wait Until Page Contains Element   ${edit_list_action_button}
+    #Click Element   ${edit_list_action_button}
+    #Sleep  2s
+    #Wait Until Page Contains Element   ${edit_list_new_button}
+    #Click Element   ${edit_list_new_button}
+    #Sleep  2s
+    #Wait Until Page Contains Element   ${edit_list_action_button}
+    #Click Element   ${edit_list_action_button}
+    #Sleep  2s
+    #Wait Until Page Contains Element   ${edit_list_duplicate_button}
+    #Click Element   ${edit_list_duplicate_button}
+    #Sleep  2s
     Wait Until Page Contains Element   ${edit_list_action_button}
     Click Element   ${edit_list_action_button}
-    Sleep  2s
-    Wait Until Page Contains Element   ${edit_list_new_button}
-    Click Element   ${edit_list_new_button}
-    Sleep  2s
-    Wait Until Page Contains Element   ${edit_list_action_button}
-    Click Element   ${edit_list_action_button}
-    Sleep  2s
-    Wait Until Page Contains Element   ${edit_list_duplicate_button}
-    Click Element   ${edit_list_duplicate_button}
-    Sleep  2s
-    Wait Until Page Contains Element   ${edit_list_action_button}
-    Click Element   ${edit_list_action_button}
-    Sleep  2s
+    Sleep   2s
     Wait Until Page Contains Element   ${edit_list_copy_to_button}
     Click Element   ${edit_list_copy_to_button}
     #Wait Until Page Contains Element  ${edit_list_check_radiobutton}
     #Click Element   ${edit_list_check_radiobutton}
-    Select Frame   ${edit_list_edit_frame_2}
+    #Select Frame   ${edit_list_edit_frame_2}
+    Sleep   2s
+    #Unselect Frame   ${edit_list_edit_frame_1}
     Wait Until Page Contains Element   ${edit_list_keyin_SKU_input}
-    Input Text   ${edit_list_keyin_SKU_input}  6f83a69b-ebcd-4773-b5ea-68bb727143b0
-    Sleep  2s
-
+    Input Text   ${edit_list_keyin_SKU_input}  dcb7b357-c8f4-4042-b73c-92718f649313
+    Wait Until Page Contains Element   ${edit_list_set_status_copy_button}
+    Click Element   ${edit_list_set_status_copy_button}
+    Sleep   2s
 
 End Web Test
     Close Browser
+
+
+#Filter on Published
+#    Click Element   ${product_list_filter_text_status_button}
+#    Element Should Be Visible   ${product_list_filter_text_status_menu}
+#    Click Element   ${product_list_filter_text_status_published_option}

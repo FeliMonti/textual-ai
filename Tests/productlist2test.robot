@@ -38,13 +38,13 @@ User Can Check Selected Laguages On Text Columns
     [Tags]  Product list
     Check Languages On Text Column
 
-User Can Select Different Column Combination
-    [Documentation]  Once enter edit page; user can select different column
-    [Tags]  Product list
-    Column Select Options
-
-User Can Create New Filter Group For Different Viewset
-    [Documentation]  Once enter edit page; user can select different viewset
-    [Tags]  Product list
-    Create New Filter Group
+#User Can Select Different Column Combination
+#    [Documentation]  Once enter edit page; user can select different column
+#    [Tags]  Product list
+#    Column Select Options
+#
+#User Can Create New Filter Group For Different Viewset
+#    [Documentation]  Once enter edit page; user can select different viewset
+#    [Tags]  Product list
+#    Create New Filter Group
 
