@@ -196,7 +196,4 @@ End Web Test
     Close Browser
 
 
-#Filter on Published
-#    Click Element   ${product_list_filter_text_status_button}
-#    Element Should Be Visible   ${product_list_filter_text_status_menu}
-#    Click Element   ${product_list_filter_text_status_published_option}
+
