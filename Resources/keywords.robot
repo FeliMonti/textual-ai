@@ -302,8 +302,8 @@ Column Select Options
     Click Element   ${product_list_column_button}
     Wait Until Page Contains Element   ${product_list_column_EAN_checkbox}
     Click Element   ${product_list_column_EAN_checkbox}
-    Wait Until Page Contains Element   ${product_list_column_namespace_checkbox}
-    Click Element   ${product_list_column_namespace_checkbox}
+    Wait Until Page Contains Element   ${product_list_column_product_type_checkbox}
+    Click Element   ${product_list_column_product_type_checkbox}
     Wait Until Page Contains Element   ${product_list_column_oiginal_text_checkbox}
     Scroll Element Into View   ${product_list_column_oiginal_text_checkbox}
     Click Element   ${product_list_column_oiginal_text_checkbox}
@@ -320,12 +320,12 @@ Column Select Options
     #---Set namespace in column---#
     Wait Until Page Contains Element   ${textual_logo}
     Click Element   ${textual_logo}
-    Wait Until Page Contains Element   ${edit_button}
-    Click Element   ${edit_button}
+    Wait Until Page Contains Element   ${customer_home_edit_button}
+    Click Element   ${customer_home_edit_button}
     Wait Until Page Contains Element   ${product_list_column_button}
     Click Element   ${product_list_column_button}
-    Wait Until Page Contains Element   ${product_list_column_namespace_checkbox}
-    Click Element   ${product_list_column_namespace_checkbox}
+    Wait Until Page Contains Element   ${product_list_column_product_type_checkbox}
+    Click Element   ${product_list_column_product_type_checkbox}
     Wait Until Page Contains Element   ${product_list_column_update_button}
     Scroll Element Into View   ${product_list_column_update_button}
     Click Element   ${product_list_column_update_button}
@@ -334,8 +334,8 @@ Column Select Options
     #---Set group children with parent in column---#
     Wait Until Page Contains Element   ${textual_logo}
     Click Element   ${textual_logo}
-    Wait Until Page Contains Element   ${edit_button}
-    Click Element   ${edit_button}
+    Wait Until Page Contains Element   ${customer_home_edit_button}
+    Click Element   ${customer_home_edit_button}
     Wait Until Page Contains Element   ${product_list_column_button}
     Click Element   ${product_list_column_button}
     Wait Until Page Contains Element   ${product_list_column_group_children_with_parent_checkbox}
@@ -354,14 +354,18 @@ Create New Filter Group
     Click Element   ${product_list_filters_default_testtest}
     Wait Until Page Contains Element   ${product_list_filters_save_as_button}
     Click Element   ${product_list_filters_save_as_button}
-    Input Text   ${product_list_filters_save_as_filter_group_input}  Demo
+    ${group_name}=  Generate Random String  length=8  chars=[LETTERS][NUMBERS]
+    Input Text   ${product_list_filters_save_as_filter_group_input}  ${group_name}
     Click Element   ${product_list_filters_save_as_filter_group_add}
+
+    # At this point page goes blank, this is a known bug (TEX-4762).
+    # Once fixed, the workaround below should not be needed.
 
     #---Create new filter---#
     Wait Until Page Contains Element   ${textual_logo}
     Click Element   ${textual_logo}
-    Wait Until Page Contains Element   ${edit_button}
-    Click Element   ${edit_button}
+    Wait Until Page Contains Element   ${customer_home_edit_button}
+    Click Element   ${customer_home_edit_button}
     Wait Until Page Contains Element   ${product_list_filters_default_button}
     Click Element   ${product_list_filters_default_button}
     Wait Until Page Contains Element   ${product_list_filters_default_test}
@@ -370,6 +374,10 @@ Create New Filter Group
     Click Element   ${product_list_filters_default_testtest}
     Wait Until Page Contains Element   ${product_list_filters_save_as_button}
     Click Element   ${product_list_filters_save_as_button}
+
+    # Search input for filter group names: //div[@role="combobox"]//*[contains(text(),"Choose Group")]/../input
+    # Arrow dropdown to show existing filter groups: //div[@role="combobox"]//*[contains(text(),"Choose Group")]/../iß
+
     Wait Until Page Contains Element   ${product_list_filters_save_as_choose_group_option}
     Click Element   ${product_list_filters_save_as_choose_group_option}
     Wait Until Page Contains Element   ${product_list_filters_save_as_choose_group_demo_option}

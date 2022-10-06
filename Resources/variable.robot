@@ -68,7 +68,7 @@ ${product_list_column_product_type_checkbox}  xpath://*[@data-testid="product_ty
 ${product_list_column_oiginal_text_checkbox}  xpath://*[@data-testid="original_text"]
 ${product_list_column_text_statuses_checkbox}  xpath://*[@data-testid="text_statuses"]
 ${product_list_column_product_checkbox}  xpath://*[@data-testid="product"]
-${product_list_column_group_children_with_parent_checkbox}  xpath://div[@role="option"]//*[contains(text(),"Group children with parent")]/../..//*[@class="ui checked checkbox"]
+${product_list_column_group_children_with_parent_checkbox}  xpath://div[@role="option"]//*[contains(text(),"Group children with parent")]/..
 ${product_list_column_update_button}  xpath://*[@data-testid="update-selected-columns-button"]
 
 ${product_list_menu}  xpath://a[@href="#"][@title="Menu"]
@@ -78,7 +78,7 @@ ${product_list_filters_default_test}  xpath://*[@data-testid="accordian-title-TE
 ${product_list_filters_default_testtest}  xpath://*[@class="ui mini fluid vertical buttons"]//*[contains(text(),"Testtest")]
 ${product_list_filters_save_as_button}  xpath://*[@data-testid="product-filter-saveas-button"]
 ${product_list_filters_save_as_filter_group_input}  xpath://input[@class="search"]
-${product_list_filters_save_as_filter_group_add}  xpath:'//div[@role="option"]//*[contains(text(),"Add")]/../..//*[@class="text"]
+${product_list_filters_save_as_filter_group_add}  xpath://div[@role="option"]/*[contains(text(),"Add")]
 ${product_list_filters_save_as_choose_group_option}  xpath://div[@role="combobox"]//*[contains(text(),"Choose Group")]/../..//*[@class="search"]
 ${product_list_filters_save_as_choose_group_demo_option}  xpath://*[@class="text"][contains(text(),"Demo")]
 ${product_list_filters_save_as_filter_name_input}  xpath://input[@placeholder="Filter name..."]
