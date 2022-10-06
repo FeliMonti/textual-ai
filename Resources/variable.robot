@@ -7,7 +7,7 @@ ${login_username_email_input}  name:username
 ${login_password_input}  id:id_password
 ${login_button}  xpath://button[contains(text(), "Log in")]
 ${customer_home_edit_button}  xpath://a[@class="pbutton pbutton-primary"][contains(text(), "Edit")]
-
+${textual_logo}  xpath://*[@class="logo"]
 ${product_list_search_button}  xpath://*[@data-testid="searchButton"]
 ${product_list_search_text_input}  xpath://*[@data-testid="searchQuery"]//input
 
@@ -38,61 +38,53 @@ ${product_list_filter_text_status_approved_option}  xpath://*[@data-testid="text
 ${product_list_filter_text_status_waiting_to_be_published_option}  xpath://*[@data-testid="text-status-option-4"]
 ${product_list_filter_text_status_published_option}  xpath://*[@data-testid="text-status-option-5"]
 
+${product_list_filter_translation_status_button}  xpath://*[@data-testid="translation-status"][@role="listbox"]
+${product_list_filter_translation_status_menu}  xpath://*[@class="visible menu transition"]
+${product_list_filter_translation_status_show_all_option}  xpath://*[@data-testid="translation-status-option-1"]
+${product_list_filter_translation_status_missing_translations_option}  xpath://*[@data-testid="translation-status-option-2"]
+${product_list_filter_translation_status_complete_translations_option}  xpath://*[@data-testid="translation-status-option-3"]
 
+${product_list_filter_more_button}  xpath://*[@data-testid="product-filter-add-filter"]
+${product_list_filter_more_menu}  xpath://*[@data-testid="product-filter-add-filter"]//*[@class="menu transition visible"]
+${product_list_filter_more_parent_child_option}  xpath://*[@data-testid="parentChild"]
 
-${product_list_filters_translation_status_show_all_option}  xpath=/html/body/div[4]/div/div[2]/div/div[1]/div/div[3]/div/div[2]/div[1]/div[3]/div[2]
-${product_list_filters_translation_status_missing_translations_option}  xpath=/html/body/div[4]/div/div[2]/div/div[1]/div/div[3]/div/div[2]/div[1]/div[3]/div[2]/div/div[2]
-${product_list_filters_translation_status_complete_translations_option}  xpath=/html/body/div[4]/div/div[2]/div/div[1]/div/div[3]/div/div[2]/div[1]/div[3]/div[2]/div/div[3]
-${product_list_filters_more_option}  xpath=/html/body/div[4]/div/div[2]/div/div[1]/div/div[3]/div/div[2]/div[1]/div[4]/div[1]
-${product_list_filters_parent_child_option}  xpath=/html/body/div[4]/div/div[2]/div/div[1]/div/div[3]/div/div[2]/div[1]/div[4]/div[1]/div/div[2]
-${product_list_filters_parent_child_relations_show_all_option}  xpath=/html/body/div[4]/div/div[2]/div/div[1]/div/div[3]/div/div[2]/div[2]/div/div[2]
-${product_list_filters_parent_child_relations_parents_option}  xpath=/html/body/div[4]/div/div[2]/div/div[1]/div/div[3]/div/div[2]/div[2]/div/div[2]/div/div[2]
-${product_list_filters_parent_child_relations_children_option}  xpath=/html/body/div[4]/div/div[2]/div/div[1]/div/div[3]/div/div[2]/div[2]/div/div[2]/div/div[3]
-${product_list_text_column_button}  xpath=/html/body/div[4]/div/div[2]/div/div[2]/div/button
-${product_list_text_column_text&bullet_select_all_checkbox}  xpath=/html/body/div[5]/div/div[2]/div/div[2]/div/table/tfoot/tr/th[4]
-${product_list_text_column_update_view_button}  xpath=/html/body/div[5]/div/div[3]/button[2]
+${product_list_filter_more_button}  xpath://*[@data-testid="product-filter-add-filter"]
+${product_list_filter_more_menu}  xpath://*[@data-testid="product-filter-add-filter"]//*[@class="menu transition visible"]
+${product_list_filter_more_parent_child_option}  xpath://*[@data-testid="parentChild"]
 
-${product_list_column_button}  xpath=/html/body/div[4]/div/div[2]/div/div[2]/div/div[2]/div
-${product_list_column_EAN_checkbox}  xpath=/html/body/div[4]/div/div[2]/div/div[2]/div/div[2]/div/div[2]/div[3]/div
-${product_list_column_namespace_checkbox}  xpath=/html/body/div[4]/div/div[2]/div/div[2]/div/div[2]/div/div[2]/div[4]/div
-${product_list_column_namespace_product_type}  xpath=/html/body/div[4]/div/div[2]/div/div[2]/div/table/thead/tr/th[3]
-${product_list_column_oiginal_text_checkbox}  xpath=/html/body/div[4]/div/div[2]/div/div[2]/div/div[2]/div/div[2]/div[5]/div
-${product_list_column_text_statuses_checkbox}  xpath=/html/body/div[4]/div/div[2]/div/div[2]/div/div[2]/div/div[2]/div[6]/div
-${product_list_column_product_checkbox}  xpath=/html/body/div[4]/div/div[2]/div/div[2]/div/div[2]/div/div[2]/div[7]/div
-${product_list_column_group_children_with_parent_checkbox}  xpath=/html/body/div[4]/div/div[2]/div/div[2]/div/div[2]/div/div[2]/div[15]
-${product_list_column_update_button}  xpath=/html/body/div[4]/div/div[2]/div/div[2]/div/div[2]/div/div[2]/div[16]/button
-${bar_menu}  xpath=/html/body/div[1]/div/div/a/i
-${bar_menu_manage}  xpath=/html/body/div[1]/div/div/div/ul/li[12]/a/span
-${bar_menu_manage_filter_group}  xpath=//html/body/div[4]/div/div[1]/ul/li[4]
+${product_list_filter_parent_child_button}  xpath://*[@data-testid="parent-child-relations"]
+${product_list_filter_parent_child_menu}  //*[@data-testid="parent-child-relations"]//*[@class="visible menu transition"]
+${product_list_filter_parent_child_relations_show_all_option}  xpath://*[@data-testid="parent-child-relations-option-1"]
+${product_list_filter_parent_child_relations_parents_option}  xpath://*[@data-testid="parent-child-relations-option-2"]
+${product_list_filter_parent_child_relations_children_option}  xpath://*[@data-testid="parent-child-relations-option-3"]
 
-${product_list_filters_default_button}  xpath=/html/body/div[4]/div/div[2]/div/div[1]/div/div[2]/div
-${product_list_filters_default_test}  xpath=/html/body/div[4]/div/div[2]/div/div[1]/div/div[2]/div/div[2]/div[2]/div[1]
-${product_list_filters_default_testtest}  xpath=/html/body/div[4]/div/div[2]/div/div[1]/div/div[2]/div[1]/div[2]/div[2]/div[2]/div/button[2]
-${product_list_filters_save_as_button}  xpath=/html/body/div[4]/div/div[2]/div/div[1]/div/div[2]/div[2]/div[3]
-${product_list_filters_save_as_filter_group_input}  xpath=/html/body/div[4]/div/div[2]/div/div[1]/div/div[2]/div[2]/div[3]/div[2]/div[2]/div/input
-${product_list_filters_save_as_filter_group_add}  xpath=/html/body/div[4]/div/div[2]/div/div[1]/div/div[2]/div[2]/div[3]/div[2]/div[2]/div/div[2]/div
-${textual_logo}  xpath=/html/body/div[1]/div/a
-${product_list_filters_save_as_choose_group_option}  xpath=/html/body/div[4]/div/div[2]/div/div[1]/div/div[2]/div[2]/div[3]/div[2]/div[2]/div/i
-${product_list_filters_save_as_choose_group_demo_option}  xpath=/html/body/div[4]/div/div[2]/div/div[1]/div/div[2]/div[2]/div[3]/div[2]/div[2]/div/div[2]/div[4]
-${product_list_filters_save_as_filter_name_input}  xpath=/html/body/div[4]/div/div[2]/div/div[1]/div/div[2]/div[2]/div[3]/div[2]/div[5]/div/input
-${product_list_filters_save_as_filter_name_create_filter_button}  xpath=/html/body/div[4]/div/div[2]/div/div[1]/div/div[2]/div[2]/div[3]/div[2]/div[6]/button
-${product_list_filters_successful_verification}  xpath=//*[@id="react-django-toast"]/div/div/div/div
+${product_list_text_column_button}  xpath://*[@data-testid="channel-language-selector-button-open-button"]
+${product_list_text_column_text&bullet_select_all_checkbox}  xpath://*[@data-testid="select-all-checkbox-1056"]
+${product_list_text_column_update_view_button}  xpath://*[@data-testid="submitButton"][contains(text(), "Update view")]
 
-${edit_list_edit_frame_1}  xpath=/html/body/iframe
-${edit_list_edit_edit_button}  xpath=/html/body/div[4]/div/div[2]/div/div[2]/div/table/tbody/tr[1]/td[8]/div/div[1]/div[1]/a
-${edit_list_name_input}  //*[@id="id_name"]
-${edit_list_action_button}  xpath=/html/body/div[3]/div[1]/div/div[2]/div[1]/span[1]
-${edit_list_new_button}  xpath=/html/body/div[3]/div[1]/div/div[2]/div[2]/a/span
-${edit_list_duplicate_button}  xpath=/html/body/div[3]/div[1]/div/div[2]/div[2]/form[1]/button
-${edit_list_copy_to_button}  data:testid:fromto
-${edit_list_keyin_SKU_input}  xpath=/html/body/div[5]/div/div[2]/form/div[2]/div/input
-${edit_list_copy_from_button}  data:testid:tofrom
-${edit_list_set_status_button}  xpath=/html/body/div[3]/div[1]/div/div[3]/div/div[1]/span[1]
-${edit_list_set_status_importing_radiobutton}  xpath=//*[@id="change-product-status-form"]/button[1]/i
-${edit_list_set_status_in_progress_radiobutton}  xpath=//*[@id="change-product-status-form"]/button[2]/i
-${edit_list_set_status_ready_radiobutton}  xpath=//*[@id="change-product-status-form"]/button[3]/i
-${edit_list_set_status_copy_button}  xpath=/html/body/div[5]/div/div[4]/button[2]
+${product_list_column_button}  xpath://*[@data-testid="columns-selector-button"]
+${product_list_column_EAN_checkbox}  xpath://*[@data-testid="EAN"]
+${product_list_column_product_type_checkbox}  xpath://*[@data-testid="product_type"]
+${product_list_column_oiginal_text_checkbox}  xpath://*[@data-testid="original_text"]
+${product_list_column_text_statuses_checkbox}  xpath://*[@data-testid="text_statuses"]
+${product_list_column_product_checkbox}  xpath://*[@data-testid="product"]
+${product_list_column_group_children_with_parent_checkbox}  xpath://div[@role="option"]//*[contains(text(),"Group children with parent")]/../..//*[@class="ui checked checkbox"]
+${product_list_column_update_button}  xpath://*[@data-testid="update-selected-columns-button"]
 
+${product_list_menu}  xpath://a[@href="#"][@title="Menu"]
+${product_list_menu_manage}  xpath://*[@class="timeout"]//*[contains(text(),"Manage")]
+${product_list_filters_default_button}  xpath://*[@data-testid="filter-group-dropdown"]
+${product_list_filters_default_test}  xpath://*[@data-testid="accordian-title-TEST"]
+${product_list_filters_default_testtest}  xpath://*[@class="ui mini fluid vertical buttons"]//*[contains(text(),"Testtest")]
+${product_list_filters_save_as_button}  xpath://*[@data-testid="product-filter-saveas-button"]
+${product_list_filters_save_as_filter_group_input}  xpath://input[@class="search"]
+${product_list_filters_save_as_filter_group_add}  xpath:'//div[@role="option"]//*[contains(text(),"Add")]/../..//*[@class="text"]
+${product_list_filters_save_as_choose_group_option}  xpath://div[@role="combobox"]//*[contains(text(),"Choose Group")]/../..//*[@class="search"]
+${product_list_filters_save_as_choose_group_demo_option}  xpath://*[@class="text"][contains(text(),"Demo")]
+${product_list_filters_save_as_filter_name_input}  xpath://input[@placeholder="Filter name..."]
+${product_list_filters_save_as_filter_name_create_filter_button}  xpath://button[contains(text(),"Create Filter")]
+${product_list_filters_successful_verification}  xpath://*[@id="react-django-toast"]
+${product_list_edit_button}  xpath://*[@data-table-cell="1-8"][@class="collapsing links"]//*[@data-testid="product-list-edit-button"]
 
 #---Edit Function---#
 ${product_list_edit_button}  xpath://*[@data-table-cell="2-8"][@class="collapsing links"]//*[@data-testid="product-list-edit-button"]
@@ -176,12 +168,25 @@ ${edit_list_additional_information_column}  xpath://div[@class="column"]//*[cont
 ${edit_list_original_headline_input}  xpath://input[@id="id_original_headline"]
 ${edit_list_original_text_textarea}  xpath://*[@id="id_original_text"]
 
+${edit_list_subpage_iframe}  xpath://*[@class="subpage-iframe"]
+${edit_list_edit_tab}  xpath://a[@data-test="edit-tab"]
+${edit_list_name_input}  xpath://input[@id="id_name"]
+${edit_list_action_button}  xpath://*[@class="action menu"]
+${edit_list_action_new_button}  xpath://*[@data-test="action-new"]
+${edit_list_action_duplicate_button}  xpath://*[@data-test="action-duplicate"]
+${edit_list_action_copy_to_button}  xpath://button[@data-testid="fromto"]  #data:testid:fromto
+${edit_list_SKU_EAN_input}  xpath://*[@data-testid="SKU-EAN-input"]//input
+${edit_list_action_copy_from_button}  xpath://button[@data-testid="tofrom"]  #data:testid:tofrom
+${edit_list_set_product_status_button}  xpath://*[@class="product-status menu"]
+${edit_list_set_status_importing_radiobutton}  xpath://*[@id="change-product-status-form"]//*[contains(text(),"Importing")]
+${edit_list_set_status_in_progress_radiobutton}  xpath://*[@id="change-product-status-form"]//*[contains(text(),"In progress")]
+${edit_list_set_status_ready_radiobutton}  xpath://*[@id="change-product-status-form"]//*[contains(text(),"Ready")]
 
 
-
-#${edit_list_edit_frame_2}  xpath=/html/body/div[5]/div
-#${edit_list_check_radiobutton}   xpath=/html/body/div[6]/div/div[2]/form/div[1]/div[2]/div
 #${orange_eye_ico}  xpath=/html/body/div[4]/div/div[2]/div/div[2]/div/table/tbody/tr[1]/td[4]/div/i[1]
 #${green_tick_icon}  xpath=/html/body/div[4]/div/div[2]/div/div[2]/div/table/tbody/tr/td[4]/div/i/i
 #${orange_hour_glass_icon}  xpath=/html/body/div[4]/div/div[2]/div/div[2]/div/table/tbody/tr[1]/td[4]/div/i[1]/i
 #${blue_paper_areoplane_icon}  xpath=/html/body/div[4]/div/div[2]/div/div[2]/div/table/tbody/tr[2]/td[7]/div/i/i
+
+#${edit_list_check_radiobutton}  xpath=/html/body/div[6]/div/div[2]/form/div[1]/div[2]/div
+#${product_list_menu_manage_filter_group}  xpath=//html/body/div[4]/div/div[1]/ul/li[4]

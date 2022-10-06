@@ -246,28 +246,42 @@ Filter on Published
     Click Element   ${product_list_filter_text_status_published_option}
 
 Check Translation Status
-    Wait Until Page Contains Element   ${product_list_filters_translation_status_show_all_option}
-    Click Element   ${product_list_filters_translation_status_show_all_option}
-    Wait Until Page Contains Element   ${product_list_filters_translation_status_missing_translations_option}
-    Click Element   ${product_list_filters_translation_status_missing_translations_option}
-    Wait Until Page Contains Element   ${product_list_filters_translation_status_show_all_option}
-    Click Element   ${product_list_filters_translation_status_show_all_option}
-    Wait Until Page Contains Element   ${product_list_filters_translation_status_complete_translations_option}
-    Click Element   ${product_list_filters_translation_status_complete_translations_option}
+    #---Show all option---#
+    Wait Until Page Contains Element   ${product_list_filter_translation_status_button}
+    Click Element   ${product_list_filter_translation_status_button}
+    Element Should Be Visible   ${product_list_filter_translation_status_menu}
+    Click Element   ${product_list_filter_translation_status_show_all_option}
+
+    #---Missing translation option---#
+    Click Element   ${product_list_filter_translation_status_button}
+    Element Should Be Visible   ${product_list_filter_translation_status_menu}
+    Click Element   ${product_list_filter_translation_status_missing_translations_option}
+
+    #---Complete translation option---#
+    Click Element   ${product_list_filter_translation_status_button}
+    Element Should Be Visible   ${product_list_filter_translation_status_menu}
+    Click Element   ${product_list_filter_translation_status_complete_translations_option}
 
 Check Parent-Child Relations
-    Wait Until Page Contains Element   ${product_list_filters_more_option}
-    Click Element   ${product_list_filters_more_option}
-    Wait Until Page Contains Element   ${product_list_filters_parent_child_option}
-    Click Element   ${product_list_filters_parent_child_option}
-    Wait Until Page Contains Element   ${product_list_filters_parent_child_relations_show_all_option}
-    Click Element   ${product_list_filters_parent_child_relations_show_all_option}
-    Wait Until Page Contains Element   ${product_list_filters_parent_child_relations_parents_option}
-    Click Element   ${product_list_filters_parent_child_relations_parents_option}
-    Wait Until Page Contains Element   ${product_list_filters_parent_child_relations_show_all_option}
-    Click Element   ${product_list_filters_parent_child_relations_show_all_option}
-    Wait Until Page Contains Element   ${product_list_filters_parent_child_relations_children_option}
-    Click Element   ${product_list_filters_parent_child_relations_children_option}
+    #---More options---#
+    Click Element   ${product_list_filter_more_button}
+    Element Should Be Visible   ${product_list_filter_more_menu}
+    Click Element   ${product_list_filter_more_parent_child_option}
+
+    #---Parent child relations show all option---#
+    Click Element   ${product_list_filter_parent_child_button}
+    Element Should Be Visible   ${product_list_filter_parent_child_menu}
+    Click Element   ${product_list_filter_parent_child_relations_show_all_option}
+
+    #---Parent child relations parents option---#
+    Click Element   ${product_list_filter_parent_child_button}
+    Element Should Be Visible   ${product_list_filter_parent_child_menu}
+    Click Element   ${product_list_filter_parent_child_relations_parents_option}
+
+    #---Parent child relations children option---#
+    Click Element   ${product_list_filter_parent_child_button}
+    Element Should Be Visible   ${product_list_filter_parent_child_menu}
+    Click Element   ${product_list_filter_parent_child_relations_children_option}
 
 Check Languages On Text Column
     Wait Until Page Contains Element   ${product_list_text_column_button}
