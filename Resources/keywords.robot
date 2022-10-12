@@ -44,8 +44,8 @@ Search for SKU
     Input Text   ${product_list_search_text_input}   dcb7b357-c8f4-4042-b73c-92718f649313
     Click Element   ${product_list_search_button}
     Double Click Element   ${product_list_search_text_input}
-    Press Keys   ${product_list_search_text_input}  CTRL+A+DELETE
-    #Clear Element Text   ${product_list_search_text_input}
+    Press Keys   ${product_list_search_text_input}  CTRL+A+DELETE     # It only works for Window.
+    #Clear Element Text   ${product_list_search_text_input}    #It doesn't work
     Click Element   ${product_list_search_button}
     Wait Until Page Contains Element   ${product_list_search_text_input}
 
@@ -58,7 +58,6 @@ Filter by Product Creation Date
     Click Element   ${product_list_filter_by_date_after_button}
     Element Should Be Visible   ${product_list_filter_by_date_after_datepicker}
     Click Element   ${product_list_filter_by_date_after_date_button}
-    #Wait Until Page Contains Element   ${product_list_filter_by_date_after_chosen_listbox}
     Click Element   ${product_list_filter_by_date_close_button}
     Wait Until Page Contains Element   ${product_list_filter_by_date_after_button}
 
@@ -66,7 +65,6 @@ Filter by Product Creation Date
     Click Element   ${product_list_filter_by_date_before_button}
     Element Should Be Visible   ${product_list_filter_by_date_before_datepicker}
     Click Element   ${product_list_filter_by_date_before_date_button}
-    #Wait Until Page Contains Element   ${product_list_filter_by_date_before_chosen_listbox}
     Click Element   ${product_list_filter_by_date_close_button}
     Wait Until Page Contains Element   ${product_list_filter_by_date_before_button}
 
@@ -74,11 +72,9 @@ Filter by Product Creation Date
     Click Element   ${product_list_filter_by_date_after_button}
     Element Should Be Visible   ${product_list_filter_by_date_after_datepicker}
     Click Element   ${product_list_filter_by_date_after_date_button}
-    #Wait Until Page Contains Element   ${product_list_filter_by_date_after_chosen_listbox}
     Click Element   ${product_list_filter_by_date_before_button}
     Element Should Be Visible   ${product_list_filter_by_date_before_datepicker}
     Click Element   ${product_list_filter_by_date_before_date_button}
-    #Wait Until Page Contains Element   ${product_list_filter_by_date_before_chosen_listbox}
     Click Element   ${product_list_filter_by_date_close_button}
     Wait Until Page Contains Element   ${product_list_filter_by_date_after_button}
     Click Element   ${product_list_filter_by_date_close_button}
@@ -93,7 +89,6 @@ Filter by Latest Publication Date
     Click Element   ${product_list_filter_by_date_after_button}
     Element Should Be Visible   ${product_list_filter_by_date_after_datepicker}
     Click Element   ${product_list_filter_by_date_after_date_button}
-    #Wait Until Page Contains Element   ${product_list_filter_by_date_after_chosen_listbox}
     Click Element   ${product_list_filter_by_date_close_button}
     Wait Until Page Contains Element   ${product_list_filter_by_date_after_button}
 
@@ -101,7 +96,6 @@ Filter by Latest Publication Date
     Click Element   ${product_list_filter_by_date_before_button}
     Element Should Be Visible   ${product_list_filter_by_date_before_datepicker}
     Click Element   ${product_list_filter_by_date_before_date_button}
-    #Wait Until Page Contains Element   ${product_list_filter_by_date_before_chosen_listbox}
     Click Element   ${product_list_filter_by_date_close_button}
     Wait Until Page Contains Element   ${product_list_filter_by_date_before_button}
 
@@ -109,11 +103,9 @@ Filter by Latest Publication Date
     Click Element   ${product_list_filter_by_date_after_button}
     Element Should Be Visible   ${product_list_filter_by_date_after_datepicker}
     Click Element   ${product_list_filter_by_date_after_date_button}
-    #Wait Until Page Contains Element   ${product_list_filter_by_date_after_chosen_listbox}
     Click Element   ${product_list_filter_by_date_before_button}
     Element Should Be Visible   ${product_list_filter_by_date_before_datepicker}
     Click Element   ${product_list_filter_by_date_before_date_button}
-    #Wait Until Page Contains Element   ${product_list_filter_by_date_before_chosen_listbox}
     Click Element   ${product_list_filter_by_date_close_button}
     Wait Until Page Contains Element   ${product_list_filter_by_date_after_button}
     Click Element   ${product_list_filter_by_date_close_button}
@@ -135,20 +127,17 @@ Filter by Product Creation Date Combined SKU Search
     Click Element   ${product_list_filter_by_date_after_button}
     Element Should Be Visible   ${product_list_filter_by_date_after_datepicker}
     Click Element   ${product_list_filter_by_date_after_date_button}
-    #Wait Until Page Contains Element   ${product_list_filter_by_date_after_chosen_listbox}
 
     #---Choose before date---#
     Click Element   ${product_list_filter_by_date_before_button}
     Element Should Be Visible   ${product_list_filter_by_date_before_datepicker}
     Click Element   ${product_list_filter_by_date_before_date_button}
-    #Wait Until Page Contains Element   ${product_list_filter_by_date_before_chosen_listbox}
 
     #----Search for result with above options---#
     Click Element   ${product_list_search_button}
-    #Clear Element Text  ${product_list_search_text_input}
-    #Sleep  2s
+    #Clear Element Text  ${product_list_search_text_input}    #It doesn't work
     Double Click Element   ${product_list_search_text_input}
-    Press Keys   ${product_list_search_text_input}   CTRL+A+DELETE
+    Press Keys   ${product_list_search_text_input}   CTRL+A+DELETE   #Only works for Window
     Click Element   ${product_list_search_button}
     Wait Until Page Contains Element   ${product_list_search_text_input}
     Click Element   ${product_list_filter_by_date_close_button}
@@ -172,19 +161,17 @@ Filter by Latest Publication Date Combined SKU Search
     Click Element   ${product_list_filter_by_date_after_button}
     Element Should Be Visible   ${product_list_filter_by_date_after_datepicker}
     Click Element   ${product_list_filter_by_date_after_date_button}
-    #Wait Until Page Contains Element   ${product_list_filter_by_date_after_chosen_listbox}
 
     #---Choose before date---#
     Click Element   ${product_list_filter_by_date_before_button}
     Element Should Be Visible   ${product_list_filter_by_date_before_datepicker}
     Click Element   ${product_list_filter_by_date_before_date_button}
-    #Wait Until Page Contains Element   ${product_list_filter_by_date_before_chosen_listbox}
 
     #----Search for result with above options---#
     Click Element   ${product_list_search_button}
-    #Clear Element Text  ${product_list_search_text_input}
+    #Clear Element Text  ${product_list_search_text_input}    #It doesn't work
     Double Click Element   ${product_list_search_text_input}
-    Press Keys   ${product_list_search_text_input}   CTRL+A+DELETE
+    Press Keys   ${product_list_search_text_input}   CTRL+A+DELETE   #Only works for Window
     Click Element   ${product_list_search_button}
     Wait Until Page Contains Element   ${product_list_search_text_input}
 
@@ -376,6 +363,7 @@ Access To Edit Subpage Frame
     Click Element   ${product_list_edit_button}
     Select Frame    ${edit_list_subpage_iframe}
     Wait Until Page Contains Element   ${edit_list_edit_tab}
+    Click Element   ${edit_list_edit_tab}
 
 Navigate On Action Button
     #---new---#
@@ -419,232 +407,314 @@ Navigate On Action Button
 
 Add Main Category
     Wait Until Page Contains Element   ${edit_list_main_catogary_input}
-    Input Text  ${edit_list_main_catogary_input}
-
-Navigate On Attribute
-    Wait Until Page Contains Element   ${edit_list_edit_field_add}
-    Click Element   ${edit_list_edit_field_add}
-    Wait Until Page Contains   new attribute
-    Wait Until Page Contains Element   ${edit_list_subpart_attribute_input}
-    ${attribute_input}=  Generate Random String  length=8  chars=[LETTERS][NUMBERS]
-    Input Text   ${product_list_filter_save_as_filter_group_input}  ${attribute_input}
-    Wait Until Page Contains Element   ${edit_list_request_button}
-    Click Element   ${edit_list_request_button}
-    Wait Until Page Contains Element   ${edit_list_request_submit_button}
-    Click Element   ${edit_list_request_submit_button}
-
-#    Input Text   ${edit_list_subpart_attribute_input}   frame
-#    Wait Until Page Contains Element   ${edit_list_subpart_attribute_suggestions_container}
-#    Wait Until Page Contains Element   ${edit_list_subpart_attribute_menu_item_suggestion_item}
-#    Click Element   ${edit_list_subpart_attribute_menu_item_suggestion_item}
-#    Wait Until Page Contains
-#    Click Element   ${edit_list_subpart_attribute_delete_icon}
-#    Wait Until Page Contains Element  ${edit_list_subpart_attribute_input}
-
-Navigate On Properties
-    Wait Until Page Contains Element   ${edit_list_properties_input}
-    ${properties_input}=  Generate Random String  length=8  chars=[LETTERS][NUMBERS]
-    Input Text   ${product_list_filter_save_as_filter_group_input}  ${properties_input}
-    Wait Until Page Contains Element   ${edit_list_request_button}
-    Click Element   ${edit_list_request_button}
-    Wait Until Page Contains Element   ${edit_list_request_submit_button}
-    Click Element   ${edit_list_request_submit_button}
-
-#    Wait Until Page Contains Element   ${edit_list_occasion_input}
-#    Input Text   ${edit_list_occasion_input}  beautiful
-#    Wait Until Page Contains Element   ${edit_list_properties_suggestions_container}
-#    Wait Until Page Contains Element   ${edit_list_properties_menu_item_suggestion_item}
-#    Click Element   ${edit_list_properties_menu_item_suggestion_item}
-#    Wait Until Page Contains  beautiful
-#    Click Element   ${edit_list_properties_delete_icon}
-#    Wait Until Page Contains Element  ${edit_list_properties_input}
-
-Navigate On Occasion
-    Wait Until Page Contains Element   ${edit_list_properties_input}
-    ${ocassion_input}=  Generate Random String  length=8  chars=[LETTERS][NUMBERS]
-    Input Text   ${product_list_filter_save_as_filter_group_input}  ${occasion_input}
-    Wait Until Page Contains Element   ${edit_list_request_button}
-    Click Element   ${edit_list_request_button}
-    Wait Until Page Contains Element   ${edit_list_request_submit_button}
-    Click Element   ${edit_list_request_submit_button}
-
-#    Wait Until Page Contains Element   ${edit_list_occasion_input}
-#    Input Text   ${edit_list_occasion_input}  summer
-#    Wait Until Page Contains Element   ${edit_list_occasion_suggestions_container}
-#    Wait Until Page Contains Element   ${edit_list_occasion_menu_item_suggestion_item}
-#    Click Element   ${edit_list_occasion_menu_item_suggestion_item}
-#    Wait Until Page Contains  for the summer party
-#    Click Element   ${edit_list_occasion_delete_icon}
-#    Wait Until Page Contains Element  ${edit_list_occasion_input}
-
-Navigate On Color
-    Wait Until Page Contains Element   ${edit_list_properties_input}
-    ${color_input}=  Generate Random String  length=8  chars=[LETTERS][NUMBERS]
-    Input Text   ${product_list_filter_save_as_filter_group_input}  ${color_input}
-    Wait Until Page Contains Element   ${edit_list_request_button}
-    Click Element   ${edit_list_request_button}
-    Wait Until Page Contains Element   ${edit_list_request_submit_button}
-    Click Element   ${edit_list_request_submit_button}
-
-#    Wait Until Page Contains Element   ${edit_list_color_input}
-#    Input Text   ${edit_list_color_input}  orange
-#    Wait Until Page Contains Element   ${edit_list_color_suggestions_container}
-#    Wait Until Page Contains Element   ${edit_list_color_menu_item_suggestion_item}
-#    Click Element   ${edit_list_color_menu_item_suggestion_item}
-#    Wait Until Page Contains  orange
-#    Wait Until Page Contains Element   ${edit_list_color_delete_icon}
-#    Click Element   ${edit_list_color_delete_icon}
-#    Wait Until Page Contains Element  ${edit_list_color_input}
-
-Navigate On Material
-    Wait Until Page Contains Element   ${edit_list_properties_input}
-    ${material_input}=  Generate Random String  length=8  chars=[LETTERS][NUMBERS]
-    Input Text   ${product_list_filter_save_as_filter_group_input}  ${material_input}
-    Wait Until Page Contains Element   ${edit_list_request_button}
-    Click Element   ${edit_list_request_button}
-    Wait Until Page Contains Element   ${edit_list_request_submit_button}
-    Click Element   ${edit_list_request_submit_button}
-
-#    Wait Until Page Contains Element   ${edit_list_material_input}
-#    Input Text   ${edit_list_material_input}  metal
-#    Wait Until Page Contains Element   ${edit_list_material_suggestions_container}
-#    Wait Until Page Contains Element   ${edit_list_material_menu_item_suggestion_item}
-#    Click Element   ${edit_list_material_menu_item_suggestion_item}
-#    Wait Until Page Contains  metal
-#    Click Element   ${edit_list_material_delete_icon}
-#    Wait Until Page Contains Element  ${edit_list_material_input}
-
-Navigate On "Made in"
-    Wait Until Page Contains Element   ${edit_list_properties_input}
-    ${made_in_input}=  Generate Random String  length=8  chars=[LETTERS][NUMBERS]
-    Input Text   ${product_list_filter_save_as_filter_group_input}  ${made_in_input}
-    Wait Until Page Contains Element   ${edit_list_request_button}
-    Click Element   ${edit_list_request_button}
-    Wait Until Page Contains Element   ${edit_list_request_submit_button}
-    Click Element   ${edit_list_request_submit_button}
-
-#    Wait Until Page Contains Element   ${edit_list_made_in_input}
-#    Input Text   ${edit_list_made_in_input}  in Sweden
-#    Wait Until Page Contains Element   ${edit_list_made_in_suggestions_container}
-#    Wait Until Page Contains Element   ${edit_list_made_in_menu_item_suggestion_item}
-#    Click Element   ${edit_list_made_in_menu_item_suggestion_item}
-#    Wait Until Page Contains  in Sweden
-#    Click Element   ${edit_list_made_in_delete_icon}
-#    Wait Until Page Contains Element  ${edit_list_made_in_input}
-
-Navigate On "Designed in"
-    Wait Until Page Contains Element   ${edit_list_properties_input}
-    ${designed_in_input}=  Generate Random String  length=8  chars=[LETTERS][NUMBERS]
-    Input Text   ${product_list_filter_save_as_filter_group_input}  ${designed_in_input}
-    Wait Until Page Contains Element   ${edit_list_request_button}
-    Click Element   ${edit_list_request_button}
-    Wait Until Page Contains Element   ${edit_list_request_submit_button}
-    Click Element   ${edit_list_request_submit_button}
-
-#    Wait Until Page Contains Element   ${edit_list_designed_in_input}
-#    Input Text   ${edit_list_designed_in_input}  in Italy
-#    Wait Until Page Contains Element   ${edit_list_designed_in_suggestions_container}
-#    Wait Until Page Contains Element   ${edit_list_designed_in_menu_item_suggestion_item}
-#    Click Element   ${edit_list_designed_in_menu_item_suggestion_item}
-#    Wait Until Page Contains  in Italy
-#    Click Element   ${edit_list_designed_in_delete_icon}
-#    Wait Until Page Contains Element  ${edit_list_designed_in_input}
-
-Navigate On Position
-    Wait Until Page Contains Element   ${edit_list_properties_input}
-    ${position_input}=  Generate Random String  length=8  chars=[LETTERS][NUMBERS]
-    Input Text   ${product_list_filter_save_as_filter_group_input}  ${position_input}
-    Wait Until Page Contains Element   ${edit_list_request_button}
-    Click Element   ${edit_list_request_button}
-    Wait Until Page Contains Element   ${edit_list_request_submit_button}
-    Click Element   ${edit_list_request_submit_button}
-
-#    Wait Until Page Contains Element   ${edit_list_position_input}
-#    Input Text   ${edit_list_position_input}    in front
-#    Wait Until Page Contains Element   ${edit_list_position_suggestions_container}
-#    Wait Until Page Contains Element   ${edit_list_position_menu_item_suggestion_item}
-#    Click Element   ${edit_list_position_menu_item_suggestion_item}
-#    Wait Until Page Contains   in front
-#    Click Element   ${edit_list_position_delete_icon}
-#    Wait Until Page Contains Element  ${edit_list_position_input}
-
-Navigate On Phrase
-    Wait Until Page Contains Element   ${edit_list_properties_input}
-    ${phrase_input}=  Generate Random String  length=8  chars=[LETTERS][NUMBERS]
-    Input Text   ${product_list_filter_save_as_filter_group_input}  ${phrase_input}
-    Wait Until Page Contains Element   ${edit_list_request_button}
-    Click Element   ${edit_list_request_button}
-    Wait Until Page Contains Element   ${edit_list_request_submit_button}
-    Click Element   ${edit_list_request_submit_button}
-
-#    Wait Until Page Contains Element   ${edit_list_phrase_input}
-#    Input Text   ${edit_list_phrase_input}    for
-#    Wait Until Page Contains Element   ${edit_list_phrase_suggestions_container}
-#    Wait Until Page Contains Element   ${edit_list_phrase_menu_item_suggestion_item}
-#    Click Element   ${edit_list_phrase_menu_item_suggestion_item}
-#    Wait Until Page Contains   for elegance
-#    Click Element   ${edit_list_phrase_delete_icon}
-#    Wait Until Page Contains Element  ${edit_list_phrase_input}
-
-Navigate On Fixed Phrase
-    Wait Until Page Contains Element   ${edit_list_properties_input}
-    ${fixed_phrase_input}=  Generate Random String  length=8  chars=[LETTERS][NUMBERS]
-    Input Text   ${product_list_filter_save_as_filter_group_input}  ${fixed_phrase_input}
-    Wait Until Page Contains Element   ${edit_list_request_button}
-    Click Element   ${edit_list_request_button}
-    Wait Until Page Contains Element   ${edit_list_request_submit_button}
-    Click Element   ${edit_list_request_submit_button}
-
-#    Wait Until Page Contains Element   ${edit_list_fixed_phrases_input}
-#    Input Text   ${edit_list_fixed_phrases_input}  easy   #Easy on and off.
-#    Wait Until Page Contains Element   ${edit_list_fixed_phrases_suggestions_container}
-#    Wait Until Page Contains Element   ${edit_list_fixed_phrases_menu_item_suggestion_item}
-#    Click Element   ${edit_list_fixed_phrases_menu_item_suggestion_item}
-#    Wait Until Page Contains   Easy on and off.
-#    Click Element   ${edit_list_fixed_phrases_delete_icon}
-#    Wait Until Page Contains Element  ${edit_list_fixed_phrases_input}
+    Input Text  ${edit_list_main_catogary_input}  shoes
+    Wait Until Page Contains Element   ${edit_list_main_catogary_sugestions_container}
+    Wait Until Page Contains Element  ${edit_list_main_catogary_menu_item_suggestion_item}
+    Click Element   ${edit_list_main_catogary_menu_item_suggestion_item}
+    Wait Until Page Contains Element   ${edit_list_main_catogary_product_selected_value}
+    Click Element  ${edit_list_main_catogary_close_icon}
+    Wait Until Page Contains Element   ${edit_list_main_catogary_input}
+    Wait Until Page Contains Element   ${edit_list_main_catogary_edit_filed_product}
 
 Add Label
     Wait Until Page Contains Element   ${edit_list_labels_input}
-    Input Text   ${edit_list_labels_input}  add_labels
-    Wait Until Page Contains Element    ${edit_list_labels_add}
-    Click Element   ${edit_list_labels_add}
-    Wait Until Page Contains   add_labels
-    #Wait Until Page Contains Element   ${edit_list_labels_input}
-    #Textarea Should Contain   ${edit_list_labels_combobox}  add_labels
+    ${label_input}=  Generate Random String  length=8  chars=[LETTERS][NUMBERS]
+    Input Text   ${edit_list_labels_input}  ${label_input}
+    Wait Until Page Contains Element    ${edit_list_labels_add_item}
+    Click Element   ${edit_list_labels_add_item}
+    Wait Until Page Contains   ${label_input}
 
 Remove Label
     Click Element   ${edit_list_labels_delete_icon}
-    Wait Until Page Contains Element   ${edit_list_labels_default_text}
-    #Element Text Should Not Be   ${edit_list_labels_combobox}  add_labels
+    Wait Until Page Contains Element   ${edit_list_labels_input}
 
 Add Name
     Wait Until Page Contains Element   ${edit_list_name_input}
-    Input Text   ${edit_list_name_input}   editlist1_test
+    ${name_input}=  Generate Random String  length=8  chars=[LETTERS][NUMBERS]
+    Input Text   ${edit_list_name_input}   ${name_input}
     Unselect Frame
     Click Element   ${edit_list_subpage_back_button}
-    Sleep  2s
     Wait Until Page Contains Element   ${product_list_edit_button}
     Click Element   ${product_list_edit_button}
     Select Frame    ${edit_list_subpage_iframe}
-    Wait Until Page Contains Element   ${edit_list_name_field_input}
-    Textfield Should Contain  ${edit_list_name_field_input}  editlist1_test
-    #Clear Element Text  ${edit_list_name_input}
+    Wait Until Page Contains Element   ${edit_list_name_input}
+    Click Element   ${edit_list_name_input}
+    Textfield Should Contain  ${edit_list_name_input}  ${name_input}
     Double Click Element   ${edit_list_name_input}
-    Press Keys   ${edit_list_name_input}  CTRL+A+DELETE
+    Press Keys   ${edit_list_name_input}  CTRL+A+DELETE   #Only works for Window
 
 Add Original Text And Headline On the Same Page
     Wait Until Page Contains Element   ${edit_list_additional_information_column}
     Click Element   ${edit_list_additional_information_column}
     Wait Until Page Contains Element   ${edit_list_original_headline_input}
-    Input Text   ${edit_list_original_headline_input}   headline_test
-    Double Click Element   ${edit_list_original_headline_input}
-    Press Keys   ${edit_list_original_headline_input}   CTRL+A+DELETE
+    ${original_headline_input}=  Generate Random String  length=8  chars=[LETTERS][NUMBERS]
+    Input Text   ${edit_list_original_headline_input}   ${original_headline_input}
+    ${original_text_input}=  Generate Random String  length=8  chars=[LETTERS][NUMBERS]
     Wait Until Page Contains Element   ${edit_list_original_text_textarea}
-    Input Text   ${edit_list_original_text_textarea}   text_test
+    Input Text   ${edit_list_original_text_textarea}   ${original_text_input}
+    Unselect Frame
+    Click Element   ${edit_list_subpage_back_button}
+    Wait Until Page Contains Element   ${product_list_edit_button}
+    Click Element   ${product_list_edit_button}
+    Select Frame    ${edit_list_subpage_iframe}
+    Wait Until Page Contains Element   ${edit_list_additional_information_column}
+    Click Element   ${edit_list_additional_information_column}
+    Click Element   ${edit_list_original_headline_input}
+    Textfield Should Contain   ${edit_list_original_headline_input}  ${original_headline_input}
+    Click Element   ${edit_list_original_text_textarea}
+    Textarea Should Contain   ${edit_list_original_text_textarea}   ${original_text_input}
+    Double Click Element   ${edit_list_original_headline_input}
+    Press Keys   ${edit_list_original_headline_input}   CTRL+A+DELETE    #Only works for Window
     Double Click Element  ${edit_list_original_text_textarea}
-    Press Keys   ${edit_list_original_text_textarea}   CTRL+A+DELETE
+    Press Keys   ${edit_list_original_text_textarea}   CTRL+A+DELETE     #Only works for Window
 
+Navigate On Attribute
+    Wait Until Page Contains Element   ${edit_list_edit_field_add}
+    Click Element   ${edit_list_edit_field_add}
+    Wait Until Page Contains Element   ${edit_list_subpart_attribute_input}
+    Wait Until Page Contains   new attribute
+    #---search---#
+    Wait Until Page Contains Element   ${edit_list_subpart_attribute_input}
+    ${attribute_input}=  Generate Random String  length=8  chars=[LETTERS][NUMBERS]
+    Input Text   ${edit_list_subpart_attribute_input}   ${attribute_input}
+    Wait Until Page Contains Element   ${edit_list_suggestions_container}
+    #---request---#
+    Wait Until Page Contains Element   ${edit_list_request_button}
+    Click Element   ${edit_list_request_button}
+    Wait Until Page Contains Element   ${edit_list_request_submit_button}
+    Click Element   ${edit_list_request_submit_button}
+    #---add---#
+    #Comments:
+    #On attribute part, because before searching for attribute, we need to click '+ADD' button to let 'new attribute' and 'attribute' edit column appear.
+    #So after request new attribute, no need to add again, just verify that the 'new attribuet' field becomes the random value of ${attribute_input}?
+
+    #Wait Until Page Contains Element   ${edit_list_subpart_attribute_close_icon}
+    #Click Element   ${edit_list_subpart_attribute_close_icon}
+    Wait Until Page Contains Element   ${edit_list_subpart_attribute_input}
+    Wait Until Page Contains Element   ${edit_list_subpart_attribute_new_attribute_selected_value}
+    Sleep  2s
+    Element Text Should Be   ${edit_list_subpart_attribute_new_attribute_selected_value}   ${attribute_input}
+    #Click Element   ${edit_list_edit_field_add}
+    #Wait Until Page Contains   new attribute
+    #Wait Until Page Contains Element   xpath://div[@class="input-container"]//input[@data-testid="single-input"]  #${edit_list_subpart_attribute_input}
+    #Input Text   xpath://div[@class="input-container"]//input[@data-testid="single-input"]  ${attribute_input}
+    #Wait Until Page Contains Element   ${edit_list_suggestions_container}
+    #Wait Until Page Contains Element   xpath://div[@class="product-type-row"]//*[contains(text(), "${attribute_input}")]   #${edit_list_subpart_attribute_menu_item_suggestion_item}
+    #Click Element   xpath://div[@class="product-type-row"]//*[contains(text(), "${attribute_input}")]  #${edit_list_subpart_attribute_menu_item_suggestion_item}
+    #Wait Until Page Contains Element   ${attribute_input}
+    Click Element   ${edit_list_subpart_attribute_close_icon}
+    Wait Until Page Contains Element  ${edit_list_subpart_attribute_input}
+
+
+Navigate On Properties
+    #---search---#
+    Wait Until Page Contains Element   ${edit_list_properties_input}
+    ${properties_input}=  Generate Random String  length=8  chars=[LETTERS][NUMBERS]
+    Input Text   ${edit_list_properties_input}  ${properties_input}
+    Wait Until Page Contains Element   ${edit_list_suggestions_container}
+    #---request---#
+    Wait Until Page Contains Element   ${edit_list_request_button}
+    #Element Should Be Visible   ${edit_list_request_button}
+    Click Element   ${edit_list_request_button}
+    Wait Until Page Contains Element   ${edit_list_request_submit_button}
+    Click Element   ${edit_list_request_submit_button}
+    #---add---#
+    Wait Until Page Contains Element   ${edit_list_delete_icon}
+    Click Element   ${edit_list_delete_icon}
+    Wait Until Page Contains Element   ${edit_list_properties_input}
+    Input Text   ${edit_list_properties_input}  ${properties_input}
+    Wait Until Page Contains Element   ${edit_list_suggestions_container}
+    Wait Until Page Contains Element   xpath://div[@class="row row-properties"]//*[contains(text(), "${properties_input}")]  #${edit_list_properties_menu_item_suggestion_item}
+    Click Element   xpath://div[@class="row row-properties"]//*[contains(text(), "${properties_input}")]  #${edit_list_properties_menu_item_suggestion_item}
+    Wait Until Page Contains   ${properties_input}
+    Click Element   ${edit_list_delete_icon}
+    Wait Until Page Contains Element  ${edit_list_properties_input}
+
+Navigate On Occasion
+    #---search---#
+    Wait Until Page Contains Element   ${edit_list_occasion_input}
+    ${occasion_input}=  Generate Random String  length=8  chars=[LETTERS][NUMBERS]
+    Input Text   ${edit_list_occasion_input}  ${occasion_input}
+    Wait Until Page Contains Element   ${edit_list_suggestions_container}
+    #---request---#
+    Wait Until Page Contains Element   ${edit_list_request_button}
+    Click Element   ${edit_list_request_button}
+    Wait Until Page Contains Element   ${edit_list_request_submit_button}
+    Click Element   ${edit_list_request_submit_button}
+    #---add---#
+    Wait Until Page Contains Element   ${edit_list_delete_icon}
+    Click Element   ${edit_list_delete_icon}
+    Wait Until Page Contains Element   ${edit_list_occasion_input}
+    Input Text   ${edit_list_occasion_input}  ${occasion_input}
+    Wait Until Page Contains Element   ${edit_list_suggestions_container}
+    Wait Until Page Contains Element   xpath://div[@class="row row-occasion"]//*[contains(text(), "${occasion_input}")]  #${edit_list_occasion_menu_item_suggestion_item}
+    Click Element   xpath://div[@class="row row-occasion"]//*[contains(text(), "${occasion_input}")]  #${edit_list_occasion_menu_item_suggestion_item}
+    Wait Until Page Contains   ${occasion_input}
+    Click Element   ${edit_list_delete_icon}
+    Wait Until Page Contains Element  ${edit_list_occasion_input}
+
+
+Navigate On Color
+    #---search---#
+    Wait Until Page Contains Element   ${edit_list_color_input}
+    ${color_input}=  Generate Random String  length=8  chars=[LETTERS][NUMBERS]
+    Input Text   ${edit_list_color_input}  ${color_input}
+    Wait Until Page Contains Element   ${edit_list_suggestions_container}
+    #---request---#
+    Wait Until Page Contains Element   ${edit_list_request_button}
+    Click Element   ${edit_list_request_button}
+    Wait Until Page Contains Element   ${edit_list_request_submit_button}
+    Click Element   ${edit_list_request_submit_button}
+    #---add---#
+    Wait Until Page Contains Element   ${edit_list_delete_icon}
+    Click Element   ${edit_list_delete_icon}
+    Wait Until Page Contains Element   ${edit_list_color_input}
+    Input Text   ${edit_list_color_input}  ${color_input}
+    Wait Until Page Contains Element   ${edit_list_suggestions_container}
+    Wait Until Page Contains Element   xpath://div[@class="row row-color"]//*[contains(text(), "${color_input}")]  #${edit_list_color_menu_item_suggestion_item}
+    Click Element   xpath://div[@class="row row-color"]//*[contains(text(), "${color_input}")]  #${edit_list_color_menu_item_suggestion_item}
+    Wait Until Page Contains   ${color_input}
+    Click Element   ${edit_list_delete_icon}
+    Wait Until Page Contains Element  ${edit_list_color_input}
+
+Navigate On Material
+    #---search---#
+    Wait Until Page Contains Element   ${edit_list_material_input}
+    ${material_input}=  Generate Random String  length=8  chars=[LETTERS][NUMBERS]
+    Input Text   ${edit_list_material_input}  ${material_input}
+    Wait Until Page Contains Element   ${edit_list_suggestions_container}
+    #---request---#
+    Wait Until Page Contains Element   ${edit_list_request_button}
+    Click Element   ${edit_list_request_button}
+    Wait Until Page Contains Element   ${edit_list_request_submit_button}
+    Click Element   ${edit_list_request_submit_button}
+    #---add---#
+    Wait Until Page Contains Element   ${edit_list_delete_icon}
+    Click Element   ${edit_list_delete_icon}
+    Wait Until Page Contains Element   ${edit_list_material_input}
+    Input Text   ${edit_list_material_input}  ${material_input}
+    Wait Until Page Contains Element   ${edit_list_suggestions_container}
+    Wait Until Page Contains Element   xpath://div[@class="row row-material"]//*[contains(text(), "${material_input}")]  #${edit_list_material_menu_item_suggestion_item}
+    Click Element   xpath://div[@class="row row-material"]//*[contains(text(), "${material_input}")]  #${edit_list_material_menu_item_suggestion_item}
+    Wait Until Page Contains   ${material_input}
+    Click Element   ${edit_list_delete_icon}
+    Wait Until Page Contains Element  ${edit_list_material_input}
+
+Navigate On "Made in"
+    #---search---#
+    Wait Until Page Contains Element   ${edit_list_made_in_input}
+    ${made_in_input}=  Generate Random String  length=8  chars=[LETTERS][NUMBERS]
+    Input Text   ${edit_list_made_in_input}  ${made_in_input}
+    Wait Until Page Contains Element   ${edit_list_suggestions_container}
+    #---request--#
+    Wait Until Page Contains Element   ${edit_list_request_button}
+    Click Element   ${edit_list_request_button}
+    Wait Until Page Contains Element   ${edit_list_request_submit_button}
+    Click Element   ${edit_list_request_submit_button}
+    #---add---#
+    Wait Until Page Contains Element   ${edit_list_delete_icon}
+    Click Element   ${edit_list_delete_icon}
+    Wait Until Page Contains Element   ${edit_list_made_in_input}
+    Input Text   ${edit_list_made_in_input}  ${made_in_input}
+    Wait Until Page Contains Element   ${edit_list_suggestions_container}
+    Wait Until Page Contains Element   xpath://div[@class="row row-made_in"]//*[contains(text(), "${made_in_input}")]  #${edit_list_made_in_menu_item_suggestion_item}
+    Click Element   xpath://div[@class="row row-made_in"]//*[contains(text(), "${made_in_input}")]  #${edit_list_made_in_menu_item_suggestion_item}
+    Wait Until Page Contains   ${made_in_input}
+    Click Element   ${edit_list_delete_icon}
+    Wait Until Page Contains Element  ${edit_list_made_in_input}
+
+
+Navigate On "Designed in"
+    #---search---#
+    Wait Until Page Contains Element   ${edit_list_designed_in_input}
+    ${designed_in_input}=  Generate Random String  length=8  chars=[LETTERS][NUMBERS]
+    Input Text   ${edit_list_designed_in_input}  ${designed_in_input}
+    Wait Until Page Contains Element   ${edit_list_suggestions_container}
+    #---request---#
+    Wait Until Page Contains Element   ${edit_list_request_button}
+    Click Element   ${edit_list_request_button}
+    Wait Until Page Contains Element   ${edit_list_request_submit_button}
+    Click Element   ${edit_list_request_submit_button}
+    #---add---#
+    Wait Until Page Contains Element   ${edit_list_delete_icon}
+    Click Element   ${edit_list_delete_icon}
+    Wait Until Page Contains Element   ${edit_list_designed_in_input}
+    Input Text   ${edit_list_designed_in_input}  ${designed_in_input}
+    Wait Until Page Contains Element   ${edit_list_suggestions_container}
+    Wait Until Page Contains Element   xpath://div[@class="row row-designed_in"]//*[contains(text(), "${designed_in_input}")]  #${edit_list_designed_in_menu_item_suggestion_item}
+    Click Element   xpath://div[@class="row row-designed_in"]//*[contains(text(), "${designed_in_input}")]  #${edit_list_designed_in_menu_item_suggestion_item}
+    Wait Until Page Contains   ${designed_in_input}
+    Click Element   ${edit_list_delete_icon}
+    Wait Until Page Contains Element  ${edit_list_designed_in_input}
+
+Navigate On Position
+    #---search---#
+    Wait Until Page Contains Element   ${edit_list_position_input}
+    ${position_input}=  Generate Random String  length=8  chars=[LETTERS][NUMBERS]
+    Input Text   ${edit_list_position_input}  ${position_input}
+    Wait Until Page Contains Element   ${edit_list_suggestions_container}
+    #---request---#
+    Wait Until Page Contains Element   ${edit_list_request_button}
+    Click Element   ${edit_list_request_button}
+    Wait Until Page Contains Element   ${edit_list_request_submit_button}
+    Click Element   ${edit_list_request_submit_button}
+    #---add---#
+    Wait Until Page Contains Element   ${edit_list_delete_icon}
+    Click Element   ${edit_list_delete_icon}
+    Wait Until Page Contains Element   ${edit_list_position_input}
+    Input Text   ${edit_list_position_input}  ${position_input}
+    Wait Until Page Contains Element   ${edit_list_suggestions_container}
+    Wait Until Page Contains Element   xpath://div[@class="row row-position"]//*[contains(text(), "${position_input}")]  #${edit_list_position_menu_item_suggestion_item}
+    Click Element   xpath://div[@class="row row-position"]//*[contains(text(), "${position_input}")]  #${edit_list_position_menu_item_suggestion_item}
+    Wait Until Page Contains   ${position_input}
+    Click Element   ${edit_list_delete_icon}
+    Wait Until Page Contains Element  ${edit_list_position_input}
+
+Navigate On Phrase
+    #---search---#
+    Wait Until Page Contains Element   ${edit_list_phrase_input}
+    ${phrase_input}=  Generate Random String  length=8  chars=[LETTERS][NUMBERS]
+    Input Text   ${edit_list_phrase_input}  ${phrase_input}
+    Wait Until Page Contains Element   ${edit_list_suggestions_container}
+    #---request---#
+    Wait Until Page Contains Element   ${edit_list_request_button}
+    Click Element   ${edit_list_request_button}
+    Wait Until Page Contains Element   ${edit_list_request_submit_button}
+    Click Element   ${edit_list_request_submit_button}
+    #---add---#
+    Wait Until Page Contains Element   ${edit_list_delete_icon}
+    Click Element   ${edit_list_delete_icon}
+    Wait Until Page Contains Element   ${edit_list_phrase_input}
+    Input Text   ${edit_list_phrase_input}  ${phrase_input}
+    Wait Until Page Contains Element   ${edit_list_suggestions_container}
+    Wait Until Page Contains Element   xpath://div[@class="row row-phrase"]//*[contains(text(), "${phrase_input}")]  #${edit_list_phrase_menu_item_suggestion_item}
+    Click Element   xpath://div[@class="row row-phrase"]//*[contains(text(), "${phrase_input}")]  #${edit_list_phrase_menu_item_suggestion_item}
+    Wait Until Page Contains   ${phrase_input}
+    Click Element   ${edit_list_delete_icon}
+    Wait Until Page Contains Element  ${edit_list_phrase_input}
+
+Navigate On Fixed Phrase
+    #---search---#
+    Wait Until Page Contains Element   ${edit_list_fixed_phrase_input}
+    ${fixed_phrase_input}=  Generate Random String  length=8  chars=[LETTERS][NUMBERS]
+    Input Text   ${edit_list_fixed_phrase_input}  ${fixed_phrase_input}
+    Wait Until Page Contains Element   ${edit_list_suggestions_container}
+    #---request---#
+    Wait Until Page Contains Element   ${edit_list_request_button}
+    Click Element   ${edit_list_request_button}
+    Wait Until Page Contains Element   ${edit_list_request_submit_button}
+    Click Element   ${edit_list_request_submit_button}
+    #---add---#
+    Wait Until Page Contains Element   ${edit_list_delete_icon}
+    Click Element   ${edit_list_delete_icon}
+    Wait Until Page Contains Element   ${edit_list_fixed_phrase_input}
+    Input Text   ${edit_list_fixed_phrase_input}  ${fixed_phrase_input}
+    Wait Until Page Contains Element   ${edit_list_suggestions_container}
+    Wait Until Page Contains Element   xpath://div[@class="row row-fixed_phrase"]//*[contains(text(), "${fixed_phrase_input}")]  #${edit_list_fixed_phrase_menu_item_suggestion_item}
+    Click Element   xpath://div[@class="row row-fixed_phrase"]//*[contains(text(), "${fixed_phrase_input}")]  #${edit_list_fixed_phrase_menu_item_suggestion_item}
+    Wait Until Page Contains   ${fixed_phrase_input}
+    Click Element   ${edit_list_delete_icon}
+    Wait Until Page Contains Element  ${edit_list_fixed_phrase_input}
 
 End Web Test
     Close Browser
