@@ -17,8 +17,8 @@ ${product_list_search_text_input}  xpath://*[@data-testid="searchQuery"]//input
 ${product_list_data_table_edit_button_1}  xpath://table[@data-testid="products-table"]//tr[@data-table-row=1]//*[@data-testid="product-list-edit-button"]
 ${product_list_data_table_edit_button_2}  xpath://table[@data-testid="products-table"]//tr[@data-table-row=2]//*[@data-testid="product-list-edit-button"]
 ${product_list_data_table_edit_button_3}  xpath://table[@data-testid="products-table"]//tr[@data-table-row=3]//*[@data-testid="product-list-edit-button"]
-${product_list_edit_button}  xpath://*[@data-table-cell="5-8"][@class="collapsing links"]//*[@data-testid="product-list-edit-button"]
-${product_list_edit_button}  xpath://*[@data-table-cell="2-8"][@class="collapsing links"]//*[@data-testid="product-list-edit-button"]
+${product_list_data_table_edit_button_4}  xpath://table[@data-testid="products-table"]//tr[@data-table-row=4]//*[@data-testid="product-list-edit-button"]
+${product_list_data_table_edit_button_5}  xpath://table[@data-testid="products-table"]//tr[@data-table-row=5]//*[@data-testid="product-list-edit-button"]
 
 #---filter by date---#
 ${product_list_filter_by_date_button}  xpath://*[@data-testid="by-date"]
@@ -112,8 +112,8 @@ ${edit_list_subpage_back_button}  xpath://*[@class="subpage-back"]
 ${edit_list_bulk_actions_menu_product_delete_products_html}  Xpath://html[@lang="en_US"]
 ${edit_list_additional_information_button}  xpath://*[@class="ui text grey"]
 ${edit_list_original_text_ruta}  xpath://*[@id="id_original_text"]
-${edit_list_data_table_original_text_1}  xpath://*[@data-table-cell="1-3"][@class="text-column"]
-${edit_list_data_table_original_text_4}  xpath://td[@data-table-cell="4-3"]
+${edit_list_data_table_original_text_1}  xpath://td[@data-table-cell="1-3"][@class="text-column"]
+${edit_list_data_table_original_text_4}  xpath://td[@data-table-cell="4-3"][@class="text-column"]
 ${edit_list_main_category_input}  xpath://input[@data-testid="single-input"]         ### 1 the same xpath as attribute
 ${edit_list_subpart_attribute_input}  xpath://input[@data-testid="single-input"]     ### 1
 ${edit_list_main_category_close_icon}  xpath://*[local-name()="svg"]   ###  2  the same xpath as attribute
@@ -151,8 +151,10 @@ ${edit_list_set_status_menu}  xpath://*[@id="change-product-status-form"]
 ${edit_list_set_status_importing_radiobutton}  xpath://*[@id="change-product-status-form"]//*[contains(text(),"Importing")]
 ${edit_list_set_status_ready_radiobutton}  xpath://*[@id="change-product-status-form"]//*[contains(text(),"Ready")]
 ${edit_list_set_status_importing_cancel_button}  xpath://*[@class="ui button"][contains(text(),"Cancel")]
-${edit_list_set_status_in_progress_radiobutton}  xpath://*[@id="change-product-status-form"]//*[contains(text(),"In progress")]
+${edit_list_set_status_in_progress_radiobutton}  xpath://*[@id="change-product-status-form"]//*[contains(text(),"In progress")]  #//*[contains(text(),"In progress")
 ${edit_list_set_status_in_progress_status}  xpath://*[@class="title"]//*[text() = "In progress"]
+${edit_list_data_table_product_status_column}  xpath://*[@class="status"][contains(text(),"Product Status")]
+${edit_list_data_table_product_status_column_1}  xpath://table[@data-testid="products-table"]//tr[@data-table-row=1]//*[@class="status"]
 
 #---Main category---#
 ${edit_list_main_category_sugestions_container}  xpath://div[@class="product-type-row"]//div[@data-testid="suggestions-container"]
@@ -165,7 +167,6 @@ ${edit_list_edit_field_add}  xpath://div[@class="edit-fields"]//*[contains(text(
 ${edit_list_subpart_attribute_suggestions_container}  xpath://div[@class="product-type-row"]//div[@data-testid="suggestions-container"]
 #${edit_list_subpart_attribute_menu_item_suggestion_item}   xpath://div[@class="product-type-row"]//*[contains(text(), "attribute_input")]
 ${edit_list_subpart_attribute_new_attribute_selected_value}  xpath://a[@class="link active"]
-
 
 #---property---#
 ${edit_list_properties_input}  xpath://div[@class="row row-properties"]//input

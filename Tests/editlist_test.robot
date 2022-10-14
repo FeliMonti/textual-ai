@@ -14,36 +14,39 @@ Suite Teardown  End Web Test
     #[Tags]  Edit list
     #Edit on the product
 
-User Can Access To Edit Subpage Frame
-    [Documentation]  Once user is logged in; user can navigate to product list page, access to edit subpage frame
-    [Tags]  Edit list
-    Access To Edit Subpage Frame
+#User Can Access To Edit Subpage Frame
+#    [Documentation]  Once user is logged in; user can navigate to product list page, access to edit subpage frame
+#    [Tags]  Edit list
+#    Access To Edit Subpage Frame
 
 User Can Use Add Function In Edit Subpage Frame
     [Documentation]  Once enter edit subpage frame; user can edit product,add function
     [Tags]  Edit list
-    Access To Edit Subpage Frame
-    Navigate On Set Status Button
-    # Navigate On Action Button
+#    Test On Action Button New Function
+#    Test On Deleting A Product
+#    Test On Action Button Duplicate Function
+#    Test On Setting importing Status
+#    Test On Setting Ready Status
+    Test On Setting In-progress Status
     # Add Main Category
     # Add Label
     # Remove Label
     # Add Name
     # Add Original Text And Headline On the Same Page
 
-User Can Use Search, Request And Add Function On Edit Page
-    [Documentation]  Once enter edit page; user can search, request and add a property
-    [Tags]  Edit list
-     Navigate On Attribute
-     Navigate On Properties
-     Navigate On Occasion
-     Navigate On Color
-     Navigate On Material
-     Navigate On "Made in"
-     Navigate On "Designed in"
-     Navigate On Position
-     Navigate On Phrase
-     Navigate On Fixed Phrase
+#User Can Use Search, Request And Add Function On Edit Page
+#    [Documentation]  Once enter edit page; user can search, request and add a property
+#    [Tags]  Edit list
+#     Navigate On Attribute
+#     Navigate On Properties
+#     Navigate On Occasion
+#     Navigate On Color
+#     Navigate On Material
+#     Navigate On "Made in"
+#     Navigate On "Designed in"
+#     Navigate On Position
+#     Navigate On Phrase
+#     Navigate On Fixed Phrase
 
 #User Can Log Out
     #[Documentation]  Once user is logged in; user can do with Textual; user can log out

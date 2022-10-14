@@ -366,8 +366,7 @@ Access To Edit Subpage Frame
     Wait Until Page Contains Element   ${edit_list_edit_tab}
     Click Element   ${edit_list_edit_tab}
 
-Navigate On Action Button
-     #---new---#
+Test On Action Button New Function
     Sleep  2s
     Wait Until Page Contains Element   ${edit_list_SKU_number}
     ${get_SKU_1}=  Get Text  ${edit_list_SKU_number}
@@ -380,14 +379,14 @@ Navigate On Action Button
     Log   ${get_SKU_1}
     Log   ${get_SKU_2}
     Should Be True  "${get_SKU_1}" != "${get_SKU_2}"
-
-    #---delete SKU---#
     Unselect Frame
     Wait Until Page Contains Element  ${edit_list_subpage_back_button}
     Click Element   ${edit_list_subpage_back_button}
-    Click Element   ${textual_logo}
-    Wait Until Page Contains Element   ${customer_home_edit_button}
-    Click Element   ${customer_home_edit_button}
+
+Test On Deleting A Product
+#    Click Element   ${textual_logo}
+#    Wait Until Page Contains Element   ${customer_home_edit_button}
+#    Click Element   ${customer_home_edit_button}
     Wait Until Page Contains Element  ${edit_list_data_table_checkbox_1}
     Scroll Element Into View   ${edit_list_data_table_checkbox_1}
     Click Element  ${edit_list_data_table_checkbox_1}
@@ -406,7 +405,7 @@ Navigate On Action Button
     Click Element   ${edit_list_bulk_actions_menu_product_delete_products_button}
 #    #${delete_button}=   Get Element Attribute    ${edit_list_bulk_actions_menu_product_delete_products_button}
 
-    #---duplicate---#
+Test On Action Button Duplicate Function
     Wait Until Page Contains Element   ${product_list_data_table_edit_button_3}
     Click Element   ${product_list_data_table_edit_button_3}
     Select Frame    ${edit_list_subpage_iframe}
@@ -442,17 +441,6 @@ Navigate On Action Button
     ${original_text_column_4}    Get Text    ${edit_list_data_table_original_text_4}
     Log    ${original_text_column_4}
     Should Be True  "${original_text_column_1}" == "${original_text_column_4}"
-    #Should Be True  "${get_SKU_1}" != "${get_SKU_2}"
-
-
-#    Wait Until Page Contains Element   ${product_list_data_table_edit_button_3}
-#    Click Element   ${product_list_data_table_edit_button_3}
-#    Log   ${get_SKU_1}
-#    Log   ${get_SKU_2}
-#    Should Be True  "${get_SKU_1}" != "${get_SKU_2}"
-
-
-    ###---Problem locating the correct column after new column added---###
 
 #    #---copy from---#
 #    Click Element   ${edit_list_actions_button}
@@ -473,32 +461,44 @@ Navigate On Action Button
 #    Wait Until Page Contains Element   ${edit_list_actions_copy_from_copy_button}
 #    Click Element  ${edit_list_actions_copy_from_copy_button}
 
-Navigate On Set Status Button
-    #---set importing status---#
+Test On Setting importing Status
     Wait Until Page Contains Element   ${edit_list_set_status_button}
     Click Element   ${edit_list_set_status_button}
-    Element Should Be Visible   ${edit_list_set_status_menu}
+    Wait Until Page Contains Element   ${edit_list_set_status_menu}
     Wait Until Page Contains Element   ${edit_list_set_status_importing_radiobutton}
     Click Element   ${edit_list_set_status_importing_radiobutton}
     Wait Until Page Contains   Switching status to "Importing" will result in that all tags added in Textual will be lost. This is not possible to undo. Please confirm to proceed.
     Wait Until Page Contains Element   ${edit_list_set_status_importing_cancel_button}
     Click Element   ${edit_list_set_status_importing_cancel_button}
 
-    #---set ready status---#
+Test On Setting Ready Status
     Wait Until Page Contains Element   ${edit_list_set_status_button}
-    Mouse Over   ${edit_list_set_status_button}
-    # Element Should Be Visible   ${edit_list_set_status_menu}
+    Click Element   ${edit_list_set_status_button}
+    Wait Until Page Contains Element  ${edit_list_set_status_menu}
     Wait Until Page Contains Element   ${edit_list_set_status_ready_radiobutton}
     Click Element   ${edit_list_set_status_ready_radiobutton}
     Wait Until Page Contains   This product is marked as ready.
+    Unselect Frame
+    Wait Until Page Contains Element  ${edit_list_subpage_back_button}
+    Click Element   ${edit_list_subpage_back_button}
 
-    #---set in-progress status---#
+Test On Setting In-progress Status
+    Wait Until Page Contains Element  ${edit_list_data_table_product_status_column}
+    Click Element  ${edit_list_data_table_product_status_column}
+    ${product_status_column_1}  Get Text  ${edit_list_data_table_product_status_column_1}
+    Run Keyword If   "${product_status_column_1}" == "Ready"   Log   ${product_status_column_1}
+    Click Element   ${product_list_data_table_edit_button_1}
+    Select Frame    ${edit_list_subpage_iframe}
     Wait Until Page Contains Element   ${edit_list_set_status_button}
+    Click Element   ${edit_list_set_status_button}
+    Wait Until Page Contains Element  ${edit_list_set_status_menu}
     Mouse Over   ${edit_list_set_status_button}
-    # Element Should Be Visible   ${edit_list_set_status_menu}
     Wait Until Page Contains Element   ${edit_list_set_status_in_progress_radiobutton}
     Click Element   ${edit_list_set_status_in_progress_radiobutton}
     Wait Until Page Contains Element   ${edit_list_set_status_in_progress_status}
+    Unselect Frame
+    Wait Until Page Contains Element  ${edit_list_subpage_back_button}
+    Click Element   ${edit_list_subpage_back_button}
 
 Add Main Category
     Wait Until Page Contains Element   ${edit_list_main_category_input}
