@@ -22,13 +22,14 @@ User Can Access To Edit Subpage Frame
 User Can Use Add Function In Edit Subpage Frame
     [Documentation]  Once enter edit subpage frame; user can edit product,add function
     [Tags]  Edit list
-    Navigate On Action Button
+    Access To Edit Subpage Frame
     Navigate On Set Status Button
-    Add Main Category
-    Add Label
-    Remove Label
-    Add Name
-    Add Original Text And Headline On the Same Page
+    # Navigate On Action Button
+    # Add Main Category
+    # Add Label
+    # Remove Label
+    # Add Name
+    # Add Original Text And Headline On the Same Page
 
 User Can Use Search, Request And Add Function On Edit Page
     [Documentation]  Once enter edit page; user can search, request and add a property

@@ -486,35 +486,30 @@ Navigate On Set Status Button
 
     #---set ready status---#
     Wait Until Page Contains Element   ${edit_list_set_status_button}
-    Click Element   ${edit_list_set_status_button}
-    Element Should Be Visible   ${edit_list_set_status_menu}
+    Mouse Over   ${edit_list_set_status_button}
+    # Element Should Be Visible   ${edit_list_set_status_menu}
     Wait Until Page Contains Element   ${edit_list_set_status_ready_radiobutton}
     Click Element   ${edit_list_set_status_ready_radiobutton}
-    #${edit_list_bulk_actions_menu_product_delete_products_html}
-    #Wait Until Page Contains Element  ${edit_list_set_status_ready_message}
-    #Unselect Frame
-    #Select Frame   ${edit_list_subpage_html}
-    #Frame Should Contain   This product is marked as ready. To edit, change the status to "in progress".
-    #Wait Until Page Contains   This product is marked as ready. To edit, change the status to "in progress".
-
-    ###---Having problem to verify the page due to the problem with indentifying the frame---###
-
+    Wait Until Page Contains   This product is marked as ready.
 
     #---set in-progress status---#
-#    Wait Until Page Contains Element    ${edit_list_set_status_in_progress_radiobutton}
-#    Click Element    ${edit_list_set_status_in_progress_radiobutton}
-#    Wait Until Page Contains   ${edit_list_set_status_in_progress_status}
+    Wait Until Page Contains Element   ${edit_list_set_status_button}
+    Mouse Over   ${edit_list_set_status_button}
+    # Element Should Be Visible   ${edit_list_set_status_menu}
+    Wait Until Page Contains Element   ${edit_list_set_status_in_progress_radiobutton}
+    Click Element   ${edit_list_set_status_in_progress_radiobutton}
+    Wait Until Page Contains Element   ${edit_list_set_status_in_progress_status}
 
 Add Main Category
-    Wait Until Page Contains Element   ${edit_list_main_catogary_input}
-    Input Text  ${edit_list_main_catogary_input}  shoes
-    Wait Until Page Contains Element   ${edit_list_main_catogary_sugestions_container}
-    Wait Until Page Contains Element  ${edit_list_main_catogary_menu_item_suggestion_item}
-    Click Element   ${edit_list_main_catogary_menu_item_suggestion_item}
-    Wait Until Page Contains Element   ${edit_list_main_catogary_product_selected_value}
-    Click Element  ${edit_list_main_catogary_close_icon}
-    Wait Until Page Contains Element   ${edit_list_main_catogary_input}
-    Wait Until Page Contains Element   ${edit_list_main_catogary_edit_filed_product}
+    Wait Until Page Contains Element   ${edit_list_main_category_input}
+    Input Text  ${edit_list_main_category_input}  shoes
+    Wait Until Page Contains Element   ${edit_list_main_category_sugestions_container}
+    Wait Until Page Contains Element  ${edit_list_main_category_menu_item_suggestion_item}
+    Click Element   ${edit_list_main_category_menu_item_suggestion_item}
+    Wait Until Page Contains Element   ${edit_list_main_category_product_selected_value}
+    Click Element  ${edit_list_main_category_close_icon}
+    Wait Until Page Contains Element   ${edit_list_main_category_input}
+    Wait Until Page Contains Element   ${edit_list_main_category_edit_filed_product}
 
 Add Label
     Wait Until Page Contains Element   ${edit_list_labels_input}
