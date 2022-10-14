@@ -14,8 +14,10 @@ ${product_list_menu_dropdown}  xpath://*[@class="material-icons"][contains(text(
 ${product_list_menu_dropdown_manage}  xpath://*[contains(text(),"Manage")]/..
 ${product_list_search_button}  xpath://*[@data-testid="searchButton"]
 ${product_list_search_text_input}  xpath://*[@data-testid="searchQuery"]//input
-${product_list_edit_button}  xpath://*[@data-table-cell="1-8"][@class="collapsing links"]//*[@data-testid="product-list-edit-button"]
-${product_list_edit_button}  xpath://*[@data-table-cell="2-8"][@class="collapsing links"]//*[@data-testid="product-list-edit-button"]
+${product_list_data_table_edit_button_1}  xpath://*[@data-table-cell="1-8"][@class="collapsing links"]//*[@data-testid="product-list-edit-button"]
+${product_list_data_table_edit_button_2}  xpath://*[@data-table-cell="2-8"][@class="collapsing links"]//*[@data-testid="product-list-edit-button"]
+${product_list_data_table_edit_button_3}  xpath://*[@data-table-cell="3-8"][@class="collapsing links"]//*[@data-testid="product-list-edit-button"]
+${product_list_data_table_edit_button_3_9}  xpath://*[@data-table-cell="3-9"][@class="collapsing links"]//*[@data-testid="product-list-edit-button"]
 
 #---filter by date---#
 ${product_list_filter_by_date_button}  xpath://*[@data-testid="by-date"]
@@ -73,7 +75,7 @@ ${product_list_text_column_text&bullet_select_all_checkbox}  xpath://*[@data-tes
 ${product_list_text_column_update_view_button}  xpath://*[@data-testid="submitButton"][contains(text(), "Update view")]
 
 #---column function---#
-${product_list_column_button}  xpath://*[@data-testid="columns-selector-button"]
+${product_list_column_button}  xpath://*[@data-testid="columns-selector-button"]//*[@role="listbox"]
 ${product_list_column_menu}  xpath://*[@class="menu transition left"]
 ${product_list_column_EAN_checkbox}  xpath://*[@data-testid="EAN"]
 ${product_list_column_product_type_checkbox}  xpath://*[@data-testid="product_type"]
@@ -99,28 +101,51 @@ ${product_list_menu_dropdown_manage_filter_groups}  xpath://*[contains(text(),"M
 
 #---edit function common variables---#
 ${edit_list_subpage_iframe}  xpath://*[@class="subpage-iframe"]
+${edit_list_subpage_html}  //*[@class="subpage-iframe"]/../..  # xpath://*[@class="html-subpage"]
 ${edit_list_edit_tab}  xpath://a[@data-test="edit-tab"]
 ${edit_list_edit_field_add}  xpath://div[@class="edit-fields"]//*[contains(text(), "Add")]
 ${edit_list_main_catogary_input}  xpath://input[@data-testid="single-input"]   ###
 ${edit_list_subpart_attribute_input}  xpath://div[@class="product-type-row"]//input[@data-testid="single-input"]'  ###
 ${edit_list_request_button}  xpath://*[@class="menu-item suggestion-active"]
 ${edit_list_request_submit_button}  xpath://*[@data-testid="requestwordmodal-button-submit"]
+${edit_list_subpage_back_button}  xpath://*[@class="subpage-back"]
+${edit_list_bulk_actions_menu_product_delete_products_html}  Xpath://html[@lang="en_US"]
+${edit_list_additional_information_button}  xpath://*[@class="ui text grey"]
+${edit_list_original_text_ruta}  xpath://*[@id="id_original_text"]
+${edit_list_data_table_original_text_1}  xpath://*[@data-table-cell="1-3"][@class="text-column"]
+${edit_list_data_table_original_text_4}  xpath://td[@data-table-cell="4-3"]
 
-#---action menu---#
-${edit_list_action_button}  xpath://*[@class="action menu"]
-${edit_list_action_menu}  xpath://*[@class="options"]
+#---action button---#
+${edit_list_actions_button}  xpath://*[@class="title"]/../..//*[@class="action menu"]
+${edit_list_actions_menu}  xpath://*[@class="options"]
 ${edit_list_name_input}  xpath://input[@id="id_name"]
-${edit_list_action_new_button}  xpath://*[@data-test="action-new"]
-${edit_list_action_duplicate_button}  xpath://*[@data-test="action-duplicate"]
-${edit_list_action_copy_from_button}  xpath://button[@data-testid="tofrom"]  #data:testid:tofrom
+${edit_list_SKU_number}  xpath://h2
+${edit_list_actions_new_button}  xpath://*[@class="material-icons"]/../..//*[@data-test="action-new"]
+${edit_list_actions_duplicate_button}  xpath://*[@data-test="action-duplicate"]
+${edit_list_actions_copy_from_button}  xpath://button[@data-testid="tofrom"]  #data:testid:tofrom
 ${edit_list_SKU_EAN_input}  xpath://*[@data-testid="SKU-EAN-input"]//input
-${edit_list_action_copy_from_copy_button}  xpath://*[@data-testid="copy-modal-copy-action"]
-${edit_list_action_copy_to_button}  xpath://button[@data-testid="fromto"]  #data:testid:fromto
-${edit_list_action_copy_to_copy_button}  xpath://*[@data-testid="copy-modal-copy-action"]
-${edit_list_set_product_status_button}  xpath://*[@class="product-status menu"]
+${edit_list_actions_copy_from_copy_button}  xpath://*[@data-testid="copy-modal-copy-action"]
+${edit_list_actions_copy_to_button}  xpath://button[@data-testid="fromto"]  #data:testid:fromto
+${edit_list_actions_copy_to_copy_button}  xpath://*[@data-testid="copy-modal-copy-action"]
+
+#---delete SKU---#
+${edit_list_data_table_SKU_1}  xpath://td[@data-table-cell="1-2"]
+${edit_list_data_table_checkbox_1}  xpath://*[@data-table-cell="1-1"]/*[@class="ui fitted checkbox select"]
+${edit_list_bulk_actions_button}  xpath://*[contains(text(),"Bulk actions")]/../..//*[@name="bulk-actions"]
+${edit_list_bulk_actions_menu}  xpath://*[@class="menu transition visible"]
+${edit_list_bulk_actions_menu_product}  xpath://*[contains(text(),"Product")][@role="option"]
+${edit_list_bulk_actions_menu_product_delete_products}  xpath://*[@data-testid="DeleteAction"]
+${edit_list_bulk_actions_menu_product_delete_products_button}  xpath://button["pbutton phutton-primary"][contains(text(),"Delete products")]
+
+#---set status button---#
+${edit_list_set_status_button}  xpath://*[@class="product-status menu"]
+${edit_list_set_status_menu}  xpath://*[@id="change-product-status-form"]
 ${edit_list_set_status_importing_radiobutton}  xpath://*[@id="change-product-status-form"]//*[contains(text(),"Importing")]
-${edit_list_set_status_in_progress_radiobutton}  xpath://*[@id="change-product-status-form"]//*[contains(text(),"In progress")]
 ${edit_list_set_status_ready_radiobutton}  xpath://*[@id="change-product-status-form"]//*[contains(text(),"Ready")]
+${edit_list_set_status_importing_cancel_button}  xpath://*[@class="ui button"][contains(text(),"Cancel")]
+${edit_list_set_status_in_progress_radiobutton}  xpath://*[@id="change-product-status-form"]//*[contains(text(),"In progress")]
+${edit_list_set_status_in_progress_status}  xpath://*[@class="title"]//*[contains(text(),"Status:")]
+${edit_list_set_status_ready_message}  xpath://*[@class="alert-box-container"]/..
 
 #---property---#
 ${edit_list_properties_input}  xpath://div[@class="row row-properties"]//input

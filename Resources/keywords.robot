@@ -372,50 +372,151 @@ Create New Filter Group
     Handle Alert   action=ACCEPT   timeout=2s
 
 Access To Edit Subpage Frame
-    Wait Until Page Contains Element   ${product_list_edit_button}
-    Click Element   ${product_list_edit_button}
+    Wait Until Page Contains Element   ${product_list_data_table edit_button_3}
+    Scroll Element Into View   ${product_list_data_table edit_button_3}
+    Click Element   ${product_list_data_table edit_button_3}
     Select Frame    ${edit_list_subpage_iframe}
     Wait Until Page Contains Element   ${edit_list_edit_tab}
+    Click Element   ${edit_list_edit_tab}
 
 Navigate On Action Button
-    #---new---#
-    Click Element   ${edit_list_action_button}
-    Element Should Be Visible   ${edit_list_action_menu}
-    Click Element   ${edit_list_new_button}
+     #---new---#
+    Sleep  2s
+    Wait Until Page Contains Element   ${edit_list_SKU_number}
+    ${get_SKU_1}=  Get Text  ${edit_list_SKU_number}
+    Wait Until Page Contains Element   ${edit_list_actions_button}
+    Click Element   ${edit_list_actions_button}
+    Wait Until Page Contains Element   ${edit_list_actions_menu}
+    Wait Until Page Contains Element   ${edit_list_actions_new_button}
+    Click Element   ${edit_list_actions_new_button}
+    ${get_SKU_2}=  Get Text  ${edit_list_SKU_number}
+    Log   ${get_SKU_1}
+    Log   ${get_SKU_2}
+    Should Be True  "${get_SKU_1}" != "${get_SKU_2}"
 
-    #---Error message after clicking on the new button--#
+    #---delete SKU---#
+    Unselect Frame
+    Wait Until Page Contains Element  ${edit_list_subpage_back_button}
+    Click Element   ${edit_list_subpage_back_button}
+    Click Element   ${textual_logo}
+    Wait Until Page Contains Element   ${customer_home_edit_button}
+    Click Element   ${customer_home_edit_button}
+    Wait Until Page Contains Element  ${edit_list_data_table_checkbox_1}
+    Scroll Element Into View   ${edit_list_data_table_checkbox_1}
+    Click Element  ${edit_list_data_table_checkbox_1}
+    ${SKU_number}    Get Text    ${edit_list_data_table_SKU_1}
+    Log    ${SKU_number}
+    Wait Until Page Contains Element  ${edit_list_bulk_actions_button}
+    Click Element  ${edit_list_bulk_actions_button}
+    Wait Until Page Contains Element   ${edit_list_bulk_actions_menu}
+    Wait Until Page Contains Element   ${edit_list_bulk_actions_menu_product}
+    Click Element   ${edit_list_bulk_actions_menu_product}
+    Scroll Element Into View  ${edit_list_bulk_actions_menu_product_delete_products}
+    Wait Until Page Contains Element   ${edit_list_bulk_actions_menu_product_delete_products}
+    Click Element   ${edit_list_bulk_actions_menu_product_delete_products}
+    Sleep  2s
+    Wait Until Page Contains Element  ${edit_list_bulk_actions_menu_product_delete_products_button}
+    Click Element   ${edit_list_bulk_actions_menu_product_delete_products_button}
+#    #${delete_button}=   Get Element Attribute    ${edit_list_bulk_actions_menu_product_delete_products_button}
 
     #---duplicate---#
-    Click Element   ${edit_list_action_button}
-    Element Should Be Visible   ${edit_list_action_menu}
-    Click Element   ${edit_list_duplicate_button}
+    Wait Until Page Contains Element   ${product_list_data_table_edit_button_3}
+    Click Element   ${product_list_data_table_edit_button_3}
+    Select Frame    ${edit_list_subpage_iframe}
+    Wait Until Page Contains Element   ${edit_list_SKU_number}
+    ${get_SKU_1}=  Get Text  ${edit_list_SKU_number}
+    Log   ${get_SKU_1}
+    Wait Until Page Contains Element   ${edit_list_additional_information_button}
+    Click Element   ${edit_list_additional_information_button}
+    Wait Until Page Contains Element   ${edit_list_original_text_ruta}
+    Click Element   ${edit_list_original_text_ruta}
+    Input Text   ${edit_list_original_text_ruta}    Testing makes perfect!
+    Sleep  2s
+    Click Element   ${edit_list_actions_button}
+    Element Should Be Visible   ${edit_list_actions_menu}
+    Wait Until Page Contains Element   ${edit_list_actions_duplicate_button}
+    Click Element   ${edit_list_actions_duplicate_button}
+    Wait Until Page Contains Element   ${edit_list_SKU_number}
+    ${get_SKU_2}=  Get Text  ${edit_list_SKU_number}
+    Log   ${get_SKU_2}
+    Unselect Frame
+    Click Element   ${edit_list_subpage_back_button}
+    Wait Until Page Contains Element  ${product_list_column_button}
+    Click Element   ${product_list_column_button}
+    Element Should Be Visible  ${product_list_column_menu}
+    Wait Until Page Contains Element   ${product_list_column_oiginal_text_checkbox}
+    Click Element   ${product_list_column_oiginal_text_checkbox}
+    Scroll Element Into View   ${product_list_column_update_button}
+    Wait Until Page Contains Element   ${product_list_column_update_button}
+    Click Element   ${product_list_column_update_button}
+    Wait Until Page Contains Element   ${edit_list_data_table_original_text_1}
+    ${original_text_column_1}    Get Text    ${edit_list_data_table_original_text_1}
+    Log    ${original_text_column_1}
+    ${original_text_column_4}    Get Text    ${edit_list_data_table_original_text_4}
+    Log    ${original_text_column_4}
+    Should Be True  "${original_text_column_1}" == "${original_text_column_4}"
+    #Should Be True  "${get_SKU_1}" != "${get_SKU_2}"
 
-    #---how to verify if it has duplicated?---#
 
-    #---copy from---#
-    Click Element   ${edit_list_action_button}
-    Element Should Be Visible   ${edit_list_action_menu}
-    Click Element   ${edit_list_action_copy_from_button}
-    Wait Until Page Contains Element   ${edit_list_SKU_EAN_input}
-    Input Text   ${edit_list_SKU_EAN_input}  dcb7b357-c8f4-4042-b73c-92718f649313
-    Wait Until Page Contains Element   ${edit_list_action_copy_from_copy_button}
-    Click Element  ${edit_list_action_copy_from_copy_button}
+#    Wait Until Page Contains Element   ${product_list_data_table_edit_button_3}
+#    Click Element   ${product_list_data_table_edit_button_3}
+#    Log   ${get_SKU_1}
+#    Log   ${get_SKU_2}
+#    Should Be True  "${get_SKU_1}" != "${get_SKU_2}"
 
-    #---copy to---#
-    Click Element   ${edit_list_action_button}
-    Element Should Be Visible   ${edit_list_action_menu}
-    Wait Until Page Contains Element   ${edit_list_action_copy_to_button}
-    Click Element   ${edit_list_action_copy_to_button}
-    Wait Until Page Contains Element   ${edit_list_SKU_EAN_input}
-    Input Text   ${edit_list_SKU_EAN_input}  52f64090-1476-4e59-ac64-bc8b3d5054e3
-    Wait Until Page Contains Element   ${edit_list_action_copy_from_copy_button}
-    Click Element  ${edit_list_action_copy_from_copy_button}
 
-    #---status---#
-#    Wait Until Page Contains Element  ${edit_list_check_radiobutton}
-#    Click Element   ${edit_list_check_radiobutton}
-#    Select Frame   ${edit_list_edit_frame_2}
-#    Unselect Frame   ${edit_list_edit_frame_1}
+    ###---Problem locating the correct column after new column added---###
+
+#    #---copy from---#
+#    Click Element   ${edit_list_actions_button}
+#    Element Should Be Visible   ${edit_list_actions_menu}
+#    Click Element   ${edit_list_actions_copy_from_button}
+#    Wait Until Page Contains Element   ${edit_list_SKU_EAN_input}
+#    Input Text   ${edit_list_SKU_EAN_input}  dcb7b357-c8f4-4042-b73c-92718f649313
+#    Wait Until Page Contains Element   ${edit_list_actions_copy_from_copy_button}
+#    Click Element  ${edit_list_actions_copy_from_copy_button}
+#
+#    #---copy to---#
+#    Click Element   ${edit_list_actions_button}
+#    Element Should Be Visible   ${edit_list_actions_menu}
+#    Wait Until Page Contains Element   ${edit_list_actions_copy_to_button}
+#    Click Element   ${edit_list_actions_copy_to_button}
+#    Wait Until Page Contains Element   ${edit_list_SKU_EAN_input}
+#    Input Text   ${edit_list_SKU_EAN_input}  52f64090-1476-4e59-ac64-bc8b3d5054e3
+#    Wait Until Page Contains Element   ${edit_list_actions_copy_from_copy_button}
+#    Click Element  ${edit_list_actions_copy_from_copy_button}
+
+Navigate On Set Status Button
+    #---set importing status---#
+    Wait Until Page Contains Element   ${edit_list_set_status_button}
+    Click Element   ${edit_list_set_status_button}
+    Element Should Be Visible   ${edit_list_set_status_menu}
+    Wait Until Page Contains Element   ${edit_list_set_status_importing_radiobutton}
+    Click Element   ${edit_list_set_status_importing_radiobutton}
+    Wait Until Page Contains   Switching status to "Importing" will result in that all tags added in Textual will be lost. This is not possible to undo. Please confirm to proceed.
+    Wait Until Page Contains Element   ${edit_list_set_status_importing_cancel_button}
+    Click Element   ${edit_list_set_status_importing_cancel_button}
+
+    #---set ready status---#
+    Wait Until Page Contains Element   ${edit_list_set_status_button}
+    Click Element   ${edit_list_set_status_button}
+    Element Should Be Visible   ${edit_list_set_status_menu}
+    Wait Until Page Contains Element   ${edit_list_set_status_ready_radiobutton}
+    Click Element   ${edit_list_set_status_ready_radiobutton}
+    #${edit_list_bulk_actions_menu_product_delete_products_html}
+    #Wait Until Page Contains Element  ${edit_list_set_status_ready_message}
+    #Unselect Frame
+    #Select Frame   ${edit_list_subpage_html}
+    #Frame Should Contain   This product is marked as ready. To edit, change the status to "in progress".
+    #Wait Until Page Contains   This product is marked as ready. To edit, change the status to "in progress".
+
+    ###---Having problem to verify the page due to the problem with indentifying the frame---###
+
+
+    #---set in-progress status---#
+#    Wait Until Page Contains Element    ${edit_list_set_status_in_progress_radiobutton}
+#    Click Element    ${edit_list_set_status_in_progress_radiobutton}
+#    Wait Until Page Contains   ${edit_list_set_status_in_progress_status}
 
 Add Main Category
     Wait Until Page Contains Element   ${edit_list_main_catogary_input}

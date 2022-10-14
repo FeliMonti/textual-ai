@@ -24,24 +24,26 @@ User Can Use Add Function In Edit Subpage Frame
     [Tags]  Edit list
     #Edit on the product
     #Add Main Category
-    Add Label
-    Remove Label
-    Add Name
-    Add Original Text And Headline On the Same Page
+#    Add Label
+#    Remove Label
+#    Add Name
+#    Add Original Text And Headline On the Same Page
+    Navigate On Action Button
+    #Navigate On Set Status Button
 
-User Can Use Search, Request And Add Function On Edit Page
-    [Documentation]  Once enter edit page; user can search, request and add a property
-    [Tags]  Edit list
-    Navigate On Attribute
-    Navigate On Properties
-    Navigate On Occasion
-    Navigate On Color
-    Navigate On Material
-    Navigate On "Made in"
-    Navigate On "Designed in"
-    Navigate On Position
-    Navigate On Phrase
-    Navigate On Fixed Phrase
+#User Can Use Search, Request And Add Function On Edit Page
+#    [Documentation]  Once enter edit page; user can search, request and add a property
+#    [Tags]  Edit list
+#    Navigate On Attribute
+#    Navigate On Properties
+#    Navigate On Occasion
+#    Navigate On Color
+#    Navigate On Material
+#    Navigate On "Made in"
+#    Navigate On "Designed in"
+#    Navigate On Position
+#    Navigate On Phrase
+#    Navigate On Fixed Phrase
 
 #User Can Use Search Function In Edit Subpage Frame
 #    [Documentation]  Once enter edit subpage frame; user can edit product,search function
