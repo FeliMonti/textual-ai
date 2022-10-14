@@ -29,7 +29,7 @@ User Can Use Add Function In Edit Subpage Frame
 #    Add Name
 #    Add Original Text And Headline On the Same Page
     Navigate On Action Button
-    #Navigate On Set Status Button
+    Navigate On Set Status Button
 
 #User Can Use Search, Request And Add Function On Edit Page
 #    [Documentation]  Once enter edit page; user can search, request and add a property
