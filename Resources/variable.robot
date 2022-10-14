@@ -18,6 +18,8 @@ ${product_list_data_table_edit_button_1}  xpath://*[@data-table-cell="1-8"][@cla
 ${product_list_data_table_edit_button_2}  xpath://*[@data-table-cell="2-8"][@class="collapsing links"]//*[@data-testid="product-list-edit-button"]
 ${product_list_data_table_edit_button_3}  xpath://*[@data-table-cell="3-8"][@class="collapsing links"]//*[@data-testid="product-list-edit-button"]
 ${product_list_data_table_edit_button_3_9}  xpath://*[@data-table-cell="3-9"][@class="collapsing links"]//*[@data-testid="product-list-edit-button"]
+${product_list_edit_button}  xpath://*[@data-table-cell="5-8"][@class="collapsing links"]//*[@data-testid="product-list-edit-button"]
+${product_list_edit_button}  xpath://*[@data-table-cell="2-8"][@class="collapsing links"]//*[@data-testid="product-list-edit-button"]
 
 #---filter by date---#
 ${product_list_filter_by_date_button}  xpath://*[@data-testid="by-date"]
@@ -114,8 +116,16 @@ ${edit_list_additional_information_button}  xpath://*[@class="ui text grey"]
 ${edit_list_original_text_ruta}  xpath://*[@id="id_original_text"]
 ${edit_list_data_table_original_text_1}  xpath://*[@data-table-cell="1-3"][@class="text-column"]
 ${edit_list_data_table_original_text_4}  xpath://td[@data-table-cell="4-3"]
+${edit_list_main_catogary_input}  xpath://input[@data-testid="single-input"]         ### 1 the same xpath as attribute
+${edit_list_subpart_attribute_input}  xpath://input[@data-testid="single-input"]     ### 1
+${edit_list_main_catogary_close_icon}  xpath://*[local-name()="svg"]   ###  2  the same xpath as attribute
+${edit_list_subpart_attribute_close_icon}  xpath://*[local-name()="svg"]  ###  2
+${edit_list_request_button}  xpath://*[@class="option-request-word"]
+${edit_list_request_submit_button}  xpath://button[@data-testid="requestwordmodal-button-submit"]
+${edit_list_suggestions_container}  xpath://div[@data-testid="suggestions-container"]
+${edit_list_delete_icon}  xpath://*[@data-testid="tag-remove"]
 
-#---action button---#
+#---action menu---#
 ${edit_list_actions_button}  xpath://*[@class="title"]/../..//*[@class="action menu"]
 ${edit_list_actions_menu}  xpath://*[@class="options"]
 ${edit_list_name_input}  xpath://input[@id="id_name"]
@@ -147,70 +157,62 @@ ${edit_list_set_status_in_progress_radiobutton}  xpath://*[@id="change-product-s
 ${edit_list_set_status_in_progress_status}  xpath://*[@class="title"]//*[contains(text(),"Status:")]
 ${edit_list_set_status_ready_message}  xpath://*[@class="alert-box-container"]/..
 
+#---Main catogary---#
+${edit_list_main_catogary_sugestions_container}  xpath://div[@class="product-type-row"]//div[@data-testid="suggestions-container"]
+${edit_list_main_catogary_menu_item_suggestion_item}  xpath://div[@class="product-type-row"]//*[contains(text(), "shoes")]
+${edit_list_main_catogary_product_selected_value}  xpath://*[@class="edit-fields"]//*[contains(text(), "shoes")]
+${edit_list_main_catogary_edit_filed_product}  xpath://*[@class="edit-fields"]//*[contains(text(), "product")]
+
+#---subpart attribute---#
+${edit_list_edit_field_add}  xpath://div[@class="edit-fields"]//*[contains(text(), "Add")]
+${edit_list_subpart_attribute_suggestions_container}  xpath://div[@class="product-type-row"]//div[@data-testid="suggestions-container"]
+#${edit_list_subpart_attribute_menu_item_suggestion_item}   xpath://div[@class="product-type-row"]//*[contains(text(), "attribute_input")]
+${edit_list_subpart_attribute_new_attribute_selected_value}  xpath://a[@class="link active"]
+
+
 #---property---#
 ${edit_list_properties_input}  xpath://div[@class="row row-properties"]//input
-${edit_list_properties_suggestions_container}  xpath://div[@class="row row-properties"]//div[@data-testid="suggestions-container"]
-${edit_list_properties_menu_item_suggestion_item}  xpath://div[@class="row row-properties"]//*[contains(text(), "beautiful")]
-${edit_list_properties_delete_icon}  xpath://div[@class="row row-properties"]//*[@data-testid="tag-remove"]
+#${edit_list_properties_menu_item_suggestion_item}  xpath://div[@class="row row-properties"]//*[contains(text(), "${properties_input}")]   #xpath doesn't work in variables list
 
 #---occasion---#
 ${edit_list_occasion_input}  xpath://div[@class="row row-occasion"]//input
-${edit_list_occasion_suggestions_container}  xpath://div[@class="row row-occasion"]//div[@data-testid="suggestions-container"]
-${edit_list_occasion_menu_item_suggestion_item}  xpath://div[@class="row row-occasion"]//*[contains(text(), "for the summer party")]
-${edit_list_occasion_delete_icon}  xpath://div[@class="row row-occasion"]//*[@data-testid="tag-remove"]
+#${edit_list_occasion_menu_item_suggestion_item}  xpath://div[@class="row row-occasion"]//*[contains(text(), "${occasion_input}")]
 
 #---color---#
 ${edit_list_color_input}  xpath://div[@class="row row-color"]//input
-${edit_list_color_suggestions_container}  xpath://div[@class="row row-color"]//div[@data-testid="suggestions-container"]
-${edit_list_color_menu_item_suggestion_item}  xpath://div[@class="row row-color"]//*[contains(text(), "orange")]
-${edit_list_color_delete_icon}  xpath://div[@class="row row-color"]//*[@data-testid="tag-remove"]
+#${edit_list_color_menu_item_suggestion_item}  xpath://div[@class="row row-color"]//*[contains(text(), "${color_input}")]
 
 #---material---#
 ${edit_list_material_input}  xpath://div[@class="row row-material"]//input
-${edit_list_material_suggestions_container}  xpath://div[@class="row row-material"]//div[@data-testid="suggestions-container"]
-${edit_list_material_menu_item_suggestion_item}  xpath://div[@class="row row-material"]//*[contains(text(), "metal")]
-${edit_list_material_delete_icon}  xpath://div[@class="row row-material"]//*[@data-testid="tag-remove"]
+#${edit_list_material_menu_item_suggestion_item}  xpath://div[@class="row row-material"]//*[contains(text(), "material_input")]
 
 #---made in---#
 ${edit_list_made_in_input}  xpath://div[@class="row row-made_in"]//input
-${edit_list_made_in_suggestions_container}  xpath://div[@class="row row-made_in"]//div[@data-testid="suggestions-container"]
-${edit_list_made_in_menu_item_suggestion_item}  xpath://div[@class="row row-made_in"]//*[contains(text(), "in Sweden")]
-${edit_list_made_in_delete_icon}  xpath://div[@class="row row-made_in"]//*[@data-testid="tag-remove"]
+#${edit_list_made_in_menu_item_suggestion_item}  xpath://div[@class="row row-made_in"]//*[contains(text(), "${made_in_input}")]
 
 #---designed in---#
 ${edit_list_designed_in_input}  xpath://div[@class="row row-designed_in"]//input
-${edit_list_designed_in_suggestions_container}  xpath://div[@class="row row-designed_in"]//div[@data-testid="suggestions-container"]
-${edit_list_designed_in_menu_item_suggestion_item}  xpath://div[@class="row row-designed_in"]//*[contains(text(), "in Italy")]
-${edit_list_designed_in_delete_icon}  xpath://div[@class="row row-designed_in"]//*[@data-testid="tag-remove"]
+#${edit_list_designed_in_menu_item_suggestion_item}  xpath://div[@class="row row-designed_in"]//*[contains(text(), "${designed_in_input}")]
 
 #---position---#
 ${edit_list_position_input}  xpath://div[@class="row row-position"]//input
-${edit_list_position_suggestions_container}  xpath://div[@class="row row-position"]//div[@data-testid="suggestions-container"]
-${edit_list_position_menu_item_suggestion_item}  xpath://div[@class="row row-position"]//*[contains(text(), "in front")]
-${edit_list_position_delete_icon}  xpath://div[@class="row row-position"]//*[@data-testid="tag-remove"]
+#${edit_list_position_menu_item_suggestion_item}  xpath://div[@class="row row-position"]//*[contains(text(), "${position_input}")]
 
 #---phrase---#
 ${edit_list_phrase_input}  xpath://div[@class="row row-phrase"]//input
-${edit_list_phrase_suggestions_container}  xpath://div[@class="row row-phrase"]//div[@data-testid="suggestions-container"]
-${edit_list_phrase_menu_item_suggestion_item}  xpath://div[@class="row row-phrase"]//*[contains(text(), "for elegance")]
-${edit_list_phrase_delete_icon}  xpath://div[@class="row row-phrase"]//*[@data-testid="tag-remove"]
+#${edit_list_phrase_menu_item_suggestion_item}  xpath://div[@class="row row-phrase"]//*[contains(text(), "${phrase_input}")]
 
 #---fixed phrases---#
 ${edit_list_fixed_phrases_input}  xpath://div[@class="row row-fixed_phrases"]//input
-${edit_list_fixed_phrases_suggestions_container}  xpath://div[@class="row row-fixed_phrases"]//div[@data-testid="suggestions-container"]
-${edit_list_fixed_phrases_menu_item_suggestion_item}  xpath://div[@class="row row-fixed_phrases"]//*[contains(text(), "Easy on and off. (Lätt av och på.)")]
-${edit_list_fixed_phrases_delete_icon}  xpath://div[@class="row row-fixed_phrases"]//*[@data-testid="tag-remove"]
+#${edit_list_fixed_phrases_menu_item_suggestion_item} xpath://div[@class="row row-fixed_phrase"]//*[contains(text(), "${fixed_phrase_input}")]
 
 #---labels---#
 ${edit_list_labels_input}  xpath://div[@class="field label-field"]//input
-${edit_list_labels_add}  xpath://div[@role="listbox"]//*[@class="selected item addition"]
+${edit_list_labels_add_item}  xpath://div[@role="listbox"]//*[@class="selected item addition"]
 ${edit_list_labels_delete_icon}  xpath://div[@class="field label-field"]//i[@class="delete icon"]
-${edit_list_labels_default_text}  xpath://div[@class="default text"][contains(text(), "Type to search")]
-#${edit_list_labels_combobox}  xpath://div[@class="field label-field"]//div[@role="combobox"]
 
 #---name---#
-${edit_list_name_input}  xpath://input[@id="id_name"]  #---it doesn't work if use this xpath to verify while return to edit subpage frame #
-${edit_list_name_field_input}  xpath://div[@class="field name-field"]//input
+${edit_list_name_input}  xpath://input[@id="id_name"]
 ${edit_list_subpage_back_button}  xpath://div[@class="subpage-back"]//button
 
 #---additional information(original headline and original text---#

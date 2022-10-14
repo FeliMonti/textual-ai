@@ -8,7 +8,6 @@ Suite Setup    Begin Web Test
 Suite Teardown  End Web Test
 
 *** Test Cases ***
-
 User Can Access Website And See Front Page
     [Documentation]  Once accessing the website; being able to see the front page
     [Tags]  Product list
