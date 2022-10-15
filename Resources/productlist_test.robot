@@ -53,16 +53,19 @@ Suite Teardown  End Web Test
 #    [Documentation]  Once enter edit page; user can check different languages on the text column
 #    [Tags]  Product list
 #    Check Languages On Text Column
-#
+
 #User Can Select Different Column Combination
 #    [Documentation]  Once enter edit page; user can select different column
 #    [Tags]  Product list
-#    Column Select Options
+#    Set a combination of options in column
+#    Set namespace in column
+#    Set group children with parent in column
 
 User Can Create New Filter Group For Different Viewset
     [Documentation]  Once enter edit page; user can select different viewset
     [Tags]  Product list
-    Create New Filter Group
+    Create And Delete A New Filter Group
+
 
 #User Can Log Out
     #[Documentation]  Once user is logged in; user can do with Textual; user can log out

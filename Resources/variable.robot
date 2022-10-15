@@ -113,7 +113,8 @@ ${edit_list_bulk_actions_menu_product_delete_products_html}  Xpath://html[@lang=
 ${edit_list_additional_information_button}  xpath://*[@class="ui text grey"]
 ${edit_list_original_text_ruta}  xpath://*[@id="id_original_text"]
 ${edit_list_data_table_original_text_1}  xpath://td[@data-table-cell="1-3"][@class="text-column"]
-${edit_list_data_table_original_text_4}  xpath://td[@data-table-cell="4-3"][@class="text-column"]
+${edit_list_data_table_original_text_3}  xpath://td[@data-table-cell="3-3"][@class="text-column"]
+${edit_list_data_table_original_text_4}  xpath://td[@data-table-cell="4-3"][@class="text-column"]  ###----There are two text-column in row 1, have to use the column to locate this element---#
 ${edit_list_main_category_input}  xpath://input[@data-testid="single-input"]         ### 1 the same xpath as attribute
 ${edit_list_subpart_attribute_input}  xpath://input[@data-testid="single-input"]     ### 1
 ${edit_list_main_category_close_icon}  xpath://*[local-name()="svg"]   ###  2  the same xpath as attribute
@@ -135,6 +136,8 @@ ${edit_list_SKU_EAN_input}  xpath://*[@data-testid="SKU-EAN-input"]//input
 ${edit_list_actions_copy_from_copy_button}  xpath://*[@data-testid="copy-modal-copy-action"]
 ${edit_list_actions_copy_to_button}  xpath://button[@data-testid="fromto"]  #data:testid:fromto
 ${edit_list_actions_copy_to_copy_button}  xpath://*[@data-testid="copy-modal-copy-action"]
+${edit_list_data_table_SKU_3}  xpath://td[@data-table-cell="3-2"]
+${edit_list_data_table_SKU_4}  xpath://td[@data-table-cell="4-2"]
 
 #---delete SKU---#
 ${edit_list_data_table_SKU_1}  xpath://td[@data-table-cell="1-2"]
