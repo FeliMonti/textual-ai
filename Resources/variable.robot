@@ -17,8 +17,8 @@ ${product_list_search_text_input}  xpath://*[@data-testid="searchQuery"]//input
 ${product_list_data_table_edit_button_1}  xpath://table[@data-testid="products-table"]//tr[@data-table-row=1]//*[@data-testid="product-list-edit-button"]
 ${product_list_data_table_edit_button_2}  xpath://table[@data-testid="products-table"]//tr[@data-table-row=2]//*[@data-testid="product-list-edit-button"]
 ${product_list_data_table_edit_button_3}  xpath://table[@data-testid="products-table"]//tr[@data-table-row=3]//*[@data-testid="product-list-edit-button"]
-${product_list_edit_button}  xpath://*[@data-table-cell="5-8"][@class="collapsing links"]//*[@data-testid="product-list-edit-button"]
-${product_list_edit_button}  xpath://*[@data-table-cell="2-8"][@class="collapsing links"]//*[@data-testid="product-list-edit-button"]
+${product_list_edit_button}  xpath://table[@data-testid="products-table"]//tr[@data-table-row=4]//*[@data-testid="product-list-edit-button"]
+${product_list_edit_button}  xpath://table[@data-testid="products-table"]//tr[@data-table-row=5]//*[@data-testid="product-list-edit-button"]
 
 #---filter by date---#
 ${product_list_filter_by_date_button}  xpath://*[@data-testid="by-date"]
@@ -104,16 +104,6 @@ ${product_list_menu_dropdown_manage_filter_groups}  xpath://*[contains(text(),"M
 ${edit_list_subpage_iframe}  xpath://iframe[@class="subpage-iframe"]
 ${edit_list_edit_tab}  xpath://a[@data-test="edit-tab"]
 ${edit_list_edit_field_add}  xpath://div[@class="edit-fields"]//*[contains(text(), "Add")]
-${edit_list_main_category_input}  xpath://input[@data-testid="single-input"]   ###
-${edit_list_subpart_attribute_input}  xpath://div[@class="product-type-row"]//input[@data-testid="single-input"]'  ###
-${edit_list_request_button}  xpath://*[@class="menu-item suggestion-active"]
-${edit_list_request_submit_button}  xpath://*[@data-testid="requestwordmodal-button-submit"]
-${edit_list_subpage_back_button}  xpath://*[@class="subpage-back"]
-${edit_list_bulk_actions_menu_product_delete_products_html}  Xpath://html[@lang="en_US"]
-${edit_list_additional_information_button}  xpath://*[@class="ui text grey"]
-${edit_list_original_text_ruta}  xpath://*[@id="id_original_text"]
-${edit_list_data_table_original_text_1}  xpath://*[@data-table-cell="1-3"][@class="text-column"]
-${edit_list_data_table_original_text_4}  xpath://td[@data-table-cell="4-3"]
 ${edit_list_main_category_input}  xpath://input[@data-testid="single-input"]         ### 1 the same xpath as attribute
 ${edit_list_subpart_attribute_input}  xpath://input[@data-testid="single-input"]     ### 1
 ${edit_list_main_category_close_icon}  xpath://*[local-name()="svg"]   ###  2  the same xpath as attribute
@@ -122,6 +112,12 @@ ${edit_list_request_button}  xpath://*[@class="option-request-word"]
 ${edit_list_request_submit_button}  xpath://button[@data-testid="requestwordmodal-button-submit"]
 ${edit_list_suggestions_container}  xpath://div[@data-testid="suggestions-container"]
 ${edit_list_delete_icon}  xpath://*[@data-testid="tag-remove"]
+${edit_list_subpage_back_button}  xpath://*[@class="subpage-back"]
+${edit_list_bulk_actions_menu_product_delete_products_html}  Xpath://html[@lang="en_US"]
+${edit_list_additional_information_button}  xpath://*[@class="ui text grey"]
+${edit_list_original_text_ruta}  xpath://*[@id="id_original_text"]
+${edit_list_data_table_original_text_1}  xpath://*[@data-table-cell="1-3"][@class="text-column"]
+${edit_list_data_table_original_text_4}  xpath://td[@data-table-cell="4-3"]
 
 #---action menu---#
 ${edit_list_actions_button}  xpath://*[@class="title"]/../..//*[@class="action menu"]
@@ -161,7 +157,6 @@ ${edit_list_main_category_product_selected_value}  xpath://*[@class="edit-fields
 ${edit_list_main_category_edit_filed_product}  xpath://*[@class="edit-fields"]//*[contains(text(), "product")]
 
 #---subpart attribute---#
-${edit_list_edit_field_add}  xpath://div[@class="edit-fields"]//*[contains(text(), "Add")]
 ${edit_list_subpart_attribute_suggestions_container}  xpath://div[@class="product-type-row"]//div[@data-testid="suggestions-container"]
 #${edit_list_subpart_attribute_menu_item_suggestion_item}   xpath://div[@class="product-type-row"]//*[contains(text(), "attribute_input")]
 ${edit_list_subpart_attribute_new_attribute_selected_value}  xpath://a[@class="link active"]
@@ -216,7 +211,6 @@ ${edit_list_subpage_back_button}  xpath://div[@class="subpage-back"]//button
 ${edit_list_additional_information_column}  xpath://div[@class="column"]//*[contains(text(), "ADDITIONAL INFORMATION")]
 ${edit_list_original_headline_input}  xpath://input[@id="id_original_headline"]
 ${edit_list_original_text_textarea}  xpath://*[@id="id_original_text"]
-
 
 
 

@@ -9,11 +9,6 @@ Suite Setup   Begin Web Test Edit List
 Suite Teardown  End Web Test
 
 *** Test Cases ***
-#User Can Use Edit Function In Edit Page
-    #[Documentation]  Once enter edit page; user can edit product
-    #[Tags]  Edit list
-    #Edit on the product
-
 User Can Access To Edit Subpage Frame
     [Documentation]  Once user is logged in; user can navigate to product list page, access to edit subpage frame
     [Tags]  Edit list
@@ -24,12 +19,12 @@ User Can Use Add Function In Edit Subpage Frame
     [Tags]  Edit list
     Access To Edit Subpage Frame
     Navigate On Set Status Button
-    # Navigate On Action Button
-    # Add Main Category
-    # Add Label
-    # Remove Label
-    # Add Name
-    # Add Original Text And Headline On the Same Page
+    Navigate On Action Button
+    Add Main Category
+    Add Label
+    Remove Label
+    Add Name
+    Add Original Text And Headline On the Same Page
 
 User Can Use Search, Request And Add Function On Edit Page
     [Documentation]  Once enter edit page; user can search, request and add a property

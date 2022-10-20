@@ -49,8 +49,7 @@ Search for SKU
     Click Element   ${product_list_search_button}
     Wait Until Page Contains Element   ${product_list_search_text_input}
 
-Filter by Product Creation Date
-    #---Select by after date---#
+Filter on After Date by Product Creation Date
     Click Element   ${product_list_filter_by_date_button}
     Wait Until Page Contains Element   ${product_list_filter_by_date_menu}
     Click Element   ${product_list_filter_by_date_product_creation_date_option}
@@ -61,14 +60,22 @@ Filter by Product Creation Date
     Click Element   ${product_list_filter_by_date_close_button}
     Wait Until Page Contains Element   ${product_list_filter_by_date_after_button}
 
-    #---Select by before date---#
+Filter on Before Date by Product Creation Date
+    Click Element   ${product_list_filter_by_date_button}
+    Wait Until Page Contains Element   ${product_list_filter_by_date_menu}
+    Click Element   ${product_list_filter_by_date_product_creation_date_option}
+    Wait Until Page Contains Element   ${product_list_filter_by_date_product_creation_date_option}
     Click Element   ${product_list_filter_by_date_before_button}
     Element Should Be Visible   ${product_list_filter_by_date_before_datepicker}
     Click Element   ${product_list_filter_by_date_before_date_button}
     Click Element   ${product_list_filter_by_date_close_button}
     Wait Until Page Contains Element   ${product_list_filter_by_date_before_button}
 
-    #---Select by both after and before date in product creation date---#
+Filter on After and Before Date by Product Creation Date
+    Click Element   ${product_list_filter_by_date_button}
+    Wait Until Page Contains Element   ${product_list_filter_by_date_menu}
+    Click Element   ${product_list_filter_by_date_product_creation_date_option}
+    Wait Until Page Contains Element   ${product_list_filter_by_date_product_creation_date_option}
     Click Element   ${product_list_filter_by_date_after_button}
     Element Should Be Visible   ${product_list_filter_by_date_after_datepicker}
     Click Element   ${product_list_filter_by_date_after_date_button}
@@ -80,8 +87,7 @@ Filter by Product Creation Date
     Click Element   ${product_list_filter_by_date_close_button}
     Wait Until Page Contains Element   ${product_list_filter_by_date_before_button}
 
-Filter by Latest Publication Date
-    #---Select by after date---#
+Filter on After Date by Latest Publication Date
     Click Element   ${product_list_filter_by_date_button}
     Wait Until Page Contains Element   ${product_list_filter_by_date_menu}
     Click Element   ${product_list_filter_by_date_latest_publication_date_option}
@@ -92,14 +98,22 @@ Filter by Latest Publication Date
     Click Element   ${product_list_filter_by_date_close_button}
     Wait Until Page Contains Element   ${product_list_filter_by_date_after_button}
 
-    #---Select by before date---#
+Filter on Before Date by Latest Publication Date
+    Click Element   ${product_list_filter_by_date_button}
+    Wait Until Page Contains Element   ${product_list_filter_by_date_menu}
+    Click Element   ${product_list_filter_by_date_latest_publication_date_option}
+    Wait Until Page Contains Element   ${product_list_filter_by_date_latest_publication_date_option}
     Click Element   ${product_list_filter_by_date_before_button}
     Element Should Be Visible   ${product_list_filter_by_date_before_datepicker}
     Click Element   ${product_list_filter_by_date_before_date_button}
     Click Element   ${product_list_filter_by_date_close_button}
     Wait Until Page Contains Element   ${product_list_filter_by_date_before_button}
 
-    #---Select by both after and before date in latest publication date---#
+Filter on After and Before Date by Latest Publication Date
+    Click Element   ${product_list_filter_by_date_button}
+    Wait Until Page Contains Element   ${product_list_filter_by_date_menu}
+    Click Element   ${product_list_filter_by_date_latest_publication_date_option}
+    Wait Until Page Contains Element   ${product_list_filter_by_date_latest_publication_date_option}
     Click Element   ${product_list_filter_by_date_after_button}
     Element Should Be Visible   ${product_list_filter_by_date_after_datepicker}
     Click Element   ${product_list_filter_by_date_after_date_button}
@@ -579,24 +593,10 @@ Navigate On Attribute
     Wait Until Page Contains Element   ${edit_list_request_submit_button}
     Click Element   ${edit_list_request_submit_button}
     #---add---#
-    #Comments:
-    #On attribute part, because before searching for attribute, we need to click '+ADD' button to let 'new attribute' and 'attribute' edit column appear.
-    #So after request new attribute, no need to add again, just verify that the 'new attribuet' field becomes the random value of ${attribute_input}?
-
-    #Wait Until Page Contains Element   ${edit_list_subpart_attribute_close_icon}
-    #Click Element   ${edit_list_subpart_attribute_close_icon}
     Wait Until Page Contains Element   ${edit_list_subpart_attribute_input}
     Wait Until Page Contains Element   ${edit_list_subpart_attribute_new_attribute_selected_value}
     Sleep  2s
     Element Text Should Be   ${edit_list_subpart_attribute_new_attribute_selected_value}   ${attribute_input}
-    #Click Element   ${edit_list_edit_field_add}
-    #Wait Until Page Contains   new attribute
-    #Wait Until Page Contains Element   xpath://div[@class="input-container"]//input[@data-testid="single-input"]  #${edit_list_subpart_attribute_input}
-    #Input Text   xpath://div[@class="input-container"]//input[@data-testid="single-input"]  ${attribute_input}
-    #Wait Until Page Contains Element   ${edit_list_suggestions_container}
-    #Wait Until Page Contains Element   xpath://div[@class="product-type-row"]//*[contains(text(), "${attribute_input}")]   #${edit_list_subpart_attribute_menu_item_suggestion_item}
-    #Click Element   xpath://div[@class="product-type-row"]//*[contains(text(), "${attribute_input}")]  #${edit_list_subpart_attribute_menu_item_suggestion_item}
-    #Wait Until Page Contains Element   ${attribute_input}
     Click Element   ${edit_list_subpart_attribute_close_icon}
     Wait Until Page Contains Element  ${edit_list_subpart_attribute_input}
 

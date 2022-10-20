@@ -17,8 +17,12 @@ Suite Teardown  End Web Test
 #User Can Filter on Date
 #    [Documentation]  Once user is logged in; user can navigate to product list page, filter on date
 #    [Tags]  Product list
-#    Filter by Product Creation Date
-#    Filter by Latest Publication Date
+#    Filter on After Date by Product Creation Date
+#    Filter on Before Date by Product Creation Date
+#    Filter on After and Before Date by Product Creation Date
+#    Filter on After Date by Latest Publication Date
+#    Filter on Before Date by Latest Publication Date
+#    Filter on After and Before Date by Latest Publication Date
 #    Filter by Product Creation Date Combined SKU Search
 #    Filter by Latest Publication Date Combined SKU Search
 #
