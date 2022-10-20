@@ -106,7 +106,6 @@ ${edit_list_edit_tab}  xpath://a[@data-test="edit-tab"]
 ${edit_list_edit_field_add}  xpath://div[@class="edit-fields"]//*[contains(text(), "Add")]
 ${edit_list_main_category_input}  xpath://input[@data-testid="single-input"]   ###
 ${edit_list_subpart_attribute_input}  xpath://div[@class="product-type-row"]//input[@data-testid="single-input"]'  ###
-${edit_list_request_button}  xpath://*[@class="menu-item suggestion-active"]
 ${edit_list_request_submit_button}  xpath://*[@data-testid="requestwordmodal-button-submit"]
 ${edit_list_subpage_back_button}  xpath://*[@class="subpage-back"]
 ${edit_list_bulk_actions_menu_product_delete_products_html}  Xpath://html[@lang="en_US"]
@@ -204,8 +203,8 @@ ${edit_list_phrase_input}  xpath://div[@class="row row-phrase"]//input
 #${edit_list_phrase_menu_item_suggestion_item}  xpath://div[@class="row row-phrase"]//*[contains(text(), "${phrase_input}")]
 
 #---fixed phrases---#
-${edit_list_fixed_phrases_input}  xpath://div[@class="row row-fixed_phrases"]//input
-#${edit_list_fixed_phrases_menu_item_suggestion_item} xpath://div[@class="row row-fixed_phrase"]//*[contains(text(), "${fixed_phrase_input}")]
+${edit_list_fixed_phrase_input}  xpath://div[@class="row row-fixed_phrases"]//input
+#${edit_list_fixed_phrase_menu_item_suggestion_item} xpath://div[@class="row row-fixed_phrase"]//*[contains(text(), "${fixed_phrase_input}")]
 
 #---labels---#
 ${edit_list_labels_input}  xpath://div[@class="field label-field"]//input

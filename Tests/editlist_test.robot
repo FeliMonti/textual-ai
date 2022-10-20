@@ -9,11 +9,6 @@ Suite Setup   Begin Web Test Edit List
 Suite Teardown  End Web Test
 
 *** Test Cases ***
-User Can Use Edit Function In Edit Page
-    [Documentation]  Once enter edit page; user can edit product
-    [Tags]  Edit list
-    Edit on the product
-
 User Can Access To Edit Subpage Frame
     [Documentation]  Once user is logged in; user can navigate to product list page, access to edit subpage frame
     [Tags]  Edit list
@@ -22,6 +17,7 @@ User Can Access To Edit Subpage Frame
 User Can Use Add Function In Edit Subpage Frame
     [Documentation]  Once enter edit subpage frame; user can edit product,add function
     [Tags]  Edit list
+    Access To Edit Subpage Frame
     Test On Action Button New Function
     Test On Deleting A Product
     Test On Action Button Duplicate Function
@@ -39,16 +35,17 @@ User Can Use Add Function In Edit Subpage Frame
 User Can Use Search, Request And Add Function On Edit Page
     [Documentation]  Once enter edit page; user can search, request and add a property
     [Tags]  Edit list
-    Test On Attribute Column
-    Test On Properties Column
-    Test On Occasion Column
-    Test On Color Column
-    Test On Material Column
-    Test On "Made in" Column
-    Test On "Designed in" Column
-    Test On Position Column
-    Test On Phrase Column
-    Test On Fixed Phrase Column
+    Access To Edit Subpage Frame
+    # Test On Attribute Column
+    Test On Field   ${edit_list_properties_input}
+    Test On Field   ${edit_list_occasion_input}
+    Test On Field   ${edit_list_color_input}
+    Test On Field   ${edit_list_material_input}
+    Test On Field   ${edit_list_made_in_input}
+    Test On Field   ${edit_list_designed_in_input}
+    Test On Field   ${edit_list_position_input}
+    Test On Field   ${edit_list_phrase_input}
+    Test On Field   ${edit_list_fixed_phrase_input}
 
 #User Can Log Out
     #[Documentation]  Once user is logged in; user can do with Textual; user can log out
