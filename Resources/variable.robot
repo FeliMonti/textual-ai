@@ -105,12 +105,6 @@ ${product_list_menu_dropdown_manage_filter_groups}  xpath://*[contains(text(),"M
 #---edit function common variables---#
 ${edit_list_subpage_iframe}  xpath://iframe[@class="subpage-iframe"]
 ${edit_list_edit_tab}  xpath://a[@data-test="edit-tab"]
-${edit_list_edit_field_add}  xpath://div[@class="edit-fields"]//*[contains(text(), "Add")]
-${edit_list_main_category_input}  xpath://input[@data-testid="single-input"]   ###
-${edit_list_subpart_attribute_input}  xpath://div[@class="product-type-row"]//input[@data-testid="single-input"]'  ###
-${edit_list_request_button}  xpath://*[@class="menu-item suggestion-active"]
-${edit_list_request_submit_button}  xpath://*[@data-testid="requestwordmodal-button-submit"]
-${edit_list_subpage_back_button}  xpath://*[@class="subpage-back"]
 ${edit_list_bulk_actions_menu_product_delete_products_html}  Xpath://html[@lang="en_US"]
 ${edit_list_additional_information_button}  xpath://*[@class="ui text grey"]
 ${edit_list_original_text_ruta}  xpath://*[@id="id_original_text"]
@@ -126,11 +120,6 @@ ${edit_list_request_submit_button}  xpath://button[@data-testid="requestwordmoda
 ${edit_list_suggestions_container}  xpath://div[@data-testid="suggestions-container"]
 ${edit_list_delete_icon}  xpath://*[@data-testid="tag-remove"]
 ${edit_list_subpage_back_button}  xpath://*[@class="subpage-back"]
-${edit_list_bulk_actions_menu_product_delete_products_html}  Xpath://html[@lang="en_US"]
-${edit_list_additional_information_button}  xpath://*[@class="ui text grey"]
-${edit_list_original_text_ruta}  xpath://*[@id="id_original_text"]
-${edit_list_data_table_original_text_1}  xpath://*[@data-table-cell="1-3"][@class="text-column"]
-${edit_list_data_table_original_text_4}  xpath://td[@data-table-cell="4-3"]
 
 #---action menu---#
 ${edit_list_actions_button}  xpath://*[@class="title"]/../..//*[@class="action menu"]
@@ -228,8 +217,6 @@ ${edit_list_subpage_back_button}  xpath://div[@class="subpage-back"]//button
 ${edit_list_additional_information_column}  xpath://div[@class="column"]//*[contains(text(), "ADDITIONAL INFORMATION")]
 ${edit_list_original_headline_input}  xpath://input[@id="id_original_headline"]
 ${edit_list_original_text_textarea}  xpath://*[@id="id_original_text"]
-
-
 
 
 #${orange_eye_ico}  xpath=/html/body/div[4]/div/div[2]/div/div[2]/div/table/tbody/tr[1]/td[4]/div/i[1]

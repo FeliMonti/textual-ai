@@ -70,7 +70,6 @@ User Can Create New Filter Group For Different Viewset
     [Tags]  Product list
     Create And Delete A New Filter Group
 
-
 #User Can Log Out
     #[Documentation]  Once user is logged in; user can do with Textual; user can log out
     #[Tags] Test
