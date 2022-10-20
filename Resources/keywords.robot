@@ -293,8 +293,7 @@ Check Languages On Text Column
     Element Should Be Visible    ${product_list_text_column_update_view_button}
     Click Element   ${product_list_text_column_update_view_button}
 
-Column Select Options
-    #---Set a combination of options in column---#
+Set a combination of options in column
     Click Element   ${product_list_column_button}
     Element Should Be Visible  ${product_list_column_menu}
     Wait Until Page Contains Element   ${product_list_column_EAN_checkbox}
@@ -312,7 +311,7 @@ Column Select Options
     Wait Until Page Contains Element   ${product_list_column_update_button}
     Click Element   ${product_list_column_update_button}
 
-    #---Set namespace in column---#
+Set namespace in column
     Click Element   ${textual_logo}
     Wait Until Page Contains Element   ${customer_home_edit_button}
     Click Element   ${customer_home_edit_button}
@@ -325,7 +324,7 @@ Column Select Options
     Click Element   ${product_list_column_update_button}
     Page Should Contain   Namespace (Product Type)
 
-    #---Set group children with parent in column---#
+Set group children with parent in column
     Click Element   ${textual_logo}
     Wait Until Page Contains Element   ${customer_home_edit_button}
     Click Element   ${customer_home_edit_button}
@@ -337,7 +336,7 @@ Column Select Options
     Wait Until Page Contains Element   ${product_list_column_update_button}
     Click Element   ${product_list_column_update_button}
 
-Create New Filter Group
+Create And Delete A New Filter Group
     #---Create New Filter Group---#
     Wait Until Page Contains Element  ${product_list_filter_default_button}
     Click Element   ${product_list_filter_default_button}
@@ -360,7 +359,7 @@ Create New Filter Group
     Click Element   ${product_list_filter_save_as_filter_name_create_filter_button}
     Wait Until Page Contains    View created successfully
 
-    #---Delete filter group---#
+    #---Delete Filter Group---#
     Click Element   ${product_list_menu}
     Element Should Be Visible   ${product_list_menu_dropdown}
     Wait Until Page Contains Element   ${product_list_menu_dropdown_manage}
@@ -380,8 +379,7 @@ Access To Edit Subpage Frame
     Wait Until Page Contains Element   ${edit_list_edit_tab}
     Click Element   ${edit_list_edit_tab}
 
-Navigate On Action Button
-     #---new---#
+Test On Action Button New Function
     Sleep  2s
     Wait Until Page Contains Element   ${edit_list_SKU_number}
     ${get_SKU_1}=  Get Text  ${edit_list_SKU_number}
@@ -394,14 +392,11 @@ Navigate On Action Button
     Log   ${get_SKU_1}
     Log   ${get_SKU_2}
     Should Be True  "${get_SKU_1}" != "${get_SKU_2}"
-
-    #---delete SKU---#
     Unselect Frame
     Wait Until Page Contains Element  ${edit_list_subpage_back_button}
     Click Element   ${edit_list_subpage_back_button}
-    Click Element   ${textual_logo}
-    Wait Until Page Contains Element   ${customer_home_edit_button}
-    Click Element   ${customer_home_edit_button}
+
+Test On Deleting A Product
     Wait Until Page Contains Element  ${edit_list_data_table_checkbox_1}
     Scroll Element Into View   ${edit_list_data_table_checkbox_1}
     Click Element  ${edit_list_data_table_checkbox_1}
@@ -418,9 +413,8 @@ Navigate On Action Button
     Sleep  2s
     Wait Until Page Contains Element  ${edit_list_bulk_actions_menu_product_delete_products_button}
     Click Element   ${edit_list_bulk_actions_menu_product_delete_products_button}
-#    #${delete_button}=   Get Element Attribute    ${edit_list_bulk_actions_menu_product_delete_products_button}
 
-    #---duplicate---#
+Test On Action Button Duplicate Function
     Wait Until Page Contains Element   ${product_list_data_table_edit_button_3}
     Click Element   ${product_list_data_table_edit_button_3}
     Select Frame    ${edit_list_subpage_iframe}
@@ -456,63 +450,94 @@ Navigate On Action Button
     ${original_text_column_4}    Get Text    ${edit_list_data_table_original_text_4}
     Log    ${original_text_column_4}
     Should Be True  "${original_text_column_1}" == "${original_text_column_4}"
-    #Should Be True  "${get_SKU_1}" != "${get_SKU_2}"
 
+Test On Action Button Copy From Function
+    Wait Until Page Contains Element   ${edit_list_data_table_SKU_1}
+    ${SKU_number_1}    Get Text    ${edit_list_data_table_SKU_1}
+    Log    ${SKU_number_1}
+    Wait Until Page Contains Element   ${product_list_data_table_edit_button_3}
+    Click Element   ${product_list_data_table_edit_button_3}
+    Select Frame    ${edit_list_subpage_iframe}
+    Wait Until Page Contains Element   ${edit_list_actions_button}
+    Click Element   ${edit_list_actions_button}
+    Element Should Be Visible   ${edit_list_actions_menu}
+    Click Element   ${edit_list_actions_copy_from_button}
+    Wait Until Page Contains Element   ${edit_list_SKU_EAN_input}
+    Input Text   ${edit_list_SKU_EAN_input}   ${SKU_number_1}
+    Wait Until Page Contains Element   ${edit_list_actions_copy_from_copy_button}
+    Click Element  ${edit_list_actions_copy_from_copy_button}
+    Unselect Frame
+    Click Element   ${edit_list_subpage_back_button}
+    Wait Until Page Contains Element   ${edit_list_data_table_original_text_1}
+    ${original_text_column_1}    Get Text    ${edit_list_data_table_original_text_1}
+    Log    ${original_text_column_1}
+    ${original_text_column_3}    Get Text    ${edit_list_data_table_original_text_3}
+    Log    ${original_text_column_3}
+    Should Be True  "${original_text_column_1}" == "${original_text_column_3}"
 
-#    Wait Until Page Contains Element   ${product_list_data_table_edit_button_3}
-#    Click Element   ${product_list_data_table_edit_button_3}
-#    Log   ${get_SKU_1}
-#    Log   ${get_SKU_2}
-#    Should Be True  "${get_SKU_1}" != "${get_SKU_2}"
+Test On Action Button Copy To Function
+    Wait Until Page Contains Element   ${edit_list_data_table_SKU_4}
+    ${SKU_number_4}    Get Text    ${edit_list_data_table_SKU_4}
+    Log    ${SKU_number_4}
+    Wait Until Page Contains Element   ${product_list_data_table_edit_button_1}
+    Click Element   ${product_list_data_table_edit_button_1}
+    Select Frame    ${edit_list_subpage_iframe}
+    Wait Until Page Contains Element  ${edit_list_actions_button}
+    Click Element   ${edit_list_actions_button}
+    Element Should Be Visible   ${edit_list_actions_menu}
+    Wait Until Page Contains Element   ${edit_list_actions_copy_to_button}
+    Click Element   ${edit_list_actions_copy_to_button}
+    Wait Until Page Contains Element   ${edit_list_SKU_EAN_input}
+    Input Text   ${edit_list_SKU_EAN_input}   ${SKU_number_4}
+    Wait Until Page Contains Element   ${edit_list_actions_copy_to_copy_button}
+    Click Element  ${edit_list_actions_copy_to_copy_button}
+    Unselect Frame
+    Click Element   ${edit_list_subpage_back_button}
+    Wait Until Page Contains Element   ${edit_list_data_table_original_text_1}
+    ${original_text_column_1}    Get Text    ${edit_list_data_table_original_text_1}
+    Log    ${original_text_column_1}
+    ${original_text_column_4}    Get Text    ${edit_list_data_table_original_text_4}
+    Log    ${original_text_column_4}
+    Should Be True  "${original_text_column_1}" == "${original_text_column_4}"
 
-
-    ###---Problem locating the correct column after new column added---###
-
-#    #---copy from---#
-#    Click Element   ${edit_list_actions_button}
-#    Element Should Be Visible   ${edit_list_actions_menu}
-#    Click Element   ${edit_list_actions_copy_from_button}
-#    Wait Until Page Contains Element   ${edit_list_SKU_EAN_input}
-#    Input Text   ${edit_list_SKU_EAN_input}  dcb7b357-c8f4-4042-b73c-92718f649313
-#    Wait Until Page Contains Element   ${edit_list_actions_copy_from_copy_button}
-#    Click Element  ${edit_list_actions_copy_from_copy_button}
-#
-#    #---copy to---#
-#    Click Element   ${edit_list_actions_button}
-#    Element Should Be Visible   ${edit_list_actions_menu}
-#    Wait Until Page Contains Element   ${edit_list_actions_copy_to_button}
-#    Click Element   ${edit_list_actions_copy_to_button}
-#    Wait Until Page Contains Element   ${edit_list_SKU_EAN_input}
-#    Input Text   ${edit_list_SKU_EAN_input}  52f64090-1476-4e59-ac64-bc8b3d5054e3
-#    Wait Until Page Contains Element   ${edit_list_actions_copy_from_copy_button}
-#    Click Element  ${edit_list_actions_copy_from_copy_button}
-
-Navigate On Set Status Button
-    #---set importing status---#
+Test On Setting importing Status
     Wait Until Page Contains Element   ${edit_list_set_status_button}
     Click Element   ${edit_list_set_status_button}
-    Element Should Be Visible   ${edit_list_set_status_menu}
+    Wait Until Page Contains Element   ${edit_list_set_status_menu}
     Wait Until Page Contains Element   ${edit_list_set_status_importing_radiobutton}
     Click Element   ${edit_list_set_status_importing_radiobutton}
     Wait Until Page Contains   Switching status to "Importing" will result in that all tags added in Textual will be lost. This is not possible to undo. Please confirm to proceed.
     Wait Until Page Contains Element   ${edit_list_set_status_importing_cancel_button}
     Click Element   ${edit_list_set_status_importing_cancel_button}
 
-    #---set ready status---#
+Test On Setting Ready Status
     Wait Until Page Contains Element   ${edit_list_set_status_button}
-    Mouse Over   ${edit_list_set_status_button}
-    # Element Should Be Visible   ${edit_list_set_status_menu}
+    Click Element   ${edit_list_set_status_button}
+    Wait Until Page Contains Element  ${edit_list_set_status_menu}
     Wait Until Page Contains Element   ${edit_list_set_status_ready_radiobutton}
     Click Element   ${edit_list_set_status_ready_radiobutton}
     Wait Until Page Contains   This product is marked as ready.
+    Unselect Frame
+    Wait Until Page Contains Element  ${edit_list_subpage_back_button}
+    Click Element   ${edit_list_subpage_back_button}
 
-    #---set in-progress status---#
+Test On Setting In-progress Status
+    Wait Until Page Contains Element  ${edit_list_data_table_product_status_column}
+    Click Element  ${edit_list_data_table_product_status_column}
+    ${product_status_column_1}  Get Text  ${edit_list_data_table_product_status_column_1}
+    Run Keyword If   "${product_status_column_1}" == "Ready"   Log   ${product_status_column_1}
+    Click Element   ${product_list_data_table_edit_button_1}
+    Select Frame    ${edit_list_subpage_iframe}
     Wait Until Page Contains Element   ${edit_list_set_status_button}
+    Click Element   ${edit_list_set_status_button}
+    Wait Until Page Contains Element  ${edit_list_set_status_menu}
     Mouse Over   ${edit_list_set_status_button}
-    # Element Should Be Visible   ${edit_list_set_status_menu}
     Wait Until Page Contains Element   ${edit_list_set_status_in_progress_radiobutton}
     Click Element   ${edit_list_set_status_in_progress_radiobutton}
     Wait Until Page Contains Element   ${edit_list_set_status_in_progress_status}
+    Unselect Frame
+    Wait Until Page Contains Element  ${edit_list_subpage_back_button}
+    Click Element   ${edit_list_subpage_back_button}
 
 Add Main Category
     Wait Until Page Contains Element   ${edit_list_main_category_input}
@@ -577,7 +602,7 @@ Add Original Text And Headline On the Same Page
     Double Click Element  ${edit_list_original_text_textarea}
     Press Keys   ${edit_list_original_text_textarea}   CTRL+A+DELETE     #Only works for Window
 
-Navigate On Attribute
+Test On Attribute Column
     Wait Until Page Contains Element   ${edit_list_edit_field_add}
     Click Element   ${edit_list_edit_field_add}
     Wait Until Page Contains Element   ${edit_list_subpart_attribute_input}
@@ -600,8 +625,7 @@ Navigate On Attribute
     Click Element   ${edit_list_subpart_attribute_close_icon}
     Wait Until Page Contains Element  ${edit_list_subpart_attribute_input}
 
-
-Navigate On Properties
+Test On Properties Column
     #---search---#
     Wait Until Page Contains Element   ${edit_list_properties_input}
     ${properties_input}=  Generate Random String  length=8  chars=[LETTERS][NUMBERS]
@@ -625,7 +649,7 @@ Navigate On Properties
     Click Element   ${edit_list_delete_icon}
     Wait Until Page Contains Element  ${edit_list_properties_input}
 
-Navigate On Occasion
+Test On Occasion Column
     #---search---#
     Wait Until Page Contains Element   ${edit_list_occasion_input}
     ${occasion_input}=  Generate Random String  length=8  chars=[LETTERS][NUMBERS]
@@ -648,8 +672,7 @@ Navigate On Occasion
     Click Element   ${edit_list_delete_icon}
     Wait Until Page Contains Element  ${edit_list_occasion_input}
 
-
-Navigate On Color
+Test On Color Column
     #---search---#
     Wait Until Page Contains Element   ${edit_list_color_input}
     ${color_input}=  Generate Random String  length=8  chars=[LETTERS][NUMBERS]
@@ -672,7 +695,7 @@ Navigate On Color
     Click Element   ${edit_list_delete_icon}
     Wait Until Page Contains Element  ${edit_list_color_input}
 
-Navigate On Material
+Test On Material Column
     #---search---#
     Wait Until Page Contains Element   ${edit_list_material_input}
     ${material_input}=  Generate Random String  length=8  chars=[LETTERS][NUMBERS]
@@ -695,7 +718,7 @@ Navigate On Material
     Click Element   ${edit_list_delete_icon}
     Wait Until Page Contains Element  ${edit_list_material_input}
 
-Navigate On "Made in"
+Test On "Made in" Column
     #---search---#
     Wait Until Page Contains Element   ${edit_list_made_in_input}
     ${made_in_input}=  Generate Random String  length=8  chars=[LETTERS][NUMBERS]
@@ -718,8 +741,7 @@ Navigate On "Made in"
     Click Element   ${edit_list_delete_icon}
     Wait Until Page Contains Element  ${edit_list_made_in_input}
 
-
-Navigate On "Designed in"
+Test On "Designed in" Column
     #---search---#
     Wait Until Page Contains Element   ${edit_list_designed_in_input}
     ${designed_in_input}=  Generate Random String  length=8  chars=[LETTERS][NUMBERS]
@@ -742,7 +764,7 @@ Navigate On "Designed in"
     Click Element   ${edit_list_delete_icon}
     Wait Until Page Contains Element  ${edit_list_designed_in_input}
 
-Navigate On Position
+Test On Position Column
     #---search---#
     Wait Until Page Contains Element   ${edit_list_position_input}
     ${position_input}=  Generate Random String  length=8  chars=[LETTERS][NUMBERS]
@@ -765,7 +787,7 @@ Navigate On Position
     Click Element   ${edit_list_delete_icon}
     Wait Until Page Contains Element  ${edit_list_position_input}
 
-Navigate On Phrase
+Test On Phrase Column
     #---search---#
     Wait Until Page Contains Element   ${edit_list_phrase_input}
     ${phrase_input}=  Generate Random String  length=8  chars=[LETTERS][NUMBERS]
@@ -788,7 +810,7 @@ Navigate On Phrase
     Click Element   ${edit_list_delete_icon}
     Wait Until Page Contains Element  ${edit_list_phrase_input}
 
-Navigate On Fixed Phrase
+Test On Fixed Phrase Column
     #---search---#
     Wait Until Page Contains Element   ${edit_list_fixed_phrase_input}
     ${fixed_phrase_input}=  Generate Random String  length=8  chars=[LETTERS][NUMBERS]
