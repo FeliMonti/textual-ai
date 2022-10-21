@@ -19,8 +19,8 @@ ${product_list_data_table_edit_button_2}  xpath://table[@data-testid="products-t
 ${product_list_data_table_edit_button_3}  xpath://table[@data-testid="products-table"]//tr[@data-table-row=3]//*[@data-testid="product-list-edit-button"]
 ${product_list_data_table_edit_button_4}  xpath://table[@data-testid="products-table"]//tr[@data-table-row=4]//*[@data-testid="product-list-edit-button"]
 ${product_list_data_table_edit_button_5}  xpath://table[@data-testid="products-table"]//tr[@data-table-row=5]//*[@data-testid="product-list-edit-button"]
-${product_list_edit_button}  xpath://table[@data-testid="products-table"]//tr[@data-table-row=4]//*[@data-testid="product-list-edit-button"]
-${product_list_edit_button}  xpath://table[@data-testid="products-table"]//tr[@data-table-row=5]//*[@data-testid="product-list-edit-button"]
+#${product_list_edit_button}  xpath://table[@data-testid="products-table"]//tr[@data-table-row=4]//*[@data-testid="product-list-edit-button"]
+#${product_list_edit_button}  xpath://table[@data-testid="products-table"]//tr[@data-table-row=5]//*[@data-testid="product-list-edit-button"]
 
 #---filter by date---#
 ${product_list_filter_by_date_button}  xpath://*[@data-testid="by-date"]
@@ -105,23 +105,18 @@ ${product_list_menu_dropdown_manage_filter_groups}  xpath://*[contains(text(),"M
 #---edit function common variables---#
 ${edit_list_subpage_iframe}  xpath://iframe[@class="subpage-iframe"]
 ${edit_list_edit_tab}  xpath://a[@data-test="edit-tab"]
-${edit_list_edit_field_add}  xpath://div[@class="edit-fields"]//*[contains(text(), "Add")]
-${edit_list_main_category_input}  xpath://input[@data-testid="single-input"]   ###
-${edit_list_subpart_attribute_input}  xpath://div[@class="product-type-row"]//input[@data-testid="single-input"]'  ###
-${edit_list_request_submit_button}  xpath://*[@data-testid="requestwordmodal-button-submit"]
-${edit_list_subpage_back_button}  xpath://*[@class="subpage-back"]
-${edit_list_bulk_actions_menu_product_delete_products_html}  Xpath://html[@lang="en_US"]
-${edit_list_additional_information_button}  xpath://*[@class="ui text grey"]
-${edit_list_original_text_ruta}  xpath://*[@id="id_original_text"]
-${edit_list_data_table_original_text_1}  xpath://td[@data-table-cell="1-3"][@class="text-column"]
-${edit_list_data_table_original_text_3}  xpath://td[@data-table-cell="3-3"][@class="text-column"]
-${edit_list_data_table_original_text_4}  xpath://td[@data-table-cell="4-3"][@class="text-column"]  ###----There are two text-column in row 1, have to use the column to locate this element---#
 ${edit_list_main_category_input}  xpath://input[@data-testid="single-input"]         ### 1 the same xpath as attribute
 ${edit_list_subpart_attribute_input}  xpath://input[@data-testid="single-input"]     ### 1
 ${edit_list_main_category_close_icon}  xpath://*[local-name()="svg"]   ###  2  the same xpath as attribute
 ${edit_list_subpart_attribute_close_icon}  xpath://*[local-name()="svg"]  ###  2
 ${edit_list_request_button}  xpath://*[@class="option-request-word"]
 ${edit_list_request_submit_button}  xpath://button[@data-testid="requestwordmodal-button-submit"]
+${edit_list_bulk_actions_menu_product_delete_products_html}  xpath://html[@lang="en_US"]
+${edit_list_additional_information_button}  xpath://*[@class="ui text grey"]
+${edit_list_original_text_ruta}  xpath://*[@id="id_original_text"]
+${edit_list_data_table_original_text_1}  xpath://td[@data-table-cell="1-3"][@class="text-column"]
+${edit_list_data_table_original_text_3}  xpath://td[@data-table-cell="3-3"][@class="text-column"]
+${edit_list_data_table_original_text_4}  xpath://td[@data-table-cell="4-3"][@class="text-column"]  ###----There are two text-column in row 1, have to use the column to locate this element---#
 ${edit_list_suggestions_container}  xpath://div[@data-testid="suggestions-container"]
 ${edit_list_delete_icon}  xpath://*[@data-testid="tag-remove"]
 ${edit_list_subpage_back_button}  xpath://*[@class="subpage-back"]
