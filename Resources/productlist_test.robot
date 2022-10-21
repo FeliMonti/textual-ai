@@ -68,7 +68,14 @@ Suite Teardown  End Web Test
 User Can Create New Filter Group For Different Viewset
     [Documentation]  Once enter edit page; user can select different viewset
     [Tags]  Product list
-    Create And Delete A New Filter Group
+
+    ${group_name}=  Generate Random String  length=8  chars=[LETTERS][NUMBERS]
+    ${filter_name}=  Generate Random String  length=8  chars=[LETTERS][NUMBERS]
+
+    Select Existing Filter
+    Create A New Filter Group   ${group_name}
+    Create A New Filter   ${filter_name}
+    Delete A Filter Group   ${group_name}
 
 #User Can Log Out
     #[Documentation]  Once user is logged in; user can do with Textual; user can log out
