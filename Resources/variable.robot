@@ -156,7 +156,7 @@ ${edit_list_set_status_in_progress_status}  xpath://*[@class="title"]//*[text() 
 ${edit_list_data_table_product_status_column}  xpath://*[@class="status"][contains(text(),"Product Status")]
 ${edit_list_data_table_product_status_column_1}  xpath://table[@data-testid="products-table"]//tr[@data-table-row=1]//*[@class="status"]
 
-#---Main category---#
+#---Add main category---#
 ${edit_list_main_category_sugestions_container}  xpath://div[@class="product-type-row"]//div[@data-testid="suggestions-container"]
 ${edit_list_main_category_menu_item_suggestion_item}  xpath://div[@class="product-type-row"]//*[contains(text(), "shoes")]
 ${edit_list_main_category_product_selected_value}  xpath://*[@class="edit-fields"]//*[contains(text(), "shoes")]

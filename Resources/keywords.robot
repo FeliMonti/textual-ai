@@ -374,13 +374,25 @@ Delete A Filter Group
     Handle Alert
     Wait Until Page Contains    Filter group removed successfully
 
-Access To Edit Subpage Frame
+Enter Edit Subpage Frame With Edit Button 1
+    Wait Until Page Contains Element   ${product_list_data_table edit_button_1}
+    Click Element   ${product_list_data_table edit_button_1}
+    Select Frame    ${edit_list_subpage_iframe}
+    Wait Until Page Contains Element   ${edit_list_edit_tab}
+    Click Element   ${edit_list_edit_tab}
+
+Enter Edit Subpage Frame With Edit Button 3
     Wait Until Page Contains Element   ${product_list_data_table edit_button_3}
     Scroll Element Into View   ${product_list_data_table edit_button_3}
     Click Element   ${product_list_data_table edit_button_3}
     Select Frame    ${edit_list_subpage_iframe}
     Wait Until Page Contains Element   ${edit_list_edit_tab}
     Click Element   ${edit_list_edit_tab}
+
+Exit Edit Subpage Frame
+    Unselect Frame
+    Wait Until Page Contains Element  ${edit_list_subpage_back_button}
+    Click Element   ${edit_list_subpage_back_button}
 
 Test On Action Button New Function
     Sleep  2s
@@ -395,9 +407,7 @@ Test On Action Button New Function
     Log   ${get_SKU_1}
     Log   ${get_SKU_2}
     Should Be True  "${get_SKU_1}" != "${get_SKU_2}"
-    Unselect Frame
-    Wait Until Page Contains Element  ${edit_list_subpage_back_button}
-    Click Element   ${edit_list_subpage_back_button}
+    Exit Edit Subpage Frame
 
 Test On Deleting A Product
     Wait Until Page Contains Element  ${edit_list_data_table_checkbox_1}
@@ -437,8 +447,7 @@ Test On Action Button Duplicate Function
     Wait Until Page Contains Element   ${edit_list_SKU_number}
     ${get_SKU_2}=  Get Text  ${edit_list_SKU_number}
     Log   ${get_SKU_2}
-    Unselect Frame
-    Click Element   ${edit_list_subpage_back_button}
+    Exit Edit Subpage Frame
     Wait Until Page Contains Element  ${product_list_column_button}
     Click Element   ${product_list_column_button}
     Element Should Be Visible  ${product_list_column_menu}
@@ -455,28 +464,33 @@ Test On Action Button Duplicate Function
     Should Be True  "${original_text_column_1}" == "${original_text_column_4}"
 
 Test On Action Button Copy From Function
-    Wait Until Page Contains Element   ${edit_list_data_table_SKU_1}
-    ${SKU_number_1}    Get Text    ${edit_list_data_table_SKU_1}
-    Log    ${SKU_number_1}
-    Wait Until Page Contains Element   ${product_list_data_table_edit_button_3}
-    Click Element   ${product_list_data_table_edit_button_3}
-    Select Frame    ${edit_list_subpage_iframe}
+    #[Arguments]    ${INPUT}
+    Enter Edit Subpage Frame With Edit Button 3
+    Wait Until Page Contains Element   ${edit_list_SKU_number}
+    ${get_SKU_1}=  Get Text  ${edit_list_SKU_number}
+    Log   ${get_SKU_1}
+    Add Item Into Fields    ${edit_list_color_input}
+    Exit Edit Subpage Frame
+    Enter Edit Subpage Frame With Edit Button 1
     Wait Until Page Contains Element   ${edit_list_actions_button}
     Click Element   ${edit_list_actions_button}
     Element Should Be Visible   ${edit_list_actions_menu}
     Click Element   ${edit_list_actions_copy_from_button}
     Wait Until Page Contains Element   ${edit_list_SKU_EAN_input}
-    Input Text   ${edit_list_SKU_EAN_input}   ${SKU_number_1}
+    Input Text   ${edit_list_SKU_EAN_input}   ${get_SKU_1}
     Wait Until Page Contains Element   ${edit_list_actions_copy_from_copy_button}
     Click Element  ${edit_list_actions_copy_from_copy_button}
-    Unselect Frame
-    Click Element   ${edit_list_subpage_back_button}
-    Wait Until Page Contains Element   ${edit_list_data_table_original_text_1}
-    ${original_text_column_1}    Get Text    ${edit_list_data_table_original_text_1}
-    Log    ${original_text_column_1}
-    ${original_text_column_3}    Get Text    ${edit_list_data_table_original_text_3}
-    Log    ${original_text_column_3}
-    Should Be True  "${original_text_column_1}" == "${original_text_column_3}"
+    Sleep  2s
+    Wait Until Page Contains Element   ${edit_list_color_input}
+    #Log  ${edit_list_color_input}
+    #${input}  Get Text  xpath://div[@class="vocabulary-lookup"]//*[contains(text(), "${input}")]
+    #Wait Until Page Contains Element   xpath://div[@class="vocabulary-lookup"]//*[contains(text(), "${input}")]
+    Log  ${INPUT}
+#    Exit Edit Subpage Frame
+#    Enter Edit Subpage Frame With Edit Button 1
+#    Wait Until Page Contains Element   ${edit_list_color_input}
+#    ${color}   Get Value   ${edit_list_color_input}
+#    Should Be True   "${color}" == "${input}"
 
 Test On Action Button Copy To Function
     Wait Until Page Contains Element   ${edit_list_data_table_SKU_4}
@@ -544,14 +558,28 @@ Test On Setting In-progress Status
 
 Add Main Category
     Wait Until Page Contains Element   ${edit_list_main_category_input}
+    Wait Until Element Is Visible   ${edit_list_main_category_input}
+    Sleep  1s
     Input Text  ${edit_list_main_category_input}  shoes
     Wait Until Page Contains Element   ${edit_list_main_category_sugestions_container}
-    Wait Until Page Contains Element  ${edit_list_main_category_menu_item_suggestion_item}
+    Wait Until Element Is Visible  ${edit_list_main_category_menu_item_suggestion_item}
     Click Element   ${edit_list_main_category_menu_item_suggestion_item}
     Wait Until Page Contains Element   ${edit_list_main_category_product_selected_value}
     Click Element  ${edit_list_main_category_close_icon}
     Wait Until Page Contains Element   ${edit_list_main_category_input}
     Wait Until Page Contains Element   ${edit_list_main_category_edit_filed_product}
+
+Add Properties
+    Wait Until Page Contains Element   ${input_selector}
+    Input Text   ${input_selector}  ${input}
+    Wait Until Page Contains Element   ${edit_list_suggestions_container}
+    Wait Until Page Contains Element   xpath://div[@class="vocabulary-lookup"]//*[contains(text(), "${input}")]
+    Click Element   xpath://div[@class="vocabulary-lookup"]//*[contains(text(), "${input}")]
+    Sleep   1s
+    Wait Until Page Contains   ${input}
+    Wait Until Page Contains Element   ${edit_list_delete_icon}
+    Click Element   ${edit_list_delete_icon}
+    Wait Until Page Contains Element  ${input_selector}
 
 Add Label
     Wait Until Page Contains Element   ${edit_list_labels_input}
@@ -635,6 +663,7 @@ Test On Field
     Sleep   1s  # without this we get InvalidElementStateException: Message: invalid element state: Element is not currently interactable and may not be manipulated
     ${input}=  Generate Random String  length=8  chars=[LETTERS][NUMBERS]
     Input Text   ${input_selector}  ${input}
+    Log  ${input}
     Wait Until Page Contains Element   ${edit_list_suggestions_container}
     #---request---#
     Wait Until Page Contains Element   ${edit_list_request_button}
@@ -642,15 +671,45 @@ Test On Field
     Click Element   ${edit_list_request_button}
     Wait Until Page Contains Element   ${edit_list_request_submit_button}
     Click Element   ${edit_list_request_submit_button}
-    #---add---#
     Wait Until Page Contains Element   ${edit_list_delete_icon}
     Click Element   ${edit_list_delete_icon}
+    #---add---#
     Wait Until Page Contains Element   ${input_selector}
     Input Text   ${input_selector}  ${input}
     Wait Until Page Contains Element   ${edit_list_suggestions_container}
     Wait Until Page Contains Element   xpath://div[@class="vocabulary-lookup"]//*[contains(text(), "${input}")]
     Click Element   xpath://div[@class="vocabulary-lookup"]//*[contains(text(), "${input}")]
     Sleep   1s
+    Wait Until Page Contains   ${input}
+    Wait Until Page Contains Element   ${edit_list_delete_icon}
+    Click Element   ${edit_list_delete_icon}
+    Wait Until Page Contains Element  ${input_selector}
+
+Add Item Into Fields
+    [Arguments]     ${input_selector}
+    #---search---#
+    Wait Until Page Contains Element   ${input_selector}
+    Sleep   1s  # without this we get InvalidElementStateException: Message: invalid element state: Element is not currently interactable and may not be manipulated
+    ${INPUT}=  Generate Random String  length=8  chars=[LETTERS][NUMBERS]
+    Input Text   ${input_selector}  ${INPUT}
+    Log  ${INPUT}
+    Wait Until Page Contains Element   ${edit_list_suggestions_container}
+    #---request---#
+    Wait Until Page Contains Element   ${edit_list_request_button}
+    #Element Should Be Visible   ${edit_list_request_button}
+    Click Element   ${edit_list_request_button}
+    Wait Until Page Contains Element   ${edit_list_request_submit_button}
+    Click Element   ${edit_list_request_submit_button}
+    Wait Until Page Contains Element   ${edit_list_delete_icon}
+    Click Element   ${edit_list_delete_icon}
+    #---add---#
+    Wait Until Page Contains Element   ${input_selector}
+    Input Text   ${input_selector}  ${INPUT}
+    Wait Until Page Contains Element   ${edit_list_suggestions_container}
+    Wait Until Page Contains Element   xpath://div[@class="vocabulary-lookup"]//*[contains(text(), "${INPUT}")]
+    Click Element   xpath://div[@class="vocabulary-lookup"]//*[contains(text(), "${INPUT}")]
+
+Delete Item From Fields
     Wait Until Page Contains   ${input}
     Wait Until Page Contains Element   ${edit_list_delete_icon}
     Click Element   ${edit_list_delete_icon}
