@@ -375,9 +375,9 @@ Delete A Filter Group
     Wait Until Page Contains    Filter group removed successfully
 
 Access To Edit Subpage Frame
-    Wait Until Page Contains Element   ${product_list_data_table edit_button_3}
-    Scroll Element Into View   ${product_list_data_table edit_button_3}
-    Click Element   ${product_list_data_table edit_button_3}
+    Wait Until Page Contains Element   ${product_list_data_table_edit_button_3}
+    Scroll Element Into View   ${product_list_data_table_edit_button_3}
+    Click Element   ${product_list_data_table_edit_button_3}
     Select Frame    ${edit_list_subpage_iframe}
     Wait Until Page Contains Element   ${edit_list_edit_tab}
     Click Element   ${edit_list_edit_tab}
@@ -542,13 +542,47 @@ Test On Setting In-progress Status
     Wait Until Page Contains Element  ${edit_list_subpage_back_button}
     Click Element   ${edit_list_subpage_back_button}
 
-Add Main Category
+Test On Main Category
+    #---search---#
     Wait Until Page Contains Element   ${edit_list_main_category_input}
-    Input Text  ${edit_list_main_category_input}  shoes
-    Wait Until Page Contains Element   ${edit_list_main_category_sugestions_container}
-    Wait Until Page Contains Element  ${edit_list_main_category_menu_item_suggestion_item}
-    Click Element   ${edit_list_main_category_menu_item_suggestion_item}
-    Wait Until Page Contains Element   ${edit_list_main_category_product_selected_value}
+    Wait Until Element Is Visible   ${edit_list_main_category_input}
+    Sleep  1s
+    ${main_category_input}=  Generate Random String  length=8  chars=[LETTERS][NUMBERS]
+    Input Text  ${edit_list_main_category_input}  ${main_category_input}
+    Wait Until Page Contains Element   ${edit_list_suggestions_container}   #${edit_list_main_category_sugestions_container}
+    #---request---#
+    Wait Until Page Contains Element   ${edit_list_request_button}
+    Click Element   ${edit_list_request_button}
+    Wait Until Page Contains Element   ${edit_list_request_submit_button}
+    Click Element   ${edit_list_request_submit_button}
+    #---add---#
+    Wait Until Page Contains Element   ${edit_list_main_category_product_request_submit_value}
+    #Sleep  1s
+    Wait Until Element Contains   ${edit_list_main_category_product_request_submit_value}   ${main_category_input}
+    Delete Main Category
+
+Test On Label
+    Add Label
+    Remove Label
+
+Test On Name
+    Add Name
+
+Test On Original Text And Headline On the Same Page
+    Add Original Text And Headline On the Same Page
+
+
+#Add Main Category      #with specified text
+#    Wait Until Page Contains Element   ${edit_list_main_category_input}
+#    Wait Until Element Is Visible   ${edit_list_main_category_input}
+#    Sleep  1s
+#    Input Text  ${edit_list_main_category_input}  shoes
+#    Wait Until Page Contains Element   ${edit_list_suggestions_container}   #${edit_list_main_category_sugestions_container}
+#    Wait Until Page Contains Element  ${edit_list_main_category_menu_item_suggestion_item}
+#    Click Element   ${edit_list_main_category_menu_item_suggestion_item}
+#    Wait Until Page Contains Element   ${edit_list_main_category_product_selected_value}
+
+Delete Main Category
     Click Element  ${edit_list_main_category_close_icon}
     Wait Until Page Contains Element   ${edit_list_main_category_input}
     Wait Until Page Contains Element   ${edit_list_main_category_edit_filed_product}
@@ -568,17 +602,15 @@ Remove Label
 Add Name
     Wait Until Page Contains Element   ${edit_list_name_input}
     ${name_input}=  Generate Random String  length=8  chars=[LETTERS][NUMBERS]
-    Input Text   ${edit_list_name_input}   ${name_input}
+    Input Text   ${edit_list_name_input}  ${name_input}
     Unselect Frame
     Click Element   ${edit_list_subpage_back_button}
-    Wait Until Page Contains Element   ${product_list_edit_button}
-    Click Element   ${product_list_edit_button}
+    Wait Until Page Contains Element   ${product_list_data_table_edit_button_3}
+    Click Element   ${product_list_data_table_edit_button_3}
     Select Frame    ${edit_list_subpage_iframe}
     Wait Until Page Contains Element   ${edit_list_name_input}
-    Click Element   ${edit_list_name_input}
-    Textfield Should Contain  ${edit_list_name_input}  ${name_input}
-    Double Click Element   ${edit_list_name_input}
-    Press Keys   ${edit_list_name_input}  CTRL+A+DELETE   #Only works for Window
+    ${name_verify}   Get Value   ${edit_list_name_input}
+    Should Be True   "${name_verify}" == "${name_input}"
 
 Add Original Text And Headline On the Same Page
     Wait Until Page Contains Element   ${edit_list_additional_information_column}
@@ -591,25 +623,26 @@ Add Original Text And Headline On the Same Page
     Input Text   ${edit_list_original_text_textarea}   ${original_text_input}
     Unselect Frame
     Click Element   ${edit_list_subpage_back_button}
-    Wait Until Page Contains Element   ${product_list_edit_button}
-    Click Element   ${product_list_edit_button}
+    Wait Until Page Contains Element   ${product_list_data_table_edit_button_3}
+    Click Element   ${product_list_data_table_edit_button_3}
     Select Frame    ${edit_list_subpage_iframe}
     Wait Until Page Contains Element   ${edit_list_additional_information_column}
     Click Element   ${edit_list_additional_information_column}
-    Click Element   ${edit_list_original_headline_input}
-    Textfield Should Contain   ${edit_list_original_headline_input}  ${original_headline_input}
-    Click Element   ${edit_list_original_text_textarea}
-    Textarea Should Contain   ${edit_list_original_text_textarea}   ${original_text_input}
-    Double Click Element   ${edit_list_original_headline_input}
-    Press Keys   ${edit_list_original_headline_input}   CTRL+A+DELETE    #Only works for Window
-    Double Click Element  ${edit_list_original_text_textarea}
-    Press Keys   ${edit_list_original_text_textarea}   CTRL+A+DELETE     #Only works for Window
+    Wait Until Page Contains Element  ${edit_list_original_headline_input}
+    Wait Until Page Contains Element  ${edit_list_original_text_textarea}
+    ${original_headline_verify}   Get Value   ${edit_list_original_headline_input}
+    Should Be True   "${original_headline_verify}" == "${original_headline_input}"
+    ${original_text_verify}  Get Text  ${edit_list_original_text_textarea}
+    Should Be True   "${original_text_verify}" == "${original_text_input}"
 
 Test On Attribute Column
+    #---display subpart on attribute---#
     Wait Until Page Contains Element   ${edit_list_edit_field_add}
+    Sleep  1s
     Click Element   ${edit_list_edit_field_add}
     Wait Until Page Contains Element   ${edit_list_subpart_attribute_input}
-    Wait Until Page Contains   new attribute
+    #Wait Until Page Contains Element  ${edit_list_subpart_attribute_new_attribute}
+    Wait Until Element Contains   ${edit_list_subpart_attribute_new_attribute}  new attribute
     #---search---#
     Wait Until Page Contains Element   ${edit_list_subpart_attribute_input}
     ${attribute_input}=  Generate Random String  length=8  chars=[LETTERS][NUMBERS]
@@ -622,9 +655,10 @@ Test On Attribute Column
     Click Element   ${edit_list_request_submit_button}
     #---add---#
     Wait Until Page Contains Element   ${edit_list_subpart_attribute_input}
-    Wait Until Page Contains Element   ${edit_list_subpart_attribute_new_attribute_selected_value}
-    Sleep  2s
-    Element Text Should Be   ${edit_list_subpart_attribute_new_attribute_selected_value}   ${attribute_input}
+    Wait Until Page Contains Element   ${edit_list_subpart_attribute_new_attribute_selected_value}    timeout=5s
+    Sleep  1s
+    Wait Until Element Contains   ${edit_list_subpart_attribute_new_attribute_selected_value}   ${attribute_input}
+    #---delete---#
     Click Element   ${edit_list_subpart_attribute_close_icon}
     Wait Until Page Contains Element  ${edit_list_subpart_attribute_input}
 
@@ -632,13 +666,13 @@ Test On Field
     [Arguments]    ${input_selector}
     #---search---#
     Wait Until Page Contains Element   ${input_selector}
-    Sleep   1s  # without this we get InvalidElementStateException: Message: invalid element state: Element is not currently interactable and may not be manipulated
+    Wait Until Element Is Visible   ${input_selector}  timeout=5s
+    #Sleep   1s  # without this we get InvalidElementStateException: Message: invalid element state: Element is not currently interactable and may not be manipulated
     ${input}=  Generate Random String  length=8  chars=[LETTERS][NUMBERS]
     Input Text   ${input_selector}  ${input}
     Wait Until Page Contains Element   ${edit_list_suggestions_container}
     #---request---#
     Wait Until Page Contains Element   ${edit_list_request_button}
-    #Element Should Be Visible   ${edit_list_request_button}
     Click Element   ${edit_list_request_button}
     Wait Until Page Contains Element   ${edit_list_request_submit_button}
     Click Element   ${edit_list_request_submit_button}
@@ -649,10 +683,14 @@ Test On Field
     Input Text   ${input_selector}  ${input}
     Wait Until Page Contains Element   ${edit_list_suggestions_container}
     Wait Until Page Contains Element   xpath://div[@class="vocabulary-lookup"]//*[contains(text(), "${input}")]
-    Click Element   xpath://div[@class="vocabulary-lookup"]//*[contains(text(), "${input}")]
-    Sleep   1s
-    Wait Until Page Contains   ${input}
+    Wait Until Element Is Visible   xpath://div[@class="vocabulary-lookup"]//*[contains(text(), "${input}")]    #timeout=5s
+    Sleep  1s   #without this sometimes we get--element is not attached to the page document
+    Click Element  xpath://div[@class="vocabulary-lookup"]//*[contains(text(), "${input}")]
+    Wait Until Page Contains  ${input}
+    #---delete---#
     Wait Until Page Contains Element   ${edit_list_delete_icon}
+    Wait Until Element Is Visible   ${edit_list_delete_icon}   timeout=5s
+    #Sleep  1s   #without this sometimes we get-- Element 'xpath://*[@data-testid="tag-remove"]' did not appear in 10 seconds.
     Click Element   ${edit_list_delete_icon}
     Wait Until Page Contains Element  ${input_selector}
 

@@ -157,13 +157,15 @@ ${edit_list_data_table_product_status_column}  xpath://*[@class="status"][contai
 ${edit_list_data_table_product_status_column_1}  xpath://table[@data-testid="products-table"]//tr[@data-table-row=1]//*[@class="status"]
 
 #---Main category---#
-${edit_list_main_category_sugestions_container}  xpath://div[@class="product-type-row"]//div[@data-testid="suggestions-container"]
+#${edit_list_main_category_sugestions_container}  xpath://div[@class="product-type-row"]//div[@data-testid="suggestions-container"]
 ${edit_list_main_category_menu_item_suggestion_item}  xpath://div[@class="product-type-row"]//*[contains(text(), "shoes")]
 ${edit_list_main_category_product_selected_value}  xpath://*[@class="edit-fields"]//*[contains(text(), "shoes")]
 ${edit_list_main_category_edit_filed_product}  xpath://*[@class="edit-fields"]//*[contains(text(), "product")]
+${edit_list_main_category_product_request_submit_value}   xpath://a[@class="active"]
 
 #---subpart attribute---#
 ${edit_list_edit_field_add}  xpath://div[@class="edit-fields"]//*[contains(text(), "Add")]
+${edit_list_subpart_attribute_new_attribute}  xpath://div[@class="subpart"]//*[contains(text(), "new attribute")]
 ${edit_list_subpart_attribute_suggestions_container}  xpath://div[@class="product-type-row"]//div[@data-testid="suggestions-container"]
 #${edit_list_subpart_attribute_menu_item_suggestion_item}   xpath://div[@class="product-type-row"]//*[contains(text(), "attribute_input")]
 ${edit_list_subpart_attribute_new_attribute_selected_value}  xpath://a[@class="link active"]
