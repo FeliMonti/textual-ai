@@ -385,10 +385,11 @@ Enter Edit Subpage Frame With Edit Button 3
     Wait Until Page Contains Element   ${product_list_data_table edit_button_3}
     Scroll Element Into View   ${product_list_data_table edit_button_3}
     Click Element   ${product_list_data_table edit_button_3}
+
 Access To Edit Subpage Frame
-    Wait Until Page Contains Element   ${product_list_data_table_edit_button_3}
-    Scroll Element Into View   ${product_list_data_table_edit_button_3}
-    Click Element   ${product_list_data_table_edit_button_3}
+    Wait Until Page Contains Element   ${product_list_data_table_edit_button_4}
+    Scroll Element Into View   ${product_list_data_table_edit_button_4}
+    Click Element   ${product_list_data_table_edit_button_4}
     Select Frame    ${edit_list_subpage_iframe}
     Wait Until Page Contains Element   ${edit_list_edit_tab}
     Click Element   ${edit_list_edit_tab}
@@ -601,13 +602,6 @@ Test On Original Text And Headline On the Same Page
 #    Wait Until Page Contains Element   ${edit_list_main_category_product_selected_value}
 
 Delete Main Category
-    Wait Until Element Is Visible   ${edit_list_main_category_input}
-    Sleep  1s
-    Input Text  ${edit_list_main_category_input}  shoes
-    Wait Until Page Contains Element   ${edit_list_main_category_sugestions_container}
-    Wait Until Element Is Visible  ${edit_list_main_category_menu_item_suggestion_item}
-    Click Element   ${edit_list_main_category_menu_item_suggestion_item}
-    Wait Until Page Contains Element   ${edit_list_main_category_product_selected_value}
     Click Element  ${edit_list_main_category_close_icon}
     Wait Until Page Contains Element   ${edit_list_main_category_input}
     Wait Until Page Contains Element   ${edit_list_main_category_edit_filed_product}
@@ -642,8 +636,8 @@ Add Name
     Input Text   ${edit_list_name_input}  ${name_input}
     Unselect Frame
     Click Element   ${edit_list_subpage_back_button}
-    Wait Until Page Contains Element   ${product_list_data_table_edit_button_3}
-    Click Element   ${product_list_data_table_edit_button_3}
+    Wait Until Page Contains Element   ${product_list_data_table_edit_button_4}   #switch to button 4
+    Click Element   ${product_list_data_table_edit_button_4}
     Select Frame    ${edit_list_subpage_iframe}
     Wait Until Page Contains Element   ${edit_list_name_input}
     ${name_verify}   Get Value   ${edit_list_name_input}
@@ -660,8 +654,8 @@ Add Original Text And Headline On the Same Page
     Input Text   ${edit_list_original_text_textarea}   ${original_text_input}
     Unselect Frame
     Click Element   ${edit_list_subpage_back_button}
-    Wait Until Page Contains Element   ${product_list_data_table_edit_button_3}
-    Click Element   ${product_list_data_table_edit_button_3}
+    Wait Until Page Contains Element   ${product_list_data_table_edit_button_4}
+    Click Element   ${product_list_data_table_edit_button_4}
     Select Frame    ${edit_list_subpage_iframe}
     Wait Until Page Contains Element   ${edit_list_additional_information_column}
     Click Element   ${edit_list_additional_information_column}

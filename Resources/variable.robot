@@ -158,10 +158,9 @@ ${edit_list_data_table_product_status_column_1}  xpath://table[@data-testid="pro
 
 #---Main category---#
 #${edit_list_main_category_sugestions_container}  xpath://div[@class="product-type-row"]//div[@data-testid="suggestions-container"]
-#---Add main category---#
-${edit_list_main_category_sugestions_container}  xpath://div[@class="product-type-row"]//div[@data-testid="suggestions-container"]
-${edit_list_main_category_menu_item_suggestion_item}  xpath://div[@class="product-type-row"]//*[contains(text(), "shoes")]
-${edit_list_main_category_product_selected_value}  xpath://*[@class="edit-fields"]//*[contains(text(), "shoes")]
+#${edit_list_main_category_sugestions_container}  xpath://div[@class="product-type-row"]//div[@data-testid="suggestions-container"]   #Instead, use common variable ${edit_list_suggestions_container}, xpath is the same
+${edit_list_main_category_menu_item_suggestion_item}  xpath://div[@class="product-type-row"]//*[contains(text(), "shoes")]  # variable for Add main category---with specified text#
+${edit_list_main_category_product_selected_value}  xpath://*[@class="edit-fields"]//*[contains(text(), "shoes")]     #varialbe for Add main category---with specified text#
 ${edit_list_main_category_edit_filed_product}  xpath://*[@class="edit-fields"]//*[contains(text(), "product")]
 ${edit_list_main_category_product_request_submit_value}   xpath://a[@class="active"]
 
