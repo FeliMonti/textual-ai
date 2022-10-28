@@ -18,15 +18,28 @@ User Can Search for SKU
    Search for SKU  dcb7b357-c8f4-4042-b73c-92718f649313
 
 User Can Filter on Date
-   [Documentation]  Once user is logged in; user can navigate to product list page, filter on date
+   [Documentation]  User can filter on date
    Filter on After Date by Product Creation Date
+   Clear Filter Fields
+
    Filter on Before Date by Product Creation Date
+   Clear Filter Fields
+
    Filter on After and Before Date by Product Creation Date
+   Clear Filter Fields
+   Clear Filter Fields
+
    Filter on After Date by Latest Publication Date
+   Clear Filter Fields
+
    Filter on Before Date by Latest Publication Date
+   Clear Filter Fields
+
    Filter on After and Before Date by Latest Publication Date
-   Filter by Product Creation Date Combined SKU Search
-   Filter by Latest Publication Date Combined SKU Search
+   Clear Filter Fields
+
+   # Filter by Product Creation Date Combined SKU Search
+   # Filter by Latest Publication Date Combined SKU Search
 
 # User Can Filter on Product Status
 #    [Documentation]  Once user is logged in; user can navigate to product list page, filter on product status

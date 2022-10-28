@@ -22,81 +22,62 @@ Search for SKU
     Click Element   ${product_list_search_button}
     Wait Until Page Contains Element   ${product_list_data_table}
 
-Filter on After Date by Product Creation Date
+Select Earliest Date
+    [Arguments]  ${datepicker_button}
+    Click Element   ${datepicker_button}  # xpath://div[@role="listbox"]//*[contains(text(), "After")]/../..
+    Element Should Be Visible   ${datepicker_button}//*[@class="react-datepicker"]
+    Click Element   ${datepicker_button}//*[@class="react-datepicker"]//div[@role="button"][1]
+    Element Should Not Be Visible   ${datepicker_button}//*[@class="react-datepicker"]
+
+Select Latest Date
+    [Arguments]  ${datepicker_button}
+    Click Element   ${datepicker_button}  # xpath://div[@role="listbox"]//*[contains(text(), "After")]/../..
+    Element Should Be Visible   ${datepicker_button}//*[@class="react-datepicker"]
+    Click Element   ${datepicker_button}//*[@class="react-datepicker"]//div[@role="button"][last()]
+    Element Should Not Be Visible   ${datepicker_button}//*[@class="react-datepicker"]
+
+Clear Filter Fields
+    # TODO do not fail if not found
+    # TODO clear all found
+    Click Element     xpath://*[@data-testid="close-btn"]
+
+Select Product Creation Date
     Click Element   ${product_list_filter_by_date_button}
     Wait Until Page Contains Element   ${product_list_filter_by_date_menu}
     Click Element   ${product_list_filter_by_date_product_creation_date_option}
     Wait Until Page Contains Element   ${product_list_filter_by_date_product_creation_date_option}
-    Click Element   ${product_list_filter_by_date_after_button}
-    Element Should Be Visible   ${product_list_filter_by_date_after_datepicker}
-    Click Element   ${product_list_filter_by_date_after_date_button}
-    Click Element   ${product_list_filter_by_date_close_button}
-    Wait Until Page Contains Element   ${product_list_filter_by_date_after_button}
+
+Select Latest Publication Date
+    Click Element   ${product_list_filter_by_date_button}
+    Wait Until Page Contains Element   ${product_list_filter_by_date_menu}
+    Click Element   ${product_list_filter_by_date_latest_publication_date_option}
+    Wait Until Page Contains Element   ${product_list_filter_by_date_latest_publication_date_option}
+
+Filter on After Date by Product Creation Date
+    Select Product Creation Date
+    Select Earliest Date    ${product_list_filter_by_date_after_button}
 
 Filter on Before Date by Product Creation Date
-    Click Element   ${product_list_filter_by_date_button}
-    Wait Until Page Contains Element   ${product_list_filter_by_date_menu}
-    Click Element   ${product_list_filter_by_date_product_creation_date_option}
-    Wait Until Page Contains Element   ${product_list_filter_by_date_product_creation_date_option}
-    Click Element   ${product_list_filter_by_date_before_button}
-    Element Should Be Visible   ${product_list_filter_by_date_before_datepicker}
-    Click Element   ${product_list_filter_by_date_before_date_button}
-    Click Element   ${product_list_filter_by_date_close_button}
-    Wait Until Page Contains Element   ${product_list_filter_by_date_before_button}
+    Select Product Creation Date
+    Select Latest Date    ${product_list_filter_by_date_before_button}
 
 Filter on After and Before Date by Product Creation Date
-    Click Element   ${product_list_filter_by_date_button}
-    Wait Until Page Contains Element   ${product_list_filter_by_date_menu}
-    Click Element   ${product_list_filter_by_date_product_creation_date_option}
-    Wait Until Page Contains Element   ${product_list_filter_by_date_product_creation_date_option}
-    Click Element   ${product_list_filter_by_date_after_button}
-    Element Should Be Visible   ${product_list_filter_by_date_after_datepicker}
-    Click Element   ${product_list_filter_by_date_after_date_button}
-    Click Element   ${product_list_filter_by_date_before_button}
-    Element Should Be Visible   ${product_list_filter_by_date_before_datepicker}
-    Click Element   ${product_list_filter_by_date_before_date_button}
-    Click Element   ${product_list_filter_by_date_close_button}
-    Wait Until Page Contains Element   ${product_list_filter_by_date_after_button}
-    Click Element   ${product_list_filter_by_date_close_button}
-    Wait Until Page Contains Element   ${product_list_filter_by_date_before_button}
+    Select Product Creation Date
+    Select Earliest Date    ${product_list_filter_by_date_after_button}
+    Select Latest Date    ${product_list_filter_by_date_before_button}
 
 Filter on After Date by Latest Publication Date
-    Click Element   ${product_list_filter_by_date_button}
-    Wait Until Page Contains Element   ${product_list_filter_by_date_menu}
-    Click Element   ${product_list_filter_by_date_latest_publication_date_option}
-    Wait Until Page Contains Element   ${product_list_filter_by_date_latest_publication_date_option}
-    Click Element   ${product_list_filter_by_date_after_button}
-    Element Should Be Visible   ${product_list_filter_by_date_after_datepicker}
-    Click Element   ${product_list_filter_by_date_after_date_button}
-    Click Element   ${product_list_filter_by_date_close_button}
-    Wait Until Page Contains Element   ${product_list_filter_by_date_after_button}
+    Select Latest Publication Date
+    Select Earliest Date    ${product_list_filter_by_date_after_button}
 
 Filter on Before Date by Latest Publication Date
-    Click Element   ${product_list_filter_by_date_button}
-    Wait Until Page Contains Element   ${product_list_filter_by_date_menu}
-    Click Element   ${product_list_filter_by_date_latest_publication_date_option}
-    Wait Until Page Contains Element   ${product_list_filter_by_date_latest_publication_date_option}
-    Click Element   ${product_list_filter_by_date_before_button}
-    Element Should Be Visible   ${product_list_filter_by_date_before_datepicker}
-    Click Element   ${product_list_filter_by_date_before_date_button}
-    Click Element   ${product_list_filter_by_date_close_button}
-    Wait Until Page Contains Element   ${product_list_filter_by_date_before_button}
+    Select Latest Publication Date
+    Select Latest Date    ${product_list_filter_by_date_before_button}
 
 Filter on After and Before Date by Latest Publication Date
-    Click Element   ${product_list_filter_by_date_button}
-    Wait Until Page Contains Element   ${product_list_filter_by_date_menu}
-    Click Element   ${product_list_filter_by_date_latest_publication_date_option}
-    Wait Until Page Contains Element   ${product_list_filter_by_date_latest_publication_date_option}
-    Click Element   ${product_list_filter_by_date_after_button}
-    Element Should Be Visible   ${product_list_filter_by_date_after_datepicker}
-    Click Element   ${product_list_filter_by_date_after_date_button}
-    Click Element   ${product_list_filter_by_date_before_button}
-    Element Should Be Visible   ${product_list_filter_by_date_before_datepicker}
-    Click Element   ${product_list_filter_by_date_before_date_button}
-    Click Element   ${product_list_filter_by_date_close_button}
-    Wait Until Page Contains Element   ${product_list_filter_by_date_after_button}
-    Click Element   ${product_list_filter_by_date_close_button}
-    Wait Until Page Contains Element   ${product_list_filter_by_date_before_button}
+    Select Latest Publication Date
+    Select Earliest Date    ${product_list_filter_by_date_after_button}
+    Select Latest Date    ${product_list_filter_by_date_before_button}
 
 Filter by Product Creation Date Combined SKU Search
     #---Input SKU---#
