@@ -1,3 +1,9 @@
+# Basic keywords common to all modules
+
+*** Settings ***
+Library    ../venv/lib/python3.10/site-packages/SeleniumLibrary/__init__.py
+Resource  ../Resources/variables.robot
+
 *** Keywords ***
 Begin Web Test
     ${chrome_options}=  Evaluate  sys.modules['selenium.webdriver'].ChromeOptions()  sys, selenium.webdriver
@@ -12,21 +18,12 @@ Begin Web Test
     Set Selenium Timeout   10s      #${default_selenium_timeout} = Get Selenium Timeout
     # Set Selenium Speed   1s    #${default_selenium_speed} = Get Selenium Speed
 
-Begin Web Test Product List
-    Begin Web Test
-    Go To Web Page
-    Log In User
-    Access To Edit Page
+End Web Test
+    Close Browser
 
-Begin Web Test Edit List
-    Begin Web Test
-    Go To Web Page
-    Log In User
-    Access To Edit Page
-
-Go To Web Page
-    Go to   ${URL}
-    Wait Until Page Contains   Try the new Copy Assistant from Textual
+Go To Login Page
+    Go to   ${LOGIN_URL}
+    Wait Until Page Contains Element  ${login_button}
 
 Log In User
     Input Text   ${login_username_email_input}    regrtestaccount   #textualtest
@@ -34,6 +31,8 @@ Log In User
     Click Button   ${login_button}
     Wait Until Page Contains    What do you want to do today?
 
+Log Out User
+    Click Element   ${product_list_menu_button}
 Access To Edit Page
     Wait Until Page Contains Element   ${customer_home_edit_button}
     Click Element   ${customer_home_edit_button}
@@ -367,6 +366,9 @@ Delete A Filter Group
     [Arguments]    ${group_name}
     Click Element   ${product_list_menu}
     Element Should Be Visible   ${product_list_menu_dropdown}
+    Wait Until Page Contains Element   ${product_list_menu_dropdown_logout}
+    Click Element   ${product_list_menu_dropdown_logout}
+
     Wait Until Page Contains Element   ${product_list_menu_dropdown_manage}
     Click Element   ${product_list_menu_dropdown_manage}
     Select Frame   ${edit_list_subpage_iframe}

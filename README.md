@@ -13,7 +13,7 @@ brew install chromedriver
 Install Robot and Selenium:
 
 ```
-pip3 install robotframework robotframework-seleniumdriver
+pip3 install robotframework~=5.0 robotframework-seleniumlibrary~=6.0
 ```
 
 ## Running
@@ -21,3 +21,14 @@ pip3 install robotframework robotframework-seleniumdriver
 ```
 robot <file>.robot
 ```
+
+## macOS
+
+If you get this message:
+
+> “chromedriver” cannot be opened because the developer cannot be verified.
+> macOS cannot verify that this app is free from malware.
+
+1. Open a Finder window
+2. Go to `/usr/local/bin`
+3. Right-click `chromedriver`, choose "Open"
