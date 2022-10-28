@@ -27,7 +27,7 @@ ${product_list_filter_by_date_button}  xpath://*[@data-testid="by-date"]
 ${product_list_filter_by_date_menu}  xpath://div[@data-testid="by-date"]/div[@class="visible menu transition"]
 ${product_list_filter_by_date_product_creation_date_option}  xpath://span[@class="text"][contains(text(), "Product creation date")]
 ${product_list_filter_by_date_latest_publication_date_option}  xpath://span[@class="text"][contains(text(), "Latest publication date")]
-${product_list_filter_by_date_after_button}  xpath://div[@role="listbox"]//*[contains(text(), "After")]
+${product_list_filter_by_date_after_button}  xpath://div[@role="listbox"]//*[contains(text(), "After")]   #
 ${product_list_filter_by_date_before_button}  xpath://div[@role="listbox"]//*[contains(text(), "Before")]
 ${product_list_filter_by_date_after_datepicker}   xpath://div[@role="listbox"]//*[contains(text(), "After")]/../..//*[@class="react-datepicker"]
 ${product_list_filter_by_date_before_datepicker}  xpath://div[@role="listbox"]//*[contains(text(), "Before")]/../..//*[@class="react-datepicker"]
@@ -125,7 +125,7 @@ ${edit_list_subpage_back_button}  xpath://*[@class="subpage-back"]
 ${edit_list_actions_button}  xpath://*[@class="title"]/../..//*[@class="action menu"]
 ${edit_list_actions_menu}  xpath://*[@class="options"]
 ${edit_list_name_input}  xpath://input[@id="id_name"]
-${edit_list_SKU_number}  xpath://h2
+${edit_list_SKU_number}  xpath://div[@class="actions"]//../h2       #//h2
 ${edit_list_actions_new_button}  xpath://*[@class="material-icons"]/../..//*[@data-test="action-new"]
 ${edit_list_actions_duplicate_button}  xpath://*[@data-test="action-duplicate"]
 ${edit_list_actions_copy_from_button}  xpath://button[@data-testid="tofrom"]  #data:testid:tofrom

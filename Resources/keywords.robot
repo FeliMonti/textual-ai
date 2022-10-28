@@ -76,12 +76,15 @@ Filter on After and Before Date by Product Creation Date
     Wait Until Page Contains Element   ${product_list_filter_by_date_menu}
     Click Element   ${product_list_filter_by_date_product_creation_date_option}
     Wait Until Page Contains Element   ${product_list_filter_by_date_product_creation_date_option}
+
     Click Element   ${product_list_filter_by_date_after_button}
     Element Should Be Visible   ${product_list_filter_by_date_after_datepicker}
     Click Element   ${product_list_filter_by_date_after_date_button}
+
     Click Element   ${product_list_filter_by_date_before_button}
     Element Should Be Visible   ${product_list_filter_by_date_before_datepicker}
     Click Element   ${product_list_filter_by_date_before_date_button}
+
     Click Element   ${product_list_filter_by_date_close_button}
     Wait Until Page Contains Element   ${product_list_filter_by_date_after_button}
     Click Element   ${product_list_filter_by_date_close_button}
@@ -375,16 +378,19 @@ Delete A Filter Group
     Wait Until Page Contains    Filter group removed successfully
 
 Enter Edit Subpage Frame With Edit Button 1
-    Wait Until Page Contains Element   ${product_list_data_table edit_button_1}
-    Click Element   ${product_list_data_table edit_button_1}
+    Wait Until Page Contains Element   ${product_list_data_table_edit_button_1}  #
+    Click Element   ${product_list_data_table_edit_button_1}  #
     Select Frame    ${edit_list_subpage_iframe}
     Wait Until Page Contains Element   ${edit_list_edit_tab}
     Click Element   ${edit_list_edit_tab}
 
 Enter Edit Subpage Frame With Edit Button 3
-    Wait Until Page Contains Element   ${product_list_data_table edit_button_3}
-    Scroll Element Into View   ${product_list_data_table edit_button_3}
-    Click Element   ${product_list_data_table edit_button_3}
+    Wait Until Page Contains Element   ${product_list_data_table_edit_button_3}  #
+    Scroll Element Into View   ${product_list_data_table_edit_button_3}  #
+    Click Element   ${product_list_data_table_edit_button_3}  #
+    Select Frame    ${edit_list_subpage_iframe}  #
+    Wait Until Page Contains Element   ${edit_list_edit_tab}  #
+    Click Element   ${edit_list_edit_tab}  #
 
 Access To Edit Subpage Frame
     Wait Until Page Contains Element   ${product_list_data_table_edit_button_4}
@@ -474,7 +480,7 @@ Test On Action Button Copy From Function
     Wait Until Page Contains Element   ${edit_list_SKU_number}
     ${get_SKU_1}=  Get Text  ${edit_list_SKU_number}
     Log   ${get_SKU_1}
-    Add Item Into Fields    ${edit_list_color_input}
+    ${input}    Add Item Into Fields    ${edit_list_color_input}
     Exit Edit Subpage Frame
     Enter Edit Subpage Frame With Edit Button 1
     Wait Until Page Contains Element   ${edit_list_actions_button}
@@ -490,7 +496,7 @@ Test On Action Button Copy From Function
     #Log  ${edit_list_color_input}
     #${input}  Get Text  xpath://div[@class="vocabulary-lookup"]//*[contains(text(), "${input}")]
     #Wait Until Page Contains Element   xpath://div[@class="vocabulary-lookup"]//*[contains(text(), "${input}")]
-    Log  ${INPUT}
+    Log  ${input}
 #    Exit Edit Subpage Frame
 #    Enter Edit Subpage Frame With Edit Button 1
 #    Wait Until Page Contains Element   ${edit_list_color_input}
@@ -728,12 +734,13 @@ Test On Field
 
 Add Item Into Fields
     [Arguments]     ${input_selector}
+    [Return]   ${input}
     #---search---#
     Wait Until Page Contains Element   ${input_selector}
     Sleep   1s  # without this we get InvalidElementStateException: Message: invalid element state: Element is not currently interactable and may not be manipulated
-    ${INPUT}=  Generate Random String  length=8  chars=[LETTERS][NUMBERS]
-    Input Text   ${input_selector}  ${INPUT}
-    Log  ${INPUT}
+    ${input}=  Generate Random String  length=8  chars=[LETTERS][NUMBERS]
+    Input Text   ${input_selector}  ${input}
+    Log  ${input}
     Wait Until Page Contains Element   ${edit_list_suggestions_container}
     #---request---#
     Wait Until Page Contains Element   ${edit_list_request_button}
@@ -745,10 +752,10 @@ Add Item Into Fields
     Click Element   ${edit_list_delete_icon}
     #---add---#
     Wait Until Page Contains Element   ${input_selector}
-    Input Text   ${input_selector}  ${INPUT}
+    Input Text   ${input_selector}  ${input}
     Wait Until Page Contains Element   ${edit_list_suggestions_container}
-    Wait Until Page Contains Element   xpath://div[@class="vocabulary-lookup"]//*[contains(text(), "${INPUT}")]
-    Click Element   xpath://div[@class="vocabulary-lookup"]//*[contains(text(), "${INPUT}")]
+    Wait Until Page Contains Element   xpath://div[@class="vocabulary-lookup"]//*[contains(text(), "${input}")]
+    Click Element   xpath://div[@class="vocabulary-lookup"]//*[contains(text(), "${input}")]
 
 Delete Item From Fields
     Wait Until Page Contains   ${input}

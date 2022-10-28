@@ -25,10 +25,10 @@ User Can Use Add Function In Edit Subpage Frame
 #    Test On Deleting A Product
 #    Test On Action Button Duplicate Function
      Test On Action Button Copy From Function
-     Test On Action Button Copy To Function    #---Copy-to function is working halv way, test is not applicable---"
-     Test On Setting importing Status
-     Test On Setting Ready Status
-     Test On Setting In-progress Status
+#     Test On Action Button Copy To Function    #---Copy-to function is working halv way, test is not applicable---"
+#     Test On Setting importing Status
+#     Test On Setting Ready Status
+#     Test On Setting In-progress Status
 #    Add Main Category                                    # Delete
 #    Add Label                                            # Delete
 #    Remove Label                                         # Delete
@@ -44,25 +44,25 @@ User Can Use Add Function In Edit Subpage Frame
 #    Test On Setting Ready Status                         # Delete
 #    Test On Setting In-progress Status                   # Delete
 #    Access To Edit Subpage Frame
-     Test On Main Category
-     Test On Label
-     Test On Name
-     Test On Original Text And Headline On the Same Page
+#     Test On Main Category
+#     Test On Label
+#     Test On Name
+#     Test On Original Text And Headline On the Same Page
 
-User Can Use Search, Request And Add Function On Edit Subpage Frame
-    [Documentation]  Once enter edit page; user can search, request and add a property
-    [Tags]  Edit list
-    #Access To Edit Subpage Frame
-    Test On Attribute Column
-    Test On Field   ${edit_list_properties_input}
-    Test On Field   ${edit_list_occasion_input}
-    Test On Field   ${edit_list_color_input}
-    Test On Field   ${edit_list_material_input}
-    Test On Field   ${edit_list_made_in_input}
-    Test On Field   ${edit_list_designed_in_input}
-    Test On Field   ${edit_list_position_input}
-    Test On Field   ${edit_list_phrase_input}
-    Test On Field   ${edit_list_fixed_phrase_input}
+#User Can Use Search, Request And Add Function On Edit Subpage Frame
+#    [Documentation]  Once enter edit page; user can search, request and add a property
+#    [Tags]  Edit list
+#    #Access To Edit Subpage Frame
+#    Test On Attribute Column
+#    Test On Field   ${edit_list_properties_input}
+#    Test On Field   ${edit_list_occasion_input}
+#    Test On Field   ${edit_list_color_input}
+#    Test On Field   ${edit_list_material_input}
+#    Test On Field   ${edit_list_made_in_input}
+#    Test On Field   ${edit_list_designed_in_input}
+#    Test On Field   ${edit_list_position_input}
+#    Test On Field   ${edit_list_phrase_input}
+#    Test On Field   ${edit_list_fixed_phrase_input}
 
 #User Can Log Out
     #[Documentation]  Once user is logged in; user can do with Textual; user can log out
