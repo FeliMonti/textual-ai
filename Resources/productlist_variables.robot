@@ -1,19 +1,9 @@
 *** Variables ***
-${BROWSER}  chrome
-${WINDOW}  window-size=1920,1080
-${URL}  https://dev.textual.ai/d/auth/login
 
 #---product list common variables---#
-${login_username_email_input}  name:username
-${login_password_input}  id:id_password
-${login_button}  xpath://button[contains(text(), "Log in")]
-${customer_home_edit_button}  xpath://a[@class="pbutton pbutton-primary"][contains(text(), "Edit")]
-${textual_logo}  xpath://*[@class="logo"]
-${product_list_menu}  xpath://a[@href="#"][@title="Menu"]
-${product_list_menu_dropdown}  xpath://*[@class="material-icons"][contains(text(),"menu")]/../..
-${product_list_menu_dropdown_manage}  xpath://*[contains(text(),"Manage")]/..
 ${product_list_search_button}  xpath://*[@data-testid="searchButton"]
 ${product_list_search_text_input}  xpath://*[@data-testid="searchQuery"]//input
+${product_list_data_table}  xpath://table[@data-testid="products-table"]
 ${product_list_data_table_edit_button_1}  xpath://table[@data-testid="products-table"]//tr[@data-table-row=1]//*[@data-testid="product-list-edit-button"]
 ${product_list_data_table_edit_button_2}  xpath://table[@data-testid="products-table"]//tr[@data-table-row=2]//*[@data-testid="product-list-edit-button"]
 ${product_list_data_table_edit_button_3}  xpath://table[@data-testid="products-table"]//tr[@data-table-row=3]//*[@data-testid="product-list-edit-button"]
