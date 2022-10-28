@@ -9,6 +9,7 @@ ${login_username_email_input}  name:username
 ${login_password_input}  id:id_password
 ${login_button}  xpath://button[contains(text(), "Log in")]
 ${customer_home_edit_button}  xpath://a[@class="pbutton pbutton-primary"][contains(text(), "Edit")]
+${customer_home_create_button}  xpath://a[@class="pbutton pbutton-primary"][contains(text(), "Create")]
 ${textual_logo}  xpath://*[@class="logo"]
 
 ${product_list_menu_button}  xpath://div[@class="dropdown"]/a[@title="Menu"]
