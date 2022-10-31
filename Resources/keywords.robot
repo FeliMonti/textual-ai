@@ -491,9 +491,15 @@ Test On Action Button Copy From Function
 #    Sleep  2s
 #    Wait Until Page Contains Element   ${edit_list_subpart_attribute_input}
 #    Log  ${edit_list_subpart_attribute_input}
+    Sleep  2s
     Wait Until Page Contains Element   ${edit_list_subpart_attribute_new_attribute_selected}
     ${attribute}   Get Text   ${edit_list_subpart_attribute_new_attribute_selected}
     Log   ${attribute}
+    Delete Attribute
+    Exit Edit Subpage Frame
+    Enter Edit Subpage Frame With Edit Button 3
+    Delete Attribute
+
     #${input}  Get Text  xpath://div[@class="vocabulary-lookup"]//*[contains(text(), "${input}")]
     #Wait Until Page Contains Element   xpath://div[@class="vocabulary-lookup"]//*[contains(text(), "${input}")]
     #Log  ${INPUT}
@@ -705,7 +711,14 @@ Test On Attribute Column
     Wait Until Element Contains   ${edit_list_subpart_attribute_new_attribute_selected_value}   ${attribute_input}
 
 Delete Attribute
-    Click Element   ${edit_list_subpart_attribute_close_icon}
+#    Mouse Over  ${edit_list_subpart_attribute_close_icon}
+#    Wait Until Page Contains Element  ${edit_list_subpart_attribute_close_icon}
+#    Scroll Element Into View   ${edit_list_subpart_attribute_close_icon}
+#    Click Element   ${edit_list_subpart_attribute_close_icon}
+#    Wait Until Page Contains Element  ${edit_list_subpart_attribute_input}
+    Mouse Over  ${edit_list_subpart_attribute_close}
+    Wait Until Page Contains Element  ${edit_list_subpart_attribute_close}
+    Click Element   ${edit_list_subpart_attribute_close}
     Wait Until Page Contains Element  ${edit_list_subpart_attribute_input}
 
 Test On Field

@@ -109,6 +109,7 @@ ${edit_list_main_category_input}  xpath://input[@data-testid="single-input"]    
 ${edit_list_subpart_attribute_input}  xpath://input[@data-testid="single-input"]     ### 1
 ${edit_list_main_category_close_icon}  xpath://*[local-name()="svg"]   ###  2  the same xpath as attribute
 ${edit_list_subpart_attribute_close_icon}  xpath://*[local-name()="svg"]  ###  2
+${edit_list_subpart_attribute_close}  xpath://*[@class="delete-button"]
 ${edit_list_request_button}  xpath://*[@class="option-request-word"]
 ${edit_list_request_submit_button}  xpath://button[@data-testid="requestwordmodal-button-submit"]
 ${edit_list_bulk_actions_menu_product_delete_products_html}  xpath://html[@lang="en_US"]
@@ -171,7 +172,8 @@ ${edit_list_subpart_attribute_new_attribute}  xpath://div[@class="subpart"]//*[c
 ${edit_list_subpart_attribute_suggestions_container}  xpath://div[@class="product-type-row"]//div[@data-testid="suggestions-container"]
 #${edit_list_subpart_attribute_menu_item_suggestion_item}   xpath://div[@class="product-type-row"]//*[contains(text(), "attribute_input")]
 ${edit_list_subpart_attribute_new_attribute_selected_value}     xpath://a[@class="link active"]
-${edit_list_subpart_attribute_new_attribute_selected}   xpath://*[@class="subpart"]//a
+${edit_list_subpart_attribute_new_attribute_selected}   xpath://a[@class="link"]
+
 #---property---#
 ${edit_list_properties_input}  xpath://div[@class="row row-properties"]//input
 #${edit_list_properties_menu_item_suggestion_item}  xpath://div[@class="row row-properties"]//*[contains(text(), "${properties_input}")]   #xpath doesn't work in variables list
