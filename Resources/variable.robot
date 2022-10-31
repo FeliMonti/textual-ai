@@ -170,8 +170,8 @@ ${edit_list_edit_field_add}  xpath://div[@class="edit-fields"]//*[contains(text(
 ${edit_list_subpart_attribute_new_attribute}  xpath://div[@class="subpart"]//*[contains(text(), "new attribute")]
 ${edit_list_subpart_attribute_suggestions_container}  xpath://div[@class="product-type-row"]//div[@data-testid="suggestions-container"]
 #${edit_list_subpart_attribute_menu_item_suggestion_item}   xpath://div[@class="product-type-row"]//*[contains(text(), "attribute_input")]
-${edit_list_subpart_attribute_new_attribute_selected_value}  xpath://a[@class="link active"]
-
+${edit_list_subpart_attribute_new_attribute_selected_value}     xpath://a[@class="link active"]
+${edit_list_subpart_attribute_new_attribute_selected}   xpath://*[@class="subpart"]//a
 #---property---#
 ${edit_list_properties_input}  xpath://div[@class="row row-properties"]//input
 #${edit_list_properties_menu_item_suggestion_item}  xpath://div[@class="row row-properties"]//*[contains(text(), "${properties_input}")]   #xpath doesn't work in variables list
