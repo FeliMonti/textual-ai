@@ -1,5 +1,5 @@
 *** Settings ***
-Library    ../venv/lib/python3.10/site-packages/SeleniumLibrary/__init__.py
+Library  SeleniumLibrary
 Library  ../Scripts/api.py
 Resource  ./keywords.robot
 Resource  ./variables.robot

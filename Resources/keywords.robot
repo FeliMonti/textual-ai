@@ -1,7 +1,7 @@
 # Basic keywords common to all modules
 
 *** Settings ***
-Library    ../venv/lib/python3.10/site-packages/SeleniumLibrary/__init__.py
+Library  SeleniumLibrary
 Resource  ../Resources/variables.robot
 
 *** Keywords ***

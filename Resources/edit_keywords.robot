@@ -1,7 +1,6 @@
 *** Settings ***
 Library  SeleniumLibrary
 Library  robot.libraries.String
-Library    ../venv/lib/python3.10/site-packages/SeleniumLibrary/__init__.py
 Resource  ./keywords.robot
 Resource  ./variables.robot
 Resource  ./edit_variables.robot
