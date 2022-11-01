@@ -13,7 +13,7 @@ brew install chromedriver
 Install Robot and Selenium:
 
 ```
-pip3 install robotframework~=5.0 robotframework-seleniumlibrary~=6.0
+pip3 install -r requirements.txt
 ```
 
 ## Running

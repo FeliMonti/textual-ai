@@ -1,11 +1,14 @@
 *** Settings ***
 Library    ../venv/lib/python3.10/site-packages/SeleniumLibrary/__init__.py
+Library  ../Scripts/api.py
 Resource  ./keywords.robot
 Resource  ./variables.robot
 Resource  ./productlist_variables.robot
 
 *** Keywords ***
 Begin Web Test Product List
+    api.create_products  ${APP_URL}  ${API_TOKEN}
+    Sleep   2s
     Begin Web Test
     Go To Login Page
     Log In User
@@ -13,6 +16,9 @@ Begin Web Test Product List
     Click Element   ${customer_home_edit_button}
     Wait Until Page Contains   Products
 
+End Web Test Product List
+    End Web Test
+    api.delete_products  ${APP_URL}  ${API_TOKEN}
 
 Search for SKU
     [Arguments]  ${sku}

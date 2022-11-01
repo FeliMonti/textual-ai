@@ -26,8 +26,8 @@ Go To Login Page
     Wait Until Page Contains Element  ${login_button}
 
 Log In User
-    Input Text   ${login_username_email_input}    regrtestaccount   #textualtest
-    Input Text   ${login_password_input}  test987!
+    Input Text   ${login_username_email_input}   ${USERNAME}
+    Input Text   ${login_password_input}   ${PASSWORD}
     Click Button   ${login_button}
     Wait Until Page Contains    What do you want to do today?
 

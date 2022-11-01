@@ -7,15 +7,14 @@ Resource  ../Resources/variables.robot
 Resource  ../Resources/productlist_keywords.robot
 Resource  ../Resources/productlist_variables.robot
 Library  SeleniumLibrary
-# Library  robot.libraries.DateTime
 Library  robot.libraries.String
 Suite Setup    Begin Web Test Product List
-Suite Teardown  End Web Test
+Suite Teardown  End Web Test Product List
 
 *** Test Cases ***
 User Can Search for SKU
    [Documentation]  User can search for SKU
-   Search for SKU  dcb7b357-c8f4-4042-b73c-92718f649313
+   Search for SKU  e2e-product-1
 
 User Can Filter on Date
    [Documentation]  User can filter on date
