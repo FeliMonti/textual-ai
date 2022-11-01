@@ -1,7 +1,7 @@
 # Basic keywords common to all modules
 
 *** Settings ***
-Library  SeleniumLibrary
+Library  SeleniumLibrary  run_on_failure=Nothing
 Resource  ../Resources/variables.robot
 
 *** Keywords ***
