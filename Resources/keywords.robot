@@ -35,7 +35,6 @@ Log In User
 
 Log Out User
     Click Element   ${product_list_menu_button}
-    Element Should Be Visible   ${product_list_menu_dropdown}
     Wait Until Page Contains Element   ${product_list_menu_dropdown_logout}
     Click Element   ${product_list_menu_dropdown_logout}
     
