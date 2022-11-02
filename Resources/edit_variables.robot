@@ -11,7 +11,6 @@ ${product_list_column_oiginal_text_checkbox}  xpath://*[@data-testid="original_t
 ${product_list_column_update_button}  xpath://*[@data-testid="update-selected-columns-button"]
 
 #---edit function common variables---#
-${edit_list_subpage_iframe}  xpath://iframe[@class="subpage-iframe"]
 ${edit_list_edit_tab}  xpath://a[@data-test="edit-tab"]
 ${edit_list_main_category_input}  xpath://input[@data-testid="single-input"]         ### 1 the same xpath as attribute
 ${edit_list_subpart_attribute_input}  xpath://input[@data-testid="single-input"]     ### 1

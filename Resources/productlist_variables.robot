@@ -88,8 +88,8 @@ ${product_list_filter_save_as_filter_group_add}  xpath://div[@role="option"]/*[c
 ${product_list_filter_save_as_filter_name_input}  xpath://input[@placeholder="Filter name..."]
 ${product_list_filter_save_as_filter_name_create_filter_button}  xpath://button[contains(text(),"Create Filter")]
 ${product_list_filter_successful_verification}  xpath://*[@id="react-django-toast"]
-${product_list_menu_dropdown_manage_filter_groups}  xpath://*[contains(text(),"Manage filter groups.")]/..
-#${product_list_menu_dropdown_manage_filter_groups_delete}  xpath://*[contains(text(),${group_name})]/../..//button[contains(text(), "Delete")]
+${hamburger_menu_dropdown_manage_filter_groups}  xpath://*[contains(text(),"Manage filter groups.")]/..
+#${hamburger_menu_dropdown_manage_filter_groups_delete}  xpath://*[contains(text(),${group_name})]/../..//button[contains(text(), "Delete")]
 
 #---icon in table---#
 ${orange_eye_icon}  xpath=/html/body/div[4]/div/div[2]/div/div[2]/div/table/tbody/tr[1]/td[4]/div/i[1]

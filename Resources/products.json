@@ -2,7 +2,7 @@
     {
         "external_id": "e2e-product-1",
         "status": "I",
-        "product_labels": ["e2e-testing", "importing"],
+        "product_labels": ["e2e-testing", "importing", "parent"],
         "imported_metadata": {
             "category": "dress"
         }
@@ -18,9 +18,10 @@
     {
         "external_id": "e2e-product-3",
         "status": "R",
-        "product_labels": ["e2e-testing", "ready"],
+        "product_labels": ["e2e-testing", "ready", "child"],
         "imported_metadata": {
             "category": "top"
-        }
+        },
+        "parent": "e2e-testing-1"
     }
 ]
