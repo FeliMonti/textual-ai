@@ -1,7 +1,7 @@
 *** Settings ***
 Library  SeleniumLibrary
 Library  robot.libraries.String
-Library    ../venv/lib/python3.10/site-packages/SeleniumLibrary/__init__.py
+#Library    ../venv/lib/python3.10/site-packages/SeleniumLibrary/__init__.py
 Resource  ./keywords.robot
 Resource  ./variables.robot
 Resource  ./edit_variables.robot
@@ -17,6 +17,9 @@ Begin Web Test Edit
     Click Element   ${customer_home_edit_button}
     Wait Until Page Contains   Products
 
+End Web Test Edit
+    End Web Test
+
 Enter Edit Subpage Frame With Edit Button 1
     Wait Until Page Contains Element   ${product_list_data_table_edit_button_1}
     Click Element   ${product_list_data_table_edit_button_1}
@@ -25,14 +28,17 @@ Enter Edit Subpage Frame With Edit Button 1
     Click Element   ${edit_list_edit_tab}
 
 Enter Edit Subpage Frame With Edit Button 3
-    Wait Until Page Contains Element   ${product_list_data_table edit_button_3}
-    Scroll Element Into View   ${product_list_data_table edit_button_3}
-    Click Element   ${product_list_data_table edit_button_3}
-    
-Access To Edit Subpage Frame
     Wait Until Page Contains Element   ${product_list_data_table_edit_button_3}
     Scroll Element Into View   ${product_list_data_table_edit_button_3}
-    Click Element   ${product_list_data_table_edit_button_3}
+    Click Element   ${product_list_data_table edit_button_3}
+    Select Frame    ${edit_list_subpage_iframe}  #  here add three lines
+    Wait Until Page Contains Element   ${edit_list_edit_tab}  #
+    Click Element   ${edit_list_edit_tab}  #
+    
+Access To Edit Subpage Frame With Edit Button 4
+    Wait Until Page Contains Element   ${product_list_data_table_edit_button_4}
+    Scroll Element Into View   ${product_list_data_table_edit_button_4}
+    Click Element   ${product_list_data_table_edit_button_4}
     Select Frame    ${edit_list_subpage_iframe}
     Wait Until Page Contains Element   ${edit_list_edit_tab}
     Click Element   ${edit_list_edit_tab}
@@ -112,12 +118,11 @@ Test On Action Button Duplicate Function
     Should Be True  "${original_text_column_1}" == "${original_text_column_4}"
 
 Test On Action Button Copy From Function
-    #[Arguments]    ${INPUT}
     Enter Edit Subpage Frame With Edit Button 3
     Wait Until Page Contains Element   ${edit_list_SKU_number}
     ${get_SKU_1}=  Get Text  ${edit_list_SKU_number}
     Log   ${get_SKU_1}
-    Add Item Into Fields    ${edit_list_color_input}
+    ${input}    Add Item Into Fields    ${edit_list_color_input}
     Exit Edit Subpage Frame
     Enter Edit Subpage Frame With Edit Button 1
     Wait Until Page Contains Element   ${edit_list_actions_button}
@@ -133,7 +138,7 @@ Test On Action Button Copy From Function
     #Log  ${edit_list_color_input}
     #${input}  Get Text  xpath://div[@class="vocabulary-lookup"]//*[contains(text(), "${input}")]
     #Wait Until Page Contains Element   xpath://div[@class="vocabulary-lookup"]//*[contains(text(), "${input}")]
-    Log  ${INPUT}
+    Log  ${input}
 #    Exit Edit Subpage Frame
 #    Enter Edit Subpage Frame With Edit Button 1
 #    Wait Until Page Contains Element   ${edit_list_color_input}
@@ -209,8 +214,8 @@ Test On Main Category
     Wait Until Page Contains Element   ${edit_list_main_category_input}
     Wait Until Element Is Visible   ${edit_list_main_category_input}
     Sleep  1s
-    ${main_category_input}=  Generate Random String  length=8  chars=[LETTERS][NUMBERS]
-    Input Text  ${edit_list_main_category_input}  ${main_category_input}
+    ${input}=  Generate Random String  length=8  chars=[LETTERS][NUMBERS]
+    Input Text  ${edit_list_main_category_input}  ${input}
     Wait Until Page Contains Element   ${edit_list_suggestions_container}   #${edit_list_main_category_sugestions_container}
     #---request---#
     Wait Until Page Contains Element   ${edit_list_request_button}
@@ -220,7 +225,7 @@ Test On Main Category
     #---add---#
     Wait Until Page Contains Element   ${edit_list_main_category_product_request_submit_value}
     #Sleep  1s
-    Wait Until Element Contains   ${edit_list_main_category_product_request_submit_value}   ${main_category_input}
+    Wait Until Element Contains   ${edit_list_main_category_product_request_submit_value}   ${input}
     Delete Main Category
 
 Test On Label
@@ -245,18 +250,11 @@ Test On Original Text And Headline On the Same Page
 #    Wait Until Page Contains Element   ${edit_list_main_category_product_selected_value}
 
 Delete Main Category
-    Wait Until Element Is Visible   ${edit_list_main_category_input}
-    Sleep  1s
-    Input Text  ${edit_list_main_category_input}  shoes
-    Wait Until Page Contains Element   ${edit_list_main_category_sugestions_container}
-    Wait Until Element Is Visible  ${edit_list_main_category_menu_item_suggestion_item}
-    Click Element   ${edit_list_main_category_menu_item_suggestion_item}
-    Wait Until Page Contains Element   ${edit_list_main_category_product_selected_value}
     Click Element  ${edit_list_main_category_close_icon}
     Wait Until Page Contains Element   ${edit_list_main_category_input}
     Wait Until Page Contains Element   ${edit_list_main_category_edit_filed_product}
 
-Add Properties
+Add Properties   # ${input}, this part could not be used individually.
     Wait Until Page Contains Element   ${input_selector}
     Input Text   ${input_selector}  ${input}
     Wait Until Page Contains Element   ${edit_list_suggestions_container}
@@ -282,16 +280,16 @@ Remove Label
 
 Add Name
     Wait Until Page Contains Element   ${edit_list_name_input}
-    ${name_input}=  Generate Random String  length=8  chars=[LETTERS][NUMBERS]
-    Input Text   ${edit_list_name_input}  ${name_input}
+    ${input}=  Generate Random String  length=8  chars=[LETTERS][NUMBERS]
+    Input Text   ${edit_list_name_input}  ${input}
     Unselect Frame
     Click Element   ${edit_list_subpage_back_button}
-    Wait Until Page Contains Element   ${product_list_data_table_edit_button_3}
-    Click Element   ${product_list_data_table_edit_button_3}
+    Wait Until Page Contains Element   ${product_list_data_table_edit_button_4}
+    Click Element   ${product_list_data_table_edit_button_4}
     Select Frame    ${edit_list_subpage_iframe}
     Wait Until Page Contains Element   ${edit_list_name_input}
     ${name_verify}   Get Value   ${edit_list_name_input}
-    Should Be True   "${name_verify}" == "${name_input}"
+    Should Be True   "${name_verify}" == "${input}"
 
 Add Original Text And Headline On the Same Page
     Wait Until Page Contains Element   ${edit_list_additional_information_column}
@@ -304,8 +302,8 @@ Add Original Text And Headline On the Same Page
     Input Text   ${edit_list_original_text_textarea}   ${original_text_input}
     Unselect Frame
     Click Element   ${edit_list_subpage_back_button}
-    Wait Until Page Contains Element   ${product_list_data_table_edit_button_3}
-    Click Element   ${product_list_data_table_edit_button_3}
+    Wait Until Page Contains Element   ${product_list_data_table_edit_button_4}
+    Click Element   ${product_list_data_table_edit_button_4}
     Select Frame    ${edit_list_subpage_iframe}
     Wait Until Page Contains Element   ${edit_list_additional_information_column}
     Click Element   ${edit_list_additional_information_column}
@@ -378,12 +376,13 @@ Test On Field
 
 Add Item Into Fields
     [Arguments]     ${input_selector}
+    [Return]   ${input}
     #---search---#
     Wait Until Page Contains Element   ${input_selector}
     Sleep   1s  # without this we get InvalidElementStateException: Message: invalid element state: Element is not currently interactable and may not be manipulated
-    ${INPUT}=  Generate Random String  length=8  chars=[LETTERS][NUMBERS]
-    Input Text   ${input_selector}  ${INPUT}
-    Log  ${INPUT}
+    ${input}=  Generate Random String  length=8  chars=[LETTERS][NUMBERS]
+    Input Text   ${input_selector}  ${input}
+    Log  ${input}
     Wait Until Page Contains Element   ${edit_list_suggestions_container}
     #---request---#
     Wait Until Page Contains Element   ${edit_list_request_button}
@@ -395,10 +394,10 @@ Add Item Into Fields
     Click Element   ${edit_list_delete_icon}
     #---add---#
     Wait Until Page Contains Element   ${input_selector}
-    Input Text   ${input_selector}  ${INPUT}
+    Input Text   ${input_selector}  ${input}
     Wait Until Page Contains Element   ${edit_list_suggestions_container}
-    Wait Until Page Contains Element   xpath://div[@class="vocabulary-lookup"]//*[contains(text(), "${INPUT}")]
-    Click Element   xpath://div[@class="vocabulary-lookup"]//*[contains(text(), "${INPUT}")]
+    Wait Until Page Contains Element   xpath://div[@class="vocabulary-lookup"]//*[contains(text(), "${input}")]
+    Click Element   xpath://div[@class="vocabulary-lookup"]//*[contains(text(), "${input}")]
 
 Delete Item From Fields
     Wait Until Page Contains   ${input}

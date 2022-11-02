@@ -61,7 +61,6 @@ ${edit_list_data_table_product_status_column}  xpath://*[@class="status"][contai
 ${edit_list_data_table_product_status_column_1}  xpath://table[@data-testid="products-table"]//tr[@data-table-row=1]//*[@class="status"]
 
 #---Main category---#
-#${edit_list_main_category_sugestions_container}  xpath://div[@class="product-type-row"]//div[@data-testid="suggestions-container"]
 #${edit_list_main_category_sugestions_container}  xpath://div[@class="product-type-row"]//div[@data-testid="suggestions-container"]   #Instead, use common variable ${edit_list_suggestions_container}, xpath is the same
 ${edit_list_main_category_menu_item_suggestion_item}  xpath://div[@class="product-type-row"]//*[contains(text(), "shoes")]  # variable for Add main category---with specified text#
 ${edit_list_main_category_product_selected_value}  xpath://*[@class="edit-fields"]//*[contains(text(), "shoes")]     #varialbe for Add main category---with specified text#
@@ -126,9 +125,4 @@ ${edit_list_original_headline_input}  xpath://input[@id="id_original_headline"]
 ${edit_list_original_text_textarea}  xpath://*[@id="id_original_text"]
 
 
-#${orange_eye_ico}  xpath=/html/body/div[4]/div/div[2]/div/div[2]/div/table/tbody/tr[1]/td[4]/div/i[1]
-#${green_tick_icon}  xpath=/html/body/div[4]/div/div[2]/div/div[2]/div/table/tbody/tr/td[4]/div/i/i
-#${orange_hour_glass_icon}  xpath=/html/body/div[4]/div/div[2]/div/div[2]/div/table/tbody/tr[1]/td[4]/div/i[1]/i
-#${blue_paper_areoplane_icon}  xpath=/html/body/div[4]/div/div[2]/div/div[2]/div/table/tbody/tr[2]/td[7]/div/i/i
-#${edit_list_check_radiobutton}  xpath=/html/body/div[6]/div/div[2]/form/div[1]/div[2]/div
-#${product_list_menu_manage_filter_group}  xpath=//html/body/div[4]/div/div[1]/ul/li[4]
+
