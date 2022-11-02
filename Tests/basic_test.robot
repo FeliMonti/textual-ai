@@ -1,14 +1,12 @@
 *** Settings ***
-Documentation  Testing Textual
+Documentation  Basic tests
 Resource  ../Resources/keywords.robot
-Resource  ../Resources/variables.robot
-Library  SeleniumLibrary
 Suite Setup  Begin Web Test
 Suite Teardown  End Web Test
 
 *** Test Cases ***
 User Can Access Website And See Login Page
-    [Documentation]  Once accessing the website; being able to see the front page
+    [Documentation]  User can access the website
     Go To Login Page
 
 User Can Log In
@@ -17,5 +15,5 @@ User Can Log In
     Log In User
 
 User Can Log Out
-    [Documentation]  Once user is logged in; user can do with Textual; user can log out
+    [Documentation]  Once user is logged in; user can log out
     Log Out User

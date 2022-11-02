@@ -3,7 +3,13 @@
 *** Variables ***
 ${BROWSER}  chrome
 ${WINDOW}  window-size=1920,1080
-${LOGIN_URL}  https://dev.textual.ai/d/auth/login
+${HEADLESS}  False
+${APP_URL}  https://dev.textual.ai
+${LOGIN_URL}  ${APP_URL}/d/auth/login
+${API_TOKEN}  7d9efb7d289041eb88ca5929018c339880ea5154919e40729e5c748fbb148147
+#${USERNAME}  textualtest
+${USERNAME}  regrtestaccount
+${PASSWORD}  test987!
 
 ${login_username_email_input}  name:username
 ${login_password_input}  id:id_password

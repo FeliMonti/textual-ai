@@ -7,12 +7,26 @@ Resource  ../Resources/variables.robot
 Resource  ../Resources/productlist_keywords.robot
 Resource  ../Resources/productlist_variables.robot
 Library  SeleniumLibrary
-# Library  robot.libraries.DateTime
 Library  robot.libraries.String
 Suite Setup    Begin Web Test Product List
 Suite Teardown  End Web Test Product List
 
 *** Test Cases ***
+User Can Search for SKU
+   [Documentation]  User can search for SKU
+   Search for SKU  e2e-product-1
+
+User Can Filter on Date
+   [Documentation]  User can filter on date
+   Filter on After Date by Product Creation Date
+   Clear Filter Fields
+
+   Filter on Before Date by Product Creation Date
+   Clear Filter Fields
+
+   Filter on After and Before Date by Product Creation Date
+   Clear Filter Fields
+   Clear Filter Fields
 #User Can Search for SKU
 #   [Documentation]  User can search for SKU
 #

@@ -1,7 +1,7 @@
 # Basic keywords common to all modules
 
 *** Settings ***
-#Library    ../venv/lib/python3.10/site-packages/SeleniumLibrary/__init__.py
+Library  SeleniumLibrary  run_on_failure=Nothing
 Resource  ../Resources/variables.robot
 
 *** Keywords ***
@@ -9,7 +9,9 @@ Begin Web Test
     ${chrome_options}=  Evaluate  sys.modules['selenium.webdriver'].ChromeOptions()  sys, selenium.webdriver
     Call Method   ${chrome_options}   add_argument   test-type
     Call Method   ${chrome_options}   add_argument   --disable-extensions
-    #Call Method   ${chrome_options}   add_argument   --headless
+    IF    ${HEADLESS}
+        Call Method   ${chrome_options}   add_argument   --headless
+    END
     Call Method   ${chrome_options}   add_argument   --disable-gpu
     Call Method   ${chrome_options}   add_argument   --no-sandbox
     Call Method   ${chrome_options}   add_argument   --start-maximized
@@ -26,15 +28,12 @@ Go To Login Page
     Wait Until Page Contains Element  ${login_button}
 
 Log In User
-    Input Text   ${login_username_email_input}    regrtestaccount   #textualtest
-    Input Text   ${login_password_input}  test987!
+    Input Text   ${login_username_email_input}   ${USERNAME}
+    Input Text   ${login_password_input}   ${PASSWORD}
     Click Button   ${login_button}
     Wait Until Page Contains    What do you want to do today?
 
 Log Out User
     Click Element   ${product_list_menu_button}
-
-
-
-
-
+    Wait Until Page Contains Element   ${product_list_menu_dropdown_logout}
+    Click Element   ${product_list_menu_dropdown_logout}
