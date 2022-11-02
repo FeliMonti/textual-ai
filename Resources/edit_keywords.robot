@@ -24,7 +24,7 @@ End Web Test Edit
 Enter Edit Subpage Frame With Edit Button 1
     Wait Until Page Contains Element   ${product_list_data_table_edit_button_1}
     Click Element   ${product_list_data_table_edit_button_1}
-    Select Frame    ${edit_list_subpage_iframe}
+    Select Frame    ${subpage_iframe}
     Wait Until Page Contains Element   ${edit_list_edit_tab}
     Click Element   ${edit_list_edit_tab}
 
@@ -32,7 +32,7 @@ Enter Edit Subpage Frame With Edit Button 2
     Wait Until Page Contains Element   ${product_list_data_table edit_button_2}
     Scroll Element Into View   ${product_list_data_table edit_button_2}
     Click Element   ${product_list_data_table edit_button_2}
-    Select Frame    ${edit_list_subpage_iframe}
+    Select Frame    ${subpage_iframe}
     Wait Until Page Contains Element   ${edit_list_edit_tab}
     Click Element   ${edit_list_edit_tab}
 
@@ -40,7 +40,7 @@ Enter Edit Subpage Frame With Edit Button 3
     Wait Until Page Contains Element   ${product_list_data_table edit_button_3}
     Scroll Element Into View   ${product_list_data_table edit_button_3}
     Click Element   ${product_list_data_table edit_button_3}
-    Select Frame    ${edit_list_subpage_iframe}
+    Select Frame    ${subpage_iframe}
     Wait Until Page Contains Element   ${edit_list_edit_tab}
     Click Element   ${edit_list_edit_tab}
 
@@ -48,7 +48,7 @@ Enter Edit Subpage Frame With Edit Button 4
     Wait Until Page Contains Element   ${product_list_data_table edit_button_4}
     Scroll Element Into View   ${product_list_data_table edit_button_4}
     Click Element   ${product_list_data_table edit_button_4}
-    Select Frame    ${edit_list_subpage_iframe}
+    Select Frame    ${subpage_iframe}
     Wait Until Page Contains Element   ${edit_list_edit_tab}
     Click Element   ${edit_list_edit_tab}
 
@@ -226,7 +226,7 @@ Test On Setting In-progress Status
     ${product_status_column_1}  Get Text  ${edit_list_data_table_product_status_column_1}
     Run Keyword If   "${product_status_column_1}" == "Ready"   Log   ${product_status_column_1}
     Click Element   ${product_list_data_table_edit_button_1}
-    Select Frame    ${edit_list_subpage_iframe}
+    Select Frame    ${subpage_iframe}
     Wait Until Page Contains Element   ${edit_list_set_status_button}
     Click Element   ${edit_list_set_status_button}
     Wait Until Page Contains Element  ${edit_list_set_status_menu}
@@ -303,7 +303,7 @@ Add Name
     Click Element   ${edit_list_subpage_back_button}
     Wait Until Page Contains Element   ${product_list_data_table_edit_button_3}
     Click Element   ${product_list_data_table_edit_button_3}
-    Select Frame    ${edit_list_subpage_iframe}
+    Select Frame    ${subpage_iframe}
     Wait Until Page Contains Element   ${edit_list_name_input}
     ${name_verify}   Get Value   ${edit_list_name_input}
     Should Be True   "${name_verify}" == "${name_input}"
@@ -321,7 +321,7 @@ Add Original Text And Headline On the Same Page
     Click Element   ${edit_list_subpage_back_button}
     Wait Until Page Contains Element   ${product_list_data_table_edit_button_3}
     Click Element   ${product_list_data_table_edit_button_3}
-    Select Frame    ${edit_list_subpage_iframe}
+    Select Frame    ${subpage_iframe}
     Wait Until Page Contains Element   ${edit_list_additional_information_column}
     Click Element   ${edit_list_additional_information_column}
     Wait Until Page Contains Element  ${edit_list_original_headline_input}

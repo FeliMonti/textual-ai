@@ -34,6 +34,6 @@ Log In User
     Wait Until Page Contains    What do you want to do today?
 
 Log Out User
-    Click Element   ${product_list_menu_button}
-    Wait Until Page Contains Element   ${product_list_menu_dropdown_logout}
-    Click Element   ${product_list_menu_dropdown_logout}
+    Click Element   ${hamburger_menu_button}
+    Wait Until Page Contains Element   ${hamburger_menu_dropdown_logout}
+    Click Element   ${hamburger_menu_dropdown_logout}

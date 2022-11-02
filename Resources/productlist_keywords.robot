@@ -7,7 +7,7 @@ Resource  ./productlist_variables.robot
 
 *** Keywords ***
 Begin Web Test Product List
-    api.create_products  ${APP_URL}  ${API_TOKEN}
+    # api.create_products  ${APP_URL}  ${API_TOKEN}
     Sleep   2s
     Begin Web Test
     Go To Login Page
@@ -18,9 +18,7 @@ Begin Web Test Product List
 
 End Web Test Product List
     End Web Test
-End Web Test Product List
-    End Web Test
-    api.delete_products  ${APP_URL}  ${API_TOKEN}
+    # api.delete_products  ${APP_URL}  ${API_TOKEN}
 
 Search for SKU
     [Arguments]  ${sku}
@@ -28,10 +26,9 @@ Search for SKU
     Input Text   ${product_list_search_text_input}   ${sku}
     Click Element   ${product_list_search_button}
     Wait Until Page Contains Element   ${product_list_data_table}
-    Wait Until Element Contains  ${product_list_data_table}  ${sku}    #To verify the SKU search result
-    #Mouse Over   ${product_list_search_text_input}
-    #Clear Element Text   ${product_list_search_text_input}      #clear input text ,but doesn't work
-    #Element Should Not Contain  ${product_list_search_text_input}  ${sku}    #input text is still in it.
+    Wait Until Element Contains  ${product_list_data_table}  ${sku}
+    Clear Element Text   ${product_list_search_text_input}
+    Click Element   ${product_list_search_button}  # to clear results
 
 Select Earliest Date
     [Arguments]  ${datepicker_button}
@@ -69,7 +66,7 @@ Select Latest Publication Date
     Wait Until Page Contains Element   ${product_list_filter_by_date_menu}
     Click Element   ${product_list_filter_by_date_latest_publication_date_option}
     Wait Until Page Contains Element   ${product_list_filter_by_date_latest_publication_date_option}
-    Wait Until Element Contains  ${product_list_filter_by_date_button}   Latest Publication date
+    Wait Until Element Contains  ${product_list_filter_by_date_button}   Latest publication date
 
 Filter on After Date by Product Creation Date
     Sleep  2s
@@ -295,6 +292,7 @@ Create A New Filter Group
     Click Element   ${product_list_filter_save_as_button}
     Input Text   ${product_list_filter_save_as_filter_group_input}  ${group_name}
     Click Element   ${product_list_filter_save_as_filter_group_add}
+    Wait Until Page Contains    Filter group created successfully
 
 Create A New Filter
     [Arguments]   ${filter_name}
@@ -305,15 +303,15 @@ Create A New Filter
 
 Delete A Filter Group
     [Arguments]    ${group_name}
-    Click Element   ${product_list_menu_button}
-    Element Should Be Visible   ${product_list_menu_dropdown}
-    Wait Until Page Contains Element   ${product_list_menu_dropdown_manage}
-    Click Element   ${product_list_menu_dropdown_manage}
-    Select Frame   ${edit_list_subpage_iframe}
-    Wait Until Page Contains Element   ${product_list_menu_dropdown_manage_filter_groups}
-    Click Element   ${product_list_menu_dropdown_manage_filter_groups}
-    Wait Until Page Contains Element    xpath://*[contains(text(),"${group_name}")]/../..//button[contains(text(), "Delete")]   #${product_list_menu_dropdown_manage_filter_groups_delete}
-    Click Element   xpath://*[contains(text(),"${group_name}")]/../..//button[contains(text(), "Delete")]  #${product_list_menu_dropdown_manage_filter_groups_delete}
+    Click Element   ${hamburger_menu_button}
+    Element Should Be Visible   ${hamburger_menu_dropdown}
+    Wait Until Page Contains Element   ${hamburger_menu_dropdown_manage}
+    Click Element   ${hamburger_menu_dropdown_manage}
+    Select Frame   ${subpage_iframe}
+    Wait Until Page Contains Element   ${hamburger_menu_dropdown_manage_filter_groups}
+    Click Element   ${hamburger_menu_dropdown_manage_filter_groups}
+    Wait Until Page Contains Element    xpath://*[contains(text(),"${group_name}")]/../..//button[contains(text(), "Delete")]   #${hamburger_menu_dropdown_manage_filter_groups_delete}
+    Click Element   xpath://*[contains(text(),"${group_name}")]/../..//button[contains(text(), "Delete")]  #${hamburger_menu_dropdown_manage_filter_groups_delete}
     Handle Alert
     Wait Until Page Contains    Filter group removed successfully
 

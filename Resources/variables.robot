@@ -7,7 +7,7 @@ ${HEADLESS}  False
 ${APP_URL}  https://dev.textual.ai
 ${LOGIN_URL}  ${APP_URL}/d/auth/login
 ${API_TOKEN}  7d9efb7d289041eb88ca5929018c339880ea5154919e40729e5c748fbb148147
-#${USERNAME}  textualtest
+# ${USERNAME}  textualtest
 ${USERNAME}  regrtestaccount
 ${PASSWORD}  test987!
 
@@ -18,8 +18,10 @@ ${customer_home_edit_button}  xpath://a[@class="pbutton pbutton-primary"][contai
 ${customer_home_create_button}  xpath://a[@class="pbutton pbutton-primary"][contains(text(), "Create")]
 ${textual_logo}  xpath://*[@class="logo"]
 
-${product_list_menu_button}  xpath://div[@class="dropdown"]/a[@title="Menu"]
-# ${product_list_menu_dropdown}  xpath://*[@class="material-icons"][contains(text(),"menu")]/../..
-${product_list_menu_dropdown}  xpath://div[@class="dropdown"]/div
-${product_list_menu_dropdown_manage}  xpath://div[@class="dropdown"]/div//span[contains(text(),"Manage")]/..
-${product_list_menu_dropdown_logout}  xpath://div[@class="dropdown"]/div//a[contains(text(),"Logout")]
+${hamburger_menu_button}  xpath://div[@class="dropdown"]/a[@title="Menu"]
+# ${hamburger_menu_dropdown}  xpath://*[@class="material-icons"][contains(text(),"menu")]/../..
+${hamburger_menu_dropdown}  xpath://div[@class="dropdown"]/div
+${hamburger_menu_dropdown_manage}  xpath://div[@class="dropdown"]/div//span[contains(text(),"Manage")]/..
+${hamburger_menu_dropdown_logout}  xpath://div[@class="dropdown"]/div//a[contains(text(),"Logout")]
+
+${subpage_iframe}  xpath://iframe[@class="subpage-iframe"]
