@@ -22,12 +22,11 @@ ${edit_list_request_button}  xpath://*[@class="option-request-word"]
 ${edit_list_request_submit_button}  xpath://button[@data-testid="requestwordmodal-button-submit"]
 ${edit_list_bulk_actions_menu_product_delete_products_html}  xpath://html[@lang="en_US"]
 ${edit_list_additional_information_button}  xpath://*[@class="ui text grey"]
-${edit_list_original_text_ruta}  xpath://*[@id="id_original_text"]
+${edit_list_original_text_input}  xpath://*[@id="id_original_text"]
 ${edit_list_data_table_original_text_1}  xpath://td[@data-table-cell="1-3"][@class="text-column"]
 ${edit_list_data_table_original_text_3}  xpath://td[@data-table-cell="3-3"][@class="text-column"]
 ${edit_list_data_table_original_text_4}  xpath://td[@data-table-cell="4-3"][@class="text-column"]  ###----There are two text-column in row 1, have to use the column to locate this element---#
 ${edit_list_suggestions_container}  xpath://div[@data-testid="suggestions-container"]
-${edit_list_delete_icon}  xpath://*[@data-testid="tag-remove"]
 ${edit_list_subpage_back_button}  xpath://*[@class="subpage-back"]
 
 #---action menu---#
