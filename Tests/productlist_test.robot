@@ -16,17 +16,6 @@ User Can Search for SKU
    [Documentation]  User can search for SKU
    Search for SKU  e2e-product-1
 
-User Can Filter on Date
-   [Documentation]  User can filter on date
-   Filter on After Date by Product Creation Date
-   Clear Filter Fields
-
-   Filter on Before Date by Product Creation Date
-   Clear Filter Fields
-
-   Filter on After and Before Date by Product Creation Date
-   Clear Filter Fields
-   Clear Filter Fields
 #User Can Search for SKU
 #   [Documentation]  User can search for SKU
 #
@@ -79,7 +68,7 @@ User Can Filter on Date
     [Documentation]  User can filter on text status
     Filter on Show All in Text Status
 
-    Filter on Needs Review
+    Filter on Needs Review    #flag with orange eye icon both on text status column, but actually no orange eye on it, so needs to combine with text&bullet (languange) to check the orange eye icon
     Clear Filter Fields
 
     Filter on Approved
@@ -94,7 +83,7 @@ User Can Filter on Date
 # User Can Check Translation Status
 #    [Documentation]  Once enter edit page; user can check translation status
 #    [Tags]  Product list
-#    Check Translation Status
+#    Check Translation Status  #missing translation --with flag icon;   complete translation  --with orange eye icon
 
 # User Can Check Parent-Child Relations
 #    [Documentation]  Once enter edit page; user can check Parent-Child relations

@@ -18,8 +18,6 @@ Begin Web Test Product List
 
 End Web Test Product List
     End Web Test
-End Web Test Product List
-    End Web Test
     api.delete_products  ${APP_URL}  ${API_TOKEN}
 
 Search for SKU
