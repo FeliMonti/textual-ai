@@ -22,50 +22,45 @@ User Can Use Add Function In Edit Subpage Frame
 
     #${input}=  Generate Random String  length=8  chars=[LETTERS][NUMBERS]
 
-#    Enter Edit Subpage Frame With Edit Button 3
-#    Test On Action Button New Function
-#    Test On Deleting A Product
-#    Test On Action Button Duplicate Function
-     Test On Action Button Copy From Function
-#    Test On Action Button Copy To Function    #---Copy-to function is working halv way, test is not applicable---"
-#    Test On Setting importing Status
-#    Test On Setting Ready Status
-#    Test On Setting In-progress Status
-#    Add Main Category
-#    Add Label
-#    Remove Label
-#    Add Name
-#    Add Original Text And Headline On the Same Page
-#    Access To Edit Subpage Frame
-#    Test On Action Button New Function
-#    Test On Deleting A Product
-#    Test On Action Button Duplicate Function
-#    Test On Action Button Copy From Function  #---Copy-from function is not working, test is not applicable---"
-#    Test On Action Button Copy To Function    #---Copy-to function is working halv way, test is not applicable---"
-#    Test On Setting importing Status
-#    Test On Setting Ready Status
-#    Test On Setting In-progress Status
-#     Test On Main Category
-#     Test On Label
-#     Test On Name
-#     Test On Original Text And Headline On the Same Page
+
+##    Access To Edit Subpage Frame   ###---Shall this stay, enter edit button 3---###
+##    Exit Edit Subpage Frame
+##    Test On Action Button New Function
+##    Test On Deleting A Product
+##    Test On Action Button Duplicate Function
+##    Test On Action Button Copy From Function
+##    Test On Action Button Copy To Function
+##    Test On Setting importing Status
+##    Test On Setting Ready Status
+##    Test On Setting In-progress Status
+      Enter Edit Subpage Frame With Edit Button 3
+##    Test On Main Category
+##    Test On Label
+##    Test On Name
+##    Test On Original Text And Headline On the Same Page
 ##    Add Main Category
+##    Delete Main Category
+#     Add Properties   ###---Shall this stay, need to add request in the code---###
 ##    Add Label
 ##    Remove Label
 ##    Add Name
 ##    Add Original Text And Headline On the Same Page
+##    Test On Attribute Column
+##    Delete Attribute
+    Add Item Into Fields   ${edit_list_properties_input}
+    Delete Item From Fields
 
-User Can Use Search, Request And Add Function On Edit Subpage Frame
-    [Documentation]  Once enter edit page; user can search, request and add a property
-    [Tags]  Edit list
-    #Access To Edit Subpage Frame
-    Test On Attribute Column
-    Test On Field   ${edit_list_properties_input}
-    Test On Field   ${edit_list_occasion_input}
-    Test On Field   ${edit_list_color_input}
-    Test On Field   ${edit_list_material_input}
-    Test On Field   ${edit_list_made_in_input}
-    Test On Field   ${edit_list_designed_in_input}
-    Test On Field   ${edit_list_position_input}
-    Test On Field   ${edit_list_phrase_input}
-    Test On Field   ${edit_list_fixed_phrase_input}
+#User Can Use Search, Request And Add Function On Edit Subpage Frame
+#    [Documentation]  Once enter edit page; user can search, request and add a property
+#    [Tags]  Edit list
+#    #Access To Edit Subpage Frame
+#    Test On Attribute Column
+#    Test On Field   ${edit_list_properties_input}
+#    Test On Field   ${edit_list_occasion_input}
+#    Test On Field   ${edit_list_color_input}
+#    Test On Field   ${edit_list_material_input}
+#    Test On Field   ${edit_list_made_in_input}
+#    Test On Field   ${edit_list_designed_in_input}
+#    Test On Field   ${edit_list_position_input}
+#    Test On Field   ${edit_list_phrase_input}
+#    Test On Field   ${edit_list_fixed_phrase_input}

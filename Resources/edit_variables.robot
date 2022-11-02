@@ -5,6 +5,10 @@ ${product_list_data_table_edit_button_2}  xpath://table[@data-testid="products-t
 ${product_list_data_table_edit_button_3}  xpath://table[@data-testid="products-table"]//tr[@data-table-row=3]//*[@data-testid="product-list-edit-button"]
 ${product_list_data_table_edit_button_4}  xpath://table[@data-testid="products-table"]//tr[@data-table-row=4]//*[@data-testid="product-list-edit-button"]
 ${product_list_data_table_edit_button_5}  xpath://table[@data-testid="products-table"]//tr[@data-table-row=5]//*[@data-testid="product-list-edit-button"]
+${product_list_column_button}  xpath://*[@data-testid="columns-selector-button"]//*[@role="listbox"]
+${product_list_column_menu}  xpath://*[@class="menu transition left"]
+${product_list_column_oiginal_text_checkbox}  xpath://*[@data-testid="original_text"]
+${product_list_column_update_button}  xpath://*[@data-testid="update-selected-columns-button"]
 
 #---edit function common variables---#
 ${edit_list_subpage_iframe}  xpath://iframe[@class="subpage-iframe"]
