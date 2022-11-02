@@ -1,8 +1,9 @@
 *** Settings ***
-Library    ../venv/lib/python3.10/site-packages/SeleniumLibrary/__init__.py
+#Library    ../venv/lib/python3.10/site-packages/SeleniumLibrary/__init__.py
 Resource  ./keywords.robot
 Resource  ./variables.robot
 Resource  ./productlist_variables.robot
+Library  SeleniumLibrary
 
 *** Keywords ***
 Begin Web Test Product List
@@ -13,6 +14,8 @@ Begin Web Test Product List
     Click Element   ${customer_home_edit_button}
     Wait Until Page Contains   Products
 
+End Web Test Product List
+    End Web Test
 
 Search for SKU
     [Arguments]  ${sku}
@@ -20,6 +23,10 @@ Search for SKU
     Input Text   ${product_list_search_text_input}   ${sku}
     Click Element   ${product_list_search_button}
     Wait Until Page Contains Element   ${product_list_data_table}
+    Wait Until Element Contains  ${product_list_data_table}  ${sku}    #To verify the SKU search result
+    #Mouse Over   ${product_list_search_text_input}
+    #Clear Element Text   ${product_list_search_text_input}      #clear input text ,but doesn't work
+    #Element Should Not Contain  ${product_list_search_text_input}  ${sku}    #input text is still in it.
 
 Select Earliest Date
     [Arguments]  ${datepicker_button}
@@ -39,160 +46,133 @@ Select Latest Date
     Element Should Not Be Visible   ${datepicker_button}//*[@class="react-datepicker"]
     ${date}=  Get Text  ${datepicker_button}/span/b
 
-Clear Filter Fields
+Clear Filter Fields         #not for SKU search result
     # TODO do not fail if not found
     # TODO clear all found
-    Click Element     xpath://*[@data-testid="close-btn"]
+    #Click Element     xpath://*[@data-testid="close-btn"]
+    Click Element    ${product_list_product_filter_clear_button}
 
 Select Product Creation Date
     Click Element   ${product_list_filter_by_date_button}
     Wait Until Page Contains Element   ${product_list_filter_by_date_menu}
     Click Element   ${product_list_filter_by_date_product_creation_date_option}
     Wait Until Page Contains Element   ${product_list_filter_by_date_product_creation_date_option}
+    Wait Until Element Contains  ${product_list_filter_by_date_button}   Product creation date
 
 Select Latest Publication Date
     Click Element   ${product_list_filter_by_date_button}
     Wait Until Page Contains Element   ${product_list_filter_by_date_menu}
     Click Element   ${product_list_filter_by_date_latest_publication_date_option}
     Wait Until Page Contains Element   ${product_list_filter_by_date_latest_publication_date_option}
+    Wait Until Element Contains  ${product_list_filter_by_date_button}   Latest Publication date
 
 Filter on After Date by Product Creation Date
+    Sleep  2s
     Select Product Creation Date
     ${date}=  Select Earliest Date    ${product_list_filter_by_date_after_button}
 
 Filter on Before Date by Product Creation Date
     Select Product Creation Date
-    Select Latest Date    ${product_list_filter_by_date_before_button}
+    ${date}=  Select Latest Date    ${product_list_filter_by_date_before_button}
 
 Filter on After and Before Date by Product Creation Date
     Select Product Creation Date
-    Select Earliest Date    ${product_list_filter_by_date_after_button}
-    Select Latest Date    ${product_list_filter_by_date_before_button}
+    ${date}=  Select Earliest Date    ${product_list_filter_by_date_after_button}
+    ${date}=  Select Latest Date    ${product_list_filter_by_date_before_button}
 
 Filter on After Date by Latest Publication Date
     Select Latest Publication Date
-    Select Earliest Date    ${product_list_filter_by_date_after_button}
+    ${date}=  Select Earliest Date    ${product_list_filter_by_date_after_button}
 
 Filter on Before Date by Latest Publication Date
     Select Latest Publication Date
-    Select Latest Date    ${product_list_filter_by_date_before_button}
+    ${date}=  Select Latest Date    ${product_list_filter_by_date_before_button}
 
 Filter on After and Before Date by Latest Publication Date
     Select Latest Publication Date
-    Select Earliest Date    ${product_list_filter_by_date_after_button}
-    Select Latest Date    ${product_list_filter_by_date_before_button}
+    ${date}=  Select Earliest Date    ${product_list_filter_by_date_after_button}
+    ${date}=  Select Latest Date    ${product_list_filter_by_date_before_button}
 
-Filter by Product Creation Date Combined SKU Search
-    #---Input SKU---#
+Filter by Product Creation Date Combined SKU Search   #not use Search for SKU,because it include verification of search result
+    [Arguments]  ${sku}
     Wait Until Page Contains Element   ${product_list_search_button}
-    Input Text   ${product_list_search_text_input}   dcb7b357-c8f4-4042-b73c-92718f649313
+    Input Text   ${product_list_search_text_input}   ${sku}
+    Select Product Creation Date
+    ${date}=  Select Earliest Date   ${product_list_filter_by_date_after_button}
+    ${date}=  Select Latest Date   ${product_list_filter_by_date_before_button}
+    Click Element   ${product_list_search_button}   # combined those filters, there is no results displayed,so how to verify them?
 
-    #---Choose product creation date in listbox---#
-    Click Element   ${product_list_filter_by_date_button}
-    Wait Until Page Contains Element   ${product_list_filter_by_date_menu}
-    Click Element   ${product_list_filter_by_date_product_creation_date_option}
-    Wait Until Page Contains Element   ${product_list_filter_by_date_product_creation_date_option}
-
-    #---Choose after date---#
-    Wait Until Page Contains   Product creation date
-    Click Element   ${product_list_filter_by_date_after_button}
-    Element Should Be Visible   ${product_list_filter_by_date_after_datepicker}
-    Click Element   ${product_list_filter_by_date_after_date_button}
-
-    #---Choose before date---#
-    Click Element   ${product_list_filter_by_date_before_button}
-    Element Should Be Visible   ${product_list_filter_by_date_before_datepicker}
-    Click Element   ${product_list_filter_by_date_before_date_button}
-
-    #----Search for result with above options---#
-    Click Element   ${product_list_search_button}
-    #Clear Element Text  ${product_list_search_text_input}    #It doesn't work
-    Double Click Element   ${product_list_search_text_input}
-    Press Keys   ${product_list_search_text_input}   CTRL+A+DELETE   #Only works for Window
-    Click Element   ${product_list_search_button}
-    Wait Until Page Contains Element   ${product_list_search_text_input}
-    Click Element   ${product_list_filter_by_date_close_button}
-    Wait Until Page Contains Element   ${product_list_filter_by_date_after_button}
-    Click Element   ${product_list_filter_by_date_close_button}
-    Wait Until Page Contains Element   ${product_list_filter_by_date_before_button}
 
 Filter by Latest Publication Date Combined SKU Search
-    #---Input SKU---#
+    [Arguments]  ${sku}
     Wait Until Page Contains Element   ${product_list_search_button}
-    Input Text   ${product_list_search_text_input}   202d3e9e-f4fe-47d6-8907-a1c8a755122a
-
-    #---Choose latest publication date in listbox---#
-    Click Element   ${product_list_filter_by_date_button}
-    Wait Until Page Contains Element   ${product_list_filter_by_date_menu}
-    Click Element   ${product_list_filter_by_date_latest_publication_date_option}
-    Wait Until Page Contains Element   ${product_list_filter_by_date_latest_publication_date_option}
-
-    #---Choose after date---#
-    Wait Until Page Contains   Latest publication date
-    Click Element   ${product_list_filter_by_date_after_button}
-    Element Should Be Visible   ${product_list_filter_by_date_after_datepicker}
-    Click Element   ${product_list_filter_by_date_after_date_button}
-
-    #---Choose before date---#
-    Click Element   ${product_list_filter_by_date_before_button}
-    Element Should Be Visible   ${product_list_filter_by_date_before_datepicker}
-    Click Element   ${product_list_filter_by_date_before_date_button}
-
-    #----Search for result with above options---#
-    Click Element   ${product_list_search_button}
-    #Clear Element Text  ${product_list_search_text_input}    #It doesn't work
-    Double Click Element   ${product_list_search_text_input}
-    Press Keys   ${product_list_search_text_input}   CTRL+A+DELETE   #Only works for Window
-    Click Element   ${product_list_search_button}
-    Wait Until Page Contains Element   ${product_list_search_text_input}
-
-    Click Element   ${product_list_filter_by_date_close_button}
-    Wait Until Page Contains Element   ${product_list_filter_by_date_after_button}
-    Click Element   ${product_list_filter_by_date_close_button}
-    Wait Until Page Contains Element   ${product_list_filter_by_date_before_button}
-    Click Element   ${product_list_filter_by_date_button}
-    Wait Until Page Contains Element   ${product_list_filter_by_date_menu}
-    Click Element   ${product_list_filter_by_date_product_creation_date_option}
-    Wait Until Page Contains Element   ${product_list_filter_by_date_product_creation_date_option}
+    Input Text   ${product_list_search_text_input}   ${sku}
+    Select Latest Publication Date
+    ${date}=  Select Earliest Date    ${product_list_filter_by_date_after_button}
+    ${date}=  Select Latest Date    ${product_list_filter_by_date_before_button}
+    Click Element   ${product_list_search_button}   # combined those filters, there is no results displayed,so how to verify
 
 Filter on Show All in Product Status
     Click Element   ${product_list_filter_product_status_button}
     Element Should Be Visible   ${product_list_filter_product_status_menu}
     Click Element   ${product_list_filter_product_status_show_all_option}
+    Wait Until Page Contains Element   ${product_list_filter_product_status_button}
+    Wait Until Element Contains  ${product_list_filter_product_status_button}   Show all   #verify ?
     # TODO no check of results
 
 Filter on Importing
     Click Element   ${product_list_filter_product_status_button}
     Element Should Be Visible   ${product_list_filter_product_status_menu}
     Click Element   ${product_list_filter_product_status_importing_option}
+    Wait Until Page Contains Element   ${product_list_product_status_column_in_products_table}
+    Table Row Should Contain  ${product_list_product_status_row_in_products_table}  1  Importing    #verify
+
 
 Filter on In Progress
     Click Element   ${product_list_filter_product_status_button}
     Element Should Be Visible   ${product_list_filter_product_status_menu}
     Click Element   ${product_list_filter_product_status_in_progress_option}
+    Wait Until Page Contains Element   ${product_list_product_status_column_in_products_table}
+    Table Row Should Contain  ${product_list_product_status_row_in_products_table}  1  In progress    #verify
 
 Filter on Ready
     Click Element   ${product_list_filter_product_status_button}
     Element Should Be Visible   ${product_list_filter_product_status_menu}
     Click Element   ${product_list_filter_product_status_ready_option}
-    Click Element   ${product_list_filter_product_status_button}
-    Element Should Be Visible   ${product_list_filter_product_status_menu}
-    Click Element   ${product_list_filter_product_status_show_all_option}
+    Wait Until Page Contains Element   ${product_list_product_status_column_in_products_table}
+    Table Row Should Contain  ${product_list_product_status_row_in_products_table}  1  Ready    #verify
+
+Set Text Statuses in Column
+    Click Element   ${product_list_column_button}
+    Element Should Be Visible  ${product_list_column_menu}
+    Wait Until Page Contains Element   ${product_list_column_text_statuses_checkbox}
+    Click Element   ${product_list_column_text_statuses_checkbox}
+    Scroll Element Into View   ${product_list_column_update_button}
+    Wait Until Page Contains Element   ${product_list_column_update_button}
+    Click Element   ${product_list_column_update_button}
+    Wait Until Page Contains Element   ${product_list_text_status_column_in_products_table}
 
 Filter on Show All in Text Status
     Click Element   ${product_list_filter_text_status_button}
     Element Should Be Visible   ${product_list_filter_text_status_menu}
     Click Element   ${product_list_filter_text_status_show_all_option}
+    Wait Until Page Contains Element   ${product_list_filter_text_status_button}
+    Wait Until Element Contains  ${product_list_filter_text_status_button}   Show all   #verify ?
 
 Filter on Needs Review
+    Set Text Statuses in Column
     Click Element   ${product_list_filter_text_status_button}
     Element Should Be Visible   ${product_list_filter_text_status_menu}
     Click Element   ${product_list_filter_text_status_needs_review_option}
+    Wait Until Page Contains Element   ${product_list_text_status_column_in_products_table}
+    #Table Column Should Contain   ${product_list_text_status_row_in_products_table}  1     ${orange_eye_icon}   #verify on needs review
 
 Filter on Approved
     Click Element   ${product_list_filter_text_status_button}
     Element Should Be Visible   ${product_list_filter_text_status_menu}
     Click Element   ${product_list_filter_text_status_approved_option}
+    Set Text Statuses in Column
+
 
 Filter on Waiting to be Published
     Click Element   ${product_list_filter_text_status_button}

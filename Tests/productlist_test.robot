@@ -10,53 +10,72 @@ Library  SeleniumLibrary
 # Library  robot.libraries.DateTime
 Library  robot.libraries.String
 Suite Setup    Begin Web Test Product List
-Suite Teardown  End Web Test
+Suite Teardown  End Web Test Product List
 
 *** Test Cases ***
-User Can Search for SKU
-   [Documentation]  User can search for SKU
-   Search for SKU  dcb7b357-c8f4-4042-b73c-92718f649313
+#User Can Search for SKU
+#   [Documentation]  User can search for SKU
+#
+#   Search for SKU    dcb7b357-c8f4-4042-b73c-92718f649313
+#   #Clear Filter Fields
 
-User Can Filter on Date
-   [Documentation]  User can filter on date
-   Filter on After Date by Product Creation Date
-   Clear Filter Fields
+#User Can Filter on Date
+#   [Documentation]  User can filter on date
 
-   Filter on Before Date by Product Creation Date
-   Clear Filter Fields
+#
+#   Filter on After Date by Product Creation Date
+#   Clear Filter Fields
+#
+#   Filter on Before Date by Product Creation Date
+#   Clear Filter Fields
+#
+#   Filter on After and Before Date by Product Creation Date
+#   Clear Filter Fields
+#
+#   Filter on After Date by Latest Publication Date
+#   Clear Filter Fields
+#
+#   Filter on Before Date by Latest Publication Date
+#   Clear Filter Fields
+#
+#   Filter on After and Before Date by Latest Publication Date
+#   Clear Filter Fields
 
-   Filter on After and Before Date by Product Creation Date
-   Clear Filter Fields
-   Clear Filter Fields
-
-   Filter on After Date by Latest Publication Date
-   Clear Filter Fields
-
-   Filter on Before Date by Latest Publication Date
-   Clear Filter Fields
-
-   Filter on After and Before Date by Latest Publication Date
-   Clear Filter Fields
-
-   # Filter by Product Creation Date Combined SKU Search
-   # Filter by Latest Publication Date Combined SKU Search
+#
+#    Filter by Product Creation Date Combined SKU Search    dcb7b357-c8f4-4042-b73c-92718f649313
+#    Clear Filter Fields
+#
+#    Filter by Latest Publication Date Combined SKU Search  dcb7b357-c8f4-4042-b73c-92718f649313
+#    Clear Filter Fields
 
 # User Can Filter on Product Status
-#    [Documentation]  Once user is logged in; user can navigate to product list page, filter on product status
-#    [Tags]  Product list
+#    [Documentation]  User can filter on product status
 #    Filter on Show All in Product Status
+#
 #    Filter on Importing
+#    Clear Filter Fields
+#
 #    Filter on In Progress
+#    Clear Filter Fields
+#
 #    Filter on Ready
+#    Clear Filter Fields
 
-# User Can Filter on Text Status
-#    [Documentation]  Once user is logged in; user can navigate to product list page, filter on text status
-#    [Tags]  Product list
-#    Filter on Show All in Text Status
-#    Filter on Needs Review
-#    Filter on Approved
-#    Filter on Waiting to be Published
-#    Filter on Published
+ User Can Filter on Text Status
+    [Documentation]  User can filter on text status
+    Filter on Show All in Text Status
+
+    Filter on Needs Review
+    Clear Filter Fields
+
+    Filter on Approved
+    Clear Filter Fields
+
+    Filter on Waiting to be Published
+    Clear Filter Fields
+
+    Filter on Published
+    Clear Filter Fields
 
 # User Can Check Translation Status
 #    [Documentation]  Once enter edit page; user can check translation status
