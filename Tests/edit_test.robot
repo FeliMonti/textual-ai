@@ -9,6 +9,9 @@ Library  robot.libraries.String
 Suite Setup   Begin Web Test Edit
 Suite Teardown  End Web Test Edit
 
+*** Variables ***
+${USERNAME}  regrtestaccount
+
 *** Test Cases ***
 #User Can Access To Edit Subpage Frame
 #    [Documentation]  Once user is logged in; user can navigate to product list page, access to edit subpage frame

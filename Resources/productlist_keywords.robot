@@ -7,7 +7,7 @@ Resource  ./productlist_variables.robot
 
 *** Keywords ***
 Begin Web Test Product List
-    # api.create_products  ${APP_URL}  ${API_TOKEN}
+    api.create_products  ${APP_URL}  ${API_TOKEN}
     Sleep   2s
     Begin Web Test
     Go To Login Page
@@ -18,7 +18,7 @@ Begin Web Test Product List
 
 End Web Test Product List
     End Web Test
-    # api.delete_products  ${APP_URL}  ${API_TOKEN}
+    api.delete_products  ${APP_URL}  ${API_TOKEN}
 
 Search for SKU
     [Arguments]  ${sku}
@@ -27,8 +27,9 @@ Search for SKU
     Click Element   ${product_list_search_button}
     Wait Until Page Contains Element   ${product_list_data_table}
     Wait Until Element Contains  ${product_list_data_table}  ${sku}
-    Clear Element Text   ${product_list_search_text_input}
+    Clear Element Text   ${product_list_search_text_input}   #it works because test both search for sku and filter combined sku
     Click Element   ${product_list_search_button}  # to clear results
+
 
 Select Earliest Date
     [Arguments]  ${datepicker_button}
@@ -69,9 +70,9 @@ Select Latest Publication Date
     Wait Until Element Contains  ${product_list_filter_by_date_button}   Latest publication date
 
 Filter on After Date by Product Creation Date
-    Sleep  2s
     Select Product Creation Date
     ${date}=  Select Earliest Date    ${product_list_filter_by_date_after_button}
+
 
 Filter on Before Date by Product Creation Date
     Select Product Creation Date
@@ -112,7 +113,8 @@ Filter by Latest Publication Date Combined SKU Search
     Select Latest Publication Date
     ${date}=  Select Earliest Date    ${product_list_filter_by_date_after_button}
     ${date}=  Select Latest Date    ${product_list_filter_by_date_before_button}
-    Click Element   ${product_list_search_button}   # combined those filters, there is no results displayed,so how to verify
+    Click Element   ${product_list_search_button}   #here is no results displayed,so how to verify
+
 
 Filter on Show All in Product Status
     Click Element   ${product_list_filter_product_status_button}
@@ -126,23 +128,23 @@ Filter on Importing
     Click Element   ${product_list_filter_product_status_button}
     Element Should Be Visible   ${product_list_filter_product_status_menu}
     Click Element   ${product_list_filter_product_status_importing_option}
-    Wait Until Page Contains Element   ${product_list_product_status_column_in_products_table}
-    Table Row Should Contain  ${product_list_product_status_row_in_products_table}  1  Importing    #verify
+    #Wait Until Page Contains Element   ${product_list_product_status_column_in_products_table}
+    #Table Row Should Contain  ${product_list_product_status_row_in_products_table}  1  Importing    #verify
 
 
 Filter on In Progress
     Click Element   ${product_list_filter_product_status_button}
     Element Should Be Visible   ${product_list_filter_product_status_menu}
     Click Element   ${product_list_filter_product_status_in_progress_option}
-    Wait Until Page Contains Element   ${product_list_product_status_column_in_products_table}
-    Table Row Should Contain  ${product_list_product_status_row_in_products_table}  1  In progress    #verify
+    #Wait Until Page Contains Element   ${product_list_product_status_column_in_products_table}
+    #Table Row Should Contain  ${product_list_product_status_row_in_products_table}  1  In progress    #verify
 
 Filter on Ready
     Click Element   ${product_list_filter_product_status_button}
     Element Should Be Visible   ${product_list_filter_product_status_menu}
     Click Element   ${product_list_filter_product_status_ready_option}
-    Wait Until Page Contains Element   ${product_list_product_status_column_in_products_table}
-    Table Row Should Contain  ${product_list_product_status_row_in_products_table}  1  Ready    #verify
+    #Wait Until Page Contains Element   ${product_list_product_status_column_in_products_table}
+    #Table Row Should Contain  ${product_list_product_status_row_in_products_table}  1  Ready    #verify
 
 Set Text Statuses in Column
     Click Element   ${product_list_column_button}
@@ -170,59 +172,47 @@ Filter on Needs Review
     #Table Column Should Contain   ${product_list_text_status_row_in_products_table}  1     ${orange_eye_icon}   #verify on needs review
 
 Filter on Approved
+    Set Text Statuses in Column
     Click Element   ${product_list_filter_text_status_button}
     Element Should Be Visible   ${product_list_filter_text_status_menu}
     Click Element   ${product_list_filter_text_status_approved_option}
-    Set Text Statuses in Column
+
 
 
 Filter on Waiting to be Published
+    Set Text Statuses in Column
     Click Element   ${product_list_filter_text_status_button}
     Element Should Be Visible   ${product_list_filter_text_status_menu}
     Click Element   ${product_list_filter_text_status_waiting_to_be_published_option}
 
 Filter on Published
+    Set Text Statuses in Column
     Click Element   ${product_list_filter_text_status_button}
     Element Should Be Visible   ${product_list_filter_text_status_menu}
     Click Element   ${product_list_filter_text_status_published_option}
 
-Check Translation Status
-    #---Show all option---#
+Filter on Show All in Translation Status
     Wait Until Page Contains Element   ${product_list_filter_translation_status_button}
     Click Element   ${product_list_filter_translation_status_button}
     Element Should Be Visible   ${product_list_filter_translation_status_menu}
     Click Element   ${product_list_filter_translation_status_show_all_option}
+    Wait Until Element Contains  ${product_list_filter_product_status_button}   Show all  #verify?
 
-    #---Missing translation option---#
+Filter on Missing Translation
     Click Element   ${product_list_filter_translation_status_button}
     Element Should Be Visible   ${product_list_filter_translation_status_menu}
     Click Element   ${product_list_filter_translation_status_missing_translations_option}
+    Wait Until Page Contains Element
 
-    #---Complete translation option---#
+Filter on Complete Translation
     Click Element   ${product_list_filter_translation_status_button}
     Element Should Be Visible   ${product_list_filter_translation_status_menu}
     Click Element   ${product_list_filter_translation_status_complete_translations_option}
 
-Check Parent-Child Relations
-    #---More options---#
+Set More Options
     Click Element   ${product_list_filter_more_button}
     Element Should Be Visible   ${product_list_filter_more_menu}
-    Click Element   ${product_list_filter_more_parent_child_option}
 
-    #---Parent child relations show all option---#
-    Click Element   ${product_list_filter_parent_child_button}
-    Element Should Be Visible   ${product_list_filter_parent_child_menu}
-    Click Element   ${product_list_filter_parent_child_relations_show_all_option}
-
-    #---Parent child relations parents option---#
-    Click Element   ${product_list_filter_parent_child_button}
-    Element Should Be Visible   ${product_list_filter_parent_child_menu}
-    Click Element   ${product_list_filter_parent_child_relations_parents_option}
-
-    #---Parent child relations children option---#
-    Click Element   ${product_list_filter_parent_child_button}
-    Element Should Be Visible   ${product_list_filter_parent_child_menu}
-    Click Element   ${product_list_filter_parent_child_relations_children_option}
 
 Check Languages On Text Column
     Click Element   ${product_list_text_column_button}
