@@ -34,18 +34,18 @@ User Can Use Add Function In Edit Subpage Frame
 ##    Test On Setting Ready Status
 ##    Test On Setting In-progress Status
     Enter Edit Subpage Frame With Edit Button 3
-##    Test On Main Category
-##    Test On Label
-##    Test On Name
-##    Test On Original Text And Headline On the Same Page
-##    Add Main Category
-##    Delete Main Category
-##    Add Label
-##    Remove Label
-##    Add Name
-##    Add Original Text And Headline On the Same Page
-##    Test On Attribute Column
-##    Delete Attribute
+    Test On Main Category
+    Test On Label
+    Test On Name
+    Test On Original Text And Headline On the Same Page
+    Add Main Category
+    Delete Main Category
+    Add Label
+    Remove Label
+    Add Name
+    Add Original Text And Headline On the Same Page
+    Test On Attribute Column
+    Delete Attribute
     Add Item Into Fields   ${edit_list_properties_input}
     Delete Item From Fields   ${edit_list_properties_input}
 
