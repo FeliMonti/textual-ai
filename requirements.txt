@@ -1,3 +1,4 @@
-robotframework~=6.0
-robotframework-seleniumlibrary~=5.0
-requests~=2.27
+robotframework
+robotframework-seleniumlibrary < '6.0' ; python_version <= '3.6'
+robotframework-seleniumlibrary ; python_version > '3.6'
+requests
