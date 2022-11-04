@@ -7,7 +7,7 @@ Resource  ./productlist_variables.robot
 
 *** Keywords ***
 Begin Web Test Product List
-    # api.create_products  ${APP_URL}  ${API_TOKEN}
+    #api.create_products  ${APP_URL}  ${API_TOKEN}
     Sleep   2s
     Begin Web Test
     Go To Login Page
@@ -18,7 +18,7 @@ Begin Web Test Product List
 
 End Web Test Product List
     End Web Test
-    # api.delete_products  ${APP_URL}  ${API_TOKEN}
+    #api.delete_products  ${APP_URL}  ${API_TOKEN}
 
 Search for SKU
     [Arguments]  ${sku}

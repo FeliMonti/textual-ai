@@ -47,7 +47,6 @@ ${product_list_filter_translation_status_show_all_option}  xpath://*[@data-testi
 ${product_list_filter_translation_status_missing_translations_option}  xpath://*[@data-testid="translation-status-option-2"]
 ${product_list_filter_translation_status_complete_translations_option}  xpath://*[@data-testid="translation-status-option-3"]
 
-
 #---more function---#
 ${product_list_filter_more_button}  xpath://*[@data-testid="product-filter-add-filter"]
 ${product_list_filter_more_menu}  xpath://*[@data-testid="product-filter-add-filter"]//*[@class="menu transition visible"]

@@ -23,48 +23,58 @@ User Can Use Add Function In Edit Subpage Frame
 
 ##    Access To Edit Subpage Frame   ###---Shall this stay, enter edit button 3---###
 ##    Exit Edit Subpage Frame
-##    Test On Action Button New Function
 ##    Test On Deleting A Product
 ##    Test On Action Button Copy From Function
 ##    Test On Action Button Copy To Function
 ##    Test On Setting importing Status
 ##    Test On Setting Ready Status
 ##    Test On Setting In-progress Status
-    Enter Edit Subpage Frame With Edit Button 3
-    Test On Main Category
-    Test On Label
-    Test On Name
-    Test On Original Text And Headline On the Same Page
-    Add Main Category
-    Delete Main Category
-    Add Label
-    Remove Label
-    Add Name
-    Add Original Text And Headline On the Same Page
-    Test On Attribute Column
-    Delete Attribute
-    Add Item Into Fields   ${edit_list_properties_input}
-    Delete Item From Fields   ${edit_list_properties_input}
+#    Enter Edit Subpage Frame With Edit Button 3
+#    Test On Main Category
+#    Test On Label
+#    Test On Name
+#    Test On Original Text And Headline On the Same Page
+#    Add Main Category
+#    Delete Main Category
+#    Add Label
+#    Remove Label
+#    Add Name
+#    Add Original Text And Headline On the Same Page
+#    Test On Attribute Column
+#    Delete Attribute
+#    Add Item Into Fields   ${edit_list_properties_input}
+#    Delete Item From Fields   ${edit_list_properties_input}
 
-Duplicate Product
-    [Documentation]  User can duplicate a product
-    Enter Edit Subpage Frame With Edit Button 3
-    ${SKU1}=   Get SKU
+#Duplicate Product
+#    [Documentation]  User can duplicate a product
+#    Click On Edit Button    ${product_list_data_table_edit_button_3}
+#    ${SKU1}=   Get SKU
+#
+#    ${text1}=   Set Variable   testing 123
+#    Set Original Text    ${text1}
+#
+#    Click Duplicate Button
+#    ${SKU2}=   Get SKU
+#
+#    Should Be True  "${SKU1}" != "${SKU2}"
+#
+#    ${text2}=  Get Original Text
+#    Should Be True  "${text1}" == "${text2}"
 
-    ${text1}=   Set Variable   testing 123
-    Set Original Text    ${text1}
+Add New Product
+#    [Documentation]  User can add new product
+    Click On Edit Button    ${product_list_data_table_edit_button_1}
+    ${SKU1}=  Get SKU
 
-    Click Duplicate Button
-    ${SKU2}=   Get SKU
+    Click On Action Button   ${edit_list_actions_new_button}
+    ${SKU2}=  Get SKU
 
     Should Be True  "${SKU1}" != "${SKU2}"
-
-    ${text2}=  Get Original Text
-    Should Be True  "${text1}" == "${text2}"
+    Exit Edit Subpage Frame
 
 User Can Use Search, Request And Add Function On Edit Subpage Frame
     [Documentation]  Once enter edit page; user can search, request and add a property
-    Enter Edit Subpage Frame With Edit Button 3
+    Click On Edit Button    ${product_list_data_table_edit_button_3}
     Test On Attribute Column
     Test On Field   ${edit_list_properties_input}
     Test On Field   ${edit_list_occasion_input}

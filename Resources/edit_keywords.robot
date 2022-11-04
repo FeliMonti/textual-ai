@@ -21,33 +21,11 @@ Begin Web Test Edit
 End Web Test Edit
     End Web Test
 
-Enter Edit Subpage Frame With Edit Button 1
-    Wait Until Page Contains Element   ${product_list_data_table_edit_button_1}
-    Click Element   ${product_list_data_table_edit_button_1}
-    Select Frame    ${subpage_iframe}
-    Wait Until Page Contains Element   ${edit_list_edit_tab}
-    Click Element   ${edit_list_edit_tab}
-
-Enter Edit Subpage Frame With Edit Button 2
-    Wait Until Page Contains Element   ${product_list_data_table edit_button_2}
-    Scroll Element Into View   ${product_list_data_table edit_button_2}
-    Click Element   ${product_list_data_table edit_button_2}
-    Select Frame    ${subpage_iframe}
-    Wait Until Page Contains Element   ${edit_list_edit_tab}
-    Click Element   ${edit_list_edit_tab}
-
-Enter Edit Subpage Frame With Edit Button 3
-    Wait Until Page Contains Element   ${product_list_data_table edit_button_3}
-    Scroll Element Into View   ${product_list_data_table edit_button_3}
-    Click Element   ${product_list_data_table edit_button_3}
-    Select Frame    ${subpage_iframe}
-    Wait Until Page Contains Element   ${edit_list_edit_tab}
-    Click Element   ${edit_list_edit_tab}
-
-Enter Edit Subpage Frame With Edit Button 4
-    Wait Until Page Contains Element   ${product_list_data_table edit_button_4}
-    Scroll Element Into View   ${product_list_data_table edit_button_4}
-    Click Element   ${product_list_data_table edit_button_4}
+Click On Edit Button
+    [Arguments]    ${input_selector}
+    Wait Until Page Contains Element   ${input_selector}
+    Scroll Element Into View  ${input_selector}
+    Click Element   ${input_selector}
     Select Frame    ${subpage_iframe}
     Wait Until Page Contains Element   ${edit_list_edit_tab}
     Click Element   ${edit_list_edit_tab}
@@ -57,20 +35,13 @@ Exit Edit Subpage Frame
     Wait Until Page Contains Element  ${edit_list_subpage_back_button}
     Click Element   ${edit_list_subpage_back_button}
 
-Test On Action Button New Function
-    Enter Edit Subpage Frame With Edit Button 1
-    Wait Until Page Contains Element   ${edit_list_SKU_number}
-    ${get_SKU_1}=  Get Text  ${edit_list_SKU_number}
+Click On Action Button
+    [Arguments]   ${input_selector}
     Wait Until Page Contains Element   ${edit_list_actions_button}
     Click Element   ${edit_list_actions_button}
     Wait Until Page Contains Element   ${edit_list_actions_menu}
-    Wait Until Page Contains Element   ${edit_list_actions_new_button}
-    Click Element   ${edit_list_actions_new_button}
-    ${get_SKU_2}=  Get Text  ${edit_list_SKU_number}
-    Log   ${get_SKU_1}
-    Log   ${get_SKU_2}
-    Should Be True  "${get_SKU_1}" != "${get_SKU_2}"
-    Exit Edit Subpage Frame
+    Wait Until Page Contains Element   ${input_selector}
+    Click Element   ${input_selector}
 
 Test On Deleting A Product
     Wait Until Page Contains Element  ${edit_list_data_table_checkbox_1}
@@ -109,43 +80,13 @@ Get SKU
     [Return]    ${SKU}
     Wait Until Page Contains Element   ${edit_list_SKU_number}
     ${SKU}=  Get Text  ${edit_list_SKU_number}
+    Log  ${SKU}
 
 Click Duplicate Button
     Click Element   ${edit_list_actions_button}
     Element Should Be Visible   ${edit_list_actions_menu}
     Wait Until Page Contains Element   ${edit_list_actions_duplicate_button}
     Click Element   ${edit_list_actions_duplicate_button}
-
-Test On Action Button Duplicate Function
-
-
-    # Make sure SKUs are different
-
-    # Get original text (from edit view)
-
-    # Compare texts
-
-
-
-
-    # Go back to product list, turn on original test column
-    # Exit Edit Subpage Frame
-    # Wait Until Page Contains Element  ${product_list_column_button}
-    # Click Element   ${product_list_column_button}
-    # Element Should Be Visible  ${product_list_column_menu}
-    # Wait Until Page Contains Element   ${product_list_column_oiginal_text_checkbox}
-    # Click Element   ${product_list_column_oiginal_text_checkbox}
-    # Scroll Element Into View   ${product_list_column_update_button}
-    # Wait Until Page Contains Element   ${product_list_column_update_button}
-    # Click Element   ${product_list_column_update_button}
-
-    # Compare text of affecting products
-    # Wait Until Page Contains Element   ${edit_list_data_table_original_text_1}
-    # ${original_text_column_1}    Get Text    ${edit_list_data_table_original_text_1}
-    # Log    ${original_text_column_1}
-    # ${original_text_column_4}    Get Text    ${edit_list_data_table_original_text_4}
-    # Log    ${original_text_column_4}
-    # Should Be True  "${original_text_column_1}" == "${original_text_column_4}"
 
 Test On Action Button Copy From Function
     Enter Edit Subpage Frame With Edit Button 3

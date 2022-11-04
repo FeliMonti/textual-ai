@@ -12,7 +12,7 @@ Suite Setup    Begin Web Test Product List
 Suite Teardown  End Web Test Product List
 
 *** Variables ***
-# ${SKU}  e2e-product-1
+${SKU}  e2e-product-1
 ${SKU}  dcb7b357-c8f4-4042-b73c-92718f649313
 
 *** Test Cases ***
