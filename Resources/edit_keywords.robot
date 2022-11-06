@@ -113,40 +113,17 @@ Copy From Function
     SKU_EAN Input   ${SKU_EAN_Input}
     Click On Copy From Button
 
-Test On Action Button Copy From Function
-    Enter Edit Subpage Frame With Edit Button 3
-    Wait Until Page Contains Element   ${edit_list_SKU_number}
-    ${get_SKU_1}=  Get Text  ${edit_list_SKU_number}
-    Log   ${get_SKU_1}
-    Test On Attribute Column
-    Exit Edit Subpage Frame
-    Enter Edit Subpage Frame With Edit Button 1
-    Wait Until Page Contains Element   ${edit_list_actions_button}
-    Click Element   ${edit_list_actions_button}
-    Element Should Be Visible   ${edit_list_actions_menu}
-    Click Element   ${edit_list_actions_copy_from_button}
-    Wait Until Page Contains Element   ${edit_list_SKU_EAN_input}
-    Input Text   ${edit_list_SKU_EAN_input}   ${get_SKU_1}
-    Wait Until Page Contains Element   ${edit_list_actions_copy_from_copy_button}
-    Click Element  ${edit_list_actions_copy_from_copy_button}
-    Sleep  2s
-    Wait Until Page Contains Element   ${edit_list_subpart_attribute_new_attribute_selected}
-    ${attribute}   Get Text   ${edit_list_subpart_attribute_new_attribute_selected}
-    Log   ${attribute}
-    Delete Attribute
-    Exit Edit Subpage Frame
-    Enter Edit Subpage Frame With Edit Button 3
-    Delete Attribute
-    Exit Edit Subpage Frame
-
 Test On Action Button Copy To Function
     Enter Edit Subpage Frame With Edit Button 2
     Wait Until Page Contains Element   ${edit_list_SKU_number}
+
     ${get_SKU_1}=  Get Text  ${edit_list_SKU_number}
     Log   ${get_SKU_1}
+
     Exit Edit Subpage Frame
     Enter Edit Subpage Frame With Edit Button 4
     Test On Attribute Column
+
     Wait Until Page Contains Element   ${edit_list_actions_button}
     Click Element   ${edit_list_actions_button}
     Element Should Be Visible   ${edit_list_actions_menu}
@@ -156,12 +133,15 @@ Test On Action Button Copy To Function
     Wait Until Page Contains Element   ${edit_list_actions_copy_to_copy_button}
     Click Element  ${edit_list_actions_copy_to_copy_button}
     Sleep  2s
+
     Delete Attribute
     Exit Edit Subpage Frame
     Enter Edit Subpage Frame With Edit Button 2
+
     Wait Until Page Contains Element   ${edit_list_subpart_attribute_new_attribute_selected}
     ${attribute}   Get Text   ${edit_list_subpart_attribute_new_attribute_selected}
     Log   ${attribute}
+
     Delete Attribute
     Exit Edit Subpage Frame
 
