@@ -21,9 +21,8 @@ User Can Use Add Function In Edit Subpage Frame
 
 # TODO: Group these into smaller individual tests
 
-##    Access To Edit Subpage Frame   ###---Shall this stay, enter edit button 3---###
 ##    Exit Edit Subpage Frame
-##    Test On Deleting A Product
+
 ##    Test On Action Button Copy From Function
 ##    Test On Action Button Copy To Function
 ##    Test On Setting importing Status
@@ -45,32 +44,40 @@ User Can Use Add Function In Edit Subpage Frame
 #    Add Item Into Fields   ${edit_list_properties_input}
 #    Delete Item From Fields   ${edit_list_properties_input}
 
-#Duplicate Product
-#    [Documentation]  User can duplicate a product
-#    Click On Edit Button    ${product_list_data_table_edit_button_3}
-#    ${SKU1}=   Get SKU
-#
-#    ${text1}=   Set Variable   testing 123
-#    Set Original Text    ${text1}
-#
-#    Click Duplicate Button
-#    ${SKU2}=   Get SKU
-#
-#    Should Be True  "${SKU1}" != "${SKU2}"
-#
-#    ${text2}=  Get Original Text
-#    Should Be True  "${text1}" == "${text2}"
+Duplicate Product
+    [Documentation]  User can duplicate a product
+    Click On Edit Button    ${product_list_data_table_edit_button_3}
+    ${SKU1}=   Get SKU On Subpage
+
+    ${text1}=   Set Variable   testing 123
+    Set Original Text    ${text1}
+
+    Click Duplicate Button
+    ${SKU2}=   Get SKU On Subpage
+
+    Should Be True  "${SKU1}" != "${SKU2}"
+
+    ${text2}=  Get Original Text
+    Should Be True  "${text1}" == "${text2}"
 
 Add New Product
-#    [Documentation]  User can add new product
+    [Documentation]  User can add new product
     Click On Edit Button    ${product_list_data_table_edit_button_1}
-    ${SKU1}=  Get SKU
+    ${SKU1}=  Get SKU On Subpage
 
     Click On Action Button   ${edit_list_actions_new_button}
-    ${SKU2}=  Get SKU
+    ${SKU2}=  Get SKU On Subpage
 
     Should Be True  "${SKU1}" != "${SKU2}"
     Exit Edit Subpage Frame
+
+Delete A Product
+    Click On Data Table Checkbox   ${edit_list_data_table_checkbox_1}
+
+    ${SKU_number}=  Get SKU On Data Table  ${edit_list_data_table_SKU_1}
+
+    Click On Bulk Actions   ${edit_list_bulk_actions_menu_product}
+    Click On Bulk Actions Delete Product
 
 User Can Use Search, Request And Add Function On Edit Subpage Frame
     [Documentation]  Once enter edit page; user can search, request and add a property

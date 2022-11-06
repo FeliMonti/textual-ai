@@ -43,21 +43,24 @@ Click On Action Button
     Wait Until Page Contains Element   ${input_selector}
     Click Element   ${input_selector}
 
-Test On Deleting A Product
-    Wait Until Page Contains Element  ${edit_list_data_table_checkbox_1}
-    Scroll Element Into View   ${edit_list_data_table_checkbox_1}
-    Click Element  ${edit_list_data_table_checkbox_1}
-    ${SKU_number}    Get Text    ${edit_list_data_table_SKU_1}
-    Log    ${SKU_number}
+Click On Data Table Checkbox
+    [Arguments]   ${input_selector}
+    Wait Until Page Contains Element  ${input_selector}
+    Scroll Element Into View   ${input_selector}
+    Click Element  ${input_selector}
+
+Click On Bulk Actions
+    [Arguments]   ${input_selector}
     Wait Until Page Contains Element  ${edit_list_bulk_actions_button}
     Click Element  ${edit_list_bulk_actions_button}
     Wait Until Page Contains Element   ${edit_list_bulk_actions_menu}
-    Wait Until Page Contains Element   ${edit_list_bulk_actions_menu_product}
-    Click Element   ${edit_list_bulk_actions_menu_product}
+    Wait Until Page Contains Element   ${input_selector}
+    Click Element   ${input_selector}
+
+Click On Bulk Actions Delete Product
     Scroll Element Into View  ${edit_list_bulk_actions_menu_product_delete_products}
     Wait Until Page Contains Element   ${edit_list_bulk_actions_menu_product_delete_products}
-    Click Element   ${edit_list_bulk_actions_menu_product_delete_products}
-    Sleep  2s
+    Click Element  ${edit_list_bulk_actions_menu_product_delete_products}
     Wait Until Page Contains Element  ${edit_list_bulk_actions_menu_product_delete_products_button}
     Click Element   ${edit_list_bulk_actions_menu_product_delete_products_button}
 
@@ -76,11 +79,18 @@ Set Original Text
     Input Text   ${edit_list_original_text_input}    ${text}
     Sleep  2s  # wait for autosave
 
-Get SKU
+Get SKU On Subpage
     [Return]    ${SKU}
     Wait Until Page Contains Element   ${edit_list_SKU_number}
     ${SKU}=  Get Text  ${edit_list_SKU_number}
     Log  ${SKU}
+
+Get SKU On Data Table
+    [Arguments]    ${input_selector}
+    [Return]    ${SKU_number}
+    Wait Until Page Contains Element   ${input_selector}
+    ${SKU_number}    Get Text    ${input_selector}
+    Log  ${SKU_number}
 
 Click Duplicate Button
     Click Element   ${edit_list_actions_button}
@@ -91,11 +101,15 @@ Click Duplicate Button
 Test On Action Button Copy From Function
     Enter Edit Subpage Frame With Edit Button 3
     Wait Until Page Contains Element   ${edit_list_SKU_number}
+
     ${get_SKU_1}=  Get Text  ${edit_list_SKU_number}
     Log   ${get_SKU_1}
+
     Test On Attribute Column
     Exit Edit Subpage Frame
+
     Enter Edit Subpage Frame With Edit Button 1
+
     Wait Until Page Contains Element   ${edit_list_actions_button}
     Click Element   ${edit_list_actions_button}
     Element Should Be Visible   ${edit_list_actions_menu}
@@ -106,8 +120,10 @@ Test On Action Button Copy From Function
     Click Element  ${edit_list_actions_copy_from_copy_button}
     Sleep  2s
     Wait Until Page Contains Element   ${edit_list_subpart_attribute_new_attribute_selected}
+
     ${attribute}   Get Text   ${edit_list_subpart_attribute_new_attribute_selected}
     Log   ${attribute}
+
     Delete Attribute
     Exit Edit Subpage Frame
     Enter Edit Subpage Frame With Edit Button 3
