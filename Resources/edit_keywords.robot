@@ -57,7 +57,7 @@ Click On Bulk Actions
     Wait Until Page Contains Element   ${input_selector}
     Click Element   ${input_selector}
 
-Click On Bulk Actions Delete Product
+Delete Product
     Scroll Element Into View  ${edit_list_bulk_actions_menu_product_delete_products}
     Wait Until Page Contains Element   ${edit_list_bulk_actions_menu_product_delete_products}
     Click Element  ${edit_list_bulk_actions_menu_product_delete_products}
@@ -98,18 +98,29 @@ Click Duplicate Button
     Wait Until Page Contains Element   ${edit_list_actions_duplicate_button}
     Click Element   ${edit_list_actions_duplicate_button}
 
+SKU_EAN Input
+    [Arguments]    ${SKU_EAN_input}
+    Wait Until Page Contains Element   ${edit_list_SKU_EAN_input}
+    Input Text   ${edit_list_SKU_EAN_input}   ${SKU_EAN_Input}
+
+Click On Copy From Button
+    Wait Until Page Contains Element   ${edit_list_actions_copy_from_copy_button}
+    Click Element  ${edit_list_actions_copy_from_copy_button}
+
+Copy From Function
+    [Arguments]    ${SKU_EAN_input}
+    Click On Action Button   ${edit_list_actions_copy_from_button}
+    SKU_EAN Input   ${SKU_EAN_Input}
+    Click On Copy From Button
+
 Test On Action Button Copy From Function
     Enter Edit Subpage Frame With Edit Button 3
     Wait Until Page Contains Element   ${edit_list_SKU_number}
-
     ${get_SKU_1}=  Get Text  ${edit_list_SKU_number}
     Log   ${get_SKU_1}
-
     Test On Attribute Column
     Exit Edit Subpage Frame
-
     Enter Edit Subpage Frame With Edit Button 1
-
     Wait Until Page Contains Element   ${edit_list_actions_button}
     Click Element   ${edit_list_actions_button}
     Element Should Be Visible   ${edit_list_actions_menu}
@@ -120,10 +131,8 @@ Test On Action Button Copy From Function
     Click Element  ${edit_list_actions_copy_from_copy_button}
     Sleep  2s
     Wait Until Page Contains Element   ${edit_list_subpart_attribute_new_attribute_selected}
-
     ${attribute}   Get Text   ${edit_list_subpart_attribute_new_attribute_selected}
     Log   ${attribute}
-
     Delete Attribute
     Exit Edit Subpage Frame
     Enter Edit Subpage Frame With Edit Button 3
@@ -288,25 +297,46 @@ Add Original Text And Headline On the Same Page
     ${original_text_verify}  Get Text  ${edit_list_original_text_textarea}
     Should Be True   "${original_text_verify}" == "${original_text_input}"
 
-Test On Attribute Column
-    #---display subpart on attribute---#
+Test On Attribute Field
+    ${attribute_input}=  Generate Random String  length=8  chars=[LETTERS][NUMBERS]
+
+    Request Attribute In Field   ${attribute_input}
+    Delete Attribute   ${attribute_input}
+    Add Attribute In Field   ${attribute_input}
+
+Request Attribute In Field
+    [Arguments]    ${attribute_input}
+    # Search
     Wait Until Page Contains Element   ${edit_list_edit_field_add}
-    Sleep  1s
     Click Element   ${edit_list_edit_field_add}
     Wait Until Page Contains Element   ${edit_list_subpart_attribute_input}
     Wait Until Element Contains   ${edit_list_subpart_attribute_new_attribute}  new attribute
-    #---search---#
     Wait Until Page Contains Element   ${edit_list_subpart_attribute_input}
-    ${attribute_input}=  Generate Random String  length=8  chars=[LETTERS][NUMBERS]
     Input Text   ${edit_list_subpart_attribute_input}   ${attribute_input}
     Log   ${attribute_input}
+
+    # Request
     Wait Until Page Contains Element   ${edit_list_suggestions_container}
-    #---request---#
+    Click On Request Button
+
+Click On Request Button
     Wait Until Page Contains Element   ${edit_list_request_button}
     Click Element   ${edit_list_request_button}
     Wait Until Page Contains Element   ${edit_list_request_submit_button}
     Click Element   ${edit_list_request_submit_button}
-    #---add---#
+
+Add Attribute In Field
+    [Arguments]    ${attribute_input}
+    # Search
+    Wait Until Page Contains Element   ${edit_list_edit_field_add}
+    Click Element   ${edit_list_edit_field_add}
+    Wait Until Page Contains Element   ${edit_list_subpart_attribute_input}
+    Wait Until Element Contains   ${edit_list_subpart_attribute_new_attribute}  new attribute
+    Wait Until Page Contains Element   ${edit_list_subpart_attribute_input}
+    Input Text   ${edit_list_subpart_attribute_input}   ${attribute_input}
+    Log   ${attribute_input}
+
+    # Add
     Wait Until Page Contains Element   ${edit_list_subpart_attribute_input}
     Wait Until Page Contains Element   ${edit_list_subpart_attribute_new_attribute_selected_value}    timeout=5s
     Sleep  1s
@@ -322,18 +352,11 @@ Delete Attribute
 Test On Field
     [Arguments]    ${input_selector}
     ${text}=  Generate Random String  length=8  chars=[LETTERS][NUMBERS]
+
     Request Item In Field    ${input_selector}    ${text}
     Delete Item From Field    ${input_selector}    ${text}
     Add Item In Field    ${input_selector}    ${text}
     Delete Item From Field    ${input_selector}    ${text}
-
-# Search For Item In Field
-#     [Arguments]    ${input_selector}    ${text}
-#     Wait Until Page Contains Element   ${input_selector}
-#     # Wait Until Element Is Visible   ${input_selector}   timeout=5s
-#     # Sleep   1s  # without this we get InvalidElementStateException: Message: invalid element state: Element is not currently interactable and may not be manipulated
-#     Input Text   ${input_selector}  ${text}
-#     Wait Until Page Contains Element   ${edit_list_suggestions_container}
 
 Request Item In Field
     # Implicitly adds newly requested item
@@ -345,15 +368,11 @@ Request Item In Field
     Wait Until Page Contains Element   ${edit_list_suggestions_container}
 
     # Request
-    Wait Until Page Contains Element   ${edit_list_request_button}
-    Click Element   ${edit_list_request_button}
-    Wait Until Page Contains Element   ${edit_list_request_submit_button}
-    Click Element   ${edit_list_request_submit_button}
+    Click On Request Button
 
 Add Item In Field
     [Arguments]    ${input_selector}    ${text}
-
-    # Search
+     # Search
     Wait Until Page Contains Element   ${input_selector}
     Input Text   ${input_selector}  ${text}
     Wait Until Page Contains Element   ${edit_list_suggestions_container}

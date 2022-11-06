@@ -61,7 +61,7 @@ Duplicate Product
     Should Be True  "${text1}" == "${text2}"
 
 Add New Product
-    [Documentation]  User can add new product
+    [Documentation]  User can add new product from action menu
     Click On Edit Button    ${product_list_data_table_edit_button_1}
     ${SKU1}=  Get SKU On Subpage
 
@@ -72,12 +72,35 @@ Add New Product
     Exit Edit Subpage Frame
 
 Delete A Product
+    [Documentation]  User can delete a product from data table
     Click On Data Table Checkbox   ${edit_list_data_table_checkbox_1}
 
     ${SKU_number}=  Get SKU On Data Table  ${edit_list_data_table_SKU_1}
 
     Click On Bulk Actions   ${edit_list_bulk_actions_menu_product}
-    Click On Bulk Actions Delete Product
+    Delete Product
+
+Copy From Another Product
+    [Documentation]  User can copy from another product
+    Click On Edit Button    ${product_list_data_table_edit_button_3}
+    ${SKU_EAN_Input}=  Get SKU On Subpage
+
+    Test On Attribute Field
+    Exit Edit Subpage Frame
+
+    Click On Edit Button    ${product_list_data_table_edit_button_1}
+    Copy From Function   ${SKU_EAN_Input}
+
+    Wait Until Page Contains Element   ${edit_list_subpart_attribute_new_attribute_selected}
+    ${attribute}   Get Text   ${edit_list_subpart_attribute_new_attribute_selected}
+    Log   ${attribute}
+
+    Delete Attribute
+    Exit Edit Subpage Frame
+
+    Click On Edit Button    ${product_list_data_table_edit_button_3}
+    Delete Attribute
+    Exit Edit Subpage Frame
 
 User Can Use Search, Request And Add Function On Edit Subpage Frame
     [Documentation]  Once enter edit page; user can search, request and add a property
