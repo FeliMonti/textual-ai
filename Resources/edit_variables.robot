@@ -1,4 +1,5 @@
 *** Variables ***
+${USERNAME}  regrtestaccount
 
 ${product_list_data_table_edit_button_1}  xpath://table[@data-testid="products-table"]//tr[@data-table-row=1]//*[@data-testid="product-list-edit-button"]
 ${product_list_data_table_edit_button_2}  xpath://table[@data-testid="products-table"]//tr[@data-table-row=2]//*[@data-testid="product-list-edit-button"]

@@ -21,33 +21,11 @@ Begin Web Test Edit
 End Web Test Edit
     End Web Test
 
-Enter Edit Subpage Frame With Edit Button 1
-    Wait Until Page Contains Element   ${product_list_data_table_edit_button_1}
-    Click Element   ${product_list_data_table_edit_button_1}
-    Select Frame    ${subpage_iframe}
-    Wait Until Page Contains Element   ${edit_list_edit_tab}
-    Click Element   ${edit_list_edit_tab}
-
-Enter Edit Subpage Frame With Edit Button 2
-    Wait Until Page Contains Element   ${product_list_data_table edit_button_2}
-    Scroll Element Into View   ${product_list_data_table edit_button_2}
-    Click Element   ${product_list_data_table edit_button_2}
-    Select Frame    ${subpage_iframe}
-    Wait Until Page Contains Element   ${edit_list_edit_tab}
-    Click Element   ${edit_list_edit_tab}
-
-Enter Edit Subpage Frame With Edit Button 3
-    Wait Until Page Contains Element   ${product_list_data_table edit_button_3}
-    Scroll Element Into View   ${product_list_data_table edit_button_3}
-    Click Element   ${product_list_data_table edit_button_3}
-    Select Frame    ${subpage_iframe}
-    Wait Until Page Contains Element   ${edit_list_edit_tab}
-    Click Element   ${edit_list_edit_tab}
-
-Enter Edit Subpage Frame With Edit Button 4
-    Wait Until Page Contains Element   ${product_list_data_table edit_button_4}
-    Scroll Element Into View   ${product_list_data_table edit_button_4}
-    Click Element   ${product_list_data_table edit_button_4}
+Click On Edit Button
+    [Arguments]    ${input_selector}
+    Wait Until Page Contains Element   ${input_selector}
+    Scroll Element Into View  ${input_selector}
+    Click Element   ${input_selector}
     Select Frame    ${subpage_iframe}
     Wait Until Page Contains Element   ${edit_list_edit_tab}
     Click Element   ${edit_list_edit_tab}
@@ -57,36 +35,32 @@ Exit Edit Subpage Frame
     Wait Until Page Contains Element  ${edit_list_subpage_back_button}
     Click Element   ${edit_list_subpage_back_button}
 
-Test On Action Button New Function
-    Enter Edit Subpage Frame With Edit Button 1
-    Wait Until Page Contains Element   ${edit_list_SKU_number}
-    ${get_SKU_1}=  Get Text  ${edit_list_SKU_number}
+Click On Action Button
+    [Arguments]   ${input_selector}
     Wait Until Page Contains Element   ${edit_list_actions_button}
     Click Element   ${edit_list_actions_button}
     Wait Until Page Contains Element   ${edit_list_actions_menu}
-    Wait Until Page Contains Element   ${edit_list_actions_new_button}
-    Click Element   ${edit_list_actions_new_button}
-    ${get_SKU_2}=  Get Text  ${edit_list_SKU_number}
-    Log   ${get_SKU_1}
-    Log   ${get_SKU_2}
-    Should Be True  "${get_SKU_1}" != "${get_SKU_2}"
-    Exit Edit Subpage Frame
+    Wait Until Page Contains Element   ${input_selector}
+    Click Element   ${input_selector}
 
-Test On Deleting A Product
-    Wait Until Page Contains Element  ${edit_list_data_table_checkbox_1}
-    Scroll Element Into View   ${edit_list_data_table_checkbox_1}
-    Click Element  ${edit_list_data_table_checkbox_1}
-    ${SKU_number}    Get Text    ${edit_list_data_table_SKU_1}
-    Log    ${SKU_number}
+Click On Data Table Checkbox
+    [Arguments]   ${input_selector}
+    Wait Until Page Contains Element  ${input_selector}
+    Scroll Element Into View   ${input_selector}
+    Click Element  ${input_selector}
+
+Click On Bulk Actions
+    [Arguments]   ${input_selector}
     Wait Until Page Contains Element  ${edit_list_bulk_actions_button}
     Click Element  ${edit_list_bulk_actions_button}
     Wait Until Page Contains Element   ${edit_list_bulk_actions_menu}
-    Wait Until Page Contains Element   ${edit_list_bulk_actions_menu_product}
-    Click Element   ${edit_list_bulk_actions_menu_product}
+    Wait Until Page Contains Element   ${input_selector}
+    Click Element   ${input_selector}
+
+Delete Product
     Scroll Element Into View  ${edit_list_bulk_actions_menu_product_delete_products}
     Wait Until Page Contains Element   ${edit_list_bulk_actions_menu_product_delete_products}
-    Click Element   ${edit_list_bulk_actions_menu_product_delete_products}
-    Sleep  2s
+    Click Element  ${edit_list_bulk_actions_menu_product_delete_products}
     Wait Until Page Contains Element  ${edit_list_bulk_actions_menu_product_delete_products_button}
     Click Element   ${edit_list_bulk_actions_menu_product_delete_products_button}
 
@@ -105,10 +79,18 @@ Set Original Text
     Input Text   ${edit_list_original_text_input}    ${text}
     Sleep  2s  # wait for autosave
 
-Get SKU
+Get SKU On Subpage
     [Return]    ${SKU}
     Wait Until Page Contains Element   ${edit_list_SKU_number}
     ${SKU}=  Get Text  ${edit_list_SKU_number}
+    Log  ${SKU}
+
+Get SKU On Data Table
+    [Arguments]    ${input_selector}
+    [Return]    ${SKU_number}
+    Wait Until Page Contains Element   ${input_selector}
+    ${SKU_number}    Get Text    ${input_selector}
+    Log  ${SKU_number}
 
 Click Duplicate Button
     Click Element   ${edit_list_actions_button}
@@ -116,88 +98,30 @@ Click Duplicate Button
     Wait Until Page Contains Element   ${edit_list_actions_duplicate_button}
     Click Element   ${edit_list_actions_duplicate_button}
 
-Test On Action Button Duplicate Function
-
-
-    # Make sure SKUs are different
-
-    # Get original text (from edit view)
-
-    # Compare texts
-
-
-
-
-    # Go back to product list, turn on original test column
-    # Exit Edit Subpage Frame
-    # Wait Until Page Contains Element  ${product_list_column_button}
-    # Click Element   ${product_list_column_button}
-    # Element Should Be Visible  ${product_list_column_menu}
-    # Wait Until Page Contains Element   ${product_list_column_oiginal_text_checkbox}
-    # Click Element   ${product_list_column_oiginal_text_checkbox}
-    # Scroll Element Into View   ${product_list_column_update_button}
-    # Wait Until Page Contains Element   ${product_list_column_update_button}
-    # Click Element   ${product_list_column_update_button}
-
-    # Compare text of affecting products
-    # Wait Until Page Contains Element   ${edit_list_data_table_original_text_1}
-    # ${original_text_column_1}    Get Text    ${edit_list_data_table_original_text_1}
-    # Log    ${original_text_column_1}
-    # ${original_text_column_4}    Get Text    ${edit_list_data_table_original_text_4}
-    # Log    ${original_text_column_4}
-    # Should Be True  "${original_text_column_1}" == "${original_text_column_4}"
-
-Test On Action Button Copy From Function
-    Enter Edit Subpage Frame With Edit Button 3
-    Wait Until Page Contains Element   ${edit_list_SKU_number}
-    ${get_SKU_1}=  Get Text  ${edit_list_SKU_number}
-    Log   ${get_SKU_1}
-    Test On Attribute Column
-    Exit Edit Subpage Frame
-    Enter Edit Subpage Frame With Edit Button 1
-    Wait Until Page Contains Element   ${edit_list_actions_button}
-    Click Element   ${edit_list_actions_button}
-    Element Should Be Visible   ${edit_list_actions_menu}
-    Click Element   ${edit_list_actions_copy_from_button}
+SKU_EAN Input
+    [Arguments]    ${SKU_EAN_input}
     Wait Until Page Contains Element   ${edit_list_SKU_EAN_input}
-    Input Text   ${edit_list_SKU_EAN_input}   ${get_SKU_1}
+    Input Text   ${edit_list_SKU_EAN_input}   ${SKU_EAN_Input}
+
+Click On Copy From Button
     Wait Until Page Contains Element   ${edit_list_actions_copy_from_copy_button}
     Click Element  ${edit_list_actions_copy_from_copy_button}
-    Sleep  2s
-    Wait Until Page Contains Element   ${edit_list_subpart_attribute_new_attribute_selected}
-    ${attribute}   Get Text   ${edit_list_subpart_attribute_new_attribute_selected}
-    Log   ${attribute}
-    Delete Attribute
-    Exit Edit Subpage Frame
-    Enter Edit Subpage Frame With Edit Button 3
-    Delete Attribute
-    Exit Edit Subpage Frame
 
-Test On Action Button Copy To Function
-    Enter Edit Subpage Frame With Edit Button 2
-    Wait Until Page Contains Element   ${edit_list_SKU_number}
-    ${get_SKU_1}=  Get Text  ${edit_list_SKU_number}
-    Log   ${get_SKU_1}
-    Exit Edit Subpage Frame
-    Enter Edit Subpage Frame With Edit Button 4
-    Test On Attribute Column
-    Wait Until Page Contains Element   ${edit_list_actions_button}
-    Click Element   ${edit_list_actions_button}
-    Element Should Be Visible   ${edit_list_actions_menu}
-    Click Element   ${edit_list_actions_copy_to_button}
-    Wait Until Page Contains Element   ${edit_list_SKU_EAN_input}
-    Input Text   ${edit_list_SKU_EAN_input}   ${get_SKU_1}
+Copy From Function
+    [Arguments]    ${SKU_EAN_input}
+    Click On Action Button   ${edit_list_actions_copy_from_button}
+    SKU_EAN Input   ${SKU_EAN_Input}
+    Click On Copy From Button
+
+Click On Copy To Button
     Wait Until Page Contains Element   ${edit_list_actions_copy_to_copy_button}
     Click Element  ${edit_list_actions_copy_to_copy_button}
-    Sleep  2s
-    Delete Attribute
-    Exit Edit Subpage Frame
-    Enter Edit Subpage Frame With Edit Button 2
-    Wait Until Page Contains Element   ${edit_list_subpart_attribute_new_attribute_selected}
-    ${attribute}   Get Text   ${edit_list_subpart_attribute_new_attribute_selected}
-    Log   ${attribute}
-    Delete Attribute
-    Exit Edit Subpage Frame
+
+Copy To Function
+    [Arguments]    ${SKU_EAN_input}
+    Click On Action Button   ${edit_list_actions_copy_to_button}
+    Click On Copy To Button
+    SKU_EAN Input   ${SKU_EAN_Input}
 
 Test On Setting importing Status
     Wait Until Page Contains Element   ${edit_list_set_status_button}
@@ -331,25 +255,46 @@ Add Original Text And Headline On the Same Page
     ${original_text_verify}  Get Text  ${edit_list_original_text_textarea}
     Should Be True   "${original_text_verify}" == "${original_text_input}"
 
-Test On Attribute Column
-    #---display subpart on attribute---#
+Test On Attribute Field
+    ${attribute_input}=  Generate Random String  length=8  chars=[LETTERS][NUMBERS]
+
+    Request Attribute In Field   ${attribute_input}
+    Delete Attribute   ${attribute_input}
+    Add Attribute In Field   ${attribute_input}
+
+Request Attribute In Field
+    [Arguments]    ${attribute_input}
+    # Search
     Wait Until Page Contains Element   ${edit_list_edit_field_add}
-    Sleep  1s
     Click Element   ${edit_list_edit_field_add}
     Wait Until Page Contains Element   ${edit_list_subpart_attribute_input}
     Wait Until Element Contains   ${edit_list_subpart_attribute_new_attribute}  new attribute
-    #---search---#
     Wait Until Page Contains Element   ${edit_list_subpart_attribute_input}
-    ${attribute_input}=  Generate Random String  length=8  chars=[LETTERS][NUMBERS]
     Input Text   ${edit_list_subpart_attribute_input}   ${attribute_input}
     Log   ${attribute_input}
+
+    # Request
     Wait Until Page Contains Element   ${edit_list_suggestions_container}
-    #---request---#
+    Click On Request Button
+
+Click On Request Button
     Wait Until Page Contains Element   ${edit_list_request_button}
     Click Element   ${edit_list_request_button}
     Wait Until Page Contains Element   ${edit_list_request_submit_button}
     Click Element   ${edit_list_request_submit_button}
-    #---add---#
+
+Add Attribute In Field
+    [Arguments]    ${attribute_input}
+    # Search
+    Wait Until Page Contains Element   ${edit_list_edit_field_add}
+    Click Element   ${edit_list_edit_field_add}
+    Wait Until Page Contains Element   ${edit_list_subpart_attribute_input}
+    Wait Until Element Contains   ${edit_list_subpart_attribute_new_attribute}  new attribute
+    Wait Until Page Contains Element   ${edit_list_subpart_attribute_input}
+    Input Text   ${edit_list_subpart_attribute_input}   ${attribute_input}
+    Log   ${attribute_input}
+
+    # Add
     Wait Until Page Contains Element   ${edit_list_subpart_attribute_input}
     Wait Until Page Contains Element   ${edit_list_subpart_attribute_new_attribute_selected_value}    timeout=5s
     Sleep  1s
@@ -365,18 +310,11 @@ Delete Attribute
 Test On Field
     [Arguments]    ${input_selector}
     ${text}=  Generate Random String  length=8  chars=[LETTERS][NUMBERS]
+
     Request Item In Field    ${input_selector}    ${text}
     Delete Item From Field    ${input_selector}    ${text}
     Add Item In Field    ${input_selector}    ${text}
     Delete Item From Field    ${input_selector}    ${text}
-
-# Search For Item In Field
-#     [Arguments]    ${input_selector}    ${text}
-#     Wait Until Page Contains Element   ${input_selector}
-#     # Wait Until Element Is Visible   ${input_selector}   timeout=5s
-#     # Sleep   1s  # without this we get InvalidElementStateException: Message: invalid element state: Element is not currently interactable and may not be manipulated
-#     Input Text   ${input_selector}  ${text}
-#     Wait Until Page Contains Element   ${edit_list_suggestions_container}
 
 Request Item In Field
     # Implicitly adds newly requested item
@@ -388,15 +326,11 @@ Request Item In Field
     Wait Until Page Contains Element   ${edit_list_suggestions_container}
 
     # Request
-    Wait Until Page Contains Element   ${edit_list_request_button}
-    Click Element   ${edit_list_request_button}
-    Wait Until Page Contains Element   ${edit_list_request_submit_button}
-    Click Element   ${edit_list_request_submit_button}
+    Click On Request Button
 
 Add Item In Field
     [Arguments]    ${input_selector}    ${text}
-
-    # Search
+     # Search
     Wait Until Page Contains Element   ${input_selector}
     Input Text   ${input_selector}  ${text}
     Wait Until Page Contains Element   ${edit_list_suggestions_container}

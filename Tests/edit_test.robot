@@ -24,50 +24,109 @@ User Can Use Add Function In Edit Subpage Frame
 
 # TODO: Group these into smaller individual tests
 
-##    Access To Edit Subpage Frame   ###---Shall this stay, enter edit button 3---###
 ##    Exit Edit Subpage Frame
-##    Test On Action Button New Function
-##    Test On Deleting A Product
-##    Test On Action Button Copy From Function
-##    Test On Action Button Copy To Function
 ##    Test On Setting importing Status
 ##    Test On Setting Ready Status
 ##    Test On Setting In-progress Status
-    Enter Edit Subpage Frame With Edit Button 3
-    Test On Main Category
-    Test On Label
-    Test On Name
-    Test On Original Text And Headline On the Same Page
-    Add Main Category
-    Delete Main Category
-    Add Label
-    Remove Label
-    Add Name
-    Add Original Text And Headline On the Same Page
-    Test On Attribute Column
-    Delete Attribute
-    Add Item Into Fields   ${edit_list_properties_input}
-    Delete Item From Fields   ${edit_list_properties_input}
+#    Enter Edit Subpage Frame With Edit Button 3
+#    Test On Main Category
+#    Test On Label
+#    Test On Name
+#    Test On Original Text And Headline On the Same Page
+#    Add Main Category
+#    Delete Main Category
+#    Add Label
+#    Remove Label
+#    Add Name
+#    Add Original Text And Headline On the Same Page
+#    Test On Attribute Column
+#    Delete Attribute
+#    Add Item Into Fields   ${edit_list_properties_input}
+#    Delete Item From Fields   ${edit_list_properties_input}
 
 Duplicate Product
     [Documentation]  User can duplicate a product
-    Enter Edit Subpage Frame With Edit Button 3
-    ${SKU1}=   Get SKU
+    Click On Edit Button    ${product_list_data_table_edit_button_3}
+    ${SKU1}=   Get SKU On Subpage
 
     ${text1}=   Set Variable   testing 123
     Set Original Text    ${text1}
 
     Click Duplicate Button
-    ${SKU2}=   Get SKU
+    ${SKU2}=   Get SKU On Subpage
 
     Should Be True  "${SKU1}" != "${SKU2}"
 
     ${text2}=  Get Original Text
     Should Be True  "${text1}" == "${text2}"
 
+Add New Product
+    [Documentation]  User can add new product from action menu
+    Click On Edit Button    ${product_list_data_table_edit_button_1}
+    ${SKU1}=  Get SKU On Subpage
+
+    Click On Action Button   ${edit_list_actions_new_button}
+    ${SKU2}=  Get SKU On Subpage
+
+    Should Be True  "${SKU1}" != "${SKU2}"
+    Exit Edit Subpage Frame
+
+Delete A Product
+    [Documentation]  User can delete a product from data table
+    Click On Data Table Checkbox   ${edit_list_data_table_checkbox_1}
+
+    ${SKU_number}=  Get SKU On Data Table  ${edit_list_data_table_SKU_1}
+
+    Click On Bulk Actions   ${edit_list_bulk_actions_menu_product}
+    Delete Product
+
+Copy From Another Product
+    [Documentation]  User can copy different fileds from another product
+    Click On Edit Button    ${product_list_data_table_edit_button_3}
+    ${SKU_EAN_Input}=  Get SKU On Subpage
+
+    Test On Attribute Field
+    Exit Edit Subpage Frame
+
+    Click On Edit Button    ${product_list_data_table_edit_button_1}
+    Copy From Function   ${SKU_EAN_Input}
+
+    Wait Until Page Contains Element   ${edit_list_subpart_attribute_new_attribute_selected}
+    ${attribute}   Get Text   ${edit_list_subpart_attribute_new_attribute_selected}
+    Log   ${attribute}
+
+    Delete Attribute
+    Exit Edit Subpage Frame
+
+    Click On Edit Button    ${product_list_data_table_edit_button_3}
+    Delete Attribute
+    Exit Edit Subpage Frame
+
+Copy To Another Product
+    [Documentation]  User can copy different fields to another product
+    Click On Edit Button    ${product_list_data_table_edit_button_2}
+    ${SKU1}=  Get SKU On Subpage
+
+    Exit Edit Subpage Frame
+    Click On Edit Button    ${product_list_data_table_edit_button_4}
+
+    Test On Attribute Field
+    Copy To Function   ${SKU1}
+
+    Delete Attribute
+    Exit Edit Subpage Frame
+    Click On Edit Button    ${product_list_data_table_edit_button_2}
+
+    Wait Until Page Contains Element   ${edit_list_subpart_attribute_new_attribute_selected}
+    ${attribute}   Get Text   ${edit_list_subpart_attribute_new_attribute_selected}
+    Log   ${attribute}
+
+    Delete Attribute
+    Exit Edit Subpage Frame
+
 User Can Use Search, Request And Add Function On Edit Subpage Frame
     [Documentation]  Once enter edit page; user can search, request and add a property
-    Enter Edit Subpage Frame With Edit Button 3
+    Click On Edit Button    ${product_list_data_table_edit_button_3}
     Test On Attribute Column
     Test On Field   ${edit_list_properties_input}
     Test On Field   ${edit_list_occasion_input}

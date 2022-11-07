@@ -11,6 +11,14 @@ def create_products(APP_URL, TOKEN):
             json={"data": json.load(f)},
         )
         r.raise_for_status()
+        # for product in json.load(f):
+        #     print(product)
+        #     r = requests.post(
+        #         url=f"{APP_URL}/api/v2/product",
+        #         headers={"Token": TOKEN, "Content-Type": "application/json"},
+        #         json=product,
+        #     )
+        #     r.raise_for_status()
 
 def delete_products(APP_URL, TOKEN):
     r = requests.get(

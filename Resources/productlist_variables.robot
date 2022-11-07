@@ -56,7 +56,6 @@ ${product_list_filter_translation_status_missing_translations_option}  xpath://*
 ${product_list_filter_translation_status_complete_translations_option}  xpath://*[@data-testid="translation-status-option-3"]
 ${product_list_data_text_column_missing_translation_flag_icon}  xpath://td[@class="text-column"]//i[@data-text-status="missing-translation"]
 
-
 #---more function---#
 ${product_list_filter_more_button}  xpath://*[@data-testid="product-filter-add-filter"]
 ${product_list_filter_more_menu}  xpath://*[@data-testid="product-filter-add-filter"]//*[@class="menu transition visible"]
