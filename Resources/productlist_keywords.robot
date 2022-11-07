@@ -7,8 +7,8 @@ Resource  ./productlist_variables.robot
 
 *** Keywords ***
 Begin Web Test Product List
-    api.delete_products  ${APP_URL}  ${API_TOKEN}
-    api.create_products  ${APP_URL}  ${API_TOKEN}
+    #api.delete_products  ${APP_URL}  ${API_TOKEN}
+    #api.create_products  ${APP_URL}  ${API_TOKEN}
     Sleep   2s
     Begin Web Test
     Go To Login Page
@@ -19,7 +19,7 @@ Begin Web Test Product List
 
 End Web Test Product List
     End Web Test
-    api.delete_products  ${APP_URL}  ${API_TOKEN}
+    #api.delete_products  ${APP_URL}  ${API_TOKEN}
 
 Search for SKU
     [Arguments]  ${sku}
@@ -37,7 +37,7 @@ Select Earliest Date on After Date
     [Return]  ${date}
     Click Element   ${datepicker_button}  # xpath://div[@role="listbox"]//*[contains(text(), "After")]/../..
     Element Should Be Visible   ${datepicker_button}//*[@class="react-datepicker"]
-    Click Element   ${datepicker_button}//*[@class="react-datepicker"]//div[@role="button"][1]
+    Click Element   ${datepicker_button}//*[@class="react-datepicker"]//div[@role="button"][1]  #chose the first date on the first line
     Element Should Not Be Visible   ${datepicker_button}//*[@class="react-datepicker"]
     ${date}=  Get Text  ${datepicker_button}/span/b
 
@@ -46,7 +46,8 @@ Select Latest Date on After Date
     [Return]  ${date}
     Click Element   ${datepicker_button}
     Element Should Be Visible   ${datepicker_button}//*[@class="react-datepicker"]
-    Click Element   ${datepicker_button}//*[@class="react-datepicker"]//div[@role="button"][last()]
+    Click Element   ${datepicker_button}//div[@class="react-datepicker__month"]//div[5]/div[last()]  #chose the last date on the last line
+    #//*[@class="react-datepicker"]//div[@role="button"][last()]
     Element Should Not Be Visible   ${datepicker_button}//*[@class="react-datepicker"]
     ${date}=  Get Text  ${datepicker_button}/span/b
 
@@ -65,13 +66,14 @@ Select Latest Date on Before Date
     [Return]  ${date}
     Click Element   ${datepicker_button}  # xpath://div[@role="listbox"]//*[contains(text(), "After")]/../..
     Element Should Be Visible   ${datepicker_button}//*[@class="react-datepicker"]
-    Click Element   ${datepicker_button}//*[@class="react-datepicker"]//div[@role="button"][last()]
+    Click Element   ${datepicker_button}//div[@class="react-datepicker__month"]//div[5]/div[last()]  ##chose the last date on the last line
+    #//*[@class="react-datepicker"]//div[@role="button"][last()]
     Element Should Not Be Visible   ${datepicker_button}//*[@class="react-datepicker"]
     ${date}=  Get Text  ${datepicker_button}/span/b
 
 Clear Filter Fields         #not for SKU search result
-    # do not fail if not found
-    # clear all found
+    #TODO do not fail if not found
+    #TODO clear all found
     #Click Element     xpath://*[@data-testid="close-btn"]
     Wait Until Page Contains Element  ${product_list_product_filter_clear_button}
     Click Element    ${product_list_product_filter_clear_button}
@@ -98,9 +100,9 @@ Filter on After Date by Product Creation Date
     Wait Until Page Contains Element   ${product_list_data_table}
     Element Should Be Visible   ${product_list_data_table}
     ${date}=  Select Latest Date on After Date    ${product_list_filter_by_date_after_button}
-    #Element Should Not Be Visible    ${product_list_data_table}    ##the latest date on after day is always on the top line,if the date today is on the second line on datapicker, element would be always visible.
+    Element Should Not Be Visible    ${product_list_data_table}
 
-Filter on Before Date by Product Creation Date   # for product is created on current day
+Filter on Before Date by Product Creation Date
     Select Product Creation Date
     #${date}=  Select Latest Date    ${product_list_filter_by_date_before_button}
     ${date}=  Select Latest Date on Before Date   ${product_list_filter_by_date_before_button}
@@ -122,32 +124,37 @@ Filter on After and Before Date by Product Creation Date
 
 Filter on After Date by Latest Publication Date
     Select Latest Publication Date
+    Check Languages On Text Column
 #    ${date}=  Select Earliest Date    ${product_list_filter_by_date_after_button}
     ${date}=  Select Earliest Date on After Date   ${product_list_filter_by_date_after_button}
     Wait Until Page Contains Element   ${product_list_data_table}
-    Element Should Be Visible   ${product_list_data_table}
+    #Element Should Be Visible    ${product_list_data_table}
+    Element Should Be Visible   ${product_list_data_text_status_published_blue_paper_areoplane_icon}
     ${date}=  Select Latest Date on After Date    ${product_list_filter_by_date_after_button}
     Element Should Not Be Visible    ${product_list_data_table}
 
 
 Filter on Before Date by Latest Publication Date   # for product is created on current day
     Select Latest Publication Date
+    Check Languages On Text Column
 #    ${date}=  Select Latest Date    ${product_list_filter_by_date_before_button}
     ${date}=  Select Latest Date on Before Date   ${product_list_filter_by_date_before_button}
     Wait Until Page Contains Element   ${product_list_data_table}
-    Element Should Be Visible   ${product_list_data_table}
+    Element Should Be Visible   ${product_list_data_text_status_published_blue_paper_areoplane_icon}
     ${date}=  Select Earliest Date on Before Date  ${product_list_filter_by_date_before_button}
     Element Should Not Be Visible    ${product_list_data_table}
 
 
 Filter on After and Before Date by Latest Publication Date
     Select Latest Publication Date
+    Check Languages On Text Column
 #    ${date}=  Select Earliest Date    ${product_list_filter_by_date_after_button}
 #    ${date}=  Select Latest Date    ${product_list_filter_by_date_before_button}
     ${date}=  Select Earliest Date on After Date   ${product_list_filter_by_date_after_button}
     ${date}=  Select Latest Date on Before Date    ${product_list_filter_by_date_before_button}
     Wait Until Page Contains Element   ${product_list_data_table}
     Element Should Be Visible   ${product_list_data_table}
+    Element Should Be Visible   ${product_list_data_text_status_published_blue_paper_areoplane_icon}
 
 
 Filter by Product Creation Date Combined SKU Search   #not use Search for SKU,because there SKU search result is verified individually
@@ -170,6 +177,7 @@ Filter by Latest Publication Date Combined SKU Search
     Wait Until Page Contains Element   ${product_list_search_button}
     Input Text   ${product_list_search_text_input}   ${sku}
     Select Latest Publication Date
+    Check Languages On Text Column
 #    ${date}=  Select Earliest Date    ${product_list_filter_by_date_after_button}
 #    ${date}=  Select Latest Date    ${product_list_filter_by_date_before_button}
     ${date}=  Select Earliest Date on After Date   ${product_list_filter_by_date_after_button}
@@ -186,7 +194,7 @@ Filter on Show All in Product Status
     Click Element   ${product_list_filter_product_status_show_all_option}
     Wait Until Page Contains Element   ${product_list_filter_product_status_button}
     Element Should Contain  ${product_list_filter_product_status_button}   Show all   #verify ?
-    #no check of results
+    #TODO: no check of results
 
 
 Filter on Importing
