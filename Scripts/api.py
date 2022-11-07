@@ -27,3 +27,4 @@ def delete_products(APP_URL, TOKEN):
             headers={"Token": TOKEN, "Content-Type": "application/json"},
         )
         r.raise_for_status()
+

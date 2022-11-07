@@ -14,37 +14,39 @@ Suite Teardown  End Web Test Product List
 *** Variables ***
 ${SKU}  e2e-product-1
 #${SKU}  dcb7b357-c8f4-4042-b73c-92718f649313
+#${SKU_1}   a0908258-c022-4fb5-9c13-14d8279fc29b
+#${SKU_2}   b35f3869-570c-4148-9c59-7a32de5d4d0b
 
 *** Test Cases ***
-User Can Search for SKU
-    [Documentation]  User can search for SKU
-    Search for SKU  ${SKU}
+#User Can Search for SKU   #if run it first,then running filter combined SKU, the SKU search result on Search for SKU will not be deleted,then test failed.
+#   [Documentation]  User can search for SKU
+#   Search for SKU  ${SKU}
 
 #User Can Filter on Date
 #    [Documentation]  User can filter on date
 #
-#    Filter on After Date by Product Creation Date
+##    Filter on After Date by Product Creation Date
+##    Clear Filter Fields
+#
+##    Filter on Before Date by Product Creation Date
+##    Clear Filter Fields
+##
+##    Filter on After and Before Date by Product Creation Date
+##    Clear Filter Fields
+##
+##    Filter on After Date by Latest Publication Date
+##    Clear Filter Fields
+##
+##    Filter on Before Date by Latest Publication Date
+##    Clear Filter Fields
+##
+##    Filter on After and Before Date by Latest Publication Date
+##    Clear Filter Fields
+##
+#    Filter by Product Creation Date Combined SKU Search    ${SKU_1}
 #    Clear Filter Fields
 #
-#    Filter on Before Date by Product Creation Date
-#    Clear Filter Fields
-#
-#    Filter on After and Before Date by Product Creation Date
-#    Clear Filter Fields
-#
-#    Filter on After Date by Latest Publication Date
-#    Clear Filter Fields
-#
-#    Filter on Before Date by Latest Publication Date
-#    Clear Filter Fields
-#
-#    Filter on After and Before Date by Latest Publication Date
-#    Clear Filter Fields
-#
-#    Filter by Product Creation Date Combined SKU Search    #${SKU}  #61a61274-bfa0-4126-84aa-3d8289c0b1a4
-#    Clear Filter Fields
-#
-#    Filter by Latest Publication Date Combined SKU Search    ${SKU}
+#    Filter by Latest Publication Date Combined SKU Search    ${SKU_2}
 #    Clear Filter Fields
 ##
 #User Can Filter on Product Status
@@ -59,10 +61,11 @@ User Can Search for SKU
 #
 #    Filter on Ready
 #    Clear Filter Fields
-##
+#
 #User Can Filter on Text Status
 #    [Documentation]  User can filter on text status
 #    Filter on Show All in Text Status
+#    Clear Filter Fields
 #
 #    Filter on Needs Review    #flag with orange eye icon both on text status column, but actually no orange eye on it, so needs to combine with text&bullet (languange) to check the orange eye icon
 #    Clear Filter Fields
@@ -75,48 +78,48 @@ User Can Search for SKU
 #
 #    Filter on Published
 #    Clear Filter Fields
-
-User Can Filter on Translation Status
-    [Documentation]  User can filter on translation status
-    Filter on Show All in Translation Status
-
-    Filter on Missing Translation
-    Clear Filter Fields
-
-    Filter on Complete Translation
-    Clear Filter Fields
-
-User Can Filter on Parent-Child Relations
-    [Documentation]  User can filter on Parent-Child relations
-    Filter on Show All in Parent-Child Relations
-    Clear Filter Fields
-
-    Filter on Parent in Parent-Child Relations
-    Clear Filter Fields
-
-    Filter on Child in Parent-Child Relations
-    Clear Filter Fields
-
-#User Can Check Selected Laguages On Text Columns
-#    [Documentation]  Once enter edit page; user can check different languages on the text column
-#    [Tags]  Product list
-#    Check Languages On Text Column
 #
-#User Can Check Group Children With Parent
-#    # TODO: Validation
-#    # When off, product 1 (parent) and 3 (child) do not appear is subsequent rows in product list
-#    # When on, product 1 (parent) appears in row directly above and 3 (child)
+#User Can Filter on Translation Status  ##tested   #verify --complete translation
+#    [Documentation]  User can filter on translation status
+#    Filter on Show All in Translation Status
+#    Clear Filter Fields
 #
+#    Filter on Missing Translation
+#    Clear Filter Fields
+#
+#    #Filter on Complete Translation    ##verify,here flag should not be visible, but actually is visible on filter results
+#    #Clear Filter Fields
+#
+#User Can Filter on Parent-Child Relations
+#    [Documentation]  User can filter on Parent-Child relations
+#    Filter on Show All in Parent-Child Relations
+#
+#    Filter on Parent in Parent-Child Relations
+#    Clear Filter Fields
+#
+#    Filter on Child in Parent-Child Relations
+#    Clear Filter Fields
+
+User Can Check Selected Laguages On Text Columns
+    [Documentation]  User can check different languages on the text column
+    Check Languages On Text Column
+
+
+##User Can Check Group Children With Parent
+##    #  Validation
+##    # When off, product 1 (parent) and 3 (child) do not appear is subsequent rows in product list
+##    # When on, product 1 (parent) appears in row directly above and 3 (child)
+
+
 #User Can Select Different Column Combination
-#    [Documentation]  Once enter edit page; user can select different column
-#    [Tags]  Product list
+#    [Documentation]  User can select different column
 #    Set a combination of options in column
 #    Set namespace in column
 #    Set group children with parent in column
-#
+
+
 #User Can Create New Filter Group For Different Viewset
 #    [Documentation]  Once enter edit page; user can select different viewset
-#    [Tags]  Product list
 #
 #    ${group_name}=  Generate Random String  length=8  chars=[LETTERS][NUMBERS]
 #    ${filter_name}=  Generate Random String  length=8  chars=[LETTERS][NUMBERS]

@@ -26,19 +26,27 @@ ${product_list_filter_product_status_show_all_option}  xpath://*[@data-testid="p
 ${product_list_filter_product_status_importing_option}  xpath://*[@data-testid="product-status-option-2"]
 ${product_list_filter_product_status_in_progress_option}  xpath://*[@data-testid="product-status-option-3"]
 ${product_list_filter_product_status_ready_option}  xpath://*[@data-testid="product-status-option-4"]
-${product_list_product_status_column_in_products_table}  xpath://*[@data-testid="products-table"]//th[contains(text(), "Product Status")]  #
-${product_list_product_status_row_in_products_table}  xpath://tr[@data-table-row="1"]//td[@class="status"]  #
+#${product_list_product_status_column_in_products_table}  xpath://*[@data-testid="products-table"]//th[contains(text(), "Product Status")]  #
+#${product_list_product_status_row_in_products_table}  xpath://tr[@data-table-row="1"]//td[@class="status"]  #
+${product_list_product_table_product_status_cell}   xpath://td[@class="status"]
 
-#---test status---#
+#---text status---#
 ${product_list_filter_text_status_button}  xpath://*[@data-testid="text-status"]
-${product_list_filter_text_status_menu}   xpath://*[@class="visible menu transition"]
+${product_list_filter_text_status_menu}   xpath://div[@data-testid="text-status"]//*[@class="visible menu transition"]
 ${product_list_filter_text_status_show_all_option}  xpath: //*[@data-testid="text-status-option-1"]
 ${product_list_filter_text_status_needs_review_option}  xpath://*[@data-testid="text-status-option-2"]
 ${product_list_filter_text_status_approved_option}  xpath://*[@data-testid="text-status-option-3"]
 ${product_list_filter_text_status_waiting_to_be_published_option}  xpath://*[@data-testid="text-status-option-4"]
 ${product_list_filter_text_status_published_option}  xpath://*[@data-testid="text-status-option-5"]
-${product_list_text_status_column_in_products_table}  xpath://*[@data-testid="products-table"]//th[contains(text(), "Text Statuses")]   #
-${product_list_text_status_row_in_products_table}   xpath://tr[@data-table-row="1"]//td[@class="text-column"]  #
+${product_list_text_status_column_in_products_table}  xpath://th[@class="three wide text-column"][contains(text(), "Text Statuses")]   #
+${product_list_product_table_text_statuses_cell}  xpath://td[@class="text-column"]//div[@data-testid="product-list-text-statuses-cell"]  #it is for text statuses column
+#${product_list_product_table_text_statuses_cell_flag_icon}   xpath:
+#${product_list_product_table_text_bullet_cell_orange_eye_icon}  xpath:
+${product_list_product_table_text_column}   xpath://td[@class="text-column"]  #it could refer to test status, text&bullets on different languages
+${product_list_data_text_status_needs_reviewed_orange_eye_icon}  xpath://td[@class="text-column"]//i[@data-text-status="needs-reviewed"]
+${product_list_data_text_status_approved_green_tick_icon}  xpath://td[@class="text-column"]//i[@data-text-status="approved"]
+${product_list_data_text_status_waiting_to_be_published_orange_hour_glass_icon}  xpath://td[@class="text-column"]//i[@data-text-status="waiting-to-be-published"]
+${product_list_data_text_status_published_blue_paper_areoplane_icon}   xpath://td[@class="text-column"]//i[@data-text-status="published"]
 
 #---translation status---#
 ${product_list_filter_translation_status_button}  xpath://*[@data-testid="translation-status"][@role="listbox"]
@@ -46,6 +54,7 @@ ${product_list_filter_translation_status_menu}  xpath://*[@class="visible menu t
 ${product_list_filter_translation_status_show_all_option}  xpath://*[@data-testid="translation-status-option-1"]
 ${product_list_filter_translation_status_missing_translations_option}  xpath://*[@data-testid="translation-status-option-2"]
 ${product_list_filter_translation_status_complete_translations_option}  xpath://*[@data-testid="translation-status-option-3"]
+${product_list_data_text_column_missing_translation_flag_icon}  xpath://td[@class="text-column"]//i[@data-text-status="missing-translation"]
 
 
 #---more function---#
@@ -59,6 +68,7 @@ ${product_list_filter_parent_child_menu}  //*[@data-testid="parent-child-relatio
 ${product_list_filter_parent_child_relations_show_all_option}  xpath://*[@data-testid="parent-child-relations-option-1"]
 ${product_list_filter_parent_child_relations_parents_option}  xpath://*[@data-testid="parent-child-relations-option-2"]
 ${product_list_filter_parent_child_relations_children_option}  xpath://*[@data-testid="parent-child-relations-option-3"]
+${product_list_filter_parent_child_option_close_button}   xpath://i[@data-testid="close-btn-choice"]   #
 
 #---text column---#
 ${product_list_text_column_button}  xpath://*[@data-testid="channel-language-selector-button-open-button"]
@@ -92,7 +102,7 @@ ${hamburger_menu_dropdown_manage_filter_groups}  xpath://*[contains(text(),"Mana
 #${hamburger_menu_dropdown_manage_filter_groups_delete}  xpath://*[contains(text(),${group_name})]/../..//button[contains(text(), "Delete")]
 
 #---icon in table---#
-${orange_eye_icon}  xpath=/html/body/div[4]/div/div[2]/div/div[2]/div/table/tbody/tr[1]/td[4]/div/i[1]
+#${orange_eye_icon}  xpath=/html/body/div[4]/div/div[2]/div/div[2]/div/table/tbody/tr[1]/td[4]/div/i[1]
 #${green_tick_icon}  xpath=/html/body/div[4]/div/div[2]/div/div[2]/div/table/tbody/tr/td[4]/div/i/i
 #${orange_hour_glass_icon}  xpath=/html/body/div[4]/div/div[2]/div/div[2]/div/table/tbody/tr[1]/td[4]/div/i[1]/i
 #${blue_paper_areoplane_icon}  xpath=/html/body/div[4]/div/div[2]/div/div[2]/div/table/tbody/tr[2]/td[7]/div/i/i
