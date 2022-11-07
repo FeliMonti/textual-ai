@@ -134,7 +134,7 @@ Filter on After Date by Latest Publication Date
     Element Should Not Be Visible    ${product_list_data_table}
 
 
-Filter on Before Date by Latest Publication Date   # for product is created on current day
+Filter on Before Date by Latest Publication Date
     Select Latest Publication Date
     Check Languages On Text Column
 #    ${date}=  Select Latest Date    ${product_list_filter_by_date_before_button}
