@@ -22,9 +22,6 @@ User Can Use Add Function In Edit Subpage Frame
 # TODO: Group these into smaller individual tests
 
 ##    Exit Edit Subpage Frame
-
-##    Test On Action Button Copy From Function
-##    Test On Action Button Copy To Function
 ##    Test On Setting importing Status
 ##    Test On Setting Ready Status
 ##    Test On Setting In-progress Status
@@ -81,7 +78,7 @@ Delete A Product
     Delete Product
 
 Copy From Another Product
-    [Documentation]  User can copy from another product
+    [Documentation]  User can copy different fileds from another product
     Click On Edit Button    ${product_list_data_table_edit_button_3}
     ${SKU_EAN_Input}=  Get SKU On Subpage
 
@@ -99,6 +96,28 @@ Copy From Another Product
     Exit Edit Subpage Frame
 
     Click On Edit Button    ${product_list_data_table_edit_button_3}
+    Delete Attribute
+    Exit Edit Subpage Frame
+
+Copy To Another Product
+    [Documentation]  User can copy different fields to another product
+    Click On Edit Button    ${product_list_data_table_edit_button_2}
+    ${SKU1}=  Get SKU On Subpage
+
+    Exit Edit Subpage Frame
+    Click On Edit Button    ${product_list_data_table_edit_button_4}
+
+    Test On Attribute Field
+    Copy To Function   ${SKU1}
+
+    Delete Attribute
+    Exit Edit Subpage Frame
+    Click On Edit Button    ${product_list_data_table_edit_button_2}
+
+    Wait Until Page Contains Element   ${edit_list_subpart_attribute_new_attribute_selected}
+    ${attribute}   Get Text   ${edit_list_subpart_attribute_new_attribute_selected}
+    Log   ${attribute}
+
     Delete Attribute
     Exit Edit Subpage Frame
 

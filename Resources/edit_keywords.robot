@@ -113,37 +113,15 @@ Copy From Function
     SKU_EAN Input   ${SKU_EAN_Input}
     Click On Copy From Button
 
-Test On Action Button Copy To Function
-    Enter Edit Subpage Frame With Edit Button 2
-    Wait Until Page Contains Element   ${edit_list_SKU_number}
-
-    ${get_SKU_1}=  Get Text  ${edit_list_SKU_number}
-    Log   ${get_SKU_1}
-
-    Exit Edit Subpage Frame
-    Enter Edit Subpage Frame With Edit Button 4
-    Test On Attribute Column
-
-    Wait Until Page Contains Element   ${edit_list_actions_button}
-    Click Element   ${edit_list_actions_button}
-    Element Should Be Visible   ${edit_list_actions_menu}
-    Click Element   ${edit_list_actions_copy_to_button}
-    Wait Until Page Contains Element   ${edit_list_SKU_EAN_input}
-    Input Text   ${edit_list_SKU_EAN_input}   ${get_SKU_1}
+Click On Copy To Button
     Wait Until Page Contains Element   ${edit_list_actions_copy_to_copy_button}
     Click Element  ${edit_list_actions_copy_to_copy_button}
-    Sleep  2s
 
-    Delete Attribute
-    Exit Edit Subpage Frame
-    Enter Edit Subpage Frame With Edit Button 2
-
-    Wait Until Page Contains Element   ${edit_list_subpart_attribute_new_attribute_selected}
-    ${attribute}   Get Text   ${edit_list_subpart_attribute_new_attribute_selected}
-    Log   ${attribute}
-
-    Delete Attribute
-    Exit Edit Subpage Frame
+Copy To Function
+    [Arguments]    ${SKU_EAN_input}
+    Click On Action Button   ${edit_list_actions_copy_to_button}
+    Click On Copy To Button
+    SKU_EAN Input   ${SKU_EAN_Input}
 
 Test On Setting importing Status
     Wait Until Page Contains Element   ${edit_list_set_status_button}
