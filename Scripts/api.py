@@ -5,20 +5,26 @@ import json
 
 def create_products(APP_URL, TOKEN):
     with open("Resources/products.json") as f:
-        r = requests.post(
-            url=f"{APP_URL}/api/v2/product/batch_create",
-            headers={"Token": TOKEN, "Content-Type": "application/json"},
-            json={"data": json.load(f)},
-        )
-        r.raise_for_status()
-        # for product in json.load(f):
-        #     print(product)
-        #     r = requests.post(
-        #         url=f"{APP_URL}/api/v2/product",
-        #         headers={"Token": TOKEN, "Content-Type": "application/json"},
-        #         json=product,
-        #     )
-        #     r.raise_for_status()
+        product_ids = {}  # SKU -> UUID
+        for product in json.load(f):
+            # Convert parent SKU to UUID
+            if product.get('_parent_external_id'):
+                parent_id = product_ids.get(product.get('_parent_external_id'))
+                if parent_id:
+                    product['parent'] = parent_id
+                product.pop('_parent_external_id')
+
+            # Create product
+            r = requests.post(
+                url=f"{APP_URL}/api/v2/product",
+                headers={"Token": TOKEN, "Content-Type": "application/json"},
+                json=product,
+            )
+            r.raise_for_status()
+
+            # Save UUID
+            prod_ret = r.json()
+            product_ids[prod_ret.get('id')] = prod_ret.get('external_id')
 
 def delete_products(APP_URL, TOKEN):
     r = requests.get(

@@ -43,12 +43,12 @@ User Can Filter on Date
     Filter on After and Before Date by Latest Publication Date
     Clear Filter Fields
 
-    Filter by Product Creation Date Combined SKU Search    ${SKU_1}
+    Filter by Product Creation Date Combined SKU Search    ${SKU}
     Clear Filter Fields
 
-    Filter by Latest Publication Date Combined SKU Search    ${SKU_2}
+    Filter by Latest Publication Date Combined SKU Search    ${SKU}
     Clear Filter Fields
-#
+
 User Can Filter on Product Status
     [Documentation]  User can filter on product status
     Filter on Show All in Product Status
