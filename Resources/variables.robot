@@ -9,7 +9,6 @@ ${LOGIN_URL}  ${APP_URL}/d/auth/login
 ${API_TOKEN}  7d9efb7d289041eb88ca5929018c339880ea5154919e40729e5c748fbb148147
 ${USERNAME}  textualtest
 #${USERNAME}  regrtestaccount
-${USERNAME}  textualtest
 ${PASSWORD}  test987!
 
 ${login_username_email_input}  name:username

@@ -72,7 +72,8 @@ ${product_list_filter_parent_child_option_close_button}   xpath://i[@data-testid
 #---text column---#
 ${product_list_text_column_button}  xpath://*[@data-testid="channel-language-selector-button-open-button"]
 ${product_list_text_column_select_column}  xpath://*[@class="header"][contains(text(),"Select column(s)")]
-${product_list_text_column_text&bullet_select_all_checkbox}  xpath://*[@data-testid="select-all-checkbox-1056"]
+#${product_list_text_column_text&bullet_select_all_checkbox}  xpath://*[@data-testid="select-all-checkbox-1056"]   #for textual AB
+${product_list_text_column_text&bullet_select_all_checkbox}  xpath://*[@data-testid="select-all-checkbox-1494"]    #for textual testing account
 ${product_list_text_column_update_view_button}  xpath://*[@data-testid="submitButton"][contains(text(), "Update view")]
 
 #---column function---#

@@ -411,15 +411,15 @@ Set group children with parent in column
     Wait Until Page Contains Element   ${product_list_column_update_button}
     Click Element   ${product_list_column_update_button}          # after click update button, no info is shown in column, verify?
 
-Select Existing Filter
-    Wait Until Page Contains Element  ${product_list_filter_default_button}
-    Click Element   ${product_list_filter_default_button}
-    Wait Until Page Contains Element    ${product_list_filter_default_menu}
-    Element Should Be Visible   ${product_list_filter_default_test}
-    Click Element   ${product_list_filter_default_test}
-    Scroll Element Into View   ${product_list_filter_default_testtest}
-    Wait Until Page Contains Element   ${product_list_filter_default_testtest}
-    Click Element   ${product_list_filter_default_testtest}
+#Select Existing Filter
+#    Wait Until Page Contains Element  ${product_list_filter_default_button}
+#    Click Element   ${product_list_filter_default_button}
+#    Wait Until Page Contains Element    ${product_list_filter_default_menu}
+#    Element Should Be Visible   ${product_list_filter_default_test}
+#    Click Element   ${product_list_filter_default_test}
+#    Scroll Element Into View   ${product_list_filter_default_testtest}
+#    Wait Until Page Contains Element   ${product_list_filter_default_testtest}
+#    Click Element   ${product_list_filter_default_testtest}
 
 Create A New Filter Group
     [Arguments]    ${group_name}
