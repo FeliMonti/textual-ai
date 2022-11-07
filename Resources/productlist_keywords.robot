@@ -28,8 +28,8 @@ Search for SKU
     Click Element   ${product_list_search_button}
     Wait Until Page Contains Element   ${product_list_data_table}
     Wait Until Element Contains  ${product_list_data_table}  ${sku}
-    Clear Element Text   ${product_list_search_text_input}   #it works because test both search for sku and filter combined sku
-    Click Element   ${product_list_search_button}  # to clear results
+    Clear Element Text   ${product_list_search_text_input}
+    Click Element   ${product_list_search_button}
 
 
 Select Earliest Date on After Date
@@ -98,7 +98,7 @@ Filter on After Date by Product Creation Date
     Wait Until Page Contains Element   ${product_list_data_table}
     Element Should Be Visible   ${product_list_data_table}
     ${date}=  Select Latest Date on After Date    ${product_list_filter_by_date_after_button}
-    Element Should Not Be Visible    ${product_list_data_table}
+    #Element Should Not Be Visible    ${product_list_data_table}    ##the latest date on after day is always on the top line,if the date today is on the second line on datapicker, element would be always visible.
 
 Filter on Before Date by Product Creation Date   # for product is created on current day
     Select Product Creation Date
@@ -217,6 +217,7 @@ Filter on Ready
 
 Set Text Statuses in Column
     Click Element   ${product_list_column_button}
+    Wait Until Page Contains Element  ${product_list_column_menu}
     Element Should Be Visible  ${product_list_column_menu}
     Wait Until Page Contains Element   ${product_list_column_text_statuses_checkbox}
     Click Element   ${product_list_column_text_statuses_checkbox}
@@ -244,7 +245,7 @@ Filter on Needs Review
     Click Element   ${product_list_filter_text_status_needs_review_option}
     Wait Until Page Contains Element   ${product_list_product_table_text_statuses_cell}
     Wait Until Page Contains Element   ${product_list_product_table_text_column}
-    Element Should Be Visible    ${product_list_data_text_status_needs_reviewed_orange_eye_icon}           #? just verify text&bullets has orange eye icon --needs review, text status only has red flag icon
+    Element Should Be Visible    ${product_list_data_text_status_needs_reviewed_orange_eye_icon}    #? just verify text&bullets has orange eye icon(needs review), text status only has red flag icon
 
 Filter on Approved
     Set Text Statuses in Column
@@ -333,6 +334,7 @@ Filter on Parent in Parent-Child Relations
     Wait Until Page Contains Element   xpath://td[@class="parent"]
     ${parent}  Get Text  xpath://td[@class="parent"]
     Should Be Empty  ${parent}
+    Delete Parent-Child Relations Optional Filter
 
 
 Filter on Child in Parent-Child Relations
@@ -344,10 +346,10 @@ Filter on Child in Parent-Child Relations
     Wait Until Page Contains Element   xpath://td[@class="parent"]//a
     ${child_parent}   Get Text  xpath://td[@class="parent"]//a
     Should Not Be Empty  ${child_parent}
+    Delete Parent-Child Relations Optional Filter
 
 
 Check Languages On Text Column
-    #[Arguments]   ${number}
     Click Element   ${product_list_text_column_button}
     Sleep  2s
     Wait Until Page Contains Element   xpath://div[@data-testid="channel-language-selector-modal"]
@@ -357,14 +359,11 @@ Check Languages On Text Column
     Scroll Element Into View   ${product_list_text_column_update_view_button}
     Element Should Be Visible    ${product_list_text_column_update_view_button}
     Click Element   ${product_list_text_column_update_view_button}
-#    ${text_column_language}  Get Text  xpath://th[@class="three wide text-column"][1]
-#    Log   ${text_column_language}
-    ${list}   create list   1   2   3   4   5   6   7
-    FOR  ${number}  IN  @{list}
+    Wait Until Page Contains Element   ${product_list_data_table}
+    FOR  ${number}   IN RANGE  1  14
         ${text_column_language}  Get Text  xpath://th[@class="three wide text-column"][${number}]
         Log   ${text_column_language}
     END
-    #    # verify all languanges column are shown on text column ?
 
 
 Set a combination of options in column
@@ -384,7 +383,7 @@ Set a combination of options in column
     Scroll Element Into View   ${product_list_column_update_button}
     Wait Until Page Contains Element   ${product_list_column_update_button}
     Click Element   ${product_list_column_update_button}
-    # need to verify each option has been shown on product data table colum?
+
 
 Set namespace in column
     Click Element   ${textual_logo}

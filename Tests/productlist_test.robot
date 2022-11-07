@@ -18,7 +18,7 @@ ${SKU}  e2e-product-1
 #${SKU_2}   b35f3869-570c-4148-9c59-7a32de5d4d0b
 
 *** Test Cases ***
-User Can Search for SKU   #if run it first,then running filter combined SKU, the SKU search result on Search for SKU will not be deleted,then test failed.
+User Can Search for SKU
    [Documentation]  User can search for SKU
    Search for SKU  ${SKU}
 
@@ -79,7 +79,7 @@ User Can Filter on Text Status
     Filter on Published
     Clear Filter Fields
 
-User Can Filter on Translation Status  ##tested   #verify --complete translation
+User Can Filter on Translation Status    #verify --complete translation
     [Documentation]  User can filter on translation status
     Filter on Show All in Translation Status
     Clear Filter Fields
@@ -95,22 +95,20 @@ User Can Filter on Parent-Child Relations
     Filter on Show All in Parent-Child Relations
 
     Filter on Parent in Parent-Child Relations
-    Clear Filter Fields
 
-    Filter on Child in Parent-Child Relations
-    Clear Filter Fields
+    Filter on Child in Parent-Child Relations  #no text in parent column on testing account
 
 User Can Check Selected Laguages On Text Columns
     [Documentation]  User can check different languages on the text column
     Check Languages On Text Column
 
 
-User Can Check Group Children With Parent
-#    #  Validation
-#    # When off, product 1 (parent) and 3 (child) do not appear is subsequent rows in product list
-#    # When on, product 1 (parent) appears in row directly above and 3 (child)
+User Can Check Group Children With Parent  #continue working on it
+    # Validation
+    # When off, product 1 (parent) and 3 (child) do not appear is subsequent rows in product list
+    # When on, product 1 (parent) appears in row directly above and 3 (child)
 
-
+#
 User Can Select Different Column Combination
     [Documentation]  User can select different column
     Set a combination of options in column
