@@ -21,7 +21,6 @@
         "product_labels": ["e2e-testing", "ready", "child"],
         "imported_metadata": {
             "category": "top"
-        },
-        "parent": "e2e-testing-1"
+        }
     }
 ]
