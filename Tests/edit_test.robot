@@ -71,15 +71,6 @@ Add New Product
     Should Be True  "${SKU1}" != "${SKU2}"
     Exit Edit Subpage Frame
 
-Delete A Product
-    [Documentation]  User can delete a product from data table
-    Click On Data Table Checkbox   ${edit_list_data_table_checkbox_1}
-
-    ${SKU_number}=  Get SKU On Data Table  ${edit_list_data_table_SKU_1}
-
-    Click On Bulk Actions   ${edit_list_bulk_actions_menu_product}
-    Delete Product
-
 Copy From Another Product
     [Documentation]  User can copy different fileds from another product
     Click On Edit Button    ${product_list_data_table_edit_button_3}

@@ -106,5 +106,12 @@ ${hamburger_menu_dropdown_manage_filter_groups}  xpath://*[contains(text(),"Mana
 #${green_tick_icon}  xpath=/html/body/div[4]/div/div[2]/div/div[2]/div/table/tbody/tr/td[4]/div/i/i
 #${orange_hour_glass_icon}  xpath=/html/body/div[4]/div/div[2]/div/div[2]/div/table/tbody/tr[1]/td[4]/div/i[1]/i
 #${blue_paper_areoplane_icon}  xpath=/html/body/div[4]/div/div[2]/div/div[2]/div/table/tbody/tr[2]/td[7]/div/i/i
-#${edit_list_check_radiobutton}  xpath=/html/body/div[6]/div/div[2]/form/div[1]/div[2]/div
+#${product_list_check_radiobutton}  xpath=/html/body/div[6]/div/div[2]/form/div[1]/div[2]/div
 #${product_list_menu_manage_filter_group}  xpath=//html/body/div[4]/div/div[1]/ul/li[4]
+
+#---bulk actions---#
+${product_list_bulk_actions_button}  xpath://*[contains(text(),"Bulk actions")]/../..//*[@name="bulk-actions"]
+${product_list_bulk_actions_menu}  xpath://*[@class="menu transition visible"]
+${product_list_bulk_actions_menu_product}  xpath://*[contains(text(),"Product")][@role="option"]
+${product_list_bulk_actions_menu_product_delete_products}  xpath://*[@data-testid="DeleteAction"]
+${product_list_bulk_actions_menu_product_delete_products_button}  xpath://button[@class="pbutton pbutton-primary"][contains(text(),"Delete products")]

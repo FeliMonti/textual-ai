@@ -460,3 +460,26 @@ Delete A Filter Group
     Handle Alert
     Wait Until Page Contains    Filter group removed successfully
 
+Select Check Box for Product
+    [Arguments]   ${SKU}
+    ${selector}=  Set Variable  xpath=//table[@data-testid="products-table"]//td[@class="sku"][contains(text(),"${SKU}")]/../td[1]/div
+    Wait Until Page Contains Element  ${selector}
+    Scroll Element Into View   ${selector}
+    Click Element  ${selector}
+
+Click On Bulk Actions Products
+    Wait Until Page Contains Element  ${product_list_bulk_actions_button}
+    Click Element  ${product_list_bulk_actions_button}
+    Wait Until Page Contains Element   ${product_list_bulk_actions_menu}
+    Wait Until Page Contains Element   ${product_list_bulk_actions_menu_product}
+    Click Element   ${product_list_bulk_actions_menu_product}
+
+Delete Product
+    Scroll Element Into View  ${product_list_bulk_actions_menu_product_delete_products}
+    Wait Until Page Contains Element   ${product_list_bulk_actions_menu_product_delete_products}
+    Click Element  ${product_list_bulk_actions_menu_product_delete_products}
+    
+    Wait Until Page Contains Element  ${product_list_bulk_actions_menu_product_delete_products_button}
+    Click Element   ${product_list_bulk_actions_menu_product_delete_products_button}
+
+    Wait Until Page Contains Element  ${product_list_data_table}

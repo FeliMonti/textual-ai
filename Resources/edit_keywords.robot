@@ -43,27 +43,6 @@ Click On Action Button
     Wait Until Page Contains Element   ${input_selector}
     Click Element   ${input_selector}
 
-Click On Data Table Checkbox
-    [Arguments]   ${input_selector}
-    Wait Until Page Contains Element  ${input_selector}
-    Scroll Element Into View   ${input_selector}
-    Click Element  ${input_selector}
-
-Click On Bulk Actions
-    [Arguments]   ${input_selector}
-    Wait Until Page Contains Element  ${edit_list_bulk_actions_button}
-    Click Element  ${edit_list_bulk_actions_button}
-    Wait Until Page Contains Element   ${edit_list_bulk_actions_menu}
-    Wait Until Page Contains Element   ${input_selector}
-    Click Element   ${input_selector}
-
-Delete Product
-    Scroll Element Into View  ${edit_list_bulk_actions_menu_product_delete_products}
-    Wait Until Page Contains Element   ${edit_list_bulk_actions_menu_product_delete_products}
-    Click Element  ${edit_list_bulk_actions_menu_product_delete_products}
-    Wait Until Page Contains Element  ${edit_list_bulk_actions_menu_product_delete_products_button}
-    Click Element   ${edit_list_bulk_actions_menu_product_delete_products_button}
-
 Get Original Text
     [Return]    ${text}
     Wait Until Page Contains Element   ${edit_list_additional_information_button}

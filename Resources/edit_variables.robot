@@ -44,15 +44,6 @@ ${edit_list_actions_copy_to_copy_button}  xpath://*[@data-testid="copy-modal-cop
 ${edit_list_data_table_SKU_3}  xpath://td[@data-table-cell="3-2"]
 ${edit_list_data_table_SKU_4}  xpath://td[@data-table-cell="4-2"]
 
-#---delete SKU---#
-${edit_list_data_table_SKU_1}  xpath://td[@data-table-cell="1-2"]
-${edit_list_data_table_checkbox_1}  xpath://*[@data-table-cell="1-1"]/*[@class="ui fitted checkbox select"]
-${edit_list_bulk_actions_button}  xpath://*[contains(text(),"Bulk actions")]/../..//*[@name="bulk-actions"]
-${edit_list_bulk_actions_menu}  xpath://*[@class="menu transition visible"]
-${edit_list_bulk_actions_menu_product}  xpath://*[contains(text(),"Product")][@role="option"]
-${edit_list_bulk_actions_menu_product_delete_products}  xpath://*[@data-testid="DeleteAction"]
-${edit_list_bulk_actions_menu_product_delete_products_button}  xpath://button["pbutton phutton-primary"][contains(text(),"Delete products")]
-
 #---set status button---#
 ${edit_list_set_status_button}  xpath://*[@class="product-status menu"]
 ${edit_list_set_status_menu}  xpath://*[@id="change-product-status-form"]
