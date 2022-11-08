@@ -21,6 +21,14 @@ Begin Web Test Edit
 End Web Test Edit
     End Web Test
 
+Click On Create Button
+    Wait Until Page Contains Element   ${product_list_create_button}
+    Scroll Element Into View  ${product_list_create_button}
+    Click Element   ${product_list_create_button}
+    Sleep  1s
+    Wait Until Page Contains Element   ${edit_list_edit_tab}
+    Click Element   ${edit_list_edit_tab}
+
 Click On Edit Button
     [Arguments]    ${input_selector}
     Wait Until Page Contains Element   ${input_selector}
@@ -166,6 +174,7 @@ Test On Label
 
 Test On Name
     Add Name
+    # TODO: Remove Name
 
 Test On Original Text And Headline On the Same Page
     Add Original Text And Headline On the Same Page
@@ -182,9 +191,9 @@ Add Main Category      #with specified text
 
 Delete Main Category
     Wait Until Page Contains Element   ${edit_list_main_category_product_selected_value}
-    Click Element  ${edit_list_main_category_close_icon}
+    Click Element  ${edit_list_main_category_delete_icon}
     Wait Until Page Contains Element   ${edit_list_main_category_input}
-    Wait Until Page Contains Element   ${edit_list_main_category_edit_filed_product}
+    Wait Until Page Contains Element   ${edit_list_main_category_edit_field_product}
 
 Add Label
     Wait Until Page Contains Element   ${edit_list_labels_input}

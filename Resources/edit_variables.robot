@@ -1,5 +1,4 @@
 *** Variables ***
-${USERNAME}  regrtestaccount
 
 ${product_list_data_table_edit_button_1}  xpath://table[@data-testid="products-table"]//tr[@data-table-row=1]//*[@data-testid="product-list-edit-button"]
 ${product_list_data_table_edit_button_2}  xpath://table[@data-testid="products-table"]//tr[@data-table-row=2]//*[@data-testid="product-list-edit-button"]
@@ -10,13 +9,13 @@ ${product_list_column_button}  xpath://*[@data-testid="columns-selector-button"]
 ${product_list_column_menu}  xpath://*[@class="menu transition left"]
 ${product_list_column_oiginal_text_checkbox}  xpath://*[@data-testid="original_text"]
 ${product_list_column_update_button}  xpath://*[@data-testid="update-selected-columns-button"]
+${product_list_create_button}  xpath://button[@data-testid="action-bar-create-product"]
 
 #---edit function common variables---#
 ${edit_list_edit_tab}  xpath://a[@data-test="edit-tab"]
 ${edit_list_main_category_input}  xpath://input[@data-testid="single-input"]         ### 1 the same xpath as attribute
 ${edit_list_subpart_attribute_input}  xpath://input[@data-testid="single-input"]     ### 1
-${edit_list_main_category_close_icon}  xpath://*[local-name()="svg"]   ###  2  the same xpath as attribute
-${edit_list_subpart_attribute_close_icon}  xpath://*[local-name()="svg"]  ###  2
+${edit_list_main_category_delete_icon}  xpath://div[@class="product-type-row"]//div[@class="indicator-container"]//*[local-name()="svg"]
 ${edit_list_subpart_attribute_close}  xpath://*[@class="delete-button"]
 ${edit_list_request_button}  xpath://*[@class="option-request-word"]
 ${edit_list_request_submit_button}  xpath://button[@data-testid="requestwordmodal-button-submit"]
@@ -58,8 +57,8 @@ ${edit_list_data_table_product_status_column_1}  xpath://table[@data-testid="pro
 #---Main category---#
 #${edit_list_main_category_sugestions_container}  xpath://div[@class="product-type-row"]//div[@data-testid="suggestions-container"]   #Instead, use common variable ${edit_list_suggestions_container}, xpath is the same
 ${edit_list_main_category_menu_item_suggestion_item}  xpath://div[@class="product-type-row"]//*[contains(text(), "shoes")]  # variable for Add main category---with specified text#
-${edit_list_main_category_product_selected_value}  xpath://*[@class="edit-fields"]//*[contains(text(), "shoes")]     #varialbe for Add main category---with specified text#
-${edit_list_main_category_edit_filed_product}  xpath://*[@class="edit-fields"]//*[contains(text(), "product")]
+${edit_list_main_category_product_selected_value}  xpath://div[@class="product-type-row"]//div[@class="selected-value"]
+${edit_list_main_category_edit_field_product}  xpath://*[@class="edit-fields"]//*[contains(text(), "product")]
 ${edit_list_main_category_product_request_submit_value}   xpath://a[@class="active"]
 
 #---subpart attribute---#

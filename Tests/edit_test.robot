@@ -10,39 +10,27 @@ Suite Setup   Begin Web Test Edit
 Suite Teardown  End Web Test Edit
 
 *** Variables ***
-${USERNAME}  regrtestaccount
+${USERNAME}  regrtestaccount  # Textual AB  # TODO: Remove
 
 *** Test Cases ***
-#User Can Access To Edit Subpage Frame
-#    [Documentation]  Once user is logged in; user can navigate to product list page, access to edit subpage frame
-#    [Tags]  Edit list
-#    Enter Edit Subpage Frame With Edit Button 3
+# TODO: Create tests for each of these features
 
-User Can Use Add Function In Edit Subpage Frame
-    [Documentation]  Once enter edit subpage frame; user can edit product,add function
-    [Tags]  Edit list
+# These tests currently work for OLD status button, which is enabled on textual-testing account
+#   - Test On Setting importing Status
+#   - Test On Setting Ready Status
+#   - Test On Setting In-progress Status
+# TODO: Update to work with NEW status button, which is enabled on Textual AB account
 
-# TODO: Group these into smaller individual tests
+# TODO: Simplify by doing the following
+# 1. Set value (to random string)
+# 2. Refresh page
+# 3. Check value is there
 
-##    Exit Edit Subpage Frame
-##    Test On Setting importing Status
-##    Test On Setting Ready Status
-##    Test On Setting In-progress Status
-#    Enter Edit Subpage Frame With Edit Button 3
-#    Test On Main Category
-#    Test On Label
-#    Test On Name
-#    Test On Original Text And Headline On the Same Page
-#    Add Main Category
-#    Delete Main Category
-#    Add Label
-#    Remove Label
-#    Add Name
-#    Add Original Text And Headline On the Same Page
-#    Test On Attribute Column
-#    Delete Attribute
-#    Add Item Into Fields   ${edit_list_properties_input}
-#    Delete Item From Fields   ${edit_list_properties_input}
+#   - Test On Label
+#   - Test On Name
+#   - Test on Brand
+#   - Test on SKU
+#   - Test On Original Text And Headline
 
 Duplicate Product
     [Documentation]  User can duplicate a product
@@ -117,8 +105,9 @@ Copy To Another Product
 
 User Can Use Search, Request And Add Function On Edit Subpage Frame
     [Documentation]  Once enter edit page; user can search, request and add a property
-    Click On Edit Button    ${product_list_data_table_edit_button_3}
-    Test On Attribute Column
+    Click On Create Button
+    # Test On Attribute Field
+    Test On Main Category
     Test On Field   ${edit_list_properties_input}
     Test On Field   ${edit_list_occasion_input}
     Test On Field   ${edit_list_color_input}
