@@ -13,9 +13,6 @@ Suite Teardown  End Web Test Product List
 
 *** Variables ***
 ${SKU}  e2e-product-1
-#${SKU}  dcb7b357-c8f4-4042-b73c-92718f649313
-#${SKU_1}   a0908258-c022-4fb5-9c13-14d8279fc29b
-#${SKU_2}   b35f3869-570c-4148-9c59-7a32de5d4d0b
 
 *** Test Cases ***
 User Can Search for SKU
@@ -103,7 +100,7 @@ User Can Check Selected Laguages On Text Columns
     Check Languages On Text Column
 
 
-User Can Check Group Children With Parent  #continue working on it
+User Can Check Group Children With Parent    # continue working on it
     #TODO: Validation
     # When off, product 1 (parent) and 3 (child) do not appear is subsequent rows in product list
     # When on, product 1 (parent) appears in row directly above and 3 (child)

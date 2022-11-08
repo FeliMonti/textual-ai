@@ -24,7 +24,7 @@ def create_products(APP_URL, TOKEN):
 
             # Save UUID
             prod_ret = r.json()
-            product_ids[prod_ret.get('id')] = prod_ret.get('external_id')
+            product_ids[prod_ret.get('external_id')] = prod_ret.get('id')
 
 def delete_products(APP_URL, TOKEN):
     r = requests.get(

@@ -7,8 +7,8 @@ Resource  ./productlist_variables.robot
 
 *** Keywords ***
 Begin Web Test Product List
-    #api.delete_products  ${APP_URL}  ${API_TOKEN}
-    #api.create_products  ${APP_URL}  ${API_TOKEN}
+    api.delete_products  ${APP_URL}  ${API_TOKEN}
+    api.create_products  ${APP_URL}  ${API_TOKEN}
     Sleep   2s
     Begin Web Test
     Go To Login Page
@@ -19,7 +19,7 @@ Begin Web Test Product List
 
 End Web Test Product List
     End Web Test
-    #api.delete_products  ${APP_URL}  ${API_TOKEN}
+    api.delete_products  ${APP_URL}  ${API_TOKEN}
 
 Search for SKU
     [Arguments]  ${sku}
@@ -331,6 +331,7 @@ Filter on Show All in Parent-Child Relations
     Element Should Be Visible   ${product_list_filter_parent_child_menu}
     Click Element   ${product_list_filter_parent_child_relations_show_all_option}
     Element Should Contain  ${product_list_filter_parent_child_button}   Show all
+    #TODO: verify that all 3 products are in results table
     Delete Parent-Child Relations Optional Filter   #
 
 Filter on Parent in Parent-Child Relations
