@@ -9,7 +9,7 @@
     },
     {
         "external_id": "e2e-product-2",
-        "status": "",
+        "status": null,
         "product_labels": ["e2e-testing", "in-progress"],
         "imported_metadata": {
             "category": "shorts"
