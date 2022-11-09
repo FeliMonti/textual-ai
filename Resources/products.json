@@ -1,0 +1,27 @@
+[
+    {
+        "external_id": "e2e-product-1",
+        "status": "I",
+        "product_labels": ["e2e-testing", "importing", "parent"],
+        "imported_metadata": {
+            "category": "dress"
+        }
+    },
+    {
+        "external_id": "e2e-product-2",
+        "status": null,
+        "product_labels": ["e2e-testing", "in-progress"],
+        "imported_metadata": {
+            "category": "shorts"
+        }
+    },
+    {
+        "external_id": "e2e-product-3",
+        "status": "R",
+        "product_labels": ["e2e-testing", "ready", "child"],
+        "imported_metadata": {
+            "category": "top"
+        },
+        "_parent_external_id": "e2e-product-1"
+    }
+]
